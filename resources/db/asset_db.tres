@@ -1,0 +1,86 @@
+[gd_resource type="Resource" script_class="AssetDB" format=3 uid="uid://dce8kojfc7ddy"]
+
+[ext_resource type="Texture2D" uid="uid://bwsh68ao7s76p" path="res://assets/characters/assassin/assassin_1.png" id="1_qi8ra"]
+[ext_resource type="Texture2D" uid="uid://u2fvyfk6fgfb" path="res://assets/background/normal_room_1.png" id="1_ugwlb"]
+[ext_resource type="Script" uid="uid://cl31mxmwcb3t1" path="res://resource_scripts/db/asset_db.gd" id="1_xvay1"]
+[ext_resource type="Texture2D" uid="uid://ca5jo4awamhcr" path="res://assets/background/normal_room_2.png" id="2_4g4d5"]
+[ext_resource type="Texture2D" uid="uid://d261cauqevxh0" path="res://assets/characters/assassin/assassin_2.png" id="2_qovct"]
+[ext_resource type="Texture2D" uid="uid://gbrhk0a2oru6" path="res://assets/characters/assassin/assassin_3.png" id="3_gwq60"]
+[ext_resource type="Texture2D" uid="uid://c1cg1gjxmlhu0" path="res://assets/background/normal_room_3.png" id="3_kkxru"]
+[ext_resource type="Texture2D" uid="uid://c1wbu0old8abo" path="res://assets/background/lock_room.png" id="4_ova2u"]
+[ext_resource type="Texture2D" uid="uid://rvujpa458eaj" path="res://assets/characters/berserk/berserk_1.png" id="4_qnv6y"]
+[ext_resource type="Texture2D" uid="uid://buueem1bfa0rd" path="res://assets/characters/berserk/berserk_2.png" id="5_1fhgv"]
+[ext_resource type="Texture2D" uid="uid://dkswg7echhj3x" path="res://assets/background/treasure_room.png" id="5_dlb8d"]
+[ext_resource type="Texture2D" uid="uid://dbsrm12bql4tc" path="res://assets/characters/berserk/berserk_3.png" id="6_6q3n3"]
+[ext_resource type="Texture2D" uid="uid://bxjdkgejhipw8" path="res://assets/background/treasure_collected_room.png" id="6_tfnm7"]
+[ext_resource type="Texture2D" uid="uid://b1dqd1rnhkenj" path="res://assets/background/boss_room.png" id="7_3ch78"]
+[ext_resource type="Texture2D" uid="uid://bo8src2vo7nkb" path="res://assets/characters/wizzard/wizzard_1.png" id="7_h3u1j"]
+[ext_resource type="Texture2D" uid="uid://c2aqejuqgaavr" path="res://assets/characters/wizzard/wizzard_2.png" id="8_jfs2e"]
+[ext_resource type="Texture2D" uid="uid://c5wb2hj8pxwfq" path="res://assets/characters/wizzard/wizzard_3.png" id="9_ur2sc"]
+[ext_resource type="Texture2D" uid="uid://dy8e8ahllmuke" path="res://assets/characters/sage/sage_1.png" id="10_gnkka"]
+[ext_resource type="Texture2D" uid="uid://xsmupc4a7jyl" path="res://assets/characters/sage/sage_2.png" id="11_6dfdn"]
+[ext_resource type="Texture2D" uid="uid://c2urb8os8l176" path="res://assets/characters/sage/sage_3.png" id="12_ltwu8"]
+[ext_resource type="Texture2D" uid="uid://dfctcc8c4cjrm" path="res://assets/characters/cleric/cleric_1.png" id="13_sc137"]
+[ext_resource type="Texture2D" uid="uid://nwtwnpibcgq2" path="res://assets/characters/cleric/cleric_2.png" id="14_xnyyw"]
+[ext_resource type="Texture2D" uid="uid://bkho7o04jp6w3" path="res://assets/characters/cleric/cleric_3.png" id="15_22nhj"]
+[ext_resource type="Texture2D" uid="uid://cv7itqj61plwn" path="res://assets/characters/druid/druid_1.png" id="16_2flgb"]
+[ext_resource type="Texture2D" uid="uid://b7nwffj6smcyv" path="res://assets/characters/druid/druid_2.png" id="17_rg758"]
+[ext_resource type="Texture2D" uid="uid://i6oe4qtnq67k" path="res://assets/characters/druid/druid_3.png" id="18_65kya"]
+[ext_resource type="Texture2D" uid="uid://x0a8j38138xn" path="res://assets/characters/bastion/bastion_1.png" id="19_kw0a3"]
+[ext_resource type="Texture2D" uid="uid://ce1yfj7y1f6o3" path="res://assets/characters/bastion/bastion_2.png" id="20_rinyx"]
+[ext_resource type="Texture2D" uid="uid://claaicqsag5d4" path="res://assets/characters/bastion/bastion_3.png" id="21_ntqu0"]
+[ext_resource type="Texture2D" uid="uid://bksdu2bf43l3q" path="res://assets/characters/paladin/paladin_1.png" id="22_ah2qp"]
+[ext_resource type="Texture2D" uid="uid://b8d1okngykxdj" path="res://assets/characters/paladin/paladin_2.png" id="23_cqxqp"]
+[ext_resource type="Texture2D" uid="uid://c3smq3tmkc304" path="res://assets/characters/paladin/paladin_3.png" id="24_fdeo7"]
+[ext_resource type="Texture2D" uid="uid://cbes0qfxxpi5c" path="res://assets/elements/others/in_game/attack_up.png" id="25_wv0bq"]
+[ext_resource type="Texture2D" uid="uid://cosyiduidbon3" path="res://assets/elements/others/in_game/attack_down.png" id="26_v6ggl"]
+[ext_resource type="Texture2D" uid="uid://56idnj3ri8tb" path="res://assets/elements/others/in_game/magic_up.png" id="27_lsrbj"]
+[ext_resource type="Texture2D" uid="uid://rcnew6agwc5q" path="res://assets/elements/others/in_game/magic_down.png" id="28_7u318"]
+[ext_resource type="Texture2D" uid="uid://bgyorkt5og4yf" path="res://assets/elements/others/in_game/defense_up.png" id="29_t2fnj"]
+[ext_resource type="Texture2D" uid="uid://dm7tyah7wm4mu" path="res://assets/elements/others/in_game/defense_down.png" id="30_ibj7x"]
+[ext_resource type="Texture2D" uid="uid://d0fni05hnv05y" path="res://assets/elements/buttons/rooms/access.png" id="31_nb5xa"]
+[ext_resource type="Texture2D" uid="uid://cvj5210lm1bqh" path="res://assets/elements/buttons/rooms/actual_room.png" id="32_37uq6"]
+[ext_resource type="Texture2D" uid="uid://xau24apcv3rq" path="res://assets/elements/buttons/rooms/boss.png" id="33_dws1h"]
+[ext_resource type="Texture2D" uid="uid://bj6tyak6y64fv" path="res://assets/elements/buttons/rooms/boss_access.png" id="34_hi7le"]
+[ext_resource type="Texture2D" uid="uid://cwjv0q2rs13vt" path="res://assets/elements/buttons/rooms/explored.png" id="35_vh44m"]
+[ext_resource type="Texture2D" uid="uid://cgfkcerqm1hbm" path="res://assets/elements/buttons/rooms/lock.png" id="36_5uawl"]
+[ext_resource type="Texture2D" uid="uid://dki3xf4tjufqx" path="res://assets/elements/buttons/rooms/treasure.png" id="37_xlork"]
+[ext_resource type="Texture2D" uid="uid://b4wro16pkeqa0" path="res://assets/elements/buttons/rooms/treasure_collected.png" id="38_w117y"]
+[ext_resource type="Texture2D" uid="uid://dtgqkk7xqef8u" path="res://assets/background/battle_mode_room.png" id="46_07b6v"]
+
+[resource]
+script = ExtResource("1_xvay1")
+rooms = Dictionary[String, Array]({
+"Cerradura": [ExtResource("4_ova2u")],
+"Jefe": [ExtResource("7_3ch78")],
+"Modo Batalla": [ExtResource("46_07b6v")],
+"Normal": [ExtResource("1_ugwlb"), ExtResource("2_4g4d5"), ExtResource("3_kkxru")],
+"Tesoro": [ExtResource("5_dlb8d"), ExtResource("6_tfnm7")]
+})
+characters = Dictionary[String, Array]({
+"Asesino": [ExtResource("1_qi8ra"), ExtResource("2_qovct"), ExtResource("3_gwq60")],
+"Bastión": [ExtResource("19_kw0a3"), ExtResource("20_rinyx"), ExtResource("21_ntqu0")],
+"Berserker": [ExtResource("4_qnv6y"), ExtResource("5_1fhgv"), ExtResource("6_6q3n3")],
+"Clérigo": [ExtResource("13_sc137"), ExtResource("14_xnyyw"), ExtResource("15_22nhj")],
+"Druida": [ExtResource("16_2flgb"), ExtResource("17_rg758"), ExtResource("18_65kya")],
+"Mago": [ExtResource("7_h3u1j"), ExtResource("8_jfs2e"), ExtResource("9_ur2sc")],
+"Paladin": [ExtResource("22_ah2qp"), ExtResource("23_cqxqp"), ExtResource("24_fdeo7")],
+"Sabio": [ExtResource("10_gnkka"), ExtResource("11_6dfdn"), ExtResource("12_ltwu8")]
+})
+icons = Dictionary[String, Array]({
+"Accesible": [ExtResource("31_nb5xa")],
+"Actual": [ExtResource("32_37uq6")],
+"Ataque +": [ExtResource("25_wv0bq")],
+"Ataque -": [ExtResource("26_v6ggl")],
+"Ataque Mágico +": [ExtResource("27_lsrbj")],
+"Ataque Mágico -": [ExtResource("28_7u318")],
+"Cerradura": [ExtResource("36_5uawl")],
+"Defensa +": [ExtResource("29_t2fnj")],
+"Defensa -": [ExtResource("30_ibj7x")],
+"Explorado": [ExtResource("35_vh44m")],
+"Jefe": [ExtResource("33_dws1h")],
+"Jefe Accesible": [ExtResource("34_hi7le")],
+"Tesoro": [ExtResource("37_xlork")],
+"Tesoro Recogido": [ExtResource("38_w117y")]
+})
+metadata/_custom_type_script = "uid://cl31mxmwcb3t1"

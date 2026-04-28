@@ -62,51 +62,51 @@ func getAction(team: Team) -> Dictionary:
 			# Para usar una skill, el enemigo primero comprueba si tiene alguna disponible, 
 			# filtrando en una lista aquellas que pueda usar (si tiene curas pero esta al máximo de 
 			# vida, no usará esas skills)
-			var available_skills: Array[Skill]
+			var attack_skills: Array[Skill]
+			var utils_skills: Array[Skill]
 			
 			for i in skills:
-				if i.skill_type == i.type.HEAL and health < max_health:
-					available_skills.append(i)
+				if i.skill_type == i.type.HEAL and health < max_health \
+				or i.skill_type != i.type.MAGIC and i.skill_type != i.type.FISICAL:
+					utils_skills.append(i)
 					
 				else:
-					available_skills.append(i)
+					attack_skills.append(i)
 			
 			# Si no tiene ninguna skill disponible, ataque básico
-			if available_skills.is_empty():
+			if attack_skills.is_empty() and utils_skills.is_empty():
 				action_data = {actions.ATTACK : [self, target, false, 0]}
 			
 			else:
+				var skill: Skill
 				# Si tiene curas y su vida es igual o menor al 30%, hay un 75% de probabilidad de 
 				# que use una cura
-				if health <= max_health * 0.3 and available_skills.any(func(a: Skill): a.skill_type == a.type.HEAL):
-					for skill in available_skills:
-						if skill.skill_type == skill.type.HEAL:
-							if randi_range(1, 4) >= 2:
-								action_data = {actions.SKILL : [self, self, skill]}
-								break
+				if health <= max_health * 0.3 and utils_skills.any(func(a: Skill):
+					a.skill_type == a.type.HEAL):
+						if randi_range(1, 4) >= 2:
+							skill = utils_skills.filter(func(a: Skill): \
+							a.skill_type == a.type.HEAL).pick_random()
+							
+							action_data = {actions.SKILL : [self, self, skill]}
 				
 				# Esto es una comprobación para saber si seguir buscando una skill o ya eligió
 				if action_data.is_empty():
-					# Si tiene una skill de ataque, hay preferencia, por lo que tendrá un 50% de 
-					# probabilidad de usarla
-					for skill in available_skills:
-						if skill.skill_type == skill.type.MAGIC or skill.skill_type == skill.type.FISICAL:
-							if randi_range(1, 2) == 2:
-								action_data = {actions.SKILL : [self, target, skill]}
-								break
-					
-					# Misma comprobación para saber si seguir buscando
-					if action_data.is_empty():
-						# Si todo lo anterior no dió una acción, usará una skill aleatoria
-						var skill : Skill = available_skills.pick_random()
-						
-						# Aqui comprueba que tipo de skill es para no tirarse un ataque a si mismo
-						# ni una cura al enemigo, por ejemplo
-						if skill.skill_type == skill.type.HEAL or skill.skill_type == skill.type.BUFF:
-							action_data = {actions.SKILL : [self, self, skill]}
-						
+					if not attack_skills.is_empty() and not utils_skills.is_empty():
+						if randi_range(1, 5) >= 3:
+							skill = attack_skills.pick_random()
 						else:
-							action_data = {actions.SKILL : [self, target, skill]}
+							skill = utils_skills.pick_random()
+					
+					else:
+						skill = (attack_skills + utils_skills).pick_random()
+					
+					# Aqui comprueba que tipo de skill es para no tirarse un ataque a si mismo
+					# ni una cura al enemigo, por ejemplo
+					if skill.skill_type == skill.type.HEAL or skill.skill_type == skill.type.BUFF:
+						action_data = {actions.SKILL : [self, self, skill]}
+					
+					else:
+						action_data = {actions.SKILL : [self, target, skill]}
 		else:
 			action_data = {actions.ATTACK : [self, target, false, 0]}
 	

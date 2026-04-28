@@ -105,7 +105,7 @@ func getAttack() -> int:
 		atk_value *= 1.5
 	
 	elif atk_modifier.modifier_type == atk_modifier.type.DEBUFF:
-		atk_value *= 0.75
+		atk_value *= 0.5
 	
 	return ceili(atk_value)
 
@@ -118,7 +118,7 @@ func getMagicAttack() -> int:
 		m_atk_value *= 1.5
 	
 	elif m_atk_modifier.modifier_type == m_atk_modifier.type.DEBUFF:
-		m_atk_value *= 0.75
+		m_atk_value *= 0.5
 	
 	return ceili(m_atk_value)
 
@@ -131,7 +131,7 @@ func getDefense() -> int:
 		def_value *= 1.5
 	
 	elif def_modifier.modifier_type == def_modifier.type.DEBUFF:
-		def_value *= 0.75
+		def_value *= 0.5
 	
 	if is_defending:
 		def_value += round(defense * 3)

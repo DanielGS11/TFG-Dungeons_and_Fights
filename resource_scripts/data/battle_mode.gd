@@ -1,0 +1,37 @@
+class_name BattleMode
+extends Mode
+
+@export var enemy_id: int = 0
+@export var enemies_quantity: int
+
+func _init():
+	mode = type.BATTLE
+	can_escape = false
+
+func new_game(data: Array):
+	team_in_use = data[0]
+	is_finished = false
+	enemies_quantity = data[1]
+	enemy_id = 0
+	
+	enemies_defeated = 0
+	
+	loadNewEnemy()
+
+func _on_fight_finished():
+	loadNewEnemy()
+	next_step.emit(mode)
+
+func loadNewEnemy():
+	if enemy_id >= enemies_quantity:
+		is_finished = true
+		finish_game.emit("Win", "¡Felicidades, has acabado con todos los enemigos!")
+	else:
+		enemy_id += 1
+		enemies_defeated = enemy_id - 1
+		
+		controller.enemy = GameAPI.enemies.battle_mode.pick_random().duplicate(true)
+		controller.enemy.growLevels(enemy_id - 1)
+		
+		next_step.emit()
+		prompt.emit(str(controller.enemy.name) + " apareció", true)

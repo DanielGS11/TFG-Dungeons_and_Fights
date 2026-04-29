@@ -1,8 +1,22 @@
 extends Node
 # Al ser algo que manejan 2 clases, lo pongo en la API ya que es global
-enum modifier {ATTACK, M_ATTACK, DEFENSE}
+enum Modifier {ATTACK, M_ATTACK, DEFENSE}
 
+var teams : Array[Team]
+var gameData
+
+# DB
 var assets : AssetDB = load("res://resources/db/asset_db.tres")
+var enemies : EnemyDB = load("res://resources/db/enemy_db.tres")
+var characters : CharacterDB = load("res://resources/db/character_db.tres")
+
+func get_random_team() -> Team:
+	var team := Team.new()
+	
+	for member in team:
+		member = characters.characters.pick_random().duplicate(true)
+	
+	return team
 
 # Pedir un asset, devuelve array de assets ya que puede haber 1 o mas
 func get_room_asset(asset_key: String) -> Array[Texture2D]:

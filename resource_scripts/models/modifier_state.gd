@@ -3,11 +3,11 @@ extends Resource
 
 # Este enum no solo sirve para decir si es un buff o no, sino que tambien indica que está
 # activo, ya que si no, estaria en valor NONE
-enum type {NONE, BUFF, DEBUFF}
+enum Type {NONE, BUFF, DEBUFF}
 
 var icon: Texture2D
 
-var modifier_type: type
+var modifier_type: Type
 var stat: String
 var turn := 0
 
@@ -17,5 +17,5 @@ func _init(stat_name: String):
 
 # Aqui reseteamos a los valores predeterminados
 func reset():
-	modifier_type = type.NONE
+	modifier_type = Type.NONE
 	turn = 0

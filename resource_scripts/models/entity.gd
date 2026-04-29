@@ -5,7 +5,7 @@ extends Resource
 # entidad por una señal que llevará el valor a mostrar del comando
 signal prompt(text: String, pause: bool)
 
-enum actions {ATTACK, DEFEND, SKILL}
+enum Actions {ATTACK, DEFEND, SKILL}
 
 @export var sprite: Texture2D
 
@@ -30,9 +30,9 @@ enum actions {ATTACK, DEFEND, SKILL}
 var state: ModifierState
 
 var modifiers := {
-	GameAPI.modifier.ATTACK : ModifierState.new("Ataque"),
-	GameAPI.modifier.M_ATTACK : ModifierState.new("Ataque mágico"),
-	GameAPI.modifier.DEFENSE : ModifierState.new("Defensa")
+	GameAPI.Modifier.ATTACK : ModifierState.new("Ataque"),
+	GameAPI.Modifier.M_ATTACK : ModifierState.new("Ataque mágico"),
+	GameAPI.Modifier.DEFENSE : ModifierState.new("Defensa")
 }
 
 # Esta variable es para la acción 'defender' (por el momento solo usada en el jugador).
@@ -43,48 +43,50 @@ var is_defending := false
 func applyBuff(skill: Skill):
 	var buff: ModifierState = modifiers[skill.modifier]
 	
-	if buff.modifier_type == buff.type.BUFF:
-		buff.turn = 0
+	match buff.modifier_type:
+		buff.Type.BUFF:
+			buff.turn = 0
+			
+			prompt.emit("¡Su " + buff.stat + " se volvió a potenciar!", false)
 		
-		prompt.emit("¡Su " + buff.stat + " se volvió a potenciar!", false)
-	
-	elif buff.modifier_type == buff.type.DEBUFF:
-		buff.reset()
+		buff.Type.DEBUFF:
+			buff.reset()
+			
+			prompt.emit("Su " + buff.stat + " volvió a la normalidad", false)
 		
-		prompt.emit("Su " + buff.stat + " volvió a la normalidad", false)
-	
-	else:
-		buff.modifier_type = buff.type.BUFF
-		
-		prompt.emit("Su " + buff.stat + " se potenció", false)
+		buff.Type.NONE:
+			buff.modifier_type = buff.Type.BUFF
+			
+			prompt.emit("Su " + buff.stat + " se potenció", false)
 
 func applyDebuff(skill: Skill):
 	var debuff: ModifierState = modifiers[skill.modifier]
 	
-	if debuff.modifier_type == debuff.type.DEBUFF:
-		debuff.turn = 0
+	match debuff.modifier_type: 
+		debuff.Type.DEBUFF:
+			debuff.turn = 0
+			
+			prompt.emit("¡Su " + debuff.stat + " se volvió a reducir!", false)
 		
-		prompt.emit("¡Su " + debuff.stat + " se volvió a reducir!", false)
-	
-	elif debuff.modifier_type == debuff.type.BUFF:
-		debuff.reset()
-		
-		prompt.emit("Su " + debuff.stat + " volvió a la normalidad", false)
-	
-	else:
-		debuff.modifier_type = debuff.type.DEBUFF
-		
-		prompt.emit("¡Su " + debuff.stat + " se redujo!", false)
+		debuff.Type.BUFF:
+			debuff.reset()
+			
+			prompt.emit("Su " + debuff.stat + " volvió a la normalidad", false)
+			
+		debuff.Type.NONE:
+			debuff.modifier_type = debuff.type.DEBUFF
+			
+			prompt.emit("¡Su " + debuff.stat + " se redujo!", false)
 
 func checkModifiers():
 	if is_defending:
 		is_defending = false
 	
-	if modifiers.values().any(func(a): a.modifier_type != a.type.NONE):
+	if modifiers.values().any(func(a): a.modifier_type != a.Type.NONE):
 		for i in modifiers:
 			var modifier_value : ModifierState = modifiers[i]
 			
-			if modifier_value.modifier_type != modifier_value.type.NONE:
+			if modifier_value.modifier_type != modifier_value.Type.NONE:
 				modifier_value.turn += 1
 				
 				if modifier_value.turn >= 4:
@@ -99,12 +101,12 @@ func clearModifiers():
 func getAttack() -> int:
 	var atk_value = attack
 	
-	var atk_modifier : ModifierState = modifiers[GameAPI.modifier.ATTACK]
+	var atk_modifier : ModifierState = modifiers[GameAPI.Modifier.ATTACK]
 	
-	if atk_modifier.modifier_type == atk_modifier.type.BUFF:
+	if atk_modifier.modifier_type == atk_modifier.Type.BUFF:
 		atk_value *= 1.5
 	
-	elif atk_modifier.modifier_type == atk_modifier.type.DEBUFF:
+	elif atk_modifier.modifier_type == atk_modifier.Type.DEBUFF:
 		atk_value *= 0.5
 	
 	return ceili(atk_value)
@@ -112,12 +114,12 @@ func getAttack() -> int:
 func getMagicAttack() -> int:
 	var m_atk_value = magic_attack
 	
-	var m_atk_modifier : ModifierState = modifiers[GameAPI.modifier.M_ATTACK]
+	var m_atk_modifier : ModifierState = modifiers[GameAPI.Modifier.M_ATTACK]
 	
-	if m_atk_modifier.modifier_type == m_atk_modifier.type.BUFF:
+	if m_atk_modifier.modifier_type == m_atk_modifier.Type.BUFF:
 		m_atk_value *= 1.5
 	
-	elif m_atk_modifier.modifier_type == m_atk_modifier.type.DEBUFF:
+	elif m_atk_modifier.modifier_type == m_atk_modifier.Type.DEBUFF:
 		m_atk_value *= 0.5
 	
 	return ceili(m_atk_value)
@@ -125,12 +127,12 @@ func getMagicAttack() -> int:
 func getDefense() -> int:
 	var def_value = defense
 	
-	var def_modifier : ModifierState = modifiers[GameAPI.modifier.DEFENSE]
+	var def_modifier : ModifierState = modifiers[GameAPI.Modifier.DEFENSE]
 	
-	if def_modifier.modifier_type == def_modifier.type.BUFF:
+	if def_modifier.modifier_type == def_modifier.Type.BUFF:
 		def_value *= 1.5
 	
-	elif def_modifier.modifier_type == def_modifier.type.DEBUFF:
+	elif def_modifier.modifier_type == def_modifier.Type.DEBUFF:
 		def_value *= 0.5
 	
 	if is_defending:

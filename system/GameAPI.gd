@@ -55,6 +55,19 @@ func get_character_asset(asset_key: String) -> Array[Texture2D]:
 	
 	return asset_array
 
+# Pedir un enemigo aleatorio
+func get_battle_mode_enemy() -> Enemy:
+	return enemies.battle_mode.pick_random()
+
+func get_normal_enemy() -> Enemy:
+	return enemies.dungeon_mode["Normal"].pick_random()
+
+func get_miniboss() -> Enemy:
+	return enemies.dungeon_mode["Minijefe"].pick_random()
+
+func get_boss() -> Enemy:
+	return enemies.dungeon_mode["Jefe"].pick_random()
+
 # Manejo de partida y configuración
 # Las rutas en las que guarda serian las siguientes segun el SO:
 # - Windows: %APPDATA%\Godot\app_userdata\[Nombre_del_proyecto]
@@ -70,12 +83,12 @@ var save
 
 # Separo el guardado de partida y configuración para evitar guardados de configuración o
 # partida cuando no son necesarios
-func saveGame():
+func save_game():
 	save = GameData.new()
 	
 	ResourceSaver.save(save, saveRoutes["Game"])
 
-func saveConfig():
+func save_config():
 	save = ConfigData.new()
 	
 	ResourceSaver.save(save, saveRoutes["Config"])

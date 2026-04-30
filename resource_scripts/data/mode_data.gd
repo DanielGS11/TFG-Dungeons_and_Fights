@@ -1,5 +1,5 @@
 class_name Mode
-extends GDScript
+extends Resource
 
 # Señales para que la escena realice diferentes acciones, las 2 primeras pasan por el controlador de
 # pelea, que es el que gestiona las acciones de la pelea
@@ -11,12 +11,12 @@ signal finish_game(result: String, message: String)
 # cargar un nuevo enemigo si es el battlemode, o abrir el mapa si es dungeonmode, le envia la id
 # del enum de abajo que dice que tipo de modo es, asi si se añaden mas modos se hace mas facil la 
 # gestión
-signal next_step(id: type)
+signal next_step(id: Type)
 
-enum type {BATTLE, DUNGEON}
+enum Type {BATTLE, DUNGEON}
 
 
-@export var mode: type
+@export var mode: Type
 @export var team_in_use: Team
 @export var controller: FightController
 @export var is_finished: bool = false

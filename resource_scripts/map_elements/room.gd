@@ -1,12 +1,12 @@
 class_name Room
-extends GDScript
+extends Resource
 
-enum type {NORMAL, EMPTY, MINIBOSS, TREASURE, LOCK, BOSS}
+enum Type {NORMAL, EMPTY, MINIBOSS, TREASURE, LOCK, BOSS}
 
 @export var background : Texture2D
 
-@export var room_type: type
-@export var access : bool = false
+@export var room_type: Type
+@export var accessible : bool = false
 @export var explored : bool = false
 
 @export var coordinates: Vector2i

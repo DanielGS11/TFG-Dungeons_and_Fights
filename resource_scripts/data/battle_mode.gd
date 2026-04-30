@@ -5,7 +5,7 @@ extends Mode
 @export var enemies_quantity: int
 
 func _init():
-	mode = type.BATTLE
+	mode = Type.BATTLE
 	can_escape = false
 
 func new_game(data: Array):
@@ -30,7 +30,7 @@ func loadNewEnemy():
 		enemy_id += 1
 		enemies_defeated = enemy_id - 1
 		
-		controller.enemy = GameAPI.enemies.battle_mode.pick_random().duplicate(true)
+		controller.enemy = GameAPI.get_battle_mode_enemy()
 		controller.enemy.growLevels(enemy_id - 1)
 		
 		next_step.emit()

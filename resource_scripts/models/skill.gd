@@ -22,7 +22,7 @@ enum Target {ALLY, ALL_ALLIES, SELF, ENEMY, ALL_ENEMIES}
 @export var cost: int
 
 # Solo aparece si la skill es tipo buff o debuff
-@export var modifier : GameAPI.Modifier = GameAPI.modifier.ATTACK
+@export var modifier : GameAPI.Modifier
 
 # Solo aparece si la skill es de ataque (fisico o magico) o curación
 @export var power: int

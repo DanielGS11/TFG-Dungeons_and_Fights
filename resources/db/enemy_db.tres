@@ -5,4 +5,9 @@
 
 [resource]
 script = ExtResource("2_gqhbf")
+dungeon_mode = Dictionary[String, Array]({
+"Jefe": [],
+"Minijefe": [],
+"Normal": []
+})
 metadata/_custom_type_script = "uid://duull0x1pk7uo"

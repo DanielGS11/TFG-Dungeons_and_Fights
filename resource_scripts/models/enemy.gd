@@ -1,6 +1,8 @@
 class_name Enemy
 extends Entity
 
+# Enum de los tipos de monstruo, junto a un diccionario que asigna un aumento de vida por nivel
+# según el tipo
 @export_enum("Jefe", "Minijefe", "Normal") var enemy_type: String
 
 const enemy_augments := {
@@ -11,7 +13,9 @@ const enemy_augments := {
 
 var atk_augments: int
 
-func growLevels(levels):
+@export var exp_drop: int
+
+func grow_levels(levels):
 	level += levels
 	
 	max_health += enemy_augments[enemy_type] * levels
@@ -26,7 +30,7 @@ func growLevels(levels):
 		atk_augments = floori(level / 2)
 
 # IA del enemigo
-func getAction(team: Team) -> Dictionary:
+func get_action(team: Team) -> Dictionary:
 	# Aqui almaceno los datos de la acción
 	var action_data: Dictionary
 	
@@ -55,7 +59,7 @@ func getAction(team: Team) -> Dictionary:
 	# ataque básico, si no, hace una tirada de dados, teniendo un 50% de probabilidad de usar una
 	# skill
 	if skills.is_empty():
-		action_data = {actions.ATTACK : [self, target, false, 0]}
+		action_data = {Actions.ATTACK : [self, target]}
 	
 	else:
 		if randi_range(1, 2) == 2:
@@ -66,8 +70,8 @@ func getAction(team: Team) -> Dictionary:
 			var utils_skills: Array[Skill]
 			
 			for i in skills:
-				if i.skill_type == i.type.HEAL and health < max_health \
-				or i.skill_type != i.type.MAGIC and i.skill_type != i.type.FISICAL:
+				if i.skill_type == i.Type.HEAL and health < max_health \
+				or i.skill_type != i.Type.MAGIC and i.skill_type != i.Type.FISICAL:
 					utils_skills.append(i)
 					
 				else:
@@ -75,19 +79,19 @@ func getAction(team: Team) -> Dictionary:
 			
 			# Si no tiene ninguna skill disponible, ataque básico
 			if attack_skills.is_empty() and utils_skills.is_empty():
-				action_data = {actions.ATTACK : [self, target, false, 0]}
+				action_data = {Actions.ATTACK : [self, target, false, 0]}
 			
 			else:
 				var skill: Skill
 				# Si tiene curas y su vida es igual o menor al 30%, hay un 75% de probabilidad de 
 				# que use una cura
 				if health <= max_health * 0.3 and utils_skills.any(func(a: Skill):
-					a.skill_type == a.type.HEAL):
+					a.skill_type == a.Type.HEAL):
 						if randi_range(1, 4) >= 2:
 							skill = utils_skills.filter(func(a: Skill): \
-							a.skill_type == a.type.HEAL).pick_random()
+							a.skill_type == a.Type.HEAL).pick_random()
 							
-							action_data = {actions.SKILL : [self, self, skill]}
+							action_data = {Actions.SKILL : [self, self, skill]}
 				
 				# Esto es una comprobación para saber si seguir buscando una skill o ya eligió
 				if action_data.is_empty():
@@ -102,13 +106,13 @@ func getAction(team: Team) -> Dictionary:
 					
 					# Aqui comprueba que tipo de skill es para no tirarse un ataque a si mismo
 					# ni una cura al enemigo, por ejemplo
-					if skill.skill_type == skill.type.HEAL or skill.skill_type == skill.type.BUFF:
-						action_data = {actions.SKILL : [self, self, skill]}
+					if skill.skill_type == skill.Type.HEAL or skill.skill_type == skill.Type.BUFF:
+						action_data = {Actions.SKILL : [self, self, skill]}
 					
 					else:
-						action_data = {actions.SKILL : [self, target, skill]}
+						action_data = {Actions.SKILL : [self, target, skill]}
 		else:
-			action_data = {actions.ATTACK : [self, target, false, 0]}
+			action_data = {Actions.ATTACK : [self, target]}
 	
 	# Y por último, devolvemos a acción que hará
 	return action_data

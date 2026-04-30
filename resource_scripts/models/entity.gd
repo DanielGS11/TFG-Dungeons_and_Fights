@@ -40,7 +40,10 @@ var modifiers := {
 # automaticamente
 var is_defending := false
 
-func applyBuff(skill: Skill):
+# Metodos para aplicar un buff o debuff. Si se aplica un buff del mismo tipo que uno que ya está 
+# activo, se resetea el contador, si lo que está activo es un debuff del tipo del buff, lo anula y 
+# viceversa
+func apply_buff(skill: Skill):
 	var buff: ModifierState = modifiers[skill.modifier]
 	
 	match buff.modifier_type:
@@ -59,7 +62,7 @@ func applyBuff(skill: Skill):
 			
 			prompt.emit("Su " + buff.stat + " se potenció", false)
 
-func applyDebuff(skill: Skill):
+func apply_debuff(skill: Skill):
 	var debuff: ModifierState = modifiers[skill.modifier]
 	
 	match debuff.modifier_type: 
@@ -78,7 +81,10 @@ func applyDebuff(skill: Skill):
 			
 			prompt.emit("¡Su " + debuff.stat + " se redujo!", false)
 
-func checkModifiers():
+# Con este método, ejecutado al terminar el turno del usuario, se suma 1 al contador de turnos
+# activos de un buff y debuff, cuando el contador llegue a 4 (3 turnos mas el turno en el que se 
+# activa) el (de)buff termina
+func check_modifiers():
 	if is_defending:
 		is_defending = false
 	
@@ -94,11 +100,14 @@ func checkModifiers():
 					
 					prompt.emit("Su " + modifier_value.stat + " volvió a la normalidad", false)
 
-func clearModifiers():
+# Con este método, se limpian los buffs y debuffs, se ejecutaría al termiar un combate
+func clear_modifiers():
 	for i in modifiers:
 		modifiers[i].reset()
 
-func getAttack() -> int:
+# Getters de las stats, que devuelven el valor total de la stat por si hay que aplicarle algún
+# modificador, estos métodos los pediran los métodos del controlador como el de atacar o curar
+func get_attack() -> int:
 	var atk_value = attack
 	
 	var atk_modifier : ModifierState = modifiers[GameAPI.Modifier.ATTACK]
@@ -111,7 +120,7 @@ func getAttack() -> int:
 	
 	return ceili(atk_value)
 
-func getMagicAttack() -> int:
+func get_magic_attack() -> int:
 	var m_atk_value = magic_attack
 	
 	var m_atk_modifier : ModifierState = modifiers[GameAPI.Modifier.M_ATTACK]
@@ -124,7 +133,7 @@ func getMagicAttack() -> int:
 	
 	return ceili(m_atk_value)
 
-func getDefense() -> int:
+func get_defense() -> int:
 	var def_value = defense
 	
 	var def_modifier : ModifierState = modifiers[GameAPI.Modifier.DEFENSE]

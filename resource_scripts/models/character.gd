@@ -27,9 +27,9 @@ func get_exp(exp_value: int):
 	
 	while exp > exp_next_level:
 		exp -= exp_next_level
-		levelUp()
+		level_up()
 
-func levelUp():
+func level_up():
 	level += 1
 	
 	max_health += class_augments[class_type][0]

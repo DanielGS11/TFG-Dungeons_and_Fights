@@ -44,13 +44,13 @@ func generate_map(height: int, width: int) -> Array:
 	# Aqui establezco el mínimo de salas que la mazmorra tendrá, que será un número aleatorio
 	# entre el 40% del tamaño total de la mazmorra (ancho x alto) y el tamaño - el número de 
 	# minijefes (ya que la sala del jefe ocuparia un espacio extra y hay que prevenir que las
-	# salas de minijefes y tesoro tapen esos espacios
+	# salas de minijefes y tesoro tapen esos espacios)
 	var total_size = map_height * map_width
 	
 	# Necesitamos saber cuántos minijefes (incluido el de la habitación del tesoro) habrá,
-	# que será una séptima parte del tamaño del mapa (en modo fácil, el mapa más pequeño puede ser
-	# de 7 salas sin contar el jefe, por lo que como mucho habría 1 minijefe, que sería el de la 
-	# sala del tesoro; y el más grande del modo facil sería de 21 salas, 3 minijefes)
+	# que será una séptima parte del tamaño del mapa (en modo fácil, tamaño total del mapa mas pequeño
+	# es de 16 salas, por lo que habría 2 minijefes, que sería el de la sala del tesoro; y el más grande
+	# del modo facil sería de 25 salas, 3 minijefes)
 	var minibosses_to_generate = floor(total_size / 7)
 	
 	
@@ -71,8 +71,9 @@ func generate_map(height: int, width: int) -> Array:
 	# Ahora, con una lógica parecida a la de generar salas adyacentes, modificaremos una sala
 	# ya configurada para que primero sea la del tesoro, y una vez generada, las siguientes sean
 	# salas de minijefe
-	while minibosses_to_generate > 0:
-		minibosses_to_generate += _generate_miniboss(rooms.pick_random(), minibosses_to_generate)
+	var minibosses_generated = 0
+	while minibosses_to_generate > minibosses_generated:
+		minibosses_generated += _generate_miniboss(rooms.pick_random())
 	
 	# Por último, un bucle que genere la sala del jefe, que se generará adyacente a una sala en un
 	# espacio sin configurar (pared) y convertirá la sala a la que se conectó en la sala de la
@@ -88,7 +89,7 @@ func generate_map(height: int, width: int) -> Array:
 	for position in rooms:
 		_scan_adjacents(position)
 		
-	return [map, initial_room.coordinates]
+	return [map, initial_room, minibosses_to_generate]
 
 # Para definir la habitación de inicio, creamos un método que nos devuelva sus coordenadas
 func _get_initial_room() -> Vector2i:
@@ -126,29 +127,14 @@ func _scan_adjacents(position: Vector2i):
 	# Compruebo las habitaciones adyacentes, primero compruebo que la posición no salga del mapa,
 	# luego recojo esa sala del mapa en la variable antes creada, miro si es accesible (si no, sería
 	# una pared) y la añado a la lista de adyacentes de la sala
-	if position.x + 1 < map_width:
-		adjacent_room = map[position.x + 1][position.y]
+	for i in directions.size():
+		var dir_pos = position + directions[i]
 		
-		if adjacent_room.accessible:
-			room.adjacent_rooms.append(adjacent_room.coordinates)
-	
-	if position.x - 1 >= 0:
-		adjacent_room = map[position.x - 1][position.y]
-		
-		if adjacent_room.accessible:
-			room.adjacent_rooms.append(adjacent_room.coordinates)
-	
-	if position.y + 1 >= map_height:
-		adjacent_room = map[position.x][position.y + 1]
-		
-		if adjacent_room.accessible:
-			room.adjacent_rooms.append(adjacent_room.coordinates)
-	
-	if position.y - 1 >= 0:
-		adjacent_room = map[position.x][position.y - 1]
-		
-		if adjacent_room.accessible:
-			room.adjacent_rooms.append(adjacent_room.coordinates)
+		if 0 <= dir_pos.x < map_width and 0 <= dir_pos.y < map_height:
+			adjacent_room = map[dir_pos.x][dir_pos.y]
+			
+			if adjacent_room.accessible:
+				room.adjacent_rooms.append(adjacent_room.coordinates)
 
 # Con este método generamos una habitación adyacente
 func _generate_room(position: Vector2i):
@@ -208,7 +194,7 @@ func _generate_room(position: Vector2i):
 				break
 
 # Con este método generamos las salas de minijefe y tesoro
-func _generate_miniboss(position: Vector2i, minibosses_to_generate: int) -> int:
+func _generate_miniboss(position: Vector2i) -> int:
 	# Recojemos la sala del mapa y comprobamos que no esté configurada como tesoro/minijefe
 	var room: Room = map[position.x][position.y]
 	
@@ -223,7 +209,7 @@ func _generate_miniboss(position: Vector2i, minibosses_to_generate: int) -> int:
 		
 		room.enemy = GameAPI.get_miniboss()
 		
-		return -1
+		return 1
 	
 	return 0
 

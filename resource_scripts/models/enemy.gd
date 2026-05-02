@@ -15,19 +15,28 @@ var atk_augments: int
 
 @export var exp_drop: int
 
+func _init():
+	heal_multiplier = 5.0
+
 func grow_levels(levels):
 	level += levels
 	
 	max_health += enemy_augments[enemy_type] * levels
 	health += enemy_augments[enemy_type] * levels
 	
-	# Compara la variable de aumentos con nivel menos 2. El ataque del enemigo aumenta en 1 cada 2 niveles, 
-	# estos aumentos se reflejan en esa variable. Por ejemplo, al nivel 10 el ataque aumentaria 5 (10 / 2),
-	# al subir al 12, lo que hace es que compara el aumento de ataque que ya hubo (5) con el que habria ahora (6),
-	# y suma la diferencia (5 - 6)
-	if atk_augments < floori(level / 2):
-		attack += floori(level / 2) - atk_augments
-		atk_augments = floori(level / 2)
+	# Compara la variable de aumentos con nivel menos 2. El ataque y ataque mágico del enemigo
+	# aumenta en 1 cada 2 niveles, estos aumentos se reflejan en esa variable. 
+	# Por ejemplo, al nivel 10 el ataque aumentaria 5 (10 / 2), al subir al 12, lo que hace es que 
+	# compara el aumento de ataque que ya hubo (5) con el que habria ahora (6), y suma 
+	# la diferencia (5 - 6)
+	var current_atk_augment = floori(level / 2)
+	if atk_augments < current_atk_augment:
+		attack += current_atk_augment - atk_augments
+		magic_attack += current_atk_augment - atk_augments
+		
+		atk_augments = current_atk_augment
+	
+	exp_drop += ceil(exp_drop * 0.2) * levels
 
 # IA del enemigo
 func get_action(team: Team) -> Dictionary:
@@ -59,7 +68,7 @@ func get_action(team: Team) -> Dictionary:
 	# ataque básico, si no, hace una tirada de dados, teniendo un 50% de probabilidad de usar una
 	# skill
 	if skills.is_empty():
-		action_data = {Actions.ATTACK : [self, target]}
+		action_data = {self : [Actions.ATTACK , target]}
 	
 	else:
 		if randi_range(1, 2) == 2:
@@ -79,7 +88,7 @@ func get_action(team: Team) -> Dictionary:
 			
 			# Si no tiene ninguna skill disponible, ataque básico
 			if attack_skills.is_empty() and utils_skills.is_empty():
-				action_data = {Actions.ATTACK : [self, target, false, 0]}
+				action_data = {self : [Actions.ATTACK, target]}
 			
 			else:
 				var skill: Skill
@@ -91,7 +100,7 @@ func get_action(team: Team) -> Dictionary:
 							skill = utils_skills.filter(func(a: Skill): \
 							a.skill_type == a.Type.HEAL).pick_random()
 							
-							action_data = {Actions.SKILL : [self, self, skill]}
+							action_data = {self : [Actions.SKILL, self, skill]}
 				
 				# Esto es una comprobación para saber si seguir buscando una skill o ya eligió
 				if action_data.is_empty():
@@ -107,12 +116,12 @@ func get_action(team: Team) -> Dictionary:
 					# Aqui comprueba que tipo de skill es para no tirarse un ataque a si mismo
 					# ni una cura al enemigo, por ejemplo
 					if skill.skill_type == skill.Type.HEAL or skill.skill_type == skill.Type.BUFF:
-						action_data = {Actions.SKILL : [self, self, skill]}
+						action_data = {self: [Actions.SKILL, self, skill]}
 					
 					else:
-						action_data = {Actions.SKILL : [self, target, skill]}
+						action_data = {self : [Actions.SKILL, target, skill]}
 		else:
-			action_data = {Actions.ATTACK : [self, target]}
+			action_data = {self : [Actions.ATTACK, target]}
 	
 	# Y por último, devolvemos a acción que hará
 	return action_data

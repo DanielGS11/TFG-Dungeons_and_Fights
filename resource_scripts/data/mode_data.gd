@@ -37,5 +37,5 @@ func loadController() -> FightController:
 	
 	return controller
 
-func _on_fight_finished():
+func _on_fight_finished(exp: int):
 	pass

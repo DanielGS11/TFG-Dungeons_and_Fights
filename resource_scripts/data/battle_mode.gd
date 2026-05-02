@@ -17,10 +17,14 @@ func new_game(data: Array):
 	enemies_defeated = 0
 	
 	loadNewEnemy()
+	controller = loadController()
 
-func _on_fight_finished():
+func _on_fight_finished(exp: int):
+	for member in team_in_use.members:
+		prompt.emit(member.level_up(), true)
+		await controller.end_prompt
+	
 	loadNewEnemy()
-	next_step.emit(mode)
 
 func loadNewEnemy():
 	if enemy_id >= enemies_quantity:
@@ -33,5 +37,6 @@ func loadNewEnemy():
 		controller.enemy = GameAPI.get_battle_mode_enemy()
 		controller.enemy.growLevels(enemy_id - 1)
 		
-		next_step.emit()
+		next_step.emit(mode)
 		prompt.emit(str(controller.enemy.name) + " apareció", true)
+		await controller.end_prompt

@@ -1,14 +1,19 @@
 extends Node
-# Al ser algo que manejan 2 clases, lo pongo en la API ya que es global
+# Al ser algo que manejan varias clases, algunos enums irán en la API
+# Estadística afectada, lo usan las clases Skill y Entity (Enemy, Character)
 enum Modifier {ATTACK, M_ATTACK, DEFENSE}
 
+# Dificultad de partida, lo usan DungeonMode y DungeonMap
+enum Difficulty {EASY, MEDIUM, HARD}
+
 var teams : Array[Team]
-var gameData
 
 # DB
 var assets : AssetDB = load("res://resources/db/asset_db.tres")
 var enemies : EnemyDB = load("res://resources/db/enemy_db.tres")
 var characters : CharacterDB = load("res://resources/db/character_db.tres")
+
+var actual_mode: Mode
 
 func get_random_team() -> Team:
 	var team := Team.new()
@@ -60,13 +65,13 @@ func get_battle_mode_enemy() -> Enemy:
 	return enemies.battle_mode.pick_random()
 
 func get_normal_enemy() -> Enemy:
-	return enemies.dungeon_mode["Normal"].pick_random()
+	return enemies.dungeon_mode["Normal"].pick_random().duplicate(true)
 
 func get_miniboss() -> Enemy:
-	return enemies.dungeon_mode["Minijefe"].pick_random()
+	return enemies.dungeon_mode["Minijefe"].pick_random().duplicate(true)
 
 func get_boss() -> Enemy:
-	return enemies.dungeon_mode["Jefe"].pick_random()
+	return enemies.dungeon_mode["Jefe"].pick_random().duplicate(true)
 
 # Manejo de partida y configuración
 # Las rutas en las que guarda serian las siguientes segun el SO:

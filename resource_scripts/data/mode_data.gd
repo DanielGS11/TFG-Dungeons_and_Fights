@@ -6,11 +6,13 @@ extends Resource
 # Ejecutar el prompt en la escena
 signal prompt(text: String, pause: bool)
 # Terminar el juego, que tiene en un string el resultado ("win", "lose") y el mensaje (prompt)
+@warning_ignore("unused_signal")
 signal finish_game(result: String, message: String)
 # Esta señal la recibe la escena, no el controller, para ejecutar el siguiente paso, es decir
 # cargar un nuevo enemigo si es el battlemode, o abrir el mapa si es dungeonmode, le envia la id
 # del enum de abajo que dice que tipo de modo es, asi si se añaden mas modos se hace mas facil la 
 # gestión
+@warning_ignore("unused_signal")
 signal next_step(id: Type)
 
 enum Type {BATTLE, DUNGEON}
@@ -25,7 +27,7 @@ enum Type {BATTLE, DUNGEON}
 
 @export var can_escape: bool
 
-func new_game(data: Array):
+func new_game(_data: Array):
 	pass
 
 func loadController() -> FightController:
@@ -37,5 +39,10 @@ func loadController() -> FightController:
 	
 	return controller
 
-func _on_fight_finished(exp: int):
+func _on_fight_finished(_exp_value: int):
 	pass
+
+func _send_prompt(text: String, pause: bool):
+	prompt.emit(text, pause)
+	
+	await GameAPI.actual_mode.controller.end_prompt

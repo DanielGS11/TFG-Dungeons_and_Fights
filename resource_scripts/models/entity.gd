@@ -6,7 +6,7 @@ extends Resource
 # futuras clases
 enum Actions {ATTACK, DEFEND, SKILL}
 
-var prompt: Variant
+signal prompt(text: Variant, pause: bool)
 
 @export var sprite: Texture2D
 
@@ -47,7 +47,7 @@ var is_defending := false
 # Metodos para aplicar un buff o debuff. Si se aplica un buff del mismo tipo que uno que ya está 
 # activo, se resetea el contador, si lo que está activo es un debuff del tipo del buff, lo anula y 
 # viceversa
-func apply_buff(skill: Skill) -> String:
+func apply_buff(skill: Skill):
 	var buff: ModifierState = modifiers[skill.modifier]
 	
 	var word: String
@@ -62,21 +62,19 @@ func apply_buff(skill: Skill) -> String:
 		buff.Type.BUFF:
 			buff.turn = 0
 			
-			prompt = "¡" + word + buff.stat + " de " + name + " se volvió a potenciar!"
+			await _send_prompt("¡" + word + buff.stat + " de " + name + " se volvió a potenciar!", false)
 		
 		buff.Type.DEBUFF:
 			buff.reset()
 			
-			prompt = word + buff.stat + " de " + name + " volvió a la normalidad"
+			await _send_prompt(word + buff.stat + " de " + name + " volvió a la normalidad", false)
 		
 		buff.Type.NONE:
 			buff.modifier_type = buff.Type.BUFF
 			
-			prompt = "¡" + word + buff.stat + " de " + name + " se potenció!"
-	
-	return prompt
+			await _send_prompt("¡" + word + buff.stat + " de " + name + " se potenció!", false)
 
-func apply_debuff(skill: Skill) -> String:
+func apply_debuff(skill: Skill):
 	var debuff: ModifierState = modifiers[skill.modifier]
 	
 	var word: String
@@ -91,37 +89,33 @@ func apply_debuff(skill: Skill) -> String:
 		debuff.Type.DEBUFF:
 			debuff.turn = 0
 			
-			prompt = "¡" + word + debuff.stat + " de " + name + " se volvió a reducir!"
+			await _send_prompt("¡" + word + debuff.stat + " de " + name + " se volvió a reducir!", false)
 		
 		debuff.Type.BUFF:
 			debuff.reset()
 			
-			prompt = word + debuff.stat + " de " + name + " volvió a la normalidad"
+			await _send_prompt(word + debuff.stat + " de " + name + " volvió a la normalidad", false)
 			
 		debuff.Type.NONE:
 			debuff.modifier_type = debuff.Type.DEBUFF
 			
-			prompt = "¡" + word + debuff.stat + " de " + name + " se redujo!"
-	
-	return prompt
+			await _send_prompt("¡" + word + debuff.stat + " de " + name + " se redujo!", false)
 
 # Métodos para recibir daño, curar y gastar maná (solo la clase Character)
-func take_damage(damage: int) -> Array:
-	prompt = [name + " recibió " + str(damage) + " puntos de daño"]
+func take_damage(damage: int):
+	await _send_prompt(name + " recibió " + str(damage) + " puntos de daño", false)
 	
 	if damage > health:
 		health = 0
 		clear_modifiers()
-		prompt.append(name + " fué derrotado")
+		await _send_prompt(name + " fué derrotado", true)
 	
 	else:
 		health -= damage
-	
-	return prompt
 
-func heal(healing: int) -> String:
+func heal(healing: int):
 	if health == max_health:
-		prompt = "La vida de " + name + " ya estaba al máximo"
+		await _send_prompt("La vida de " + name + " ya estaba al máximo", false)
 	
 	else:
 		if max_health - health < healing:
@@ -130,23 +124,19 @@ func heal(healing: int) -> String:
 		else:
 			health += healing
 		
-		prompt = name + " recibió " + str(healing) + " puntos de curación"
-	
-	return prompt
+		await _send_prompt(name + " recibió " + str(healing) + " puntos de curación", false)
 
-func consume_mana(value: int):
+func consume_mana(_value: int):
 	pass
 
 # Con este método, ejecutado al terminar el turno del usuario, se suma 1 al contador de turnos
 # activos de un buff y debuff, cuando el contador llegue a 4 (3 turnos mas el turno en el que se 
 # activa) el (de)buff termina
-func check_modifiers() -> Array:
+func check_modifiers():
 	if is_defending:
 		is_defending = false
 	
-	prompt = []
-	
-	if modifiers.values().any(func(a): a.modifier_type != a.Type.NONE):
+	if modifiers.values().any(func(a): return a.modifier_type != a.Type.NONE):
 		
 		for i in modifiers:
 			var modifier_value : ModifierState = modifiers[i]
@@ -158,12 +148,10 @@ func check_modifiers() -> Array:
 					modifier_value.reset()
 					
 					if modifier_value.stat == "Defensa":
-						prompt.append("La " + modifier_value.stat + " de " + name + " volvió a la normalidad")
+						await _send_prompt("La " + modifier_value.stat + " de " + name + " volvió a la normalidad", false)
 						
 					else:
-						prompt.append("El " + modifier_value.stat + " de " + name + " volvió a la normalidad")
-	
-	return prompt
+						await _send_prompt("El " + modifier_value.stat + " de " + name + " volvió a la normalidad", false)
 
 # Con este método, se limpian los buffs y debuffs, se ejecutaría al termiar un combate
 func clear_modifiers():
@@ -213,3 +201,8 @@ func get_defense() -> int:
 		def_value += round(defense * 3)
 		
 	return ceili(def_value)
+
+func _send_prompt(text: String, pause: bool):
+	prompt.emit(text, pause)
+	
+	await GameAPI.actual_mode.controller.end_prompt

@@ -51,10 +51,10 @@ func generate_map(height: int, width: int) -> Array:
 	# que será una séptima parte del tamaño del mapa (en modo fácil, tamaño total del mapa mas pequeño
 	# es de 16 salas, por lo que habría 2 minijefes, que sería el de la sala del tesoro; y el más grande
 	# del modo facil sería de 25 salas, 3 minijefes)
-	var minibosses_to_generate = floor(total_size / 7)
+	var minibosses_to_generate = floori(float(total_size) / 7)
 	
 	
-	min_rooms = randi_range(ceil(total_size * 0.4), total_size - minibosses_to_generate)
+	min_rooms = randi_range(ceili(total_size * 0.4), total_size - minibosses_to_generate)
 	
 	# Una vez sacado el mínimo de salas a generar, hacemos un bucle que coja una posición aleatoria
 	# de una habitación y genere al menos 1 en cualquier dirección pegada a esta. El bucle parará
@@ -152,7 +152,7 @@ func _generate_room(position: Vector2i):
 			# si hay alguna posición libre para añadir a la lista de posiciones disponibles
 			var room : Room = map[position.x][position.y]
 			
-			if room.adjacent_rooms.all(func(a): a != dir_pos):
+			if room.adjacent_rooms.all(func(a): return a != dir_pos):
 				positions_available.append(dir_pos)
 	
 	# Si hay alguna posición adyacente libre, empieza a generar
@@ -231,7 +231,7 @@ func _generate_boss(position: Vector2i):
 			var dir_pos = position + directions[i]
 			
 			if 0 <= dir_pos.x < map_width and 0 <= dir_pos.y < map_height:
-				if room.adjacent_rooms.all(func(a): a != dir_pos):
+				if room.adjacent_rooms.all(func(a): return a != dir_pos):
 					positions_available.append(dir_pos)
 		
 		

@@ -29,14 +29,14 @@ func grow_levels(levels):
 	# Por ejemplo, al nivel 10 el ataque aumentaria 5 (10 / 2), al subir al 12, lo que hace es que 
 	# compara el aumento de ataque que ya hubo (5) con el que habria ahora (6), y suma 
 	# la diferencia (5 - 6)
-	var current_atk_augment = floori(level / 2)
+	var current_atk_augment = floori(float(level) / 2)
 	if atk_augments < current_atk_augment:
 		attack += current_atk_augment - atk_augments
 		magic_attack += current_atk_augment - atk_augments
 		
 		atk_augments = current_atk_augment
 	
-	exp_drop += ceil(exp_drop * 0.2) * levels
+	exp_drop += ceili(exp_drop * 0.2) * levels
 
 # IA del enemigo
 func get_action(team: Team) -> Dictionary:
@@ -55,11 +55,12 @@ func get_action(team: Team) -> Dictionary:
 	# objetivo aleatorio
 	var target: Character
 	
-	if targets_available.any(func(a: Character): a.class_type == "Paladin" or a.class_type == "Bastión"):
+	if targets_available.any(func(a: Character): return a.class_type == "Paladin" or a.class_type == "Bastión"):
 		for member in targets_available:
 			if member.class_type == "Paladin" or member.class_type == "Bastión":
 				if randi_range(1,2) == 2:
 					target = member
+					break
 	
 	if target == null:
 		target = targets_available.pick_random()
@@ -95,10 +96,10 @@ func get_action(team: Team) -> Dictionary:
 				# Si tiene curas y su vida es igual o menor al 30%, hay un 75% de probabilidad de 
 				# que use una cura
 				if health <= max_health * 0.3 and utils_skills.any(func(a: Skill):
-					a.skill_type == a.Type.HEAL):
+					return a.skill_type == a.Type.HEAL):
 						if randi_range(1, 4) >= 2:
 							skill = utils_skills.filter(func(a: Skill): \
-							a.skill_type == a.Type.HEAL).pick_random()
+							return a.skill_type == a.Type.HEAL).pick_random()
 							
 							action_data = {self : [Actions.SKILL, self, skill]}
 				

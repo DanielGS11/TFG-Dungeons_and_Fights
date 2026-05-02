@@ -19,10 +19,11 @@ func new_game(data: Array):
 	loadNewEnemy()
 	controller = loadController()
 
-func _on_fight_finished(exp: int):
+func _on_fight_finished(_exp_value: int):
+	await _send_prompt("EL equipo subió de nivel", true)
+	
 	for member in team_in_use.members:
-		prompt.emit(member.level_up(), true)
-		await controller.end_prompt
+		member.level_up()
 	
 	loadNewEnemy()
 
@@ -38,5 +39,5 @@ func loadNewEnemy():
 		controller.enemy.growLevels(enemy_id - 1)
 		
 		next_step.emit(mode)
-		prompt.emit(str(controller.enemy.name) + " apareció", true)
-		await controller.end_prompt
+		
+		await _send_prompt(controller.enemy.name + " apareció", true)

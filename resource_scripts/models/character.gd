@@ -20,31 +20,28 @@ const class_augments = {
 @export var mana: int
 
 @export var exp_next_level: int
-@export var exp: int
+@export var actual_exp: int
 
 func _init():
 	heal_multiplier = 0.7
 
-func get_exp(exp_value: int) -> String:
-	exp += exp_value
+func get_exp(exp_value: int):
+	actual_exp += exp_value
 	
 	var level_grow = 0
-	prompt = ""
 	
-	while exp > exp_next_level:
-		exp -= exp_next_level
+	while actual_exp > exp_next_level:
+		actual_exp -= exp_next_level
 		level_up()
 		level_grow += 1
 	
 	if level_grow > 1:
-		prompt = name + " subió " + str(level_grow) + " niveles"
+		await _send_prompt(name + " subió " + str(level_grow) + " niveles", true)
 		
 	elif level_grow == 1:
-		prompt = name + " subió " + str(level_grow) + " nivel"
-	
-	return prompt
+		await _send_prompt(name + " subió " + str(level_grow) + " nivel", true)
 
-func level_up() -> String:
+func level_up():
 	level += 1
 	
 	max_health += class_augments[class_type][0]
@@ -58,8 +55,6 @@ func level_up() -> String:
 	attack += class_augments[class_type][3]
 	magic_attack += class_augments[class_type][4]
 	defense += class_augments[class_type][5]
-	
-	return name + " subió de nivel"
 
 func consume_mana(value: int):
 	mana -= value

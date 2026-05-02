@@ -31,19 +31,12 @@ func load_map():
 	
 	next_step.emit(mode)
 
-func _on_fight_finished(exp: int):
-	prompt.emit("El equipo recibió " + str(exp) + " puntos de experiencia", false)
-	await controller.end_prompt
-	
-	var level_grow: String
+func _on_fight_finished(exp_value: int):
+	await _send_prompt("El equipo recibió " + str(exp) + " puntos de experiencia", false)
 	
 	for member in team_in_use.members:
 		if member.health > 0:
-			level_grow = member.get_exp(exp)
-			
-			if not level_grow.is_empty():
-				prompt.emit(level_grow, true)
-				await controller.end_prompt
+			await member.get_exp(exp_value)
 		
 		else:
 			member.health += 20
@@ -57,9 +50,8 @@ func _on_fight_finished(exp: int):
 			conseguido el tesoro!")
 		
 		room.Type.TREASURE:
-			prompt.emit("¡Conseguiste la llave!")
+			await _send_prompt("¡Conseguiste la llave!", true)
 			has_key = true
-			await controller.end_prompt
 	
 	if is_finished == false:
 		load_map()

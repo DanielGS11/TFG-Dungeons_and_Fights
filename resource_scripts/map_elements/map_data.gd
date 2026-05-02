@@ -86,4 +86,4 @@ func generate_map(difficulty: GameAPI.Difficulty):
 	map = data[0]
 	actual_room = data[1]
 	total_minibosses = data[2]
-	miniboss_grow = floor(boss_level_grow / total_minibosses)
+	miniboss_grow = floori(float(boss_level_grow) / total_minibosses)

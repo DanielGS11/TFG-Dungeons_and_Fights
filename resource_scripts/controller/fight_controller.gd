@@ -20,9 +20,19 @@ var queue: Dictionary
 
 var animation_target: String
 
-func _init() -> void:
-	GameAPI.actual_mode.prompt.connect(_show_prompt)
-	GameAPI.actual_mode.finish_game.connect(_end_game)
+func connect_signals():
+	if not GameAPI.actual_mode.prompt.is_connected(_show_prompt):
+		GameAPI.actual_mode.prompt.connect(_show_prompt)
+	
+	if not GameAPI.actual_mode.finish_game.is_connected(_end_game):
+		GameAPI.actual_mode.finish_game.connect(_end_game)
+	
+	for member in team.members:
+		if not member.prompt.is_connected(_show_prompt):
+			member.prompt.connect(_show_prompt)
+	
+	if enemy != null and enemy.prompt.is_connected(_show_prompt):
+		enemy.prompt.connect(_show_prompt)
 
 func execute_queue():
 	var enemy_action = enemy.get_action(team)
@@ -30,7 +40,16 @@ func execute_queue():
 	
 	var order: Array[Entity] = queue.keys()
 	
-	order.sort_custom(func(a, b): return queue[a][0] == Entity.Actions.DEFEND or a.speed > b.speed)
+	order.sort_custom(func(a, b): 
+		var a_defends = queue[a][0] == Entity.Actions.DEFEND
+		var b_defends = queue[b][0] == Entity.Actions.DEFEND
+		
+		if a_defends and b_defends == false:
+			return true
+		elif b_defends and a_defends == false:
+			return false
+		else:
+			return a.speed > b.speed)
 	
 	for key in order:
 		if key.health > 0:
@@ -44,6 +63,8 @@ func execute_queue():
 				
 				Entity.Actions.SKILL:
 					await _skill(key,  queue[key][1],  queue[key][2])
+			
+			refresh_data.emit(team.members.find(key))
 		
 		if enemy.health == 0:
 			break
@@ -59,18 +80,12 @@ func execute_queue():
 	else:
 		var allies_alive = 0
 		
+		await enemy.check_modifiers()
+		
 		for member in team.members:
 			if member.health > 0:
 				allies_alive += 1
-			
-			else:
-				var changes: Array
-				
-				changes = member.check_modifiers()
-				
-				if changes.size() > 0:
-					for i in changes:
-						_show_prompt(i, false)
+				await member.check_modifiers()
 		
 		if allies_alive == 0:
 			_end_game("lose", "Ya no queda nadie en pie, has perdido")
@@ -89,7 +104,7 @@ func _skill(user: Entity, target: Entity, skill: Skill):
 			await _heal(user, target, skill)
 		
 		skill.Type.BUFF, skill.Type.DEBUFF:
-			await _apply_modifier(user, target, skill)
+			await _apply_modifier(target, skill)
 
 func _attack(user: Entity, target: Entity, skill: Skill):
 	var damage: int
@@ -102,7 +117,7 @@ func _attack(user: Entity, target: Entity, skill: Skill):
 			else:
 				animation_target = "enemy"
 			
-			damage = ceil(((user.get_attack() * 2) / (1 + (target.get_defense() / \
+			damage = ceili(((user.get_attack() * 2) / (1 + (target.get_defense() / \
 			(user.get_attack() * 1.5)))) * randf_range(0.85, 1))
 			
 			if randi_range(1, 100) <= user.critical_rate:
@@ -110,8 +125,7 @@ func _attack(user: Entity, target: Entity, skill: Skill):
 				
 				await _show_prompt("¡Golpe crítico!", false)
 			
-			for i in target.take_damage(damage):
-				await _show_prompt(i, false)
+			await target.take_damage(damage)
 			
 			animate.emit(animation_target, "_damaged")
 		
@@ -142,11 +156,10 @@ func _attack(user: Entity, target: Entity, skill: Skill):
 						await _show_prompt(member.name + " lo esquivó", false)
 					
 					else:
-						damage = ceil((((user_stat_value + skill.power) * 2) / (1 + (member.get_defense() \
+						damage = ceili((((user_stat_value + skill.power) * 2) / (1 + (member.get_defense() \
 						 / (user_stat_value * 1.5)))) * randf_range(0.85, 1))
 						
-						for i in member.take_damage(damage):
-							await _show_prompt(i, false)
+						await member.take_damage(damage)
 			
 			animate.emit(animation_target, "_damaged")
 		
@@ -157,7 +170,7 @@ func _attack(user: Entity, target: Entity, skill: Skill):
 				else:
 					animation_target = "enemy"
 				
-				damage = ceil((((user_stat_value + skill.power) * 2) / (1 + (target.get_defense() \
+				damage = ceili((((user_stat_value + skill.power) * 2) / (1 + (target.get_defense() \
 				/ (user_stat_value * 1.5)))) * randf_range(0.85, 1))
 				
 				if randi_range(1, 100) <= user.critical_rate:
@@ -165,8 +178,7 @@ func _attack(user: Entity, target: Entity, skill: Skill):
 					
 					await _show_prompt("¡Golpe crítico!", false)
 				
-				for i in target.take_damage(damage):
-					await _show_prompt(i, false)
+				await target.take_damage(damage)
 				
 				animate.emit(animation_target, "_damaged")
 			
@@ -185,7 +197,7 @@ func _heal(user: Entity, target: Entity, skill: Skill):
 		animation_target = "all"
 		
 		for member in team.members:
-			await _show_prompt(member.heal(healing), false)
+			await member.heal(healing)
 	
 	else:
 		if target is Character:
@@ -196,29 +208,29 @@ func _heal(user: Entity, target: Entity, skill: Skill):
 		
 		match skill.skill_target:
 			skill.Target.ALLY:
-				await _show_prompt(target.heal(healing), false)
+				await target.heal(healing)
 			
 			skill.Target.SELF:
-				await _show_prompt(user.heal(healing), false)
+				await user.heal(healing)
 	
 	animate.emit(animation_target, "_healed")
 
-func _apply_modifier(user: Entity, target: Entity, skill: Skill):
+func _apply_modifier(target: Entity, skill: Skill):
 	match skill.skill_type:
 		skill.Type.BUFF:
 			if target is Character and skill.skill_target == skill.Target.ALL_ALLIES:
 				animation_target = "all"
 				
 				for member in team.members:
-					await _show_prompt(member.apply_buff(skill), false)
+					await member.apply_buff(skill)
 			
 			else:
 				if target is Character:
-					animation_target = "player_" + str(team.members.find(user))
+					animation_target = "player_" + str(team.members.find(target))
 				else:
 					animation_target = "enemy"
 				
-				await _show_prompt(target.apply_buff(skill), false)
+				await target.apply_buff(skill)
 			
 			animate.emit(animation_target, "_buffed")
 		
@@ -227,15 +239,15 @@ func _apply_modifier(user: Entity, target: Entity, skill: Skill):
 				animation_target = "all"
 				
 				for member in team.members:
-					await _show_prompt(member.apply_debuff(skill), false)
+					await member.apply_debuff(skill)
 			
 			else:
 				if target is Character:
-					animation_target = "player_" + str(team.members.find(user))
+					animation_target = "player_" + str(team.members.find(target))
 				else:
 					animation_target = "enemy"
 				
-				await _show_prompt(target.apply_debuff(skill), false)
+				await target.apply_debuff(skill)
 			
 			animate.emit(animation_target, "_debuffed")
 
@@ -247,7 +259,7 @@ func _run_away():
 	for member in team.members:
 		team_avg_level += member.level
 	
-	team_avg_level = ceil(team_avg_level / team.members.size())
+	team_avg_level = ceili(float(team_avg_level) / team.members.size())
 	
 	match enemy.enemy_type:
 		"Jefe":

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Character" format=3 uid="uid://eya8uwlwjheh"]
+
+[ext_resource type="Script" uid="uid://q7s2lsfb8djq" path="res://classes/models/character.gd" id="1_qe5v4"]
+[ext_resource type="Script" uid="uid://dwo74ogytqp2o" path="res://classes/models/skill.gd" id="2_y1hdt"]
+[ext_resource type="Texture2D" uid="uid://x0a8j38138xn" path="res://assets/characters/bastion/bastion_1.png" id="3_y1hdt"]
+
+[resource]
+script = ExtResource("1_qe5v4")
+class_type = "Bastión"
+sprite = ExtResource("3_y1hdt")
+metadata/_custom_type_script = "uid://q7s2lsfb8djq"

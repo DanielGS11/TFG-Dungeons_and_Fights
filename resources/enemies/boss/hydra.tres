@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://c2k5l7sc0etxa"]
+
+[ext_resource type="Script" uid="uid://cr0hhat76xd7a" path="res://classes/models/enemy.gd" id="1_f3700"]
+[ext_resource type="Script" uid="uid://dwo74ogytqp2o" path="res://classes/models/skill.gd" id="2_bjqjn"]
+[ext_resource type="Texture2D" uid="uid://dv3os8j1uns3g" path="res://assets/enemies/boss/hydra.png" id="3_bjqjn"]
+
+[resource]
+script = ExtResource("1_f3700")
+enemy_type = "Jefe"
+sprite = ExtResource("3_bjqjn")
+name = "Hidra"
+metadata/_custom_type_script = "uid://cr0hhat76xd7a"

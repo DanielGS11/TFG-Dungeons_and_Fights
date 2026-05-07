@@ -1,0 +1,87 @@
+extends Panel
+
+signal bright_changed(value: float)
+
+var config : ConfigData
+var changed = false
+
+@onready var volume := %Volume
+@onready var bright := %Bright
+@onready var mute: CheckBox = $Panel/VBoxContainer/Mute/CheckBox
+@onready var animations: CheckBox = $Panel/VBoxContainer/Animations/CheckBox
+
+# Al cargar la escena, se establecen los valores de configuración
+func _ready() -> void:
+	config = GameAPI.get_config()
+	
+	if config.animations:
+		position = Vector2(0, 900)
+		_animate(Vector2(0,0))
+	
+	volume.get_child(1).value = config.volume
+	volume.get_child(2).text = str(int(config.volume))
+	
+	bright.get_child(1).value = config.bright
+	bright.get_child(2).text = str(int(config.bright))
+	
+	mute.button_pressed = config.mute
+	
+	animations.button_pressed = config.animations
+	
+	changed = false
+
+
+func _on_volume_changed(value: float) -> void:
+	volume.get_child(1).value = value
+	volume.get_child(2).text = str(int(value))
+	mute.button_pressed = false
+	
+	changed = true
+
+func _on_bright_changed(value: float) -> void:
+	bright.get_child(1).value = value
+	bright.get_child(2).text = str(int(value))
+	
+	changed = true
+	bright_changed.emit(clampf(((100 - value) / 100) * 0.8, 0.0, 0.8))
+
+func _on_mute_toggled(toggled_on: bool) -> void:
+	mute.button_pressed = toggled_on
+	
+	changed = true
+
+func _on_animations_toggled(toggled_on: bool) -> void:
+	animations.button_pressed = toggled_on
+	
+	changed = true
+
+func _on_confirm_pressed() -> void:
+	GameAPI.set_volume(volume.get_child(1).value)
+	GameAPI.set_bright(bright.get_child(1).value)
+	GameAPI.set_mute(mute.button_pressed)
+	GameAPI.set_animations(animations.button_pressed)
+	
+	GameAPI.save_config()
+	
+	await _animate(Vector2(0,900))
+	queue_free()
+
+func _on_cancel_pressed() -> void:
+	if changed:
+		var popup = preload("res://scenes/global_elements/confirm_popup/confirm_popup.tscn").instantiate()
+		add_child(popup)
+		
+		popup.load_text("Hay cambios sin guardar, ¿Seguro que quieres cancelarlos?")
+		
+		if await popup.confirm:
+			await _animate(Vector2(0,900))
+			queue_free()
+		
+	else:
+		await _animate(Vector2(0,900))
+		queue_free()
+
+func _animate(pos: Vector2):
+	if config.animations:
+		var tween = get_tree().create_tween()
+		await tween.tween_property(self, "position", pos, 0.1).finished

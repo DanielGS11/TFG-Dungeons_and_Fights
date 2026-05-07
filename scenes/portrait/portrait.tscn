@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bplpc1vcpbll6"]
 
 [ext_resource type="Texture2D" uid="uid://dn7qb1ol8pxw1" path="res://assets/background/portrait.png" id="1_k07cr"]
-[ext_resource type="Theme" uid="uid://35h8n6ofxiod" path="res://assets/fonts/font.tres" id="1_qffwa"]
 [ext_resource type="Script" uid="uid://bectahc4yx6u0" path="res://scenes/portrait/portrait.gd" id="2_kk1se"]
 [ext_resource type="Texture2D" uid="uid://dcn0bqi85tna2" path="res://assets/logos/main_logo.png" id="4_bmjsd"]
 
@@ -15,23 +14,24 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r1x2f"]
 
-[sub_resource type="Animation" id="Animation_qffwa"]
+[sub_resource type="Animation" id="Animation_8ni77"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Enter:modulate")
+tracks/0/path = NodePath("Effects/Shine:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0.627451)]
+"values": [Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_r8gk7"]
 resource_name = "entry"
+length = 0.833
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -39,7 +39,7 @@ tracks/0/path = NodePath("Logo:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.13333334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-400, 50), Vector2(47.5, 50)]
@@ -47,14 +47,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Bright/ColorRect:color")
+tracks/1/path = NodePath("Effects/Shine:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.4, 0.43333334, 0.9, 0.93333334),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.3, 0.333, 0.833),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(0, 0, 0, 0)]
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_kk1se"]
@@ -76,19 +76,18 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7abl3"]
 _data = {
-&"RESET": SubResource("Animation_qffwa"),
+&"RESET": SubResource("Animation_8ni77"),
 &"entry": SubResource("Animation_r8gk7"),
 &"idle": SubResource("Animation_kk1se")
 }
 
-[node name="Control" type="Control" unique_id=375016905]
+[node name="Portrait" type="Control" unique_id=375016905]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_qffwa")
 script = ExtResource("2_kk1se")
 
 [node name="Bright" type="CanvasLayer" parent="." unique_id=1387673326]
@@ -102,6 +101,18 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
+
+[node name="Effects" type="CanvasLayer" parent="." unique_id=1425943643]
+layer = 100
+
+[node name="Shine" type="ColorRect" parent="Effects" unique_id=811274960]
+modulate = Color(0, 0, 0, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="Background" type="TextureRect" parent="." unique_id=1408925759]
 layout_mode = 1
@@ -120,8 +131,6 @@ anchor_left = 0.0959596
 anchor_top = 0.056818184
 anchor_right = 0.9040404
 anchor_bottom = 0.19318181
-offset_left = -447.5
-offset_right = -447.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_bmjsd")

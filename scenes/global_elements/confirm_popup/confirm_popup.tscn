@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://diccf1wo656ay"]
+
+[ext_resource type="Theme" uid="uid://35h8n6ofxiod" path="res://assets/fonts/font.tres" id="1_3xdkx"]
+[ext_resource type="Texture2D" uid="uid://yhsj7k13ad4i" path="res://assets/elements/panels/general_1.png" id="2_6j15e"]
+[ext_resource type="Script" uid="uid://bvdkkfwo2a5nh" path="res://scenes/global_elements/confirm_popup/confirm_popup.gd" id="2_6yjog"]
+[ext_resource type="Texture2D" uid="uid://bgr1vglss6hey" path="res://assets/elements/buttons/others/yes.png" id="3_6yjog"]
+[ext_resource type="Texture2D" uid="uid://ed5l1fpmw20v" path="res://assets/elements/buttons/others/yes_pressed.png" id="4_i5lef"]
+[ext_resource type="Texture2D" uid="uid://bq7ciygd3rg3" path="res://assets/elements/buttons/others/no.png" id="5_nhxfr"]
+[ext_resource type="Texture2D" uid="uid://dig057f4yxfqq" path="res://assets/elements/buttons/others/no_pressed.png" id="6_q3k88"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_76wvp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1l7l7"]
+texture = ExtResource("2_6j15e")
+
+[node name="ConfirmPopup" type="Panel" unique_id=1456391419]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_3xdkx")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_76wvp")
+script = ExtResource("2_6yjog")
+
+[node name="Popup" type="Panel" parent="." unique_id=795965134]
+custom_minimum_size = Vector2(450, 350)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.045454547
+anchor_top = 0.30113637
+anchor_right = 0.95454544
+anchor_bottom = 0.6988636
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1l7l7")
+metadata/_edit_use_anchors_ = true
+
+[node name="Elements" type="VBoxContainer" parent="Popup" unique_id=843448822]
+custom_minimum_size = Vector2(385, 270)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -135.0
+offset_right = 190.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="Popup/Elements" unique_id=220737738]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(385, 196)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 18
+text = "hhhhhh"
+autowrap_mode = 3
+
+[node name="Buttons" type="HBoxContainer" parent="Popup/Elements" unique_id=2058176867]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 90
+
+[node name="Yes" type="TextureButton" parent="Popup/Elements/Buttons" unique_id=1688338483]
+custom_minimum_size = Vector2(80, 70)
+layout_mode = 2
+texture_normal = ExtResource("3_6yjog")
+texture_pressed = ExtResource("4_i5lef")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="No" type="TextureButton" parent="Popup/Elements/Buttons" unique_id=1118303612]
+custom_minimum_size = Vector2(80, 70)
+layout_mode = 2
+texture_normal = ExtResource("5_nhxfr")
+texture_pressed = ExtResource("6_q3k88")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="Popup/Elements/Buttons/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="Popup/Elements/Buttons/No" to="." method="_on_no_pressed"]

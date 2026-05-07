@@ -1,7 +1,17 @@
 [gd_resource type="Resource" script_class="CharacterDB" format=3 uid="uid://dwy6ysmd34b84"]
 
-[ext_resource type="Script" uid="uid://2c87qo6kko44" path="res://resource_scripts/db/character_db.gd" id="1_ef04g"]
+[ext_resource type="Script" uid="uid://2c87qo6kko44" path="res://classes/db/character_db.gd" id="1_ef04g"]
+[ext_resource type="Script" uid="uid://q7s2lsfb8djq" path="res://classes/models/character.gd" id="1_krxth"]
+[ext_resource type="Resource" uid="uid://clakedm1ce7hy" path="res://resources/classes/assassin.tres" id="2_qg1gu"]
+[ext_resource type="Resource" uid="uid://eya8uwlwjheh" path="res://resources/classes/bastion.tres" id="3_r48so"]
+[ext_resource type="Resource" uid="uid://impn862lqiy0" path="res://resources/classes/berserk.tres" id="4_7sxo4"]
+[ext_resource type="Resource" uid="uid://tmqjo78nlvi4" path="res://resources/classes/cleric.tres" id="5_o6qoo"]
+[ext_resource type="Resource" uid="uid://dwqg2dng67l3y" path="res://resources/classes/druid.tres" id="6_tk6l5"]
+[ext_resource type="Resource" uid="uid://cgi7yclp7n5ew" path="res://resources/classes/paladin.tres" id="7_6mckg"]
+[ext_resource type="Resource" uid="uid://cfexv7yvj2hrj" path="res://resources/classes/sage.tres" id="8_6j2eu"]
+[ext_resource type="Resource" uid="uid://d1nf0oi6b5xnx" path="res://resources/classes/wizzard.tres" id="9_7v5r8"]
 
 [resource]
 script = ExtResource("1_ef04g")
+characters = Array[ExtResource("1_krxth")]([ExtResource("2_qg1gu"), ExtResource("3_r48so"), ExtResource("4_7sxo4"), ExtResource("5_o6qoo"), ExtResource("6_tk6l5"), ExtResource("7_6mckg"), ExtResource("8_6j2eu"), ExtResource("9_7v5r8")])
 metadata/_custom_type_script = "uid://2c87qo6kko44"

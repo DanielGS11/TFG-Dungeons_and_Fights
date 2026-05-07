@@ -1,0 +1,319 @@
+[gd_scene format=3 uid="uid://bnshqxqx86jtw"]
+
+[ext_resource type="Script" uid="uid://bcdvfrqdssqgs" path="res://scenes/main_menu/main_menu.gd" id="1_dn3lk"]
+[ext_resource type="Texture2D" uid="uid://bpbo54nsaxwbb" path="res://assets/background/menu.png" id="1_ob46e"]
+[ext_resource type="Texture2D" uid="uid://bu46h48jfxgqg" path="res://assets/elements/buttons/main_menu/battle_mode.png" id="2_uqeha"]
+[ext_resource type="Texture2D" uid="uid://braijrs77kvjb" path="res://assets/elements/buttons/main_menu/battle_mode_pressed.png" id="3_wem23"]
+[ext_resource type="Texture2D" uid="uid://c6vh50s2afnb7" path="res://assets/elements/buttons/main_menu/dungeon_mode.png" id="5_4ujhu"]
+[ext_resource type="Texture2D" uid="uid://b0aar8puurtgu" path="res://assets/elements/buttons/main_menu/dungeon_mode_pressed.png" id="6_vnpsp"]
+[ext_resource type="Texture2D" uid="uid://dn274yvxwduuy" path="res://assets/elements/buttons/main_menu/teams.png" id="7_a1gy5"]
+[ext_resource type="Texture2D" uid="uid://yylc7yh631sa" path="res://assets/elements/buttons/main_menu/teams_pressed.png" id="8_bq5lc"]
+[ext_resource type="Texture2D" uid="uid://b3tp3sm3kjako" path="res://assets/elements/buttons/main_menu/exit.png" id="9_xac7c"]
+[ext_resource type="Texture2D" uid="uid://cq2p1e8su4tj5" path="res://assets/elements/buttons/main_menu/exit_pressed.png" id="10_0m3cs"]
+[ext_resource type="Texture2D" uid="uid://b1tv5n57d4r8i" path="res://assets/elements/buttons/main_menu/settings.png" id="11_i7nm7"]
+[ext_resource type="Texture2D" uid="uid://tyovur13qp4o" path="res://assets/elements/buttons/main_menu/settings_pressed.png" id="12_tfctf"]
+[ext_resource type="Texture2D" uid="uid://csalxiqyje4up" path="res://assets/elements/buttons/main_menu/guides.png" id="13_n7xlh"]
+[ext_resource type="Texture2D" uid="uid://dqhqjbjicq2vo" path="res://assets/elements/buttons/main_menu/guides_pressed.png" id="14_0xlsr"]
+
+[sub_resource type="Animation" id="Animation_0oicw"]
+resource_name = "entry"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BattleMode:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(500, 90), Vector2(47.5, 90)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DungeonMode:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666667, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(500, 250), Vector2(47.5, 250)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Teams:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.13333334, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(500, 410), Vector2(47.5, 410)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Exit:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(500, 570), Vector2(47.5, 570)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Settings:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(30, 900), Vector2(30, 785)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Guides:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.16666667, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(265, 900), Vector2(265, 785)]
+}
+
+[sub_resource type="Animation" id="Animation_83tid"]
+resource_name = "exit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BattleMode:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(47.5, 90), Vector2(500, 90)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DungeonMode:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666667, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(47.5, 250), Vector2(500, 250)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Teams:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.13333334, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(47.5, 410), Vector2(500, 410)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Exit:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(47.5, 570), Vector2(500, 570)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Settings:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(30, 785), Vector2(30, 900)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Guides:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.16666667, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(265, 785), Vector2(265, 900)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4xg86"]
+_data = {
+&"entry": SubResource("Animation_0oicw"),
+&"exit": SubResource("Animation_83tid")
+}
+
+[node name="MainMenu" type="Control" unique_id=469579671]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dn3lk")
+
+[node name="Bright" type="CanvasLayer" parent="." unique_id=1486132023]
+layer = 999
+
+[node name="ColorRect" type="ColorRect" parent="Bright" unique_id=1771170420]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Background" type="TextureRect" parent="." unique_id=1824644689]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ob46e")
+expand_mode = 1
+
+[node name="BattleMode" type="TextureButton" parent="." unique_id=1007878542]
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0959596
+anchor_top = 0.10227273
+anchor_right = 0.9040404
+anchor_bottom = 0.20454545
+offset_right = 0.0018005371
+grow_horizontal = 2
+texture_normal = ExtResource("2_uqeha")
+texture_pressed = ExtResource("3_wem23")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="DungeonMode" type="TextureButton" parent="." unique_id=53405521]
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0959596
+anchor_top = 0.2840909
+anchor_right = 0.9040404
+anchor_bottom = 0.38636363
+offset_right = 0.0010681152
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("5_4ujhu")
+texture_pressed = ExtResource("6_vnpsp")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Teams" type="TextureButton" parent="." unique_id=1544056575]
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0959596
+anchor_top = 0.4659091
+anchor_right = 0.9040404
+anchor_bottom = 0.5681818
+offset_right = 0.00021362305
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("7_a1gy5")
+texture_pressed = ExtResource("8_bq5lc")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Exit" type="TextureButton" parent="." unique_id=1889234012]
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0959596
+anchor_top = 0.64772725
+anchor_right = 0.9040404
+anchor_bottom = 0.75
+offset_right = 0.0005187988
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("9_xac7c")
+texture_pressed = ExtResource("10_0m3cs")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Settings" type="TextureButton" parent="." unique_id=570613991]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3181818
+anchor_top = 0.89772725
+anchor_right = 0.64141417
+anchor_bottom = 0.9488636
+offset_left = -127.5
+offset_top = -5.0
+offset_right = -87.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("11_i7nm7")
+texture_pressed = ExtResource("12_tfctf")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Guides" type="TextureButton" parent="." unique_id=1749666420]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5555556
+anchor_top = 0.89772725
+anchor_right = 0.9191919
+anchor_bottom = 0.96022725
+offset_left = -10.0
+offset_top = -5.0
+offset_right = 10.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("13_n7xlh")
+texture_pressed = ExtResource("14_0xlsr")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1346788375]
+libraries/ = SubResource("AnimationLibrary_4xg86")
+
+[connection signal="pressed" from="BattleMode" to="." method="_on_battle_mode_pressed"]
+[connection signal="pressed" from="DungeonMode" to="." method="_on_dungeon_mode_pressed"]
+[connection signal="pressed" from="Teams" to="." method="_on_teams_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Guides" to="." method="_on_guides_pressed"]

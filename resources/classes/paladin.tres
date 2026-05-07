@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Character" format=3 uid="uid://cgi7yclp7n5ew"]
+
+[ext_resource type="Script" uid="uid://q7s2lsfb8djq" path="res://classes/models/character.gd" id="1_w4pte"]
+[ext_resource type="Script" uid="uid://dwo74ogytqp2o" path="res://classes/models/skill.gd" id="2_bank4"]
+[ext_resource type="Texture2D" uid="uid://bksdu2bf43l3q" path="res://assets/characters/paladin/paladin_1.png" id="3_bank4"]
+
+[resource]
+script = ExtResource("1_w4pte")
+class_type = "Paladin"
+sprite = ExtResource("3_bank4")
+metadata/_custom_type_script = "uid://q7s2lsfb8djq"

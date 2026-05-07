@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://c0a6dbvxe1dbn"]
+
+[ext_resource type="Texture2D" uid="uid://dc7l3m3rxtyn1" path="res://assets/elements/panels/general_long.png" id="2_t53h3"]
+[ext_resource type="Script" uid="uid://oa0yegoynhus" path="res://scenes/main_menu/guides/guide_list.gd" id="3_t53h3"]
+[ext_resource type="Texture2D" uid="uid://btx4jmvl23lk6" path="res://assets/elements/buttons/others/X.png" id="3_tmm3g"]
+[ext_resource type="Texture2D" uid="uid://bb4yfmsro3yc6" path="res://assets/elements/buttons/others/X_pressed.png" id="4_wkpfs"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j3j04"]
+texture = ExtResource("2_t53h3")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mre0i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y86e0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k431v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rhs3a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lkkde"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5lnsu"]
+border_width_top = 3
+border_color = Color(0.33333334, 0.11372549, 0.47843137, 1)
+
+[node name="GuideList" type="Panel" unique_id=644283247]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_j3j04")
+script = ExtResource("3_t53h3")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=502042370]
+custom_minimum_size = Vector2(430, 770)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.065656565
+anchor_top = 0.09090909
+anchor_right = 0.93434346
+anchor_bottom = 0.96590906
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="List" type="VBoxContainer" parent="ScrollContainer" unique_id=1754858769]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Guide" type="Button" parent="ScrollContainer/List" unique_id=1842613905]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mre0i")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_y86e0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_k431v")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_rhs3a")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lkkde")
+text = "Guía"
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/List" unique_id=1777767620]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_5lnsu")
+
+[node name="Exit" type="TextureButton" parent="." unique_id=1540076817]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+anchor_left = 0.82626265
+anchor_top = 0.03181818
+anchor_right = 0.92727274
+anchor_bottom = 0.08863636
+texture_normal = ExtResource("3_tmm3g")
+texture_pressed = ExtResource("4_wkpfs")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

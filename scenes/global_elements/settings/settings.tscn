@@ -1,0 +1,193 @@
+[gd_scene format=3 uid="uid://c06nbbweafpt1"]
+
+[ext_resource type="Script" uid="uid://cqi8k4uy6ant1" path="res://scenes/global_elements/settings/settings.gd" id="1_iyweg"]
+[ext_resource type="Texture2D" uid="uid://dc7l3m3rxtyn1" path="res://assets/elements/panels/general_long.png" id="1_yete5"]
+[ext_resource type="Texture2D" uid="uid://dlfqd62pwc73o" path="res://assets/elements/others/settings/grabber.png" id="2_su5v6"]
+[ext_resource type="Texture2D" uid="uid://bp1vfnfaybik7" path="res://assets/elements/others/settings/slider_bg.png" id="3_dxumj"]
+[ext_resource type="Texture2D" uid="uid://cwdnf0snay8r5" path="res://assets/elements/others/settings/slider.png" id="4_fbkyr"]
+[ext_resource type="Texture2D" uid="uid://bgcvqx3br2uk4" path="res://assets/elements/others/settings/check.png" id="5_iyweg"]
+[ext_resource type="Texture2D" uid="uid://ct5auf1gv7ge7" path="res://assets/elements/others/settings/unchecked.png" id="6_7ecyx"]
+[ext_resource type="Texture2D" uid="uid://dxfgxvyt6u3w8" path="res://assets/elements/buttons/others/confirm.png" id="7_ur1ln"]
+[ext_resource type="Texture2D" uid="uid://cj04cs6x1ga4p" path="res://assets/elements/buttons/others/confirm_pressed.png" id="8_84dqs"]
+[ext_resource type="Texture2D" uid="uid://dwnvfgkxd3xd5" path="res://assets/elements/buttons/others/cancel.png" id="10_7ecyx"]
+[ext_resource type="Texture2D" uid="uid://duxsrteilw6tb" path="res://assets/elements/buttons/others/cancel_pressed.png" id="11_ur1ln"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_menvw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_12aho"]
+texture = ExtResource("1_yete5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_unvya"]
+texture = ExtResource("3_dxumj")
+texture_margin_top = 7.0
+texture_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4n783"]
+texture = ExtResource("4_fbkyr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_drwv2"]
+texture = ExtResource("4_fbkyr")
+
+[node name="Settings" type="Panel" unique_id=264974714]
+custom_minimum_size = Vector2(450, 830)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_menvw")
+script = ExtResource("1_iyweg")
+
+[node name="Panel" type="Panel" parent="." unique_id=618471876]
+custom_minimum_size = Vector2(450, 830)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -415.0
+offset_right = 225.0
+offset_bottom = 415.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_12aho")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1243337856]
+custom_minimum_size = Vector2(390, 750)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = -375.0
+offset_right = 195.0
+offset_bottom = 375.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="Volume" type="BoxContainer" parent="Panel/VBoxContainer" unique_id=858663640]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Text" type="Label" parent="Panel/VBoxContainer/Volume" unique_id=1706946734]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Volumen"
+
+[node name="Value" type="HSlider" parent="Panel/VBoxContainer/Volume" unique_id=1120105973]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_icons/grabber = ExtResource("2_su5v6")
+theme_override_icons/grabber_highlight = ExtResource("2_su5v6")
+theme_override_styles/slider = SubResource("StyleBoxTexture_unvya")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_4n783")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_drwv2")
+value = 20.0
+rounded = true
+
+[node name="ValueText" type="Label" parent="Panel/VBoxContainer/Volume" unique_id=527770903]
+custom_minimum_size = Vector2(65, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "100"
+horizontal_alignment = 1
+
+[node name="Bright" type="BoxContainer" parent="Panel/VBoxContainer" unique_id=283997109]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Text" type="Label" parent="Panel/VBoxContainer/Bright" unique_id=1533450673]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Brillo"
+
+[node name="Value" type="HSlider" parent="Panel/VBoxContainer/Bright" unique_id=2020829706]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_icons/grabber = ExtResource("2_su5v6")
+theme_override_icons/grabber_highlight = ExtResource("2_su5v6")
+theme_override_styles/slider = SubResource("StyleBoxTexture_unvya")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_4n783")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_drwv2")
+value = 20.0
+rounded = true
+
+[node name="ValueText" type="Label" parent="Panel/VBoxContainer/Bright" unique_id=579700691]
+custom_minimum_size = Vector2(65, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "100"
+horizontal_alignment = 1
+
+[node name="Mute" type="BoxContainer" parent="Panel/VBoxContainer" unique_id=961827012]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Text" type="Label" parent="Panel/VBoxContainer/Mute" unique_id=2063770021]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Silenciar"
+
+[node name="CheckBox" type="CheckBox" parent="Panel/VBoxContainer/Mute" unique_id=592094950]
+layout_mode = 2
+theme_override_icons/checked = ExtResource("5_iyweg")
+theme_override_icons/unchecked = ExtResource("6_7ecyx")
+keep_pressed_outside = true
+
+[node name="Animations" type="BoxContainer" parent="Panel/VBoxContainer" unique_id=175047152]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Text" type="Label" parent="Panel/VBoxContainer/Animations" unique_id=1476817883]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Animaciones"
+
+[node name="CheckBox" type="CheckBox" parent="Panel/VBoxContainer/Animations" unique_id=833605921]
+layout_mode = 2
+theme_override_icons/checked = ExtResource("5_iyweg")
+theme_override_icons/unchecked = ExtResource("6_7ecyx")
+button_pressed = true
+keep_pressed_outside = true
+
+[node name="Buttons" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=929709277]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_constants/separation = 20
+
+[node name="Confirm" type="TextureButton" parent="Panel/VBoxContainer/Buttons" unique_id=1974083824]
+custom_minimum_size = Vector2(180, 60)
+layout_mode = 2
+texture_normal = ExtResource("7_ur1ln")
+texture_pressed = ExtResource("8_84dqs")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Cancel" type="TextureButton" parent="Panel/VBoxContainer/Buttons" unique_id=953010410]
+custom_minimum_size = Vector2(180, 60)
+layout_mode = 2
+texture_normal = ExtResource("10_7ecyx")
+texture_pressed = ExtResource("11_ur1ln")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="value_changed" from="Panel/VBoxContainer/Volume/Value" to="." method="_on_volume_changed"]
+[connection signal="value_changed" from="Panel/VBoxContainer/Bright/Value" to="." method="_on_bright_changed"]
+[connection signal="toggled" from="Panel/VBoxContainer/Mute/CheckBox" to="." method="_on_mute_toggled"]
+[connection signal="toggled" from="Panel/VBoxContainer/Animations/CheckBox" to="." method="_on_animations_toggled"]
+[connection signal="pressed" from="Panel/VBoxContainer/Buttons/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Buttons/Cancel" to="." method="_on_cancel_pressed"]

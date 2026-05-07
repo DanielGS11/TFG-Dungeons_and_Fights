@@ -18,6 +18,7 @@ config/icon="uid://emqfhpuaxwtq"
 [autoload]
 
 GameAPI="*uid://ng0uoa1ekk7e"
+GameManager="*uid://bpi1k0ieneu08"
 
 [display]
 
@@ -33,12 +34,20 @@ window/handheld/orientation=5
 folder_colors={
 "res://android/": "red",
 "res://assets/": "orange",
+"res://classes/": "blue",
 "res://exports/": "red",
-"res://resource_scripts/": "blue",
 "res://resources/": "purple",
 "res://scenes/": "gray",
-"res://system/": "green"
+"res://system_autoloads/": "green"
 }
+
+[gui]
+
+theme/custom_font="uid://dwpytq0i4f7ey"
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [physics]
 

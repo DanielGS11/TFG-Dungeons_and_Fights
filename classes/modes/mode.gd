@@ -15,6 +15,7 @@ enum Type {BATTLE, DUNGEON}
 
 @export var mode: Type
 @export var team_in_use: Team
+@export var team_index: int = -1
 @export var controller: FightController
 @export var is_finished: bool = true
 

@@ -47,6 +47,10 @@ func set_team(index: int):
 
 ## Borra un equipo
 func delete_team(index: int):
+	for key in GameManager.modes:
+		if index == GameManager.modes[key].team_index:
+			GameManager.modes[key].team_index = -1
+	
 	GameManager.teams.remove_at(index)
 
 ## Carga un equipo aleatorio en el modo de juego actual

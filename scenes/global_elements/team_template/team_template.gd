@@ -1,6 +1,6 @@
-extends Panel
+extends TextureButton
 
-signal team_deleted
+signal team_deleted(id: int)
 signal team_selected(id: int)
 
 enum Context {MODE, EDITOR, LIST}
@@ -8,18 +8,18 @@ enum Context {MODE, EDITOR, LIST}
 var context: Context
 var index: int
 
+@onready var team_name: Label = %TeamName
 @onready var members = %Members
 @onready var delete_button = %Delete
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func load_data() -> void:
+	team_name.text= "Equipo " + str(index + 1)
+	
 	match context:
 		Context.EDITOR:
-			pass
+			mouse_filter = Control.MOUSE_FILTER_IGNORE
 		Context.MODE, Context.LIST:
-			mouse_filter = Control.MOUSE_FILTER_STOP
+			mouse_filter = Control.MOUSE_FILTER_PASS
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_team_selected():
+	print("a")

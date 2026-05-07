@@ -23,20 +23,29 @@ func _load_teams():
 		
 		list.move_child(button, -1)
 		
-		template.team_deleted.connect(_load_teams)
 		template.index = i
+		template.team_deleted.connect(_delete_team.bind(template.index))
 		template.context = template.Context.LIST
+		template.load_data()
 		
 	
 	counter.text = str(teams.size()) + "/5"
 	
 	_check_button_state()
 
+## Borrar un equipo
+func _delete_team (index: int):
+	var popup = preload("res://scenes/global_elements/confirm_popup/confirm_popup.tscn").instantiate()
+	add_child(popup)
+	
+	popup.load_text("¿Seguro que quieres borrar este equipo?")
+	
+	# Esperamos que la notificación envie la señal
+	if await popup.confirm:
+		GameAPI.delete_team(index)
+		
+		_load_teams()
+
 ## Mira el estado del botón 'Añadir' y lo hace visible si hay menos de 5 equipos
 func _check_button_state():
 	button.visible = list.get_children().size() - 1 < 5
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

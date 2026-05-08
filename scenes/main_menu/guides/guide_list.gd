@@ -8,7 +8,7 @@ var separator: HSeparator
 
 # Al cargar la escena
 func _ready() -> void:
-	if GameManager.config.animations:
+	if GameAPI.get_config().animations:
 		# Creo una animación por código
 		var tween = get_tree().create_tween()
 		
@@ -51,7 +51,6 @@ func _on_guide_selected(key: String):
 	
 	# Las guías "Clases" y "Enemigos" son diferentes, por lo que cargarían otra escena
 	if key == "Clases" or key == "Enemigos":
-		pass
 		guide_screen = preload("res://scenes/global_elements/entity_guide/entity_guide.tscn").instantiate()
 		
 		add_child(guide_screen)
@@ -68,7 +67,7 @@ func _on_guide_selected(key: String):
 
 ## Al pulsar la 'X' hace su animación de salida y muere
 func _on_exit_pressed() -> void:
-	if GameManager.config.animations:
+	if GameAPI.get_config().animations:
 		# Cada animación es de un solo uso, por lo que hay que crearlo de nuevo cada vez
 		var tween = get_tree().create_tween() 
 		await tween.tween_property(self, "position", Vector2(0,900), 0.1).finished

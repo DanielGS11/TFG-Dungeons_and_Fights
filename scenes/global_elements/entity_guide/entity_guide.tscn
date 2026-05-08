@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dc7l3m3rxtyn1" path="res://assets/elements/panels/general_long.png" id="1_xravx"]
 [ext_resource type="Script" uid="uid://cqeymambaf32e" path="res://scenes/global_elements/entity_guide/entity_guide.gd" id="2_ctff4"]
-[ext_resource type="Texture2D" uid="uid://dloav5e0bfenn" path="res://assets/elements/buttons/others/go_back.png" id="3_h3fcc"]
+[ext_resource type="Texture2D" uid="uid://btx4jmvl23lk6" path="res://assets/elements/buttons/others/X.png" id="3_ctff4"]
 [ext_resource type="Texture2D" uid="uid://bhg2uqij0tt8b" path="res://assets/elements/buttons/others/back.png" id="3_n1qdb"]
 [ext_resource type="Texture2D" uid="uid://dmd2fdtgxkgc7" path="res://assets/elements/buttons/others/back_pressed.png" id="4_ctff4"]
 [ext_resource type="Texture2D" uid="uid://ds48lhy07n1so" path="res://assets/elements/panels/general_2.png" id="5_3idk4"]
@@ -41,11 +41,11 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Return" type="TextureButton" parent="Header" unique_id=1803493310]
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("3_h3fcc")
+texture_normal = ExtResource("3_ctff4")
 ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true

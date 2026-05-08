@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bwsh68ao7s76p" path="res://assets/characters/assassin/assassin_1.png" id="4_vm5kv"]
 
 [node name="Team" type="TextureButton" unique_id=1927925433]
-custom_minimum_size = Vector2(440, 180)
+custom_minimum_size = Vector2(430, 180)
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 1
@@ -38,6 +38,8 @@ anchor_left = 0.8806818
 anchor_top = 0.056249958
 anchor_right = 0.97159094
 anchor_bottom = 0.2722222
+offset_top = 0.8750076
+offset_right = 0.90908813
 texture_normal = ExtResource("2_eo6rt")
 texture_pressed = ExtResource("2_eo6rt")
 ignore_texture_size = true
@@ -196,3 +198,4 @@ theme_override_font_sizes/font_size = 9
 text = "Nombreeeee"
 
 [connection signal="pressed" from="." to="." method="_on_team_selected"]
+[connection signal="pressed" from="Delete" to="." method="_on_delete_pressed"]

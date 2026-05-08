@@ -27,36 +27,41 @@ func _init():
 
 ## Obtener experiencia al derrotar a un enemigo
 func get_exp(exp_value: int):
-	actual_exp += exp_value
+	if level >= 50:
+		await GameAPI.send_prompt(name + " no puede subir más de nivel", true)
 	
-	var level_grow = 0
-	
-	while actual_exp > exp_next_level:
-		actual_exp -= exp_next_level
-		level_up()
-		level_grow += 1
-	
-	if level_grow > 1:
-		await GameAPI.send_prompt(name + " subió " + str(level_grow) + " niveles", true)
+	else:
+		actual_exp += exp_value
 		
-	elif level_grow == 1:
-		await GameAPI.send_prompt(name + " subió " + str(level_grow) + " nivel", true)
+		var level_grow = 0
+		
+		while actual_exp > exp_next_level:
+			actual_exp -= exp_next_level
+			level_up()
+			level_grow += 1
+		
+		if level_grow > 1:
+			await GameAPI.send_prompt(name + " subió " + str(level_grow) + " niveles", true)
+			
+		elif level_grow == 1:
+			await GameAPI.send_prompt(name + " subió " + str(level_grow) + " nivel", true)
 
 ## Subir de nivel
 func level_up():
-	level += 1
-	
-	max_health += class_augments[class_type][0]
-	health += class_augments[class_type][0]
-	
-	max_mana += class_augments[class_type][1]
-	mana += class_augments[class_type][1]
-	
-	exp_next_level += class_augments[class_type][2]
-	
-	attack += class_augments[class_type][3]
-	magic_attack += class_augments[class_type][4]
-	defense += class_augments[class_type][5]
+	if level < 50:
+		level += 1
+		
+		max_health += class_augments[class_type][0]
+		health += class_augments[class_type][0]
+		
+		max_mana += class_augments[class_type][1]
+		mana += class_augments[class_type][1]
+		
+		exp_next_level += class_augments[class_type][2]
+		
+		attack += class_augments[class_type][3]
+		magic_attack += class_augments[class_type][4]
+		defense += class_augments[class_type][5]
 
 func consume_mana(value: int):
 	mana -= value

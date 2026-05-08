@@ -1,0 +1,200 @@
+[gd_scene format=3 uid="uid://cnojqgsryqqgj"]
+
+[ext_resource type="Script" uid="uid://123htw7m2j8x" path="res://scenes/menus/battle_mode/battle_mode.gd" id="1_4gd1u"]
+[ext_resource type="Texture2D" uid="uid://bpbo54nsaxwbb" path="res://assets/background/menu.png" id="2_mblum"]
+[ext_resource type="Texture2D" uid="uid://b1k1ns5ccn7hl" path="res://assets/logos/battle_mode.png" id="3_qp2ti"]
+[ext_resource type="Texture2D" uid="uid://cgcl8rnud1vqc" path="res://assets/elements/buttons/others/minus.png" id="4_4504r"]
+[ext_resource type="Texture2D" uid="uid://ckcnusyulesyf" path="res://assets/elements/panels/no_team.png" id="4_mblum"]
+[ext_resource type="Texture2D" uid="uid://cuve2i1qbgu8s" path="res://assets/elements/buttons/others/minus_pressed.png" id="5_rsxtm"]
+[ext_resource type="Texture2D" uid="uid://ds48lhy07n1so" path="res://assets/elements/panels/general_2.png" id="6_3qahf"]
+[ext_resource type="Texture2D" uid="uid://cwcl6dqm0u1yl" path="res://assets/elements/buttons/others/plus.png" id="7_iauht"]
+[ext_resource type="Texture2D" uid="uid://fytkp4gjv3pl" path="res://assets/elements/buttons/others/plus_pressed.png" id="8_6jk65"]
+[ext_resource type="Texture2D" uid="uid://de5bv7a41g26q" path="res://assets/elements/buttons/others/return.png" id="9_qrkir"]
+[ext_resource type="Texture2D" uid="uid://cmvp515pj65fw" path="res://assets/elements/buttons/others/return_pressed.png" id="10_3rfb8"]
+[ext_resource type="Texture2D" uid="uid://dgfm0niu1bo6i" path="res://assets/elements/buttons/others/play.png" id="11_ss7ip"]
+[ext_resource type="Texture2D" uid="uid://dm12ep16ixrti" path="res://assets/elements/buttons/others/play_pressed.png" id="12_bycq7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uxigh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tkldw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_swoad"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6443h"]
+texture = ExtResource("6_3qahf")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[node name="BattleMode" type="Control" unique_id=2006588086]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4gd1u")
+
+[node name="Bright" type="CanvasLayer" parent="." unique_id=919543720]
+layer = 999
+
+[node name="ColorRect" type="ColorRect" parent="Bright" unique_id=691001029]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Background" type="TextureRect" parent="." unique_id=1553519253]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mblum")
+expand_mode = 1
+
+[node name="Content" type="VBoxContainer" parent="." unique_id=336813050]
+custom_minimum_size = Vector2(495, 820)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.5
+offset_top = -410.0
+offset_right = 247.5
+offset_bottom = 410.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Logo" type="TextureRect" parent="Content" unique_id=1788266002]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture = ExtResource("3_qp2ti")
+expand_mode = 1
+
+[node name="SelectTeamText" type="Label" parent="Content" unique_id=324178815]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 25
+text = "Equipo Seleccionado"
+
+[node name="TeamButton" type="Button" parent="Content" unique_id=1273565322]
+custom_minimum_size = Vector2(440, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uxigh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tkldw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_swoad")
+
+[node name="TextureRect" type="TextureRect" parent="Content/TeamButton" unique_id=56961293]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_mblum")
+expand_mode = 1
+
+[node name="Warn" type="Label" parent="Content" unique_id=1965297972]
+custom_minimum_size = Vector2(1, 40)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "Aviso: Se asignará un equipo aleatorio"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="EnemiesNumberText" type="Label" parent="Content" unique_id=1178000883]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 19
+text = "Número de enemigos"
+horizontal_alignment = 1
+
+[node name="EnemiesNumber" type="HBoxContainer" parent="Content" unique_id=628930747]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="Minus" type="TextureButton" parent="Content/EnemiesNumber" unique_id=2107731533]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_4504r")
+texture_pressed = ExtResource("5_rsxtm")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Number" type="Panel" parent="Content/EnemiesNumber" unique_id=2070910334]
+custom_minimum_size = Vector2(150, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_6443h")
+
+[node name="Text" type="Label" parent="Content/EnemiesNumber/Number" unique_id=321956756]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Plus" type="TextureButton" parent="Content/EnemiesNumber" unique_id=910146400]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("7_iauht")
+texture_pressed = ExtResource("8_6jk65")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content" unique_id=9423347]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_constants/separation = 30
+
+[node name="Return" type="TextureButton" parent="Content/HBoxContainer" unique_id=85976245]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("9_qrkir")
+texture_pressed = ExtResource("10_3rfb8")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Play" type="TextureButton" parent="Content/HBoxContainer" unique_id=1302014187]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("11_ss7ip")
+texture_pressed = ExtResource("12_bycq7")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="Content/TeamButton" to="." method="_on_team_button_pressed"]
+[connection signal="button_down" from="Content/EnemiesNumber/Minus" to="." method="_on_minus_button_down"]
+[connection signal="button_down" from="Content/EnemiesNumber/Plus" to="." method="_on_plus_button_down"]

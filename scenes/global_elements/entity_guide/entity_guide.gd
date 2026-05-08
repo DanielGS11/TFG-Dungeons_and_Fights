@@ -24,12 +24,15 @@ func load_parameters(guide: String, c: Context):
 	match context:
 		Context.GUIDES:
 			button.texture_normal = GameAPI.get_asset("buttons", "Volver")
+			button.custom_minimum_size = Vector2(30, 30)
 			button.texture_pressed = null
 		
 		Context.EDITOR:
-			position = Vector2(0, 900)
+			if GameAPI.get_config().animations:
+				position = Vector2(0, 900)
+				_animate(Vector2(0, 0))
 			
-			_animate(Vector2(0, 0))
+			button.custom_minimum_size = Vector2(45, 45)
 			
 			var boton_recogido = GameAPI.get_asset("others", "Cerrar")
 			
@@ -93,7 +96,7 @@ func _on_return_pressed() -> void:
 	queue_free()
 
 func _animate(pos: Vector2):
-	if GameManager.config.animations:
+	if GameAPI.get_config().animations:
 		# Cada animación es de un solo uso, por lo que hay que crearlo de nuevo cada vez
 		var tween = get_tree().create_tween() 
 		await tween.tween_property(self, "position", pos, 0.1).finished

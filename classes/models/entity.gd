@@ -7,7 +7,7 @@ enum Actions {ATTACK, DEFEND, SKILL}
 
 @export var sprite: Texture2D
 
-@export var level: int = 0
+@export var level: int = 1
 @export var name: String = ""
 
 @export var max_health: int = 0

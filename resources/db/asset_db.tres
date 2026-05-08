@@ -43,6 +43,9 @@
 [ext_resource type="Texture2D" uid="uid://cgfkcerqm1hbm" path="res://assets/elements/others/room_icons/lock.png" id="33_qovct"]
 [ext_resource type="Texture2D" uid="uid://dki3xf4tjufqx" path="res://assets/elements/others/room_icons/treasure.png" id="34_gwq60"]
 [ext_resource type="Texture2D" uid="uid://b4wro16pkeqa0" path="res://assets/elements/others/room_icons/treasure_collected.png" id="35_qnv6y"]
+[ext_resource type="Texture2D" uid="uid://pgvn8ibhcdq5" path="res://assets/elements/panels/no_member.png" id="36_2wdn0"]
+[ext_resource type="Texture2D" uid="uid://bcsmkxlh7qu4c" path="res://assets/asset_not_found.png" id="37_qi8ra"]
+[ext_resource type="Texture2D" uid="uid://ckcnusyulesyf" path="res://assets/elements/panels/no_team.png" id="38_qi8ra"]
 [ext_resource type="Texture2D" uid="uid://dtgqkk7xqef8u" path="res://assets/background/battle_mode_room.png" id="46_07b6v"]
 
 [resource]
@@ -78,6 +81,9 @@ icons = Dictionary[String, Texture2D]({
 })
 others = Dictionary[String, Variant]({
 "Cerrar": [ExtResource("2_qnv6y"), ExtResource("3_qnv6y")],
+"Sin equipo": ExtResource("38_qi8ra"),
+"Sin integrante": ExtResource("36_2wdn0"),
+"Sin textura": ExtResource("37_qi8ra"),
 "Volver": ExtResource("1_gwq60")
 })
 metadata/_custom_type_script = "uid://cl31mxmwcb3t1"

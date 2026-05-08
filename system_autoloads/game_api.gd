@@ -40,10 +40,19 @@ func get_all_teams() -> Array[Team]:
 func get_team(index: int) -> Team:
 	return GameManager.teams[index]
 
-## Añade/Modifica un equipo
-func set_team(index: int):
-	if GameManager.teams.size() >= index:
-		GameManager.teams.append(Team.new())
+## Añade un equipo
+func add_team():
+	GameManager.teams.append(Team.new())
+	
+	GameManager.team_in_edition = GameManager.teams.size() - 1
+
+## Devuelve en índice del equipo en uso
+func get_team_index(mode: Mode.Type) -> int:
+	return GameManager.modes[mode].team_index
+
+## Configura el índice del equipo en uso
+func set_team_index(mode: Mode.Type, index: int):
+	GameManager.modes[mode].team_index = index
 
 ## Borra un equipo
 func delete_team(index: int):
@@ -53,8 +62,20 @@ func delete_team(index: int):
 	
 	GameManager.teams.remove_at(index)
 
+## Asigna el id del equipo en edición
+func set_team_in_edition(index: int):
+	GameManager.team_in_edition = index
+
+## Devuelve el id equipo en edición
+func get_team_in_edition() -> int:
+	return GameManager.team_in_edition
+
+## Añade/Modifica un miembro de un equipo
+func set_member(team_index: int, member_index: int, member: Character):
+	GameManager.teams[team_index].members[member_index] = member
+
 ## Carga un equipo aleatorio en el modo de juego actual
-func set_random_team():
+func get_random_team():
 	var team := Team.new()
 	
 	for i in team.members.size():
@@ -70,7 +91,7 @@ func get_asset(category: String, key: String) -> Variant:
 	if asset_dictionary == null or not asset_dictionary.has(key):
 		push_error("Asset '" + key + "' de la categoría '" + category + "' no encontrado")
 		
-		asset = preload("res://assets/asset_not_found.png")
+		asset = assets_db.others["Sin textura"]
 		
 	else:
 		asset = asset_dictionary[key]

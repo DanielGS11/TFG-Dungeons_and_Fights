@@ -17,6 +17,7 @@
 
 [sub_resource type="Animation" id="Animation_0oicw"]
 resource_name = "entry"
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -92,6 +93,7 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_83tid"]
 resource_name = "exit"
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -210,7 +212,7 @@ anchor_left = 0.0959596
 anchor_top = 0.10227273
 anchor_right = 0.9040404
 anchor_bottom = 0.20454545
-offset_right = 0.0018005371
+offset_right = 0.0032653809
 grow_horizontal = 2
 texture_normal = ExtResource("2_uqeha")
 texture_pressed = ExtResource("3_wem23")
@@ -226,7 +228,7 @@ anchor_left = 0.0959596
 anchor_top = 0.2840909
 anchor_right = 0.9040404
 anchor_bottom = 0.38636363
-offset_right = 0.0010681152
+offset_right = 0.0023498535
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("5_4ujhu")
@@ -243,7 +245,7 @@ anchor_left = 0.0959596
 anchor_top = 0.4659091
 anchor_right = 0.9040404
 anchor_bottom = 0.5681818
-offset_right = 0.00021362305
+offset_right = 0.0018005371
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("7_a1gy5")
@@ -260,7 +262,7 @@ anchor_left = 0.0959596
 anchor_top = 0.64772725
 anchor_right = 0.9040404
 anchor_bottom = 0.75
-offset_right = 0.0005187988
+offset_right = 0.0010986328
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("9_xac7c")

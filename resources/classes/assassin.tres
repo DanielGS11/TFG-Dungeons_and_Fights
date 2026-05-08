@@ -8,4 +8,5 @@
 script = ExtResource("1_iuwj4")
 class_type = "Asesino"
 sprite = ExtResource("3_6nk4q")
+attack = 100
 metadata/_custom_type_script = "uid://q7s2lsfb8djq"

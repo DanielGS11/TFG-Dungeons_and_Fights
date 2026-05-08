@@ -26,14 +26,14 @@ func _on_battle_mode_pressed() -> void:
 		# Esperamos que la notificación envie la señal
 		if await popup.confirm:
 			GameAPI.set_actual_mode(Mode.Type.BATTLE)
-			await _animate("exit")
 		
 		else:
-			print("no")
-			await _animate("exit")
+			get_tree().change_scene_to_file("res://scenes/menus/battle_mode/battle_mode.tscn")
 	
 	else:
-		await _animate("exit")
+		get_tree().change_scene_to_file("res://scenes/menus/battle_mode/battle_mode.tscn")
+	
+	await _animate("exit")
 
 func _on_dungeon_mode_pressed() -> void:
 	# Si la partida no terminó, salta un aviso y comprueba si se quiere seguir
@@ -79,6 +79,7 @@ func _on_guides_pressed() -> void:
 
 # Ejecuta una animación y espera a que termine
 func _animate(animation: String):
-	if GameManager.config.animations:
+	if GameAPI.get_config().animations:
 		animation_player.play(animation)
+		animation_player.advance(0)
 		await animation_player.animation_finished

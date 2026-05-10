@@ -93,10 +93,10 @@ func _on_previous_class_pressed() -> void:
 	sprite_index = 0
 	sprite_list = GameAPI.get_asset("characters", class_list[class_index].class_type)
 	
-	
 	member = class_list[class_index].duplicate(true)
 	member.sprite = sprite_list[sprite_index]
 	sprite.texture = member.sprite
+	member.name = name_field.text
 	
 	_on_member_changed()
 
@@ -114,6 +114,7 @@ func _on_next_class_pressed() -> void:
 	member = class_list[class_index].duplicate(true)
 	member.sprite = sprite_list[sprite_index]
 	sprite.texture = member.sprite
+	member.name = name_field.text
 	
 	_on_member_changed()
 

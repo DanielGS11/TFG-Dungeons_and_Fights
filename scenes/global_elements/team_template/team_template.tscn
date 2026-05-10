@@ -48,18 +48,15 @@ stretch_mode = 0
 [node name="Members" type="HBoxContainer" parent="." unique_id=1618737708]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -207.0
-offset_top = -26.0
-offset_right = 207.0
-offset_bottom = 80.0
+anchors_preset = -1
+anchor_left = 0.018604651
+anchor_top = 0.35555556
+anchor_right = 0.98139536
+anchor_bottom = 0.9444444
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 18
+metadata/_edit_use_anchors_ = true
 
 [node name="MemberSlot1" type="VBoxContainer" parent="Members" unique_id=1944742122]
 layout_mode = 2
@@ -94,6 +91,7 @@ flip_h = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 9
 text = "1234567891"
+horizontal_alignment = 1
 
 [node name="MemberSlot2" type="VBoxContainer" parent="Members" unique_id=268333468]
 layout_mode = 2
@@ -128,6 +126,7 @@ flip_h = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 9
 text = "Nombreeeee"
+horizontal_alignment = 1
 
 [node name="MemberSlot3" type="VBoxContainer" parent="Members" unique_id=1067459114]
 layout_mode = 2
@@ -162,6 +161,7 @@ flip_h = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 9
 text = "Nombreeeee"
+horizontal_alignment = 1
 
 [node name="MemberSlot4" type="VBoxContainer" parent="Members" unique_id=1631786064]
 layout_mode = 2
@@ -196,6 +196,7 @@ flip_h = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 9
 text = "Nombreeeee"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="." to="." method="_on_team_selected"]
 [connection signal="pressed" from="Delete" to="." method="_on_delete_pressed"]

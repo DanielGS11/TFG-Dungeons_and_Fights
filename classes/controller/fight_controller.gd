@@ -5,23 +5,27 @@ extends Resource
 signal enemy_defeated(exp: int)
 signal run_away
 
-signal animate(target: String, animation: String)
+signal animate(target: String, animation: String, value: int)
 
-signal refresh_data(id: int)
+signal refresh_data(entity: Entity)
 
-var team: Team
-var enemy: Enemy
+@export var team: Team
+@export var enemy: Enemy
 
 var queue: Dictionary
 
-var animation_target: String
+var animation_target: int
+
+## Añade las acciones del equipo a la cola y ejecuta las acciones
+func set_queue(team_actions: Dictionary):
+	queue.merge(team_actions)
+	_execute_queue()
 
 ## Ejecuta las acciones de la cola
-func execute_queue():
-	var enemy_action = enemy.get_action(team)
-	queue[enemy_action.keys()[0]] = enemy_action[enemy_action.keys()[0]]
+func _execute_queue():
+	queue.merge(enemy.get_action(team))
 	
-	var order: Array[Entity] = queue.keys()
+	var order: Array = queue.keys()
 	
 	order.sort_custom(func(a, b): 
 		var a_defends = queue[a][0] == Entity.Actions.DEFEND
@@ -38,7 +42,6 @@ func execute_queue():
 		if key.health > 0:
 			match queue[key][0]:
 				Entity.Actions.ATTACK:
-					await GameAPI.show_prompt(key.name + " ataca a " + queue[key][1].name, false)
 					await _attack(key, queue[key][1], null)
 				
 				Entity.Actions.DEFEND:
@@ -46,19 +49,17 @@ func execute_queue():
 				
 				Entity.Actions.SKILL:
 					await _skill(key,  queue[key][1],  queue[key][2])
-			
-			refresh_data.emit(team.members.find(key))
 		
 		if enemy.health == 0:
 			break
 	
 	queue.clear()
-	
+	_check_game_state()
+
+func _check_game_state():
 	if enemy.health == 0:
 		enemy_defeated.emit(enemy.exp_drop)
-		
-		for member in team.members:
-			member.clear_modifiers()
+		enemy = null
 	
 	else:
 		var allies_alive = 0
@@ -71,11 +72,10 @@ func execute_queue():
 				await member.check_modifiers()
 		
 		if allies_alive == 0:
-			GameAPI.end_game.emit("lose", "Ya no queda nadie en pie, has perdido")
-	
+			GameAPI.end_game.emit(GameAPI.Result.LOSE, "Ya no queda nadie en pie, has perdido")
 
 func _skill(user: Entity, target: Entity, skill: Skill):
-	await GameAPI.show_prompt(user.name + " usó " + skill.name, false)
+	await GameAPI.send_prompt(user.name + " usó " + skill.name, false)
 	
 	user.consume_mana(skill.cost)
 	
@@ -93,12 +93,13 @@ func _attack(user: Entity, target: Entity, skill: Skill):
 	var damage: int
 	
 	if skill == null:
+		await GameAPI.send_prompt(user.name + " ataca a " + target.name, false)
 		if randi_range(1, 100) > target.evasion:
 			if target is Character:
-				animation_target = "player_" + str(team.members.find(target))
+				animation_target = team.members.find(target)
 			
 			else:
-				animation_target = "enemy"
+				animation_target = -1
 			
 			damage = ceili(((user.get_attack() * 2) / (1 + (target.get_defense() / \
 			(user.get_attack() * 1.5)))) * randf_range(0.85, 1))
@@ -106,14 +107,20 @@ func _attack(user: Entity, target: Entity, skill: Skill):
 			if randi_range(1, 100) <= user.critical_rate:
 				damage *= 2
 				
-				await GameAPI.show_prompt("¡Golpe crítico!", false)
+				await GameAPI.send_prompt("¡Golpe crítico!", false)
 			
-			await target.take_damage(damage)
 			
-			animate.emit(animation_target, "_damaged")
+			target.take_damage(damage)
+			refresh_data.emit(target)
+			animate.emit(animation_target, "_damaged", damage)
+			
+			await GameAPI.send_prompt(target.name + " recibió " + str(damage) + " puntos de daño", false)
+			
+			if target.health <= 0:
+				await GameAPI.send_prompt(target.name + " fue derrotado", true)
 		
 		else:
-			await GameAPI.show_prompt(target.name + " lo esquivó", false)
+			await GameAPI.send_prompt(target.name + " lo esquivó", false)
 	
 	else:
 		var user_stat_value: int
@@ -126,32 +133,36 @@ func _attack(user: Entity, target: Entity, skill: Skill):
 				user_stat_value = user.get_magic_attack()
 		
 		if target is Character and skill.skill_target == skill.Target.ALL_ENEMIES:
-			animation_target = "all"
-			
 			for member in team.members:
 				if member.health > 0:
 					if randi_range(1, 100) <= member.evasion:
-						await GameAPI.show_prompt(member.name + " lo esquivó", false)
+						await GameAPI.send_prompt(member.name + " lo esquivó", false)
 					
 					else:
 						damage = ceili((((user_stat_value + skill.power) * 2) / (1 + (member.get_defense() \
 						 / (user_stat_value * 1.5)))) * randf_range(0.85, 1))
 						
 						if randi_range(1, 100) <= user.critical_rate:
-							await GameAPI.show_prompt(member.name + " recibió un golpe crítico", false)
+							await GameAPI.send_prompt(member.name + " recibió un golpe crítico", false)
 							
 							damage *= 2
 						
-						await member.take_damage(damage)
+						
+						member.take_damage(damage)
+						animate.emit(team.members.find(member), "_damaged", damage)
+						refresh_data.emit(member)
+						await GameAPI.send_prompt(member.name + " recibió " + str(damage) + " puntos de daño", false)
+						
+						if member.health <= 0:
+							await GameAPI.send_prompt(target.name + " fue derrotado", true)
 			
-			animate.emit(animation_target, "_damaged")
 		
 		else:
 			if randi_range(1, 100) > target.evasion:
 				if target is Character:
-					animation_target = "player_" + str(team.members.find(target))
+					animation_target = team.members.find(target)
 				else:
-					animation_target = "enemy"
+					animation_target = -1
 				
 				damage = ceili((((user_stat_value + skill.power) * 2) / (1 + (target.get_defense() \
 				/ (user_stat_value * 1.5)))) * randf_range(0.85, 1))
@@ -159,80 +170,104 @@ func _attack(user: Entity, target: Entity, skill: Skill):
 				if randi_range(1, 100) <= user.critical_rate:
 					damage *= 2
 					
-					await GameAPI.show_prompt("¡Golpe crítico!", false)
+					await GameAPI.send_prompt("¡Golpe crítico!", false)
 				
-				await target.take_damage(damage)
+				target.take_damage(damage)
+				refresh_data.emit(target)
+				animate.emit(animation_target, "_damaged", damage)
+				await GameAPI.send_prompt(target.name + " recibió " + str(damage) + " puntos de daño", false)
 				
-				animate.emit(animation_target, "_damaged")
+				if target.health <= 0:
+					await GameAPI.send_prompt(target.name + " fue derrotado", true)
 			
 			else:
-				await GameAPI.show_prompt(target.name + " lo esquivó", false)
+				await GameAPI.send_prompt(target.name + " lo esquivó", false)
 
 func _defend(user: Entity):
 	user.is_defending = true
 	
-	await GameAPI.show_prompt(user.name + " se defiende", false)
+	await GameAPI.send_prompt(user.name + " se defiende", false)
 
 func _heal(user: Entity, target: Entity, skill: Skill):
 	var healing = ((user.get_magic_attack() + skill.power) * user.heal_multiplier) + (user.max_health * 0.05)
 	
 	if user is Character and skill.skill_target == skill.Target.ALL_ALLIES:
-		animation_target = "all"
-		
 		for member in team.members:
-			await member.heal(healing)
+			if member.health == member.max_health:
+				await GameAPI.send_prompt("La vida de " + member.name + " ya está al máximo", false)
+			
+			else:
+				await member.heal(healing)
+				refresh_data.emit(member)
+				animate.emit(team.members.find(member), "_healed", healing)
+				await GameAPI.send_prompt(member.name + " recibió " + str(healing) + " puntos de curación", false)
 	
 	else:
 		if target is Character:
-			animation_target = "player_" + str(team.members.find(target))
+			animation_target = team.members.find(target)
 		
 		else:
-			animation_target = "enemy"
+			animation_target = -1
 		
 		match skill.skill_target:
 			skill.Target.ALLY:
-				await target.heal(healing)
+				if target.health == target.max_health:
+					await GameAPI.send_prompt("La vida de " + target.name + " ya está al máximo", false)
+				
+				else:
+					await target.heal(healing)
+					refresh_data.emit(target)
+					await GameAPI.send_prompt(target.name + " recibió " + str(healing) + " puntos de curación", false)
 			
 			skill.Target.SELF:
-				await user.heal(healing)
+				if user.health == user.max_health:
+					await GameAPI.send_prompt("La vida de " + user.name + " ya está al máximo", false)
+				
+				else:
+					await user.heal(healing)
+					refresh_data.emit(user)
+					await GameAPI.send_prompt(user.name + " recibió " + str(healing) + " puntos de curación", false)
 	
-	animate.emit(animation_target, "_healed")
+		animate.emit(animation_target, "_healed", healing)
 
 func _apply_modifier(target: Entity, skill: Skill):
 	match skill.skill_type:
 		skill.Type.BUFF:
 			if target is Character and skill.skill_target == skill.Target.ALL_ALLIES:
-				animation_target = "all"
-				
 				for member in team.members:
 					await member.apply_buff(skill)
+					refresh_data.emit(member)
+					animate.emit(team.members.find(member), "_buffed", 0)
 			
 			else:
 				if target is Character:
-					animation_target = "player_" + str(team.members.find(target))
+					animation_target = team.members.find(target)
 				else:
-					animation_target = "enemy"
+					animation_target = -1
 				
 				await target.apply_buff(skill)
-			
-			animate.emit(animation_target, "_buffed")
+				refresh_data.emit(target)
+				
+				animate.emit(animation_target, "_buffed", 0)
 		
 		skill.Type.DEBUFF:
 			if target is Character and skill.skill_target == skill.Target.ALL_ENEMIES:
-				animation_target = "all"
 				
 				for member in team.members:
 					await member.apply_debuff(skill)
+					refresh_data.emit(member)
+					animate.emit(team.members.find(member), "_debuffed", 0)
 			
 			else:
 				if target is Character:
-					animation_target = "player_" + str(team.members.find(target))
+					animation_target = team.members.find(target)
 				else:
-					animation_target = "enemy"
+					animation_target = -1
 				
 				await target.apply_debuff(skill)
-			
-			animate.emit(animation_target, "_debuffed")
+				refresh_data.emit(target)
+				
+				animate.emit(animation_target, "_debuffed", 0)
 
 func run():
 	var run_away_value: int
@@ -261,12 +296,12 @@ func run():
 		run_away_value -= 1
 	
 	if randi_range(1, run_away_value) == 1:
-		await GameAPI.show_prompt("Escapaste a salvo", true)
+		await GameAPI.send_prompt("Escapaste a salvo", true)
 		queue.clear()
 		run_away.emit()
 	
 	else:
 		queue.clear()
-		await GameAPI.show_prompt("No se pudo escapar", false)
+		await GameAPI.send_prompt("No se pudo escapar", false)
 		
-		execute_queue()
+	_execute_queue()

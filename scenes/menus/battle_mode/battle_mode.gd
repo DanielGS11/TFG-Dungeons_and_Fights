@@ -2,7 +2,7 @@ extends Control
 
 var team_index: int
 var enemy_counter := 1
-var button_press := false
+var button_down := false
 
 @onready var bright: ColorRect = $Bright/ColorRect
 
@@ -58,38 +58,67 @@ func _on_team_button_pressed() -> void:
 		selector.team_changed.connect(_load_team)
 
 func _on_minus_button_down() -> void:
-	if button_press:
+	if button_down:
 		return
 	
-	var time = 1.0
-	button_press = true
+	button_down = true
 	
 	while minus.button_pressed:
-		enemy_counter = clamp(enemy_counter - 1, 0, 50)
+		enemy_counter = clamp(enemy_counter - 1, 1, 50)
 		
 		enemy_count.text = str(enemy_counter)
 		
-		await get_tree().create_timer(time).timeout
-		
-		time = clamp(time - 0.2, 0.1, 1)
+		await get_tree().create_timer(0.2).timeout
 	
-	button_press = false
+	button_down = false
 
 
 func _on_plus_button_down() -> void:
-	if button_press:
+	if button_down:
 		return
 	
-	var time = 1.0
-	button_press = true
+	button_down = true
 	
 	while plus.button_pressed:
-		enemy_counter = clamp(enemy_counter + 1, 0, 50)
+		enemy_counter = clamp(enemy_counter + 1, 1, 50)
 		
 		enemy_count.text = str(enemy_counter)
 		
-		await get_tree().create_timer(time).timeout
-		
-		time = clamp(time - 0.2, 0.1, 1)
+		await get_tree().create_timer(0.2).timeout
 	
-	button_press = false
+	button_down = false
+
+func _on_play_pressed() -> void:
+	if team_index <= -1:
+		GameAPI.set_actual_mode(Mode.Type.BATTLE)
+		GameAPI.set_team()
+		GameAPI.new_game([enemy_counter])
+		
+		get_tree().change_scene_to_file("res://scenes/in_game/fight_screen/fight_screen.tscn")
+	
+	else:
+		var team: Team = GameAPI.get_team(team_index)
+		
+		if team.members.any(func(a: Character): return a == null or a.class_type.is_empty()):
+			var warning = preload("res://scenes/global_elements/warning_popup/warning_popup.tscn").instantiate()
+			
+			add_child(warning)
+			
+			warning.load_warn("El equipo debe contar con 4 integrantes")
+		
+		elif team.members.any(func(a: Character): return a.name.is_empty()):
+			var warning = preload("res://scenes/global_elements/warning_popup/warning_popup.tscn").instantiate()
+			
+			add_child(warning)
+			
+			warning.load_warn("Los integrantes del equipo deben tener un nombre")
+		
+		else:
+			GameAPI.set_actual_mode(Mode.Type.BATTLE)
+			GameAPI.set_team()
+			GameAPI.new_game([enemy_counter])
+			
+			get_tree().change_scene_to_file("res://scenes/in_game/fight_screen/fight_screen.tscn")
+
+func _on_return_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")

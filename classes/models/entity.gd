@@ -10,11 +10,11 @@ enum Actions {ATTACK, DEFEND, SKILL}
 @export var level: int = 1
 @export var name: String = ""
 
-@export var max_health: int = 0
-@export var health: int = 0
+@export var max_health: int = 100
+@export var health: int = 100
 
-@export var attack: int = 0
-@export var magic_attack: int = 0
+@export var attack: int = 10
+@export var magic_attack: int = 10
 @export var defense: int = 0
 @export var speed: int = 0
 
@@ -65,7 +65,7 @@ func apply_buff(skill: Skill):
 			await GameAPI.send_prompt(word + buff.stat + " de " + name + " volvió a la normalidad", false)
 		
 		buff.Type.NONE:
-			buff.modifier_type = buff.Type.BUFF
+			buff.set_type(buff.Type.BUFF)
 			
 			await GameAPI.send_prompt("¡" + word + buff.stat + " de " + name + " se potenció!", false)
 
@@ -93,39 +93,41 @@ func apply_debuff(skill: Skill):
 			await GameAPI.send_prompt(word + debuff.stat + " de " + name + " volvió a la normalidad", false)
 			
 		debuff.Type.NONE:
-			debuff.modifier_type = debuff.Type.DEBUFF
+			debuff.set_type(debuff.Type.DEBUFF)
 			
 			await GameAPI.send_prompt("¡" + word + debuff.stat + " de " + name + " se redujo!", false)
 
 ## Recibir daño de un ataque
 func take_damage(damage: int):
-	await GameAPI.send_prompt(name + " recibió " + str(damage) + " puntos de daño", false)
 	
 	if damage > health:
 		health = 0
 		clear_modifiers()
-		await GameAPI.send_prompt(name + " fué derrotado", true)
 	
 	else:
 		health -= damage
 
 ## Recibir una curación
 func heal(healing: int):
-	if health == max_health:
-		await GameAPI.send_prompt("La vida de " + name + " ya estaba al máximo", false)
+	if max_health - health < healing:
+		health = max_health
 	
 	else:
-		if max_health - health < healing:
-			health = max_health
-		
-		else:
-			health += healing
-		
-		await GameAPI.send_prompt(name + " recibió " + str(healing) + " puntos de curación", false)
+		health += healing
 
 ## Consumir maná al usar un hechizo
 func consume_mana(_value: int):
 	pass
+
+## Recoger los modificadores que tiene activos
+func get_modifiers() -> Array:
+	var modifier_list: Array
+	
+	for i in modifiers:
+		if modifiers[i].modifier_type != ModifierState.Type.NONE:
+			modifier_list.append(modifiers[i].icon)
+	
+	return modifier_list
 
 ## Al terminar un turno, mira el estado de la entidad
 func check_modifiers():

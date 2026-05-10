@@ -1,0 +1,193 @@
+[gd_scene format=3 uid="uid://on0detn4kif2"]
+
+[ext_resource type="Script" uid="uid://cwppmi3swoibw" path="res://scenes/in_game/results/win_screen/win_screen.gd" id="1_6dk5k"]
+[ext_resource type="Texture2D" uid="uid://sui14yy8xs63" path="res://assets/background/win.png" id="2_1e8q5"]
+[ext_resource type="Texture2D" uid="uid://dc7l3m3rxtyn1" path="res://assets/elements/panels/general_long.png" id="3_nf5aa"]
+[ext_resource type="Texture2D" uid="uid://0dj2oyg75bpe" path="res://assets/elements/buttons/others/back_to_menu.png" id="4_hdhci"]
+[ext_resource type="Texture2D" uid="uid://dcltgkriqo4nr" path="res://assets/elements/buttons/others/back_to_menu_pressed.png" id="5_dastt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4avue"]
+texture = ExtResource("3_nf5aa")
+modulate_color = Color(1, 1, 1, 0.8745098)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mehcf"]
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 2
+border_color = Color(1, 1, 1, 1)
+
+[node name="WinScreen" type="Control" unique_id=1030739522]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6dk5k")
+
+[node name="Bright" type="CanvasLayer" parent="." unique_id=1021466129]
+layer = 999
+
+[node name="ColorRect" type="ColorRect" parent="Bright" unique_id=1851691917]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Background" type="TextureRect" parent="." unique_id=860905456]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1e8q5")
+expand_mode = 1
+
+[node name="ResultContainer" type="Panel" parent="." unique_id=779126482]
+custom_minimum_size = Vector2(440, 840)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.055555556
+anchor_top = 0.022727273
+anchor_right = 0.9444444
+anchor_bottom = 0.97727275
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4avue")
+metadata/_edit_use_anchors_ = true
+
+[node name="Elements" type="VBoxContainer" parent="ResultContainer" unique_id=1841923132]
+custom_minimum_size = Vector2(390, 770)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = -385.0
+offset_right = 195.0
+offset_bottom = 385.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="ResultTitle" type="Label" parent="ResultContainer/Elements" unique_id=1904359103]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 29
+text = "¡Has ganado!"
+
+[node name="TeamLevel" type="Label" parent="ResultContainer/Elements" unique_id=621893346]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 18
+text = "Nivel del equipo: 100"
+
+[node name="TeamLabel" type="Label" parent="ResultContainer/Elements" unique_id=349661008]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 18
+text = "Equipo:"
+
+[node name="HSeparator" type="HSeparator" parent="ResultContainer/Elements" unique_id=1628094924]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_mehcf")
+
+[node name="MemberList" type="VBoxContainer" parent="ResultContainer/Elements" unique_id=1839522136]
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="Member1" type="HBoxContainer" parent="ResultContainer/Elements/MemberList" unique_id=2062855369]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="ResultContainer/Elements/MemberList/Member1" unique_id=885851332]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "1234567890"
+
+[node name="Level" type="Label" parent="ResultContainer/Elements/MemberList/Member1" unique_id=103131646]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "LV 100"
+horizontal_alignment = 3
+
+[node name="Member2" type="HBoxContainer" parent="ResultContainer/Elements/MemberList" unique_id=1664434626]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="ResultContainer/Elements/MemberList/Member2" unique_id=106689813]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "1234567890"
+
+[node name="Level" type="Label" parent="ResultContainer/Elements/MemberList/Member2" unique_id=1406623286]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "LV 100"
+horizontal_alignment = 3
+
+[node name="Member3" type="HBoxContainer" parent="ResultContainer/Elements/MemberList" unique_id=1821667649]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="ResultContainer/Elements/MemberList/Member3" unique_id=330574424]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "1234567890"
+
+[node name="Level" type="Label" parent="ResultContainer/Elements/MemberList/Member3" unique_id=117651269]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "LV 100"
+horizontal_alignment = 3
+
+[node name="Member4" type="HBoxContainer" parent="ResultContainer/Elements/MemberList" unique_id=1278721244]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="ResultContainer/Elements/MemberList/Member4" unique_id=1215380979]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "1234567890"
+
+[node name="Level" type="Label" parent="ResultContainer/Elements/MemberList/Member4" unique_id=1905681487]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "LV 100"
+horizontal_alignment = 3
+
+[node name="EnemiesDefeated" type="Label" parent="ResultContainer/Elements" unique_id=1993752266]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 15
+text = "Enemigos derrotados: 1000"
+autowrap_mode = 2
+
+[node name="BackToMenu" type="TextureButton" parent="ResultContainer/Elements" unique_id=233404520]
+custom_minimum_size = Vector2(300, 65)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_hdhci")
+texture_pressed = ExtResource("5_dastt")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="ResultContainer/Elements/BackToMenu" to="." method="_on_back_to_menu_pressed"]

@@ -39,17 +39,16 @@ metadata/_edit_use_anchors_ = true
 [node name="Elements" type="VBoxContainer" parent="Popup" unique_id=843448822]
 custom_minimum_size = Vector2(385, 270)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -190.0
-offset_top = -135.0
-offset_right = 190.0
-offset_bottom = 135.0
+anchors_preset = -1
+anchor_left = 0.072222225
+anchor_top = 0.114285715
+anchor_right = 0.92777777
+anchor_bottom = 0.8857143
+offset_left = 2.5
+offset_right = -2.5
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Text" type="Label" parent="Popup/Elements" unique_id=220737738]
 unique_name_in_owner = true

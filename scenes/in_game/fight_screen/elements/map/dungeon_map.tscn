@@ -1,0 +1,930 @@
+[gd_scene format=3 uid="uid://b3ld8tmopkbj1"]
+
+[ext_resource type="Texture2D" uid="uid://dc7l3m3rxtyn1" path="res://assets/elements/panels/general_long.png" id="1_fgdt0"]
+[ext_resource type="Texture2D" uid="uid://bk8h073ioegm" path="res://assets/elements/panels/map.png" id="2_bvsf7"]
+[ext_resource type="Script" uid="uid://djr7k35kfo7kg" path="res://scenes/in_game/fight_screen/elements/map/dungeon_map.gd" id="2_d5ydk"]
+[ext_resource type="Texture2D" uid="uid://d0fni05hnv05y" path="res://assets/elements/others/room_icons/access.png" id="3_d5ydk"]
+[ext_resource type="Texture2D" uid="uid://cvj5210lm1bqh" path="res://assets/elements/others/room_icons/actual_room.png" id="4_sa174"]
+[ext_resource type="Texture2D" uid="uid://dqajolpa3ejml" path="res://assets/elements/others/in_game/key_icon.png" id="5_d5ydk"]
+[ext_resource type="Texture2D" uid="uid://cwjv0q2rs13vt" path="res://assets/elements/others/room_icons/explored.png" id="5_nokly"]
+[ext_resource type="Texture2D" uid="uid://cgfkcerqm1hbm" path="res://assets/elements/others/room_icons/lock.png" id="6_qoytn"]
+[ext_resource type="Texture2D" uid="uid://dki3xf4tjufqx" path="res://assets/elements/others/room_icons/treasure.png" id="7_746ym"]
+[ext_resource type="Texture2D" uid="uid://b4wro16pkeqa0" path="res://assets/elements/others/room_icons/treasure_collected.png" id="8_msy1u"]
+[ext_resource type="Texture2D" uid="uid://xau24apcv3rq" path="res://assets/elements/others/room_icons/boss.png" id="9_lh4lh"]
+[ext_resource type="Texture2D" uid="uid://bj6tyak6y64fv" path="res://assets/elements/others/room_icons/boss_access.png" id="10_bphks"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jnqfm"]
+texture = ExtResource("1_fgdt0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nmp60"]
+texture = ExtResource("2_bvsf7")
+expand_margin_left = 40.0
+expand_margin_top = 40.0
+expand_margin_right = 40.0
+expand_margin_bottom = 40.0
+
+[node name="DungeonMap" type="Panel" unique_id=2126368512]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jnqfm")
+script = ExtResource("2_d5ydk")
+
+[node name="Content" type="VBoxContainer" parent="." unique_id=1984210219]
+custom_minimum_size = Vector2(440, 801)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -395.0
+offset_right = 220.0
+offset_bottom = 414.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 43
+
+[node name="Label" type="Label" parent="Content" unique_id=1621943154]
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 28
+text = "¿A donde vamos?"
+autowrap_mode = 2
+
+[node name="Map" type="Panel" parent="Content" unique_id=306744467]
+custom_minimum_size = Vector2(330, 330)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_styles/panel = SubResource("StyleBoxTexture_nmp60")
+
+[node name="GridContainer" type="GridContainer" parent="Content/Map" unique_id=484547758]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -15.0
+offset_right = 168.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 10
+
+[node name="TextureButton" type="TextureButton" parent="Content/Map/GridContainer" unique_id=796097890]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton2" type="TextureButton" parent="Content/Map/GridContainer" unique_id=830227069]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton3" type="TextureButton" parent="Content/Map/GridContainer" unique_id=471829437]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton4" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1802124731]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton5" type="TextureButton" parent="Content/Map/GridContainer" unique_id=410973503]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton6" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1746507483]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton7" type="TextureButton" parent="Content/Map/GridContainer" unique_id=2020057223]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton8" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1932700753]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton9" type="TextureButton" parent="Content/Map/GridContainer" unique_id=919423761]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton10" type="TextureButton" parent="Content/Map/GridContainer" unique_id=377154758]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton11" type="TextureButton" parent="Content/Map/GridContainer" unique_id=430906664]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton12" type="TextureButton" parent="Content/Map/GridContainer" unique_id=386542332]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton13" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1920453293]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton14" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1716227102]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton15" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1200539992]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton16" type="TextureButton" parent="Content/Map/GridContainer" unique_id=885992771]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton17" type="TextureButton" parent="Content/Map/GridContainer" unique_id=257538574]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton18" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1121573246]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton19" type="TextureButton" parent="Content/Map/GridContainer" unique_id=43231923]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton20" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1397344505]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton21" type="TextureButton" parent="Content/Map/GridContainer" unique_id=2061957278]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton22" type="TextureButton" parent="Content/Map/GridContainer" unique_id=130213895]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton23" type="TextureButton" parent="Content/Map/GridContainer" unique_id=524407015]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton24" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1246213989]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton25" type="TextureButton" parent="Content/Map/GridContainer" unique_id=939105051]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton26" type="TextureButton" parent="Content/Map/GridContainer" unique_id=960714832]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton27" type="TextureButton" parent="Content/Map/GridContainer" unique_id=143889605]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton28" type="TextureButton" parent="Content/Map/GridContainer" unique_id=468248300]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton29" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1806309645]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton30" type="TextureButton" parent="Content/Map/GridContainer" unique_id=796632283]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton31" type="TextureButton" parent="Content/Map/GridContainer" unique_id=144533206]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton32" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1428036914]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton33" type="TextureButton" parent="Content/Map/GridContainer" unique_id=808046613]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton34" type="TextureButton" parent="Content/Map/GridContainer" unique_id=513159571]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton35" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1229896355]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton36" type="TextureButton" parent="Content/Map/GridContainer" unique_id=343822603]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton37" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1763154049]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton38" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1181534576]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton39" type="TextureButton" parent="Content/Map/GridContainer" unique_id=598261523]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton40" type="TextureButton" parent="Content/Map/GridContainer" unique_id=2132465874]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton41" type="TextureButton" parent="Content/Map/GridContainer" unique_id=210278293]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton42" type="TextureButton" parent="Content/Map/GridContainer" unique_id=257017211]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton43" type="TextureButton" parent="Content/Map/GridContainer" unique_id=330980807]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton44" type="TextureButton" parent="Content/Map/GridContainer" unique_id=529594770]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton45" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1414419486]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton46" type="TextureButton" parent="Content/Map/GridContainer" unique_id=292991710]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton47" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1794138865]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton48" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1104151326]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton49" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1187033194]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton50" type="TextureButton" parent="Content/Map/GridContainer" unique_id=18577407]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton51" type="TextureButton" parent="Content/Map/GridContainer" unique_id=967225676]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton52" type="TextureButton" parent="Content/Map/GridContainer" unique_id=514713143]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton53" type="TextureButton" parent="Content/Map/GridContainer" unique_id=275950769]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton54" type="TextureButton" parent="Content/Map/GridContainer" unique_id=412468858]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton55" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1951031445]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton56" type="TextureButton" parent="Content/Map/GridContainer" unique_id=27562132]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton57" type="TextureButton" parent="Content/Map/GridContainer" unique_id=617027650]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton58" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1098182385]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton59" type="TextureButton" parent="Content/Map/GridContainer" unique_id=19906256]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton60" type="TextureButton" parent="Content/Map/GridContainer" unique_id=267197254]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton61" type="TextureButton" parent="Content/Map/GridContainer" unique_id=522185964]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton62" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1585707365]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton63" type="TextureButton" parent="Content/Map/GridContainer" unique_id=284827258]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton64" type="TextureButton" parent="Content/Map/GridContainer" unique_id=518688855]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton65" type="TextureButton" parent="Content/Map/GridContainer" unique_id=2079913734]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton66" type="TextureButton" parent="Content/Map/GridContainer" unique_id=602493825]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton67" type="TextureButton" parent="Content/Map/GridContainer" unique_id=82422217]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton68" type="TextureButton" parent="Content/Map/GridContainer" unique_id=996251946]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton69" type="TextureButton" parent="Content/Map/GridContainer" unique_id=256902298]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton70" type="TextureButton" parent="Content/Map/GridContainer" unique_id=721523763]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton71" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1607311856]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton72" type="TextureButton" parent="Content/Map/GridContainer" unique_id=553313164]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton73" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1282803596]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton74" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1759605846]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton75" type="TextureButton" parent="Content/Map/GridContainer" unique_id=2124133622]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton76" type="TextureButton" parent="Content/Map/GridContainer" unique_id=37061406]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton77" type="TextureButton" parent="Content/Map/GridContainer" unique_id=245464055]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton78" type="TextureButton" parent="Content/Map/GridContainer" unique_id=2003613015]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton79" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1867699208]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton80" type="TextureButton" parent="Content/Map/GridContainer" unique_id=201271466]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton81" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1203650040]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton82" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1480088212]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton83" type="TextureButton" parent="Content/Map/GridContainer" unique_id=191088358]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton84" type="TextureButton" parent="Content/Map/GridContainer" unique_id=54172046]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton85" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1039309031]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton86" type="TextureButton" parent="Content/Map/GridContainer" unique_id=286986701]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton87" type="TextureButton" parent="Content/Map/GridContainer" unique_id=358978315]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton88" type="TextureButton" parent="Content/Map/GridContainer" unique_id=440285818]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton89" type="TextureButton" parent="Content/Map/GridContainer" unique_id=46682442]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton90" type="TextureButton" parent="Content/Map/GridContainer" unique_id=587206809]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton91" type="TextureButton" parent="Content/Map/GridContainer" unique_id=566666078]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton92" type="TextureButton" parent="Content/Map/GridContainer" unique_id=314211606]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton93" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1124419809]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton94" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1773038914]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton95" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1657333436]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton96" type="TextureButton" parent="Content/Map/GridContainer" unique_id=2036884812]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton97" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1359485144]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton98" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1257851911]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton99" type="TextureButton" parent="Content/Map/GridContainer" unique_id=847954606]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton100" type="TextureButton" parent="Content/Map/GridContainer" unique_id=1327570714]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("3_d5ydk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Key" type="HBoxContainer" parent="Content" unique_id=961661567]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Obtained" type="Label" parent="Content/Key" unique_id=1320447637]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "X"
+
+[node name="Icon" type="TextureRect" parent="Content/Key" unique_id=1669487598]
+custom_minimum_size = Vector2(30, 40)
+layout_mode = 2
+texture = ExtResource("5_d5ydk")
+expand_mode = 1
+
+[node name="Hints" type="GridContainer" parent="Content" unique_id=57813893]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="ActualRoom" type="HBoxContainer" parent="Content/Hints" unique_id=1815869936]
+layout_mode = 2
+
+[node name="Sprite" type="TextureRect" parent="Content/Hints/ActualRoom" unique_id=200247955]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("4_sa174")
+expand_mode = 1
+
+[node name="Name" type="Label" parent="Content/Hints/ActualRoom" unique_id=275361170]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Actual"
+
+[node name="AccesRoom" type="HBoxContainer" parent="Content/Hints" unique_id=1462339045]
+layout_mode = 2
+
+[node name="Sprite" type="TextureRect" parent="Content/Hints/AccesRoom" unique_id=2132708538]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("3_d5ydk")
+expand_mode = 1
+
+[node name="Name" type="Label" parent="Content/Hints/AccesRoom" unique_id=50722620]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Accesible"
+
+[node name="ExploredRoom" type="HBoxContainer" parent="Content/Hints" unique_id=1939444986]
+layout_mode = 2
+
+[node name="Sprite" type="TextureRect" parent="Content/Hints/ExploredRoom" unique_id=858584910]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_nokly")
+expand_mode = 1
+
+[node name="Name" type="Label" parent="Content/Hints/ExploredRoom" unique_id=220770036]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Explorado"
+
+[node name="LockRoom" type="HBoxContainer" parent="Content/Hints" unique_id=2067897537]
+layout_mode = 2
+
+[node name="Sprite" type="TextureRect" parent="Content/Hints/LockRoom" unique_id=1921545355]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("6_qoytn")
+expand_mode = 1
+
+[node name="Name" type="Label" parent="Content/Hints/LockRoom" unique_id=1193040728]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Cerradura"
+
+[node name="TreasureRoom" type="HBoxContainer" parent="Content/Hints" unique_id=927923847]
+layout_mode = 2
+
+[node name="Sprite" type="TextureRect" parent="Content/Hints/TreasureRoom" unique_id=1767023846]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("7_746ym")
+expand_mode = 1
+
+[node name="Name" type="Label" parent="Content/Hints/TreasureRoom" unique_id=1992595051]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Tesoro"
+
+[node name="TreasureCollectedRoom" type="HBoxContainer" parent="Content/Hints" unique_id=668064831]
+layout_mode = 2
+
+[node name="Sprite" type="TextureRect" parent="Content/Hints/TreasureCollectedRoom" unique_id=276671781]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("8_msy1u")
+expand_mode = 1
+
+[node name="Name" type="Label" parent="Content/Hints/TreasureCollectedRoom" unique_id=430086142]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Tesoro Recogido"
+autowrap_mode = 2
+
+[node name="BossRoom" type="HBoxContainer" parent="Content/Hints" unique_id=843737375]
+layout_mode = 2
+
+[node name="Sprite" type="TextureRect" parent="Content/Hints/BossRoom" unique_id=364599861]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("9_lh4lh")
+expand_mode = 1
+
+[node name="Name" type="Label" parent="Content/Hints/BossRoom" unique_id=1119302530]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Jefe"
+
+[node name="BossAccessRoom" type="HBoxContainer" parent="Content/Hints" unique_id=1818740203]
+layout_mode = 2
+
+[node name="Sprite" type="TextureRect" parent="Content/Hints/BossAccessRoom" unique_id=877586038]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("10_bphks")
+expand_mode = 1
+
+[node name="Name" type="Label" parent="Content/Hints/BossAccessRoom" unique_id=1385205364]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Jefe Accesible"
+autowrap_mode = 2

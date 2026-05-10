@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c0etkhw7g3u8j"]
+
+[ext_resource type="Script" uid="uid://bo10xj12m6xuj" path="res://scenes/in_game/fight_screen/elements/healing_damage_tween/healing_damage_tween.gd" id="1_3k2vk"]
+
+[node name="HealingDamageTween" type="Label" unique_id=1905015786]
+anchors_preset = -1
+anchor_left = 0.12525253
+anchor_top = 0.4875
+anchor_right = 0.2060606
+anchor_bottom = 0.5056818
+offset_left = 49.999996
+offset_top = -50.0
+offset_right = 58.00003
+offset_bottom = -50.0
+text = "100"
+script = ExtResource("1_3k2vk")
+metadata/_edit_use_anchors_ = true

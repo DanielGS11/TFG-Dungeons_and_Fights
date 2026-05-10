@@ -42,21 +42,20 @@ expand_mode = 1
 [node name="Content" type="VBoxContainer" parent="." unique_id=2026089420]
 custom_minimum_size = Vector2(440, 820)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -220.0
-offset_top = -410.0
-offset_right = 220.0
-offset_bottom = 410.0
+anchors_preset = -1
+anchor_left = 0.045454547
+anchor_top = 0.03409091
+anchor_right = 0.95454544
+anchor_bottom = 0.96590906
+offset_left = 5.0
+offset_right = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 25
+metadata/_edit_use_anchors_ = true
 
 [node name="Logo" type="TextureRect" parent="Content" unique_id=2110558699]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(450, 100)
 layout_mode = 2
 texture = ExtResource("2_nqbbq")
 expand_mode = 1

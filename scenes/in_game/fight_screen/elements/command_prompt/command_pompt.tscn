@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bqx2tvfkjq7lt"]
+
+[ext_resource type="Script" uid="uid://c78gki8r1gb8x" path="res://scenes/in_game/fight_screen/elements/command_prompt/command_pompt.gd" id="1_2s7eh"]
+[ext_resource type="Texture2D" uid="uid://ds48lhy07n1so" path="res://assets/elements/panels/general_2.png" id="1_t7jwy"]
+[ext_resource type="PackedScene" uid="uid://bw5yhls2qjevs" path="res://scenes/in_game/fight_screen/elements/cursor/cursor.tscn" id="2_2s7eh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j187v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fcvu2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dvcq1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7o2tn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_41mks"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p4s3f"]
+texture = ExtResource("1_t7jwy")
+
+[node name="CommandPompt" type="Button" unique_id=420275873]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j187v")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fcvu2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dvcq1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7o2tn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_41mks")
+script = ExtResource("1_2s7eh")
+
+[node name="PromptContainer" type="Panel" parent="." unique_id=1147830695]
+custom_minimum_size = Vector2(495, 300)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.65909094
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_p4s3f")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="PromptContainer" unique_id=1651934126]
+custom_minimum_size = Vector2(437, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.054545455
+anchor_top = 0.11891891
+anchor_right = 0.93737376
+anchor_bottom = 0.78068364
+theme_override_font_sizes/font_size = 21
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Cursor" parent="PromptContainer" unique_id=653853032 instance=ExtResource("2_2s7eh")]
+layout_mode = 1
+anchor_left = 0.8909091
+anchor_top = 0.85675675
+anchor_right = 0.9232323
+anchor_bottom = 0.9
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

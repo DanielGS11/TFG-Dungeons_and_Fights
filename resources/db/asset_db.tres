@@ -40,11 +40,17 @@
 [ext_resource type="Texture2D" uid="uid://xau24apcv3rq" path="res://assets/elements/others/room_icons/boss.png" id="30_5moy3"]
 [ext_resource type="Texture2D" uid="uid://bj6tyak6y64fv" path="res://assets/elements/others/room_icons/boss_access.png" id="31_2wdn0"]
 [ext_resource type="Texture2D" uid="uid://cwjv0q2rs13vt" path="res://assets/elements/others/room_icons/explored.png" id="32_qi8ra"]
+[ext_resource type="Texture2D" uid="uid://cbes0qfxxpi5c" path="res://assets/elements/others/in_game/attack_up.png" id="33_h3u1j"]
 [ext_resource type="Texture2D" uid="uid://cgfkcerqm1hbm" path="res://assets/elements/others/room_icons/lock.png" id="33_qovct"]
 [ext_resource type="Texture2D" uid="uid://dki3xf4tjufqx" path="res://assets/elements/others/room_icons/treasure.png" id="34_gwq60"]
+[ext_resource type="Texture2D" uid="uid://cosyiduidbon3" path="res://assets/elements/others/in_game/attack_down.png" id="34_jfs2e"]
 [ext_resource type="Texture2D" uid="uid://b4wro16pkeqa0" path="res://assets/elements/others/room_icons/treasure_collected.png" id="35_qnv6y"]
+[ext_resource type="Texture2D" uid="uid://56idnj3ri8tb" path="res://assets/elements/others/in_game/magic_up.png" id="35_ur2sc"]
 [ext_resource type="Texture2D" uid="uid://pgvn8ibhcdq5" path="res://assets/elements/panels/no_member.png" id="36_2wdn0"]
+[ext_resource type="Texture2D" uid="uid://rcnew6agwc5q" path="res://assets/elements/others/in_game/magic_down.png" id="36_gnkka"]
+[ext_resource type="Texture2D" uid="uid://bgyorkt5og4yf" path="res://assets/elements/others/in_game/defense_up.png" id="37_6dfdn"]
 [ext_resource type="Texture2D" uid="uid://bcsmkxlh7qu4c" path="res://assets/asset_not_found.png" id="37_qi8ra"]
+[ext_resource type="Texture2D" uid="uid://dm7tyah7wm4mu" path="res://assets/elements/others/in_game/defense_down.png" id="38_ltwu8"]
 [ext_resource type="Texture2D" uid="uid://ckcnusyulesyf" path="res://assets/elements/panels/no_team.png" id="38_qi8ra"]
 [ext_resource type="Texture2D" uid="uid://dtgqkk7xqef8u" path="res://assets/background/battle_mode_room.png" id="46_07b6v"]
 
@@ -72,7 +78,13 @@ characters = Dictionary[String, Array]({
 icons = Dictionary[String, Texture2D]({
 "Accesible": ExtResource("29_pkyim"),
 "Actual": ExtResource("28_214ua"),
+"Ataque +": ExtResource("33_h3u1j"),
+"Ataque -": ExtResource("34_jfs2e"),
+"Ataque mágico +": ExtResource("35_ur2sc"),
+"Ataque mágico -": ExtResource("36_gnkka"),
 "Cerradura": ExtResource("33_qovct"),
+"Defensa +": ExtResource("37_6dfdn"),
+"Defensa -": ExtResource("38_ltwu8"),
 "Explorado": ExtResource("32_qi8ra"),
 "Jefe": ExtResource("30_5moy3"),
 "Jefe accesible": ExtResource("31_2wdn0"),

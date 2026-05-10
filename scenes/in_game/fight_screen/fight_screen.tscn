@@ -1,0 +1,672 @@
+[gd_scene format=3 uid="uid://56w31ymfikrh"]
+
+[ext_resource type="Script" uid="uid://c04jhpbbvdpk2" path="res://scenes/in_game/fight_screen/fight_screen.gd" id="1_5q1s3"]
+[ext_resource type="Texture2D" uid="uid://dtgqkk7xqef8u" path="res://assets/background/battle_mode_room.png" id="1_6gaab"]
+[ext_resource type="Texture2D" uid="uid://dagygxk3aq7xj" path="res://assets/elements/others/in_game/life_bar.png" id="2_o16yi"]
+[ext_resource type="Texture2D" uid="uid://duapa6r4ohb1t" path="res://assets/elements/others/in_game/life_remaining.png" id="3_5q1s3"]
+[ext_resource type="Texture2D" uid="uid://djt5g7p1c1w" path="res://assets/elements/panels/fight_ui.png" id="4_ikj54"]
+[ext_resource type="Texture2D" uid="uid://c8s1txjgkjoib" path="res://assets/elements/others/in_game/mana_bar.png" id="5_p3il4"]
+[ext_resource type="Texture2D" uid="uid://b0ol2rwcus443" path="res://assets/elements/others/in_game/mana_remaining.png" id="6_iobnd"]
+[ext_resource type="Texture2D" uid="uid://b4q6j38s2s4f0" path="res://assets/elements/buttons/actions/attack.png" id="7_1kbdm"]
+[ext_resource type="Texture2D" uid="uid://cd8g7bxxvo77d" path="res://assets/elements/buttons/actions/attack_pressed.png" id="8_krfi4"]
+[ext_resource type="Texture2D" uid="uid://c0r2vwv33k272" path="res://assets/elements/buttons/actions/magic.png" id="9_tbcmd"]
+[ext_resource type="Texture2D" uid="uid://87ngd5okcgkc" path="res://assets/elements/buttons/actions/magic_pressed.png" id="10_blf0p"]
+[ext_resource type="Texture2D" uid="uid://b63evpjp7obmq" path="res://assets/elements/buttons/actions/defend.png" id="11_j187v"]
+[ext_resource type="Texture2D" uid="uid://kmg0i0q5wytj" path="res://assets/elements/buttons/actions/defend_pressed.png" id="12_fcvu2"]
+[ext_resource type="Texture2D" uid="uid://cob6d3watl34i" path="res://assets/elements/buttons/actions/run_away.png" id="13_dvcq1"]
+[ext_resource type="Texture2D" uid="uid://ck4dkd26u6g05" path="res://assets/elements/buttons/actions/run_away_pressed.png" id="14_7o2tn"]
+[ext_resource type="Texture2D" uid="uid://d2m0nxn2d38ub" path="res://assets/enemies/normal/bandit.png" id="15_41mks"]
+[ext_resource type="Texture2D" uid="uid://de5bv7a41g26q" path="res://assets/elements/buttons/others/return.png" id="16_1kbdm"]
+[ext_resource type="Texture2D" uid="uid://bwsh68ao7s76p" path="res://assets/characters/assassin/assassin_1.png" id="16_p4s3f"]
+[ext_resource type="Texture2D" uid="uid://cmvp515pj65fw" path="res://assets/elements/buttons/others/return_pressed.png" id="17_krfi4"]
+[ext_resource type="Texture2D" uid="uid://cosyiduidbon3" path="res://assets/elements/others/in_game/attack_down.png" id="19_iobnd"]
+[ext_resource type="Texture2D" uid="uid://bolfmkayfhngj" path="res://assets/elements/buttons/others/settings_mini.png" id="21_blf0p"]
+[ext_resource type="Texture2D" uid="uid://2c7tsa2k3y7q" path="res://assets/elements/buttons/others/settings_mini_pressed.png" id="22_j187v"]
+[ext_resource type="Texture2D" uid="uid://bhhvgf02pvjn8" path="res://assets/elements/buttons/others/quit_game.png" id="23_fcvu2"]
+[ext_resource type="Texture2D" uid="uid://b5p0xs1oxixof" path="res://assets/elements/buttons/others/quit_game_pressed.png" id="24_dvcq1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uii2b"]
+texture = ExtResource("4_ikj54")
+
+[sub_resource type="Animation" id="Animation_vpaon"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Team/Member1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7o2tn"]
+resource_name = "player_0_damaged"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Team/Member1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tt1ep"]
+_data = {
+&"RESET": SubResource("Animation_vpaon"),
+&"player_0_damaged": SubResource("Animation_7o2tn")
+}
+
+[node name="FightScreen" type="Control" unique_id=464873741]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5q1s3")
+
+[node name="Bright" type="CanvasLayer" parent="." unique_id=108602757]
+layer = 999
+
+[node name="ColorRect" type="ColorRect" parent="Bright" unique_id=2078193247]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Background" type="TextureRect" parent="." unique_id=372998905]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6gaab")
+expand_mode = 1
+
+[node name="TeamData" type="HBoxContainer" parent="." unique_id=190627397]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 0
+anchor_top = 0.42613637
+anchor_right = 1.0
+anchor_bottom = 0.47727272
+size_flags_vertical = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="Member1" type="VBoxContainer" parent="TeamData" unique_id=305878027]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Level" type="Label" parent="TeamData/Member1" unique_id=786022548]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Lv 100"
+horizontal_alignment = 1
+
+[node name="Name" type="Label" parent="TeamData/Member1" unique_id=1640615025]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 10
+text = "aaaaaaaaaa"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Member2" type="VBoxContainer" parent="TeamData" unique_id=351455501]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Level" type="Label" parent="TeamData/Member2" unique_id=1084615979]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Lv 100"
+horizontal_alignment = 1
+
+[node name="Name" type="Label" parent="TeamData/Member2" unique_id=1633567430]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 10
+text = "aaaaaaaaaa"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Member3" type="VBoxContainer" parent="TeamData" unique_id=1474242237]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Level" type="Label" parent="TeamData/Member3" unique_id=2046374569]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Lv 100"
+horizontal_alignment = 1
+
+[node name="Name" type="Label" parent="TeamData/Member3" unique_id=2122517239]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 10
+text = "aaaaaaaaaa"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Member4" type="VBoxContainer" parent="TeamData" unique_id=1510238893]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Level" type="Label" parent="TeamData/Member4" unique_id=1491454007]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Lv 100"
+horizontal_alignment = 1
+
+[node name="Name" type="Label" parent="TeamData/Member4" unique_id=1639613979]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 10
+text = "aaaaaaaaaa"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Elements" type="VBoxContainer" parent="." unique_id=921032103]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.07840909
+anchor_right = 1.0
+anchor_bottom = 1.0000001
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Enemy" type="HBoxContainer" parent="Elements" unique_id=1434594314]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+
+[node name="Level" type="Label" parent="Elements/Enemy" unique_id=1907749602]
+custom_minimum_size = Vector2(126, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+text = "Lv 100"
+vertical_alignment = 3
+
+[node name="Health" type="TextureProgressBar" parent="Elements/Enemy" unique_id=578095724]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_o16yi")
+texture_progress = ExtResource("3_5q1s3")
+tint_progress = Color(1, 1, 1, 0.8666667)
+
+[node name="Label" type="Label" parent="Elements/Enemy/Health" unique_id=1514911743]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerUI" type="Panel" parent="Elements" unique_id=1800187098]
+custom_minimum_size = Vector2(0, 370)
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_styles/panel = SubResource("StyleBoxTexture_uii2b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Elements/PlayerUI" unique_id=1560093457]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.038383838
+anchor_top = 0.043243244
+anchor_right = 0.9656566
+anchor_bottom = 0.94054055
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+metadata/_edit_use_anchors_ = true
+
+[node name="HealthAndMana" type="HBoxContainer" parent="Elements/PlayerUI/VBoxContainer" unique_id=212446643]
+custom_minimum_size = Vector2(450, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Member1" type="VBoxContainer" parent="Elements/PlayerUI/VBoxContainer/HealthAndMana" unique_id=1971557373]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="Health" type="TextureProgressBar" parent="Elements/PlayerUI/VBoxContainer/HealthAndMana/Member1" unique_id=709152694]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_o16yi")
+texture_progress = ExtResource("3_5q1s3")
+
+[node name="Value" type="Label" parent="Elements/PlayerUI/VBoxContainer/HealthAndMana/Member1/Health" unique_id=1166855235]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mana" type="TextureProgressBar" parent="Elements/PlayerUI/VBoxContainer/HealthAndMana/Member1" unique_id=629009971]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+size_flags_vertical = 2
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("5_p3il4")
+texture_progress = ExtResource("6_iobnd")
+
+[node name="Value" type="Label" parent="Elements/PlayerUI/VBoxContainer/HealthAndMana/Member1/Mana" unique_id=255542462]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Member2" type="VBoxContainer" parent="Elements/PlayerUI/VBoxContainer/HealthAndMana" unique_id=1433431810]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="Health" type="TextureProgressBar" parent="Elements/PlayerUI/VBoxContainer/HealthAndMana/Member2" unique_id=96385160]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_o16yi")
+texture_progress = ExtResource("3_5q1s3")
+
+[node name="Value" type="Label" parent="Elements/PlayerUI/VBoxContainer/HealthAndMana/Member2/Health" unique_id=1996420527]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mana" type="TextureProgressBar" parent="Elements/PlayerUI/VBoxContainer/HealthAndMana/Member2" unique_id=645699548]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+size_flags_vertical = 2
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("5_p3il4")
+texture_progress = ExtResource("6_iobnd")
+
+[node name="Value" type="Label" parent="Elements/PlayerUI/VBoxContainer/HealthAndMana/Member2/Mana" unique_id=832923454]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Member3" type="VBoxContainer" parent="Elements/PlayerUI/VBoxContainer/HealthAndMana" unique_id=1586486414]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="Health" type="TextureProgressBar" parent="Elements/PlayerUI/VBoxContainer/HealthAndMana/Member3" unique_id=543901279]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_o16yi")
+texture_progress = ExtResource("3_5q1s3")
+
+[node name="Value" type="Label" parent="Elements/PlayerUI/VBoxContainer/HealthAndMana/Member3/Health" unique_id=227298178]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mana" type="TextureProgressBar" parent="Elements/PlayerUI/VBoxContainer/HealthAndMana/Member3" unique_id=1143684416]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+size_flags_vertical = 2
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("5_p3il4")
+texture_progress = ExtResource("6_iobnd")
+
+[node name="Value" type="Label" parent="Elements/PlayerUI/VBoxContainer/HealthAndMana/Member3/Mana" unique_id=935724057]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Member4" type="VBoxContainer" parent="Elements/PlayerUI/VBoxContainer/HealthAndMana" unique_id=1166198157]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="Health" type="TextureProgressBar" parent="Elements/PlayerUI/VBoxContainer/HealthAndMana/Member4" unique_id=1300500874]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_o16yi")
+texture_progress = ExtResource("3_5q1s3")
+
+[node name="Value" type="Label" parent="Elements/PlayerUI/VBoxContainer/HealthAndMana/Member4/Health" unique_id=623884884]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mana" type="TextureProgressBar" parent="Elements/PlayerUI/VBoxContainer/HealthAndMana/Member4" unique_id=809888241]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+size_flags_vertical = 2
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("5_p3il4")
+texture_progress = ExtResource("6_iobnd")
+
+[node name="Value" type="Label" parent="Elements/PlayerUI/VBoxContainer/HealthAndMana/Member4/Mana" unique_id=1841552292]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionButtons" type="GridContainer" parent="Elements/PlayerUI/VBoxContainer" unique_id=529589337]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_constants/h_separation = 17
+theme_override_constants/v_separation = 17
+columns = 2
+
+[node name="Attack" type="TextureButton" parent="Elements/PlayerUI/VBoxContainer/ActionButtons" unique_id=1015701777]
+custom_minimum_size = Vector2(200, 95)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("7_1kbdm")
+texture_pressed = ExtResource("8_krfi4")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Magic" type="TextureButton" parent="Elements/PlayerUI/VBoxContainer/ActionButtons" unique_id=1657445794]
+custom_minimum_size = Vector2(200, 95)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("9_tbcmd")
+texture_pressed = ExtResource("10_blf0p")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Defend" type="TextureButton" parent="Elements/PlayerUI/VBoxContainer/ActionButtons" unique_id=862132456]
+custom_minimum_size = Vector2(200, 95)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("11_j187v")
+texture_pressed = ExtResource("12_fcvu2")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Run" type="TextureButton" parent="Elements/PlayerUI/VBoxContainer/ActionButtons" unique_id=1179342034]
+custom_minimum_size = Vector2(200, 95)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("13_dvcq1")
+texture_pressed = ExtResource("14_7o2tn")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="GoBack" type="TextureButton" parent="Elements/PlayerUI/VBoxContainer" unique_id=1343930121]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture_normal = ExtResource("16_1kbdm")
+texture_pressed = ExtResource("17_krfi4")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="EnemySprite" type="TextureRect" parent="." unique_id=865050959]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -340.0
+offset_right = 120.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_41mks")
+expand_mode = 1
+
+[node name="Modifiers" type="HBoxContainer" parent="EnemySprite" unique_id=2133099405]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.125
+anchor_bottom = 0.125
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="EnemySprite/Modifiers" unique_id=1295915816]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("19_iobnd")
+expand_mode = 1
+
+[node name="Team" type="HBoxContainer" parent="." unique_id=1931337118]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 374.0
+offset_right = 495.0
+offset_bottom = 510.0
+
+[node name="Member1" type="TextureRect" parent="Team" unique_id=824910515]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+texture = ExtResource("16_p4s3f")
+expand_mode = 1
+
+[node name="Modifiers" type="HBoxContainer" parent="Team/Member1" unique_id=801121687]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.2
+anchor_bottom = 0.2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Team/Member1/Modifiers" unique_id=1298779088]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("19_iobnd")
+expand_mode = 1
+
+[node name="Member2" type="TextureRect" parent="Team" unique_id=370855141]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+texture = ExtResource("16_p4s3f")
+expand_mode = 1
+
+[node name="Modifiers" type="HBoxContainer" parent="Team/Member2" unique_id=1402590680]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.2
+anchor_bottom = 0.2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Team/Member2/Modifiers" unique_id=1778579092]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("19_iobnd")
+expand_mode = 1
+
+[node name="Member3" type="TextureRect" parent="Team" unique_id=1273638612]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+texture = ExtResource("16_p4s3f")
+expand_mode = 1
+
+[node name="Modifiers" type="HBoxContainer" parent="Team/Member3" unique_id=1073509456]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.2
+anchor_bottom = 0.2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Team/Member3/Modifiers" unique_id=1305425472]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("19_iobnd")
+expand_mode = 1
+
+[node name="Member4" type="TextureRect" parent="Team" unique_id=906686882]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+texture = ExtResource("16_p4s3f")
+expand_mode = 1
+
+[node name="Modifiers" type="HBoxContainer" parent="Team/Member4" unique_id=590389242]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.2
+anchor_bottom = 0.2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Team/Member4/Modifiers" unique_id=953508287]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("19_iobnd")
+expand_mode = 1
+
+[node name="Buttons" type="HBoxContainer" parent="." unique_id=1677536128]
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.035353534
+anchor_top = 0.011363637
+anchor_right = 0.96464646
+anchor_bottom = 0.045454547
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Settings" type="TextureButton" parent="Buttons" unique_id=450163863]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("21_blf0p")
+texture_pressed = ExtResource("22_j187v")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Exit" type="TextureButton" parent="Buttons" unique_id=239773510]
+custom_minimum_size = Vector2(90, 30)
+layout_mode = 2
+size_flags_horizontal = 10
+texture_normal = ExtResource("23_fcvu2")
+texture_pressed = ExtResource("24_dvcq1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1605782507]
+libraries/ = SubResource("AnimationLibrary_tt1ep")
+
+[connection signal="pressed" from="Elements/PlayerUI/VBoxContainer/ActionButtons/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="Elements/PlayerUI/VBoxContainer/ActionButtons/Magic" to="." method="_on_magic_pressed"]
+[connection signal="pressed" from="Elements/PlayerUI/VBoxContainer/ActionButtons/Defend" to="." method="_on_defend_pressed"]
+[connection signal="pressed" from="Elements/PlayerUI/VBoxContainer/ActionButtons/Run" to="." method="_on_run_pressed"]
+[connection signal="pressed" from="Elements/PlayerUI/VBoxContainer/GoBack" to="." method="_on_go_back_pressed"]
+[connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Buttons/Exit" to="." method="_on_exit_pressed"]

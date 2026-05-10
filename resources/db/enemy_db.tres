@@ -9,6 +9,7 @@
 [resource]
 script = ExtResource("2_gqhbf")
 all_enemies = Array[ExtResource("1_3c2e7")]([ExtResource("2_63ovo"), ExtResource("3_kfoyu"), ExtResource("4_6u13m")])
+battle_mode = Array[ExtResource("1_3c2e7")]([ExtResource("2_63ovo"), ExtResource("3_kfoyu")])
 dungeon_mode = Dictionary[String, Array]({
 "Jefe": [],
 "Minijefe": [],

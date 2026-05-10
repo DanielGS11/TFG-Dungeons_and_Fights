@@ -1,0 +1,190 @@
+[gd_scene format=3 uid="uid://c63xydwt05q5c"]
+
+[ext_resource type="Script" uid="uid://0don6pwluh32" path="res://scenes/in_game/fight_screen/elements/skill_menu/member_selector.gd" id="1_6iyo0"]
+[ext_resource type="Texture2D" uid="uid://btx4jmvl23lk6" path="res://assets/elements/buttons/others/X.png" id="2_o33bp"]
+[ext_resource type="Texture2D" uid="uid://bb4yfmsro3yc6" path="res://assets/elements/buttons/others/X_pressed.png" id="3_vigie"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y3y13"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x32d0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_le42g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d1b73"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8phnw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q3h5y"]
+
+[node name="MemberSelector" type="Panel" unique_id=1260662994]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_y3y13")
+script = ExtResource("1_6iyo0")
+
+[node name="Selector" type="VBoxContainer" parent="." unique_id=418202418]
+layout_mode = 0
+offset_top = 349.0
+offset_right = 40.0
+offset_bottom = 389.0
+
+[node name="Pointers" type="HBoxContainer" parent="Selector" unique_id=632949030]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Member1" type="Label" parent="Selector/Pointers" unique_id=737957822]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Member2" type="Label" parent="Selector/Pointers" unique_id=712573211]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Member3" type="Label" parent="Selector/Pointers" unique_id=1223107095]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Member4" type="Label" parent="Selector/Pointers" unique_id=2010644793]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Members" type="HBoxContainer" parent="Selector" unique_id=442563908]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(497, 141)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Member1" type="Button" parent="Selector/Members" unique_id=2078997299]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 108
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x32d0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_le42g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d1b73")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8phnw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q3h5y")
+alignment = 0
+
+[node name="Label" type="Label" parent="Selector/Members/Member1" unique_id=541013768]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.29577464
+anchor_right = 0.9583333
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Member2" type="Button" parent="Selector/Members" unique_id=1976034324]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 108
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x32d0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_le42g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d1b73")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8phnw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q3h5y")
+alignment = 0
+
+[node name="Label" type="Label" parent="Selector/Members/Member2" unique_id=33873656]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.29577464
+anchor_right = 0.9583333
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Member3" type="Button" parent="Selector/Members" unique_id=1221515667]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 108
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x32d0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_le42g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d1b73")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8phnw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q3h5y")
+alignment = 0
+
+[node name="Label" type="Label" parent="Selector/Members/Member3" unique_id=1318734342]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.29577464
+anchor_right = 0.9583333
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Member4" type="Button" parent="Selector/Members" unique_id=2069972764]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 108
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x32d0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_le42g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d1b73")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8phnw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q3h5y")
+alignment = 0
+
+[node name="Label" type="Label" parent="Selector/Members/Member4" unique_id=1314651257]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.29577464
+anchor_right = 0.9583333
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="." unique_id=20129779]
+layout_mode = 0
+anchor_left = 0.04040404
+anchor_top = 0.36477274
+anchor_right = 0.84040403
+anchor_bottom = 0.38522726
+offset_right = -44.0
+offset_bottom = -2.0
+theme_override_font_sizes/font_size = 18
+text = "Selecciona un objetivo"
+metadata/_edit_use_anchors_ = true
+
+[node name="Cancel" type="TextureButton" parent="." unique_id=1377748974]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 0
+anchor_left = 0.9050505
+anchor_top = 0.35681817
+anchor_right = 0.9757576
+anchor_bottom = 0.39659092
+texture_normal = ExtResource("2_o33bp")
+texture_pressed = ExtResource("3_vigie")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Cancel" to="." method="_on_cancel_pressed"]

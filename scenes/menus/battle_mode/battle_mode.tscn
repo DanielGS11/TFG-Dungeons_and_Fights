@@ -61,22 +61,19 @@ expand_mode = 1
 [node name="Content" type="VBoxContainer" parent="." unique_id=336813050]
 custom_minimum_size = Vector2(495, 820)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -247.5
-offset_top = -410.0
-offset_right = 247.5
-offset_bottom = 410.0
+anchors_preset = -1
+anchor_top = 0.03409091
+anchor_right = 1.0
+anchor_bottom = 0.96590906
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 30
+metadata/_edit_use_anchors_ = true
 
 [node name="Logo" type="TextureRect" parent="Content" unique_id=1788266002]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(450, 100)
 layout_mode = 2
+size_flags_horizontal = 4
 texture = ExtResource("3_qp2ti")
 expand_mode = 1
 
@@ -158,6 +155,7 @@ text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="Plus" type="TextureButton" parent="Content/EnemiesNumber" unique_id=910146400]
 custom_minimum_size = Vector2(80, 80)
@@ -198,3 +196,5 @@ stretch_mode = 0
 [connection signal="pressed" from="Content/TeamButton" to="." method="_on_team_button_pressed"]
 [connection signal="button_down" from="Content/EnemiesNumber/Minus" to="." method="_on_minus_button_down"]
 [connection signal="button_down" from="Content/EnemiesNumber/Plus" to="." method="_on_plus_button_down"]
+[connection signal="pressed" from="Content/HBoxContainer/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="Content/HBoxContainer/Play" to="." method="_on_play_pressed"]

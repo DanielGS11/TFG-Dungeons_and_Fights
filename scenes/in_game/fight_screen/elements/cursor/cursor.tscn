@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bw5yhls2qjevs"]
+
+[sub_resource type="GDScript" id="GDScript_ahnuy"]
+script/source = "extends Label
+
+var tween = create_tween()
+
+func move_to(pos: Vector2):
+	tween.stop()
+	
+	global_position = pos
+	
+	start()
+
+func start():
+	if tween.is_running():
+		tween.stop()
+	
+	tween.set_loops()
+	tween.tween_property(self, \"position:y\", position.y - 5, 0)
+	tween.tween_interval(1)
+	tween.tween_property(self, \"position:y\", position.y + 5, 0)
+	tween.tween_interval(1)
+	
+	tween.play()
+
+func terminate():
+	tween.kill()
+	queue_free()
+"
+
+[node name="Cursor" type="Label" unique_id=653853032]
+anchors_preset = -1
+anchor_left = 0.105050504
+anchor_top = 0.39204547
+anchor_right = 0.13737373
+anchor_bottom = 0.41022727
+size_flags_horizontal = 6
+text = "V"
+script = SubResource("GDScript_ahnuy")
+metadata/_edit_use_anchors_ = true

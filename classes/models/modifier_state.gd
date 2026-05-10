@@ -16,6 +16,16 @@ var turn := 0
 func _init(stat_name: String):
 	stat = stat_name
 
+func set_type(type: Type):
+	modifier_type = type
+	
+	match type:
+		Type.BUFF:
+			GameAPI.get_asset("icons", stat + " +")
+		
+		Type.DEBUFF:
+			GameAPI.get_asset("icons", stat + " -")
+
 ## Reinicia los valores predeterminados
 func reset():
 	modifier_type = Type.NONE

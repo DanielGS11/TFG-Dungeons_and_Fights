@@ -152,6 +152,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_pr7i1")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_kr38r")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_r1x2f")
 text = "Pulse para jugar"
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1281922404]
 libraries/ = SubResource("AnimationLibrary_7abl3")

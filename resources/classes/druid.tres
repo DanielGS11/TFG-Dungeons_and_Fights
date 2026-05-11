@@ -7,5 +7,17 @@
 [resource]
 script = ExtResource("1_2qc3o")
 class_type = "Druida"
+max_mana = 140
+mana = 140
+exp_next_level = 100
 sprite = ExtResource("3_1brj4")
+max_health = 120
+health = 120
+attack = 8
+magic_attack = 25
+defense = 15
+speed = 15
+critical_rate = 2
+evasion = 2
+description = "Siendo uno con la naturaleza, usa los poderes de esta para ayudar y curar a sus aliados, ademas de atacar a los enemigos con la ferocidad de la madre naturaleza"
 metadata/_custom_type_script = "uid://q7s2lsfb8djq"

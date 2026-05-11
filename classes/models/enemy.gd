@@ -5,6 +5,8 @@ extends Entity
 # según el tipo
 @export_enum("Jefe", "Minijefe", "Normal") var enemy_type: String
 
+var initial_stats = []
+
 const enemy_augments := {
 	"Jefe" : 80,
 	"Minijefe" : 50,
@@ -17,13 +19,24 @@ var atk_augments: int
 
 func _init():
 	heal_multiplier = 5.0
+	
+	initial_stats.append_array([max_health, health, attack, magic_attack])
+
+func reset():
+	var extra_levels = level - 1
+	
+	level = 1
+	health -= enemy_augments[enemy_type] * extra_levels
+	max_health -= enemy_augments[enemy_type] * extra_levels
 
 ## Subir x niveles
 func grow_levels(levels):
+	reset()
+	
 	level += levels
 	
-	max_health += enemy_augments[enemy_type] * levels
-	health += enemy_augments[enemy_type] * levels
+	max_health = initial_stats[1] + (enemy_augments[enemy_type] * levels)
+	health += max_health
 	
 	# Compara la variable de aumentos con nivel menos 2. El ataque y ataque mágico del enemigo
 	# aumenta en 1 cada 2 niveles, estos aumentos se reflejan en esa variable. 
@@ -32,8 +45,8 @@ func grow_levels(levels):
 	# la diferencia (5 - 6)
 	var current_atk_augment = floori(float(level) / 2)
 	if atk_augments < current_atk_augment:
-		attack += current_atk_augment - atk_augments
-		magic_attack += current_atk_augment - atk_augments
+		attack = initial_stats[2] + (current_atk_augment - atk_augments)
+		magic_attack += initial_stats[3] + (current_atk_augment - atk_augments)
 		
 		atk_augments = current_atk_augment
 	

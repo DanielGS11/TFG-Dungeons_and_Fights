@@ -8,7 +8,7 @@ extends Resource
 # gestión
 #@warning_ignore("unused_signal")
 ## Avisa a la escena de que haga la siguiente acció según el modo (refrescarse, abrir el mapa...)
-signal next_step(id: Type)
+signal next_step()
 
 ## Indica qué modo es
 enum Type {BATTLE, DUNGEON}

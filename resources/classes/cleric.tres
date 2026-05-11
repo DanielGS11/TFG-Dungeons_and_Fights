@@ -7,5 +7,17 @@
 [resource]
 script = ExtResource("1_fa6up")
 class_type = "Clérigo"
+max_mana = 140
+mana = 140
+exp_next_level = 100
 sprite = ExtResource("3_y8o0s")
+max_health = 120
+health = 120
+attack = 6
+magic_attack = 20
+defense = 12
+speed = 13
+critical_rate = 2
+evasion = 2
+description = "Algunos lo llaman \"salvador\", corre por el campo de batalla sanando a todos y salvando sus vidas, permitiendo además que puedan combatir durante más tiempo"
 metadata/_custom_type_script = "uid://q7s2lsfb8djq"

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://cjd05udkefhrn"]
+
+[ext_resource type="Script" uid="uid://cr0hhat76xd7a" path="res://classes/models/enemy.gd" id="1_ktiqm"]
+[ext_resource type="Script" uid="uid://dwo74ogytqp2o" path="res://classes/models/skill.gd" id="2_qxbsk"]
+[ext_resource type="Texture2D" uid="uid://c54gb7axkrj5q" path="res://assets/enemies/boss/death.png" id="3_qxbsk"]
+
+[resource]
+script = ExtResource("1_ktiqm")
+enemy_type = "Jefe"
+exp_drop = 666
+sprite = ExtResource("3_qxbsk")
+name = "Parca"
+max_health = 400
+health = 400
+attack = 30
+magic_attack = 30
+defense = 5
+speed = 33
+critical_rate = 15
+evasion = 40
+metadata/_custom_type_script = "uid://cr0hhat76xd7a"

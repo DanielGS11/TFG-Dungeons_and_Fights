@@ -11,8 +11,8 @@ script = ExtResource("2_gqhbf")
 all_enemies = Array[ExtResource("1_3c2e7")]([ExtResource("2_63ovo"), ExtResource("3_kfoyu"), ExtResource("4_6u13m")])
 battle_mode = Array[ExtResource("1_3c2e7")]([ExtResource("2_63ovo"), ExtResource("3_kfoyu")])
 dungeon_mode = Dictionary[String, Array]({
-"Jefe": [],
-"Minijefe": [],
-"Normal": []
+"Jefe": [ExtResource("2_63ovo")],
+"Minijefe": [ExtResource("3_kfoyu")],
+"Normal": [ExtResource("4_6u13m")]
 })
 metadata/_custom_type_script = "uid://duull0x1pk7uo"

@@ -8,7 +8,18 @@
 [resource]
 script = ExtResource("1_iuwj4")
 class_type = "Asesino"
+max_mana = 100
+mana = 100
+exp_next_level = 100
 sprite = ExtResource("3_6nk4q")
-attack = 100
+max_health = 90
+health = 90
+attack = 30
+magic_attack = 13
+defense = 11
+speed = 30
+critical_rate = 20
+evasion = 20
 skills = Array[ExtResource("2_ld4ij")]([ExtResource("3_0mr5y")])
+description = "Se especializa en el sigilo y el ataque por sorpresa. No tendrá mucha fuerza, pero lo compensa con su velocidad y su capacidad de asestar golpes precisos y letales en los puntos débiles de los enemigos"
 metadata/_custom_type_script = "uid://q7s2lsfb8djq"

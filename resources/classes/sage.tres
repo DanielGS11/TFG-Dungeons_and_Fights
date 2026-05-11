@@ -7,5 +7,14 @@
 [resource]
 script = ExtResource("1_mtaxk")
 class_type = "Sabio"
+max_mana = 170
+mana = 170
+exp_next_level = 100
 sprite = ExtResource("3_e1ciq")
+magic_attack = 30
+defense = 10
+speed = 20
+critical_rate = 2
+evasion = 5
+description = "Tras años de analizar los algoritmos de la magia y aprender diversas artes, comprendió que usar la magia para atacar no lo es todo, y decidió aprender diversos hechizos para debilitar a sus enemigos y atacarles con más efectividad"
 metadata/_custom_type_script = "uid://q7s2lsfb8djq"

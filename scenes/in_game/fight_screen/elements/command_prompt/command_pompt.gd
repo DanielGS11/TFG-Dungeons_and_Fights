@@ -16,5 +16,8 @@ func load_prompt(prompt: String, pause) -> void:
 		_on_pressed()
 
 func _on_pressed() -> void:
+	disabled = true
+	
 	pointer.terminate()
+	GameAPI.prompt_end.emit()
 	queue_free()

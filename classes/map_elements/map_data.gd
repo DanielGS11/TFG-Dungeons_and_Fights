@@ -16,10 +16,12 @@ extends Resource
 ## Cargar la sala a que se quiere desplazar
 func go_to_room(position: Vector2i, difficulty: GameAPI.Difficulty, team_level: int) -> Room:
 	var room: Room = map[position.x][position.y]
+	actual_room.explored = true
+	
 	actual_room = room
 	
 	match room.room_type:
-		room.Type.NORMAL:
+		room.Type.NORMAL, Room.Type.LOCK:
 			if (room.explored and randi_range(1, 3) == 1) or room.explored == false:
 				room.enemy = GameAPI.get_enemy(Mode.Type.DUNGEON, "Normal")
 				
@@ -54,7 +56,7 @@ func go_to_room(position: Vector2i, difficulty: GameAPI.Difficulty, team_level: 
 				room.enemy = null
 		
 		room.Type.TREASURE, room.Type.MINIBOSS:
-			if room.enemy != null:
+			if room.enemy != null and room.enemy.health > 0:
 				room.enemy.grow_levels(miniboss_grow * miniboss_multiplier)
 		
 		room.Type.BOSS:

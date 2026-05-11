@@ -1,27 +1,29 @@
 extends Control
 
 var team_index: int
-var enemy_counter := 1
-var button_down := false
 
 @onready var bright: ColorRect = $Bright/ColorRect
 
 @onready var team_container = $Content/TeamButton
 @onready var warn: Label = $Content/Warn
-@onready var enemy_count: Label = $Content/EnemiesNumber/Number/Text
 
-@onready var minus: TextureButton = $Content/EnemiesNumber/Minus
-@onready var plus: TextureButton = $Content/EnemiesNumber/Plus
+@onready var difficulty_buttons = $Content/DifficultyButtons
 
 func _ready() -> void:
 	bright.color.a = GameAPI.get_bright()
 	
-	enemy_count.text = str(enemy_counter)
-	
 	_load_team()
+	
+	var difficulty = GameAPI.get_difficulty()
+	
+	for i in difficulty_buttons.get_children().size():
+		var button: TextureButton = difficulty_buttons.get_child(i)
+		button.button_pressed = i == difficulty
+		
+		button.pressed.connect(change_difficulty.bind(i))
 
 func _load_team():
-	team_index = GameAPI.get_team_index(Mode.Type.BATTLE)
+	team_index = GameAPI.get_team_index(Mode.Type.DUNGEON)
 	
 	for i in team_container.get_children():
 		team_container.remove_child(i)
@@ -47,51 +49,27 @@ func _load_team():
 		
 		warn.text = ""
 
+func change_difficulty(id: int):
+	GameAPI.set_difficulty(id)
+	
+	for i in difficulty_buttons.get_children().size():
+		difficulty_buttons.get_child(i).button_pressed = i == id
+		
+
 func _on_team_button_pressed() -> void:
 	var selector = preload("res://scenes/global_elements/team_selector/team_selector.tscn").instantiate()
 	
 	add_child(selector)
 	
-	selector.load_teams(Mode.Type.BATTLE)
+	selector.load_teams(Mode.Type.DUNGEON)
 	
 	if not selector.team_changed.is_connected(_load_team):
 		selector.team_changed.connect(_load_team)
 
-func _on_minus_button_down() -> void:
-	if button_down:
-		return
-	
-	button_down = true
-	
-	while minus.button_pressed:
-		enemy_counter = clamp(enemy_counter - 1, 1, 50)
-		
-		enemy_count.text = str(enemy_counter)
-		
-		await get_tree().create_timer(0.2).timeout
-	
-	button_down = false
-
-
-func _on_plus_button_down() -> void:
-	if button_down:
-		return
-	
-	button_down = true
-	
-	while plus.button_pressed:
-		enemy_counter = clamp(enemy_counter + 1, 1, 50)
-		
-		enemy_count.text = str(enemy_counter)
-		
-		await get_tree().create_timer(0.2).timeout
-	
-	button_down = false
-
 func _on_play_pressed() -> void:
 	if team_index <= -1:
-		GameAPI.set_actual_mode(Mode.Type.BATTLE)
-		GameAPI.new_game([enemy_counter])
+		GameAPI.set_actual_mode(Mode.Type.DUNGEON)
+		GameAPI.new_game([])
 		
 		get_tree().change_scene_to_file("res://scenes/in_game/fight_screen/fight_screen.tscn")
 	
@@ -113,8 +91,8 @@ func _on_play_pressed() -> void:
 			warning.load_warn("Los integrantes del equipo deben tener un nombre")
 		
 		else:
-			GameAPI.set_actual_mode(Mode.Type.BATTLE)
-			GameAPI.new_game([enemy_counter])
+			GameAPI.set_actual_mode(Mode.Type.DUNGEON)
+			GameAPI.new_game([])
 			
 			get_tree().change_scene_to_file("res://scenes/in_game/fight_screen/fight_screen.tscn")
 

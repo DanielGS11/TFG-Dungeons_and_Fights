@@ -41,9 +41,266 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Team/Member2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Team/Member3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Team/Member4:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("EnemySprite:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EnemySprite:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(240, 240)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("EnemySprite:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(130, 80)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("EnemySprite:custom_minimum_size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(180, 180)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Team/Member1:custom_minimum_size")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(100, 100)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Team/Member2:custom_minimum_size")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(100, 100)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Team/Member3:custom_minimum_size")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(100, 100)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Team/Member4:custom_minimum_size")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(100, 100)]
+}
 
-[sub_resource type="Animation" id="Animation_7o2tn"]
-resource_name = "player_0_damaged"
+[sub_resource type="Animation" id="Animation_blf0p"]
+resource_name = "enemy_buffed"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemySprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.46666667, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.4506808, 0.38219368, 1), Color(1, 1, 1, 1), Color(1, 0.4506808, 0.38219368, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnemySprite:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.4667, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(240, 240), Vector2(300, 300), Vector2(240, 240), Vector2(300, 300), Vector2(240, 240)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EnemySprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3, 0.46673334, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(130, 80), Vector2(97.507996, 30), Vector2(130, 80), Vector2(97.507996, 30), Vector2(130, 80)]
+}
+
+[sub_resource type="Animation" id="Animation_j187v"]
+resource_name = "enemy_damaged"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemySprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.19607843), Color(1, 1, 1, 1), Color(1, 1, 1, 0.19607843), Color(1, 1, 1, 1), Color(1, 1, 1, 0.19607843), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_uii2b"]
+resource_name = "enemy_debuffed"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemySprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0015740991, 0.16824077, 0.3015741, 0.4682741, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.24520135, 0.46315163, 0.9999663, 1), Color(1, 1, 1, 1), Color(0.24520135, 0.46315163, 0.9999663, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnemySprite:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3, 0.4667, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(240, 240), Vector2(180, 180), Vector2(240, 240), Vector2(180, 180), Vector2(240, 240)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EnemySprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3, 0.4667, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(130, 80), Vector2(157.5, 140), Vector2(130, 80), Vector2(157.5, 140), Vector2(130, 80)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EnemySprite:custom_minimum_size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3, 0.4667, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(240, 240), Vector2(180, 180), Vector2(240, 240), Vector2(180, 180), Vector2(240, 240)]
+}
+
+[sub_resource type="Animation" id="Animation_fcvu2"]
+resource_name = "enemy_healed"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemySprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.43333334, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(5.7756904e-07, 0.88966584, 0, 1), Color(1, 1, 1, 1), Color(5.7756904e-07, 0.88966584, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5ktdm"]
+resource_name = "player_1_buffed"
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -51,16 +308,371 @@ tracks/0/path = NodePath("Team/Member1:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.46666667, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 0.4506808, 0.38219368, 1), Color(1, 1, 1, 1), Color(1, 0.4506808, 0.38219368, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Team/Member1:custom_minimum_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3, 0.46666667, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(100, 100), Vector2(120, 120), Vector2(100, 100), Vector2(120, 120), Vector2(100, 100)]
+}
+
+[sub_resource type="Animation" id="Animation_7o2tn"]
+resource_name = "player_1_damaged"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Team/Member1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.19607843), Color(1, 1, 1, 1), Color(1, 1, 1, 0.19607843), Color(1, 1, 1, 1), Color(1, 1, 1, 0.19607843), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tt1ep"]
+resource_name = "player_1_debuffed"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Team/Member1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.4667, 0.5984259),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.24520135, 0.46315163, 0.9999663, 1), Color(1, 1, 1, 1), Color(0.24520135, 0.46315163, 0.9999663, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Team/Member1:custom_minimum_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3, 0.46670002, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(100, 100), Vector2(70, 70), Vector2(100, 100), Vector2(70, 70), Vector2(100, 100)]
+}
+
+[sub_resource type="Animation" id="Animation_hf6sf"]
+resource_name = "player_1_healed"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Team/Member1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.43333334, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(5.7756904e-07, 0.88966584, 0, 1), Color(1, 1, 1, 1), Color(5.7756904e-07, 0.88966584, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_b2mi8"]
+resource_name = "player_2_buffed"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Team/Member2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.4666667, 0.59999996),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.4506808, 0.38219368, 1), Color(1, 1, 1, 1), Color(1, 0.4506808, 0.38219368, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Team/Member2:custom_minimum_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.17299646, 0.30157417, 0.4666667, 0.59999996),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(100, 100), Vector2(120, 120), Vector2(100, 100), Vector2(120, 120), Vector2(100, 100)]
+}
+
+[sub_resource type="Animation" id="Animation_dvcq1"]
+resource_name = "player_2_damaged"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Team/Member2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.19607843), Color(1, 1, 1, 1), Color(1, 1, 1, 0.19607843), Color(1, 1, 1, 1), Color(1, 1, 1, 0.19607843), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3uuas"]
+resource_name = "player_2_debuffed"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Team/Member2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.4667, 0.5937036),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.24520135, 0.46315163, 0.9999663, 1), Color(1, 1, 1, 1), Color(0.24520135, 0.46315163, 0.9999663, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Team/Member2:custom_minimum_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3, 0.46512592, 0.5984259),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(100, 100), Vector2(70, 70), Vector2(100, 100), Vector2(70, 70), Vector2(100, 100)]
+}
+
+[sub_resource type="Animation" id="Animation_puhas"]
+resource_name = "player_2_healed"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Team/Member2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.43333334, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(5.7756904e-07, 0.88966584, 0, 1), Color(1, 1, 1, 1), Color(5.7756904e-07, 0.88966584, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_24ej5"]
+resource_name = "player_3_buffed"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Team/Member3:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.29685178, 0.46351847, 0.59685177),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.4506808, 0.38219368, 1), Color(1, 1, 1, 1), Color(1, 0.4506808, 0.38219368, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Team/Member3:custom_minimum_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.17299646, 0.29842594, 0.46351847, 0.59685177),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(100, 100), Vector2(120, 120), Vector2(100, 100), Vector2(120, 120), Vector2(100, 100)]
+}
+
+[sub_resource type="Animation" id="Animation_41mks"]
+resource_name = "player_3_damaged"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Team/Member3:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.19607843), Color(1, 1, 1, 1), Color(1, 1, 1, 0.19607843), Color(1, 1, 1, 1), Color(1, 1, 1, 0.19607843), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_e4fxl"]
+resource_name = "player_3_debuffed"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Team/Member3:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16824079, 0.3015741, 0.46827412, 0.5952777),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.24520135, 0.46315163, 0.9999663, 1), Color(1, 1, 1, 1), Color(0.24520135, 0.46315163, 0.9999663, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Team/Member3:custom_minimum_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3015741, 0.46670002, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(100, 100), Vector2(70, 70), Vector2(100, 100), Vector2(70, 70), Vector2(100, 100)]
+}
+
+[sub_resource type="Animation" id="Animation_36gsm"]
+resource_name = "player_3_healed"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Team/Member3:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.43333334, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(5.7756904e-07, 0.88966584, 0, 1), Color(1, 1, 1, 1), Color(5.7756904e-07, 0.88966584, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3klcn"]
+resource_name = "player_4_buffed"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Team/Member4:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.29370356, 0.46037024, 0.5937035),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.4506808, 0.38219368, 1), Color(1, 1, 1, 1), Color(1, 0.4506808, 0.38219368, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Team/Member4:custom_minimum_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.17299646, 0.2952777, 0.46037024, 0.5937035),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(100, 100), Vector2(120, 120), Vector2(100, 100), Vector2(120, 120), Vector2(100, 100)]
+}
+
+[sub_resource type="Animation" id="Animation_p4s3f"]
+resource_name = "player_4_damaged"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Team/Member4:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.19607843), Color(1, 1, 1, 1), Color(1, 1, 1, 0.19607843), Color(1, 1, 1, 1), Color(1, 1, 1, 0.19607843), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xdwnf"]
+resource_name = "player_4_debuffed"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Team/Member4:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16824079, 0.3015741, 0.46827412, 0.5952777),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.24520135, 0.46315163, 0.9999663, 1), Color(1, 1, 1, 1), Color(0.24520135, 0.46315163, 0.9999663, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Team/Member4:custom_minimum_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3015741, 0.46670002, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(100, 100), Vector2(70, 70), Vector2(100, 100), Vector2(70, 70), Vector2(100, 100)]
+}
+
+[sub_resource type="Animation" id="Animation_54jty"]
+resource_name = "player_4_healed"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Team/Member4:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.43333334, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(5.7756904e-07, 0.88966584, 0, 1), Color(1, 1, 1, 1), Color(5.7756904e-07, 0.88966584, 0, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tt1ep"]
 _data = {
 &"RESET": SubResource("Animation_vpaon"),
-&"player_0_damaged": SubResource("Animation_7o2tn")
+&"enemy_buffed": SubResource("Animation_blf0p"),
+&"enemy_damaged": SubResource("Animation_j187v"),
+&"enemy_debuffed": SubResource("Animation_uii2b"),
+&"enemy_healed": SubResource("Animation_fcvu2"),
+&"player_1_buffed": SubResource("Animation_5ktdm"),
+&"player_1_damaged": SubResource("Animation_7o2tn"),
+&"player_1_debuffed": SubResource("Animation_tt1ep"),
+&"player_1_healed": SubResource("Animation_hf6sf"),
+&"player_2_buffed": SubResource("Animation_b2mi8"),
+&"player_2_damaged": SubResource("Animation_dvcq1"),
+&"player_2_debuffed": SubResource("Animation_3uuas"),
+&"player_2_healed": SubResource("Animation_puhas"),
+&"player_3_buffed": SubResource("Animation_24ej5"),
+&"player_3_damaged": SubResource("Animation_41mks"),
+&"player_3_debuffed": SubResource("Animation_e4fxl"),
+&"player_3_healed": SubResource("Animation_36gsm"),
+&"player_4_buffed": SubResource("Animation_3klcn"),
+&"player_4_damaged": SubResource("Animation_p4s3f"),
+&"player_4_debuffed": SubResource("Animation_xdwnf"),
+&"player_4_healed": SubResource("Animation_54jty")
 }
 
 [node name="FightScreen" type="Control" unique_id=464873741]
@@ -123,6 +735,18 @@ text = "aaaaaaaaaa"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Modifiers" type="HBoxContainer" parent="TeamData/Member1" unique_id=1728288192]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="TeamData/Member1/Modifiers" unique_id=1835615695]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("19_iobnd")
+expand_mode = 1
+
 [node name="Member2" type="VBoxContainer" parent="TeamData" unique_id=351455501]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -142,6 +766,18 @@ theme_override_font_sizes/font_size = 10
 text = "aaaaaaaaaa"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Modifiers" type="HBoxContainer" parent="TeamData/Member2" unique_id=1440138645]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="TeamData/Member2/Modifiers" unique_id=497141001]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("19_iobnd")
+expand_mode = 1
 
 [node name="Member3" type="VBoxContainer" parent="TeamData" unique_id=1474242237]
 layout_mode = 2
@@ -163,6 +799,18 @@ text = "aaaaaaaaaa"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Modifiers" type="HBoxContainer" parent="TeamData/Member3" unique_id=2107013060]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="TeamData/Member3/Modifiers" unique_id=499349845]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("19_iobnd")
+expand_mode = 1
+
 [node name="Member4" type="VBoxContainer" parent="TeamData" unique_id=1510238893]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -183,6 +831,18 @@ text = "aaaaaaaaaa"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Modifiers" type="HBoxContainer" parent="TeamData/Member4" unique_id=1882312456]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="TeamData/Member4/Modifiers" unique_id=1830269455]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("19_iobnd")
+expand_mode = 1
+
 [node name="Elements" type="VBoxContainer" parent="." unique_id=921032103]
 layout_mode = 1
 anchors_preset = -1
@@ -192,19 +852,23 @@ anchor_bottom = 1.0000001
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Enemy" type="HBoxContainer" parent="Elements" unique_id=1434594314]
+[node name="Enemy" type="VBoxContainer" parent="Elements" unique_id=891846678]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Data" type="HBoxContainer" parent="Elements/Enemy" unique_id=1434594314]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
 
-[node name="Level" type="Label" parent="Elements/Enemy" unique_id=1907749602]
+[node name="Level" type="Label" parent="Elements/Enemy/Data" unique_id=1907749602]
 custom_minimum_size = Vector2(126, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
 text = "Lv 100"
 vertical_alignment = 3
 
-[node name="Health" type="TextureProgressBar" parent="Elements/Enemy" unique_id=578095724]
+[node name="Health" type="TextureProgressBar" parent="Elements/Enemy/Data" unique_id=578095724]
 custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
 value = 50.0
@@ -213,7 +877,7 @@ texture_under = ExtResource("2_o16yi")
 texture_progress = ExtResource("3_5q1s3")
 tint_progress = Color(1, 1, 1, 0.8666667)
 
-[node name="Label" type="Label" parent="Elements/Enemy/Health" unique_id=1514911743]
+[node name="Label" type="Label" parent="Elements/Enemy/Data/Health" unique_id=1514911743]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -223,6 +887,18 @@ grow_vertical = 2
 text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Modifiers" type="HBoxContainer" parent="Elements/Enemy" unique_id=1424048227]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Elements/Enemy/Modifiers" unique_id=1647713473]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("19_iobnd")
+expand_mode = 1
 
 [node name="PlayerUI" type="Panel" parent="Elements" unique_id=1800187098]
 custom_minimum_size = Vector2(0, 370)
@@ -502,43 +1178,29 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="EnemySprite" type="TextureRect" parent="." unique_id=865050959]
-custom_minimum_size = Vector2(240, 240)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = -340.0
-offset_right = 120.0
-offset_bottom = -100.0
+offset_left = -117.5
+offset_top = -360.0
+offset_right = 122.5
+offset_bottom = -120.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("15_41mks")
 expand_mode = 1
 
-[node name="Modifiers" type="HBoxContainer" parent="EnemySprite" unique_id=2133099405]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.125
-anchor_bottom = 0.125
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="EnemySprite/Modifiers" unique_id=1295915816]
-custom_minimum_size = Vector2(30, 30)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("19_iobnd")
-expand_mode = 1
-
 [node name="Team" type="HBoxContainer" parent="." unique_id=1931337118]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 374.0
-offset_right = 495.0
-offset_bottom = 510.0
+anchor_left = 0.002020202
+anchor_top = 0.425
+anchor_right = 1.0
+anchor_bottom = 0.57954544
+metadata/_edit_use_anchors_ = true
 
 [node name="Member1" type="TextureRect" parent="Team" unique_id=824910515]
 custom_minimum_size = Vector2(100, 100)
@@ -546,21 +1208,6 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 8
 texture = ExtResource("16_p4s3f")
-expand_mode = 1
-
-[node name="Modifiers" type="HBoxContainer" parent="Team/Member1" unique_id=801121687]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.2
-anchor_bottom = 0.2
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="Team/Member1/Modifiers" unique_id=1298779088]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("19_iobnd")
 expand_mode = 1
 
 [node name="Member2" type="TextureRect" parent="Team" unique_id=370855141]
@@ -571,21 +1218,6 @@ size_flags_vertical = 8
 texture = ExtResource("16_p4s3f")
 expand_mode = 1
 
-[node name="Modifiers" type="HBoxContainer" parent="Team/Member2" unique_id=1402590680]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.2
-anchor_bottom = 0.2
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="Team/Member2/Modifiers" unique_id=1778579092]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("19_iobnd")
-expand_mode = 1
-
 [node name="Member3" type="TextureRect" parent="Team" unique_id=1273638612]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -594,42 +1226,12 @@ size_flags_vertical = 8
 texture = ExtResource("16_p4s3f")
 expand_mode = 1
 
-[node name="Modifiers" type="HBoxContainer" parent="Team/Member3" unique_id=1073509456]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.2
-anchor_bottom = 0.2
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="Team/Member3/Modifiers" unique_id=1305425472]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("19_iobnd")
-expand_mode = 1
-
 [node name="Member4" type="TextureRect" parent="Team" unique_id=906686882]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 8
 texture = ExtResource("16_p4s3f")
-expand_mode = 1
-
-[node name="Modifiers" type="HBoxContainer" parent="Team/Member4" unique_id=590389242]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.2
-anchor_bottom = 0.2
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="Team/Member4/Modifiers" unique_id=953508287]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("19_iobnd")
 expand_mode = 1
 
 [node name="Buttons" type="HBoxContainer" parent="." unique_id=1677536128]

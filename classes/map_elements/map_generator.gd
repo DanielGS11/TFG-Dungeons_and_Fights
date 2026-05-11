@@ -28,6 +28,7 @@ func generate_map(height: int, width: int) -> Array:
 	
 	# Configuro los datos de la sala inicial, que será una vacía
 	initial_room.explored = true
+	initial_room.accessible = true
 	initial_room.room_type = initial_room.Type.EMPTY
 	
 	rooms.append(initial_room.coordinates)
@@ -131,7 +132,7 @@ func _scan_adjacents(position: Vector2i):
 	for i in directions.size():
 		var dir_pos = position + directions[i]
 		
-		if 0 <= dir_pos.x < map_width and 0 <= dir_pos.y < map_height:
+		if 0 <= dir_pos.x and dir_pos.x < map_width and 0 <= dir_pos.y and dir_pos.y < map_height:
 			adjacent_room = map[dir_pos.x][dir_pos.y]
 			
 			if adjacent_room.accessible:
@@ -148,7 +149,7 @@ func _generate_room(position: Vector2i):
 	for i in directions.size():
 		var dir_pos = position + directions[i]
 		
-		if 0 <= dir_pos.x < map_width and 0 <= dir_pos.y < map_height:
+		if 0 <= dir_pos.x and dir_pos.x < map_width and 0 <= dir_pos.y and dir_pos.y < map_height:
 			# Creamos una variable temporal de la sala actual para comprobar sus adyacentes y ver
 			# si hay alguna posición libre para añadir a la lista de posiciones disponibles
 			var room : Room = map[position.x][position.y]
@@ -205,7 +206,7 @@ func _generate_miniboss(position: Vector2i) -> int:
 		
 		else:
 			room.room_type = room.Type.TREASURE
-			room.background = GameAPI.get_asset("rooms", "Tesoro")[0]
+			room.background = GameAPI.get_asset("rooms", "Tesoro")
 			treasure_generated = true
 		
 		room.enemy = GameAPI.get_enemy(Mode.Type.DUNGEON, "Minijefe")
@@ -231,7 +232,7 @@ func _generate_boss(position: Vector2i):
 		for i in directions.size():
 			var dir_pos = position + directions[i]
 			
-			if 0 <= dir_pos.x < map_width and 0 <= dir_pos.y < map_height:
+			if 0 <= dir_pos.x and dir_pos.x < map_width and 0 <= dir_pos.y and dir_pos.y < map_height:
 				if room.adjacent_rooms.all(func(a): return a != dir_pos):
 					positions_available.append(dir_pos)
 		
@@ -254,3 +255,5 @@ func _generate_boss(position: Vector2i):
 			boss_room.enemy = GameAPI.get_enemy(Mode.Type.DUNGEON, "Jefe")
 			
 			boss_generated = true
+			
+			rooms.append(boss_room.coordinates)

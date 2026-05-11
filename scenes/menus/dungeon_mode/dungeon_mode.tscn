@@ -1,0 +1,179 @@
+[gd_scene format=3 uid="uid://c043eetyj8t61"]
+
+[ext_resource type="Script" uid="uid://cwpk8mmg1jpi6" path="res://scenes/menus/dungeon_mode/dungeon_mode.gd" id="1_qal7t"]
+[ext_resource type="Texture2D" uid="uid://bpbo54nsaxwbb" path="res://assets/background/menu.png" id="2_tbsln"]
+[ext_resource type="Texture2D" uid="uid://bqievmej70uo5" path="res://assets/logos/dungeon_mode.png" id="3_t04u7"]
+[ext_resource type="Texture2D" uid="uid://ckcnusyulesyf" path="res://assets/elements/panels/no_team.png" id="4_3pv2g"]
+[ext_resource type="Texture2D" uid="uid://bulj0327lj2d4" path="res://assets/elements/buttons/difficulty/easy.png" id="5_rtyif"]
+[ext_resource type="Texture2D" uid="uid://chirsdckndlde" path="res://assets/elements/buttons/difficulty/easy_selected.png" id="6_n4iwg"]
+[ext_resource type="Texture2D" uid="uid://dxvw5i0d6ijvi" path="res://assets/elements/buttons/difficulty/normal.png" id="7_hwucx"]
+[ext_resource type="Texture2D" uid="uid://dh723tuhinfjw" path="res://assets/elements/buttons/difficulty/normal_selected.png" id="8_mj8ue"]
+[ext_resource type="Texture2D" uid="uid://cf07oh2fwwh87" path="res://assets/elements/buttons/difficulty/hard.png" id="9_mo1rj"]
+[ext_resource type="Texture2D" uid="uid://cpj1xpwt330nd" path="res://assets/elements/buttons/difficulty/hard_selected.png" id="10_yji2h"]
+[ext_resource type="Texture2D" uid="uid://de5bv7a41g26q" path="res://assets/elements/buttons/others/return.png" id="11_mg471"]
+[ext_resource type="Texture2D" uid="uid://cmvp515pj65fw" path="res://assets/elements/buttons/others/return_pressed.png" id="12_qdsa6"]
+[ext_resource type="Texture2D" uid="uid://dgfm0niu1bo6i" path="res://assets/elements/buttons/others/play.png" id="13_ll7ms"]
+[ext_resource type="Texture2D" uid="uid://dm12ep16ixrti" path="res://assets/elements/buttons/others/play_pressed.png" id="14_4xv8b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sdku1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qx51o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1xv3w"]
+
+[node name="DungeonMode" type="Control" unique_id=352539860]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qal7t")
+
+[node name="Bright" type="CanvasLayer" parent="." unique_id=19442843]
+layer = 999
+
+[node name="ColorRect" type="ColorRect" parent="Bright" unique_id=974691447]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Background" type="TextureRect" parent="." unique_id=826578701]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tbsln")
+expand_mode = 1
+
+[node name="Content" type="VBoxContainer" parent="." unique_id=1464155955]
+custom_minimum_size = Vector2(495, 820)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.03409091
+anchor_right = 1.0
+anchor_bottom = 0.96590906
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+metadata/_edit_use_anchors_ = true
+
+[node name="Logo" type="TextureRect" parent="Content" unique_id=1217700822]
+custom_minimum_size = Vector2(450, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_t04u7")
+expand_mode = 1
+
+[node name="SelectTeamText" type="Label" parent="Content" unique_id=908665856]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 25
+text = "Equipo seleccionado"
+
+[node name="TeamButton" type="Button" parent="Content" unique_id=1451139375]
+custom_minimum_size = Vector2(440, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sdku1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qx51o")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1xv3w")
+
+[node name="TextureRect" type="TextureRect" parent="Content/TeamButton" unique_id=2002042990]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_3pv2g")
+expand_mode = 1
+
+[node name="Warn" type="Label" parent="Content" unique_id=1659111989]
+custom_minimum_size = Vector2(1, 40)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "Aviso: Se asignará un equipo aleatorio"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Difficulty" type="Label" parent="Content" unique_id=2093494451]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 19
+text = "Dificultad"
+horizontal_alignment = 1
+
+[node name="DifficultyButtons" type="VBoxContainer" parent="Content" unique_id=1638463946]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Easy" type="TextureButton" parent="Content/DifficultyButtons" unique_id=517714814]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+toggle_mode = true
+texture_normal = ExtResource("5_rtyif")
+texture_pressed = ExtResource("6_n4iwg")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Medium" type="TextureButton" parent="Content/DifficultyButtons" unique_id=1892170448]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+toggle_mode = true
+texture_normal = ExtResource("7_hwucx")
+texture_pressed = ExtResource("8_mj8ue")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Hard" type="TextureButton" parent="Content/DifficultyButtons" unique_id=1307394218]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+toggle_mode = true
+texture_normal = ExtResource("9_mo1rj")
+texture_pressed = ExtResource("10_yji2h")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content" unique_id=1076927770]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_constants/separation = 30
+
+[node name="Return" type="TextureButton" parent="Content/HBoxContainer" unique_id=2092150813]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("11_mg471")
+texture_pressed = ExtResource("12_qdsa6")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Play" type="TextureButton" parent="Content/HBoxContainer" unique_id=770454735]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("13_ll7ms")
+texture_pressed = ExtResource("14_4xv8b")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="Content/TeamButton" to="." method="_on_team_button_pressed"]
+[connection signal="pressed" from="Content/HBoxContainer/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="Content/HBoxContainer/Play" to="." method="_on_play_pressed"]

@@ -7,5 +7,17 @@
 [resource]
 script = ExtResource("1_w4pte")
 class_type = "Paladin"
+max_mana = 110
+mana = 110
+exp_next_level = 110
 sprite = ExtResource("3_bank4")
+max_health = 150
+health = 150
+attack = 25
+magic_attack = 14
+defense = 30
+speed = 14
+critical_rate = 2
+evasion = 2
+description = "Guerrero sagrado envcargado de proteger a todos, el paladin es una clase especializada en la defensa, aunque su ataque y capacidad de curar no se quedan muy atrás"
 metadata/_custom_type_script = "uid://q7s2lsfb8djq"

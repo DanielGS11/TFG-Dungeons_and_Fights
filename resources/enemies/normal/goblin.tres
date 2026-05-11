@@ -7,6 +7,7 @@
 [resource]
 script = ExtResource("1_umhyq")
 enemy_type = "Normal"
+exp_drop = 50
 sprite = ExtResource("3_i87cl")
 name = "Goblin"
 metadata/_custom_type_script = "uid://cr0hhat76xd7a"

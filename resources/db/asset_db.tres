@@ -57,7 +57,6 @@
 [resource]
 script = ExtResource("1_xvay1")
 rooms = Dictionary[String, Variant]({
-"": null,
 "Cerradura": ExtResource("4_ova2u"),
 "Jefe": ExtResource("7_3ch78"),
 "Modo batalla": ExtResource("46_07b6v"),

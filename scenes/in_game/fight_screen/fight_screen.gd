@@ -9,7 +9,7 @@ var team: Team
 var enemy: Enemy
 
 @onready var bright: ColorRect = $Bright/ColorRect
-@onready var background := $Background
+@onready var background: TextureRect = $Background
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var enemy_sprite: TextureRect = $EnemySprite
@@ -59,7 +59,7 @@ func _ready() -> void:
 	
 	_move_cursor()
 	
-	run_button.disabled = actual_mode.mode != Mode.Type.BATTLE
+	run_button.disabled = actual_mode.mode == Mode.Type.BATTLE
 	
 	actual_mode.start()
 	
@@ -68,7 +68,7 @@ func _ready() -> void:
 func _load_all_data():
 	enemy = controller.enemy
 	
-	if enemy == null:
+	if enemy == null or enemy.health == 0:
 		enemy_sprite.visible = false
 		enemy_data.visible = false
 	
@@ -84,10 +84,10 @@ func _load_all_data():
 
 func _load_entity_data(entity: Entity):
 	if entity is Enemy:
-		var level: Label = enemy_data.get_child(0)
-		var health_bar: TextureProgressBar = enemy_data.get_child(1)
+		var level: Label = enemy_data.get_child(0).get_child(0)
+		var health_bar: TextureProgressBar = enemy_data.get_child(0).get_child(1)
 		
-		var modifier_list := enemy_sprite.get_child(0)
+		var modifier_list := enemy_data.get_child(1)
 		
 		for i in modifier_list.get_children():
 			i.queue_free()
@@ -114,7 +114,7 @@ func _load_entity_data(entity: Entity):
 		var health_bar: TextureProgressBar = team_bars.get_child(id).get_child(0)
 		var mana_bar: TextureProgressBar = team_bars.get_child(id).get_child(1)
 		
-		var modifier_list := team_sprites.get_child(id).get_child(0)
+		var modifier_list := team_data.get_child(id).get_child(2)
 		
 		for i in modifier_list.get_children():
 			i.queue_free()
@@ -178,11 +178,11 @@ func _show_prompt(prompt: String, pause: bool):
 	add_child(command_prompt)
 	
 	if animation_player.is_playing():
+		command_prompt.disabled = true
 		await animation_player.animation_finished
 	
 	command_prompt.load_prompt(prompt, pause)
-	await command_prompt.tree_exited
-	GameAPI.prompt_end.emit()
+	await GameAPI.prompt_end
 
 func _on_attack_pressed() -> void:
 	queue[team.members[member_turn]] = [Entity.Actions.ATTACK, enemy]
@@ -245,40 +245,48 @@ func _on_exit_pressed() -> void:
 	if await popup.confirm:
 		get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
 
-func _on_continue(id: Mode.Type):
-	match id:
+func _on_continue():
+	match actual_mode.mode:
 		Mode.Type.BATTLE:
 			_load_all_data()
 		
 		Mode.Type.DUNGEON:
-			pass
+			if actual_mode.is_on_map:
+				add_child(preload("res://scenes/in_game/fight_screen/elements/map/dungeon_map.tscn").instantiate())
+			
+			else:
+				var room: Room = actual_mode.actual_room
+				
+				_load_all_data()
+				background.texture = room.background
 
 func _on_animate(id: int, type: String, value):
 	if GameAPI.get_config().animations:
 		var target: String
 		var pos: Vector2
 		
+		var value_label = preload("res://scenes/in_game/fight_screen/elements/healing_damage_tween/healing_damage_tween.tscn").instantiate()
+		
 		if id == -1:
 			target = "enemy"
-			pos = enemy_sprite.global_position + Vector2(50, -50)
+			pos = enemy_sprite.global_position + Vector2(100, -30)
 		else:
-			target = "player_" + str(id)
-			pos = team_sprites.get_child(id).global_position + Vector2(25, -25)
+			target = "player_" + str(id + 1)
+			pos = team_sprites.get_child(id).global_position + Vector2(40, -10)
 		
 		match type:
 			"_damaged":
-				var damage_value = preload("res://scenes/in_game/fight_screen/elements/healing_damage_tween/healing_damage_tween.tscn").instantiate()
+				add_child(value_label)
 				
-				add_child(damage_value)
-				
-				damage_value.start(value, pos, Color.RED)
+				value_label.start(value, pos, Color.RED)
 			
 			"_healed":
-				var heal_value = preload("res://scenes/in_game/fight_screen/elements/healing_damage_tween/healing_damage_tween.tscn").instantiate()
+				add_child(value_label)
 				
-				add_child(heal_value)
-				
-				heal_value.start(value, pos, Color.GREEN)
+				value_label.start(value, pos, Color.GREEN)
 		
 		animation_player.play(target + type)
 		await animation_player.animation_finished
+		
+		if is_instance_valid(value_label):
+			await value_label.tree_exited

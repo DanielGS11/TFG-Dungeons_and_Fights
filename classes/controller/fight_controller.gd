@@ -19,7 +19,7 @@ var animation_target: int
 ## Añade las acciones del equipo a la cola y ejecuta las acciones
 func set_queue(team_actions: Dictionary):
 	queue.merge(team_actions)
-	_execute_queue()
+	await _execute_queue()
 
 ## Ejecuta las acciones de la cola
 func _execute_queue():
@@ -69,6 +69,8 @@ func _check_game_state():
 		for member in team.members:
 			if member.health > 0:
 				allies_alive += 1
+				
+				member.recover_mana(ceili(float(member.mana) * 0.10))
 				await member.check_modifiers()
 		
 		if allies_alive == 0:
@@ -304,4 +306,4 @@ func run():
 		queue.clear()
 		await GameAPI.send_prompt("No se pudo escapar", false)
 		
-	_execute_queue()
+		_execute_queue()

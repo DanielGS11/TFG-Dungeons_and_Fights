@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://bdo4185frcd6b"]
+
+[ext_resource type="Script" uid="uid://cr0hhat76xd7a" path="res://classes/models/enemy.gd" id="1_dp21f"]
+[ext_resource type="Script" uid="uid://dwo74ogytqp2o" path="res://classes/models/skill.gd" id="2_3v0p1"]
+[ext_resource type="Texture2D" uid="uid://cnr1bxk6ele8f" path="res://assets/enemies/boss/dark_empress.png" id="3_3v0p1"]
+
+[resource]
+script = ExtResource("1_dp21f")
+enemy_type = "Jefe"
+exp_drop = 333
+sprite = ExtResource("3_3v0p1")
+name = "Emperatriz oscura"
+max_health = 700
+health = 700
+attack = 33
+magic_attack = 33
+defense = 33
+speed = 33
+critical_rate = 10
+evasion = 10
+metadata/_custom_type_script = "uid://cr0hhat76xd7a"

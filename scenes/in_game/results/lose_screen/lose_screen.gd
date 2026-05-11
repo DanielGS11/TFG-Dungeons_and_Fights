@@ -24,7 +24,7 @@ func _ready() -> void:
 		
 		team_avg_level += member.level
 	
-	team_level.text = "Nivel del equipo: " + str(team_avg_level / mode_data.team_in_use.members)
+	team_level.text = "Nivel del equipo: " + str(team_avg_level / mode_data.team_in_use.members.size())
 	enemies_defeated.text = "Enemigos derrotados: " + str(mode_data.enemies_defeated)
 
 func _on_back_to_menu_pressed() -> void:

@@ -6,8 +6,8 @@ extends Entity
 const class_augments = {
 	"Asesino" : [20, 20, 30, 3, 2, 2],
 	"Berserker" : [20, 20, 30, 3, 3, 2],
-	"Mago" : [10, 40, 35, 1, 1, 3],
-	"Sabio" : [10, 40, 35, 1, 1, 3],
+	"Mago" : [10, 50, 35, 1, 1, 3],
+	"Sabio" : [10, 50, 35, 1, 1, 3],
 	"Clérigo" : [12, 40, 35, 1, 1, 3],
 	"Druida" : [10, 40, 35, 1, 1, 3],
 	"Bastión" : [50, 10, 45, 2, 4, 1],
@@ -55,7 +55,7 @@ func level_up():
 		health += class_augments[class_type][0]
 		
 		max_mana += class_augments[class_type][1]
-		mana += class_augments[class_type][1]
+		mana += max_mana
 		
 		exp_next_level += class_augments[class_type][2]
 		
@@ -65,3 +65,14 @@ func level_up():
 
 func consume_mana(value: int):
 	mana -= value
+
+func recover_mana(value: int):
+	if value > max_mana - mana:
+		mana = max_mana
+	
+	else:
+		mana += value
+
+func revive(percentage: float):
+	if health <= 0:
+		health = ceili(float(max_health) * percentage)

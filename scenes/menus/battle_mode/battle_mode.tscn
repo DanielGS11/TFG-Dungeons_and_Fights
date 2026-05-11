@@ -81,7 +81,7 @@ expand_mode = 1
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 25
-text = "Equipo Seleccionado"
+text = "Equipo seleccionado"
 
 [node name="TeamButton" type="Button" parent="Content" unique_id=1273565322]
 custom_minimum_size = Vector2(440, 180)

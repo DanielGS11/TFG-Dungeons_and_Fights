@@ -7,5 +7,14 @@
 [resource]
 script = ExtResource("1_aw471")
 class_type = "Berserker"
+max_mana = 100
+mana = 100
+exp_next_level = 100
 sprite = ExtResource("3_pj0vb")
+attack = 40
+defense = 13
+speed = 22
+critical_rate = 5
+evasion = 5
+description = "Tras tantas batallas, reflejadas en sus cicatrices, su ira lo volvió una máquina de matar, dejando de lado el honor y la estrategia para cargar de frente contra el enemigo con todas sus fuerzas. Su fuerza es incomparable"
 metadata/_custom_type_script = "uid://q7s2lsfb8djq"

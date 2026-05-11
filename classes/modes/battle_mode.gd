@@ -11,6 +11,8 @@ func _init():
 	can_escape = false
 
 func new_game(data: Array):
+	GameAPI.set_team(team_index)
+	
 	current_enemy = null
 	is_finished = false
 	enemies_to_defeat = data[0]
@@ -29,12 +31,17 @@ func start():
 
 func _on_enemy_defeated(_exp_value: int):
 	for member in team_in_use.members:
+		if member.health <= 0:
+			member.revive(0.20)
+		
 		member.level_up()
 		member.clear_modifiers()
 		
 		controller.refresh_data.emit(member)
 	
 	await GameAPI.send_prompt("El equipo subió de nivel", true)
+	
+	current_enemy = null
 	
 	load_new_enemy()
 
@@ -55,6 +62,6 @@ func load_new_enemy():
 		
 		await GameAPI.send_prompt(controller.enemy.name + " apareció", true)
 		
-		next_step.emit(mode)
+		next_step.emit()
 	
 	GameAPI.save_game()

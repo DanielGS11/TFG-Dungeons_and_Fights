@@ -31,6 +31,12 @@ func send_prompt(text: String, pause: bool):
 	
 	await prompt_end
 
+func get_difficulty() -> int:
+	return GameManager.modes[Mode.Type.DUNGEON].difficulty
+
+func set_difficulty(id: int):
+	GameManager.modes[Mode.Type.DUNGEON].difficulty = id
+
 ## Establecer modo de juego
 func set_actual_mode(id: Mode.Type):
 	GameManager.actual_mode = GameManager.modes[id]
@@ -45,6 +51,22 @@ func get_all_teams() -> Array[Team]:
 ## Devuelve un equipo según su índice
 func get_team(index: int) -> Team:
 	return GameManager.teams[index]
+
+## Carga un equipo en el modo de juego actual
+func set_team(index: int):
+	var team: Team
+	
+	if index == -1:
+		team = Team.new()
+		
+		for i in team.members.size():
+			team.members[i] = characters_db.characters.pick_random().duplicate(true)
+			team.members[i].name = "Player " + str(i + 1)
+	
+	else:
+		team = GameManager.teams[index].duplicate(true)
+	
+	GameManager.actual_mode.team_in_use = team
 
 ## Añade un equipo
 func add_team():
@@ -80,35 +102,14 @@ func get_team_in_edition() -> int:
 func set_member(team_index: int, member_index: int, member: Character):
 	GameManager.teams[team_index].members[member_index] = member
 
-## Carga un equipo en el modo de juego actual
-func set_team():
-	var index = GameManager.actual_mode.team_index
-	var team: Team
-	
-	if index == -1:
-		team = Team.new()
-		
-		for i in team.members.size():
-			team.members[i] = characters_db.characters.pick_random().duplicate(true)
-			team.members[i].name = "Player " + str(i + 1)
-	
-	else:
-		team = GameManager.teams[index].duplicate(true)
-	
-	GameManager.actual_mode.team_in_use = team
-
 func new_game(data: Array):
-	var team = GameManager.teams[GameManager.actual_mode.team_index]
-	
-	GameManager.actual_mode.team_in_use = team.duplicate(true)
-	
 	GameManager.actual_mode.new_game(data)
 
 func get_controller() -> FightController:
 	return GameManager.actual_mode.controller
 
-func get_map() -> Array:
-	return GameManager.actual_mode.dungeon_map.map
+func get_map_data() -> MapData:
+	return GameManager.actual_mode.dungeon_map
 
 ## Recoge 1 o más assets según la categoria y nombre de este
 func get_asset(category: String, key: String) -> Variant:
@@ -127,7 +128,7 @@ func get_asset(category: String, key: String) -> Variant:
 
 ## Pedir un enemigo aleatorio según el modo y categoría si la hay
 func get_enemy(mode: Mode.Type, category: Variant) -> Enemy:
-	var enemy_list: Array[Enemy]
+	var enemy_list: Array
 	
 	match mode:
 		Mode.Type.BATTLE:

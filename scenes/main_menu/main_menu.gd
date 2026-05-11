@@ -30,12 +30,12 @@ func _on_battle_mode_pressed() -> void:
 			get_tree().change_scene_to_file("res://scenes/in_game/fight_screen/fight_screen.tscn")
 		
 		else:
+			await _animate("exit")
 			get_tree().change_scene_to_file("res://scenes/menus/battle_mode/battle_mode.tscn")
 	
 	else:
+		await _animate("exit")
 		get_tree().change_scene_to_file("res://scenes/menus/battle_mode/battle_mode.tscn")
-	
-	await _animate("exit")
 
 func _on_dungeon_mode_pressed() -> void:
 	# Si la partida no terminó, salta un aviso y comprueba si se quiere seguir
@@ -52,11 +52,12 @@ func _on_dungeon_mode_pressed() -> void:
 			get_tree().change_scene_to_file("res://scenes/in_game/fight_screen/fight_screen.tscn")
 		
 		else:
-			print("no")
 			await _animate("exit")
+			get_tree().change_scene_to_file("res://scenes/menus/dungeon_mode/dungeon_mode.tscn")
 	
 	else:
 		await _animate("exit")
+		get_tree().change_scene_to_file("res://scenes/menus/dungeon_mode/dungeon_mode.tscn")
 
 func _on_teams_pressed() -> void:
 	await _animate("exit")

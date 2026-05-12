@@ -28,6 +28,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Logo:offset_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1000.0]
+}
 
 [sub_resource type="Animation" id="Animation_r8gk7"]
 resource_name = "entry"
@@ -35,26 +47,26 @@ length = 0.833
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Logo:position")
+tracks/0/path = NodePath("Effects/Shine:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.13333334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-400, 50), Vector2(47.5, 50)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Effects/Shine:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0.3, 0.333, 0.833),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Logo:offset_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1000.0, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_kk1se"]
@@ -125,12 +137,14 @@ texture = ExtResource("1_k07cr")
 expand_mode = 1
 
 [node name="Logo" type="TextureRect" parent="." unique_id=1048353391]
+custom_minimum_size = Vector2(400, 120)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0959596
 anchor_top = 0.056818184
 anchor_right = 0.9040404
 anchor_bottom = 0.19318181
+offset_right = -1000.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_bmjsd")
@@ -138,7 +152,6 @@ expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Enter" type="Button" parent="." unique_id=1743739537]
-modulate = Color(1, 1, 1, 0.627451)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

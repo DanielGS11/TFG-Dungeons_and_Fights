@@ -15,162 +15,238 @@
 [ext_resource type="Texture2D" uid="uid://csalxiqyje4up" path="res://assets/elements/buttons/main_menu/guides.png" id="13_n7xlh"]
 [ext_resource type="Texture2D" uid="uid://dqhqjbjicq2vo" path="res://assets/elements/buttons/main_menu/guides_pressed.png" id="14_0xlsr"]
 
+[sub_resource type="Animation" id="Animation_dn3lk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BattleMode:offset_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1000.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DungeonMode:offset_left")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1000.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Teams:offset_left")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1000.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Exit:offset_left")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1000.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Settings:offset_top")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [250.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Guides:offset_top")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [250.0]
+}
+
 [sub_resource type="Animation" id="Animation_0oicw"]
 resource_name = "entry"
 length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BattleMode:position")
+tracks/0/path = NodePath("BattleMode:offset_left")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.06666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(500, 90), Vector2(47.5, 90)]
+"values": [1000.0, 0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("DungeonMode:position")
+tracks/1/path = NodePath("DungeonMode:offset_left")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.06666667, 0.16666667),
+"times": PackedFloat32Array(0.05, 0.13333334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(500, 250), Vector2(47.5, 250)]
+"values": [1000.0, 0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Teams:position")
+tracks/2/path = NodePath("Teams:offset_left")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.13333334, 0.23333333),
+"times": PackedFloat32Array(0.1, 0.16666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(500, 410), Vector2(47.5, 410)]
+"values": [1000.0, 0.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Exit:position")
+tracks/3/path = NodePath("Exit:offset_left")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.2, 0.3),
+"times": PackedFloat32Array(0.15, 0.23333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(500, 570), Vector2(47.5, 570)]
+"values": [1000.0, 0.0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Settings:position")
+tracks/4/path = NodePath("Settings:offset_top")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.1, 0.16666667),
+"times": PackedFloat32Array(0.2, 0.26666668),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(30, 900), Vector2(30, 785)]
+"values": [250.0, 0.0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Guides:position")
+tracks/5/path = NodePath("Guides:offset_top")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.16666667, 0.23333333),
+"times": PackedFloat32Array(0.23333333, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(265, 900), Vector2(265, 785)]
+"values": [250.0, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_83tid"]
+[sub_resource type="Animation" id="Animation_4ujhu"]
 resource_name = "exit"
-length = 0.4
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BattleMode:position")
+tracks/0/path = NodePath("BattleMode:offset_left")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.06666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(47.5, 90), Vector2(500, 90)]
+"values": [0.0, 1000.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("DungeonMode:position")
+tracks/1/path = NodePath("DungeonMode:offset_left")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.06666667, 0.16666667),
+"times": PackedFloat32Array(0.06666667, 0.13333334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(47.5, 250), Vector2(500, 250)]
+"values": [0.0, 1000.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Teams:position")
+tracks/2/path = NodePath("Teams:offset_left")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.13333334, 0.23333333),
+"times": PackedFloat32Array(0.1, 0.16666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(47.5, 410), Vector2(500, 410)]
+"values": [0.0, 1000.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Exit:position")
+tracks/3/path = NodePath("Exit:offset_left")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.2, 0.3),
+"times": PackedFloat32Array(0.16666667, 0.23333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(47.5, 570), Vector2(500, 570)]
+"values": [0.0, 1000.0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Settings:position")
+tracks/4/path = NodePath("Settings:offset_top")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.1, 0.16666667),
+"times": PackedFloat32Array(0.2, 0.26666668),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(30, 785), Vector2(30, 900)]
+"values": [0.0, 250.0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Guides:position")
+tracks/5/path = NodePath("Guides:offset_top")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.16666667, 0.23333333),
+"times": PackedFloat32Array(0.23333333, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(265, 785), Vector2(265, 900)]
+"values": [0.0, 250.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4xg86"]
 _data = {
+&"RESET": SubResource("Animation_dn3lk"),
 &"entry": SubResource("Animation_0oicw"),
-&"exit": SubResource("Animation_83tid")
+&"exit": SubResource("Animation_4ujhu")
 }
 
 [node name="MainMenu" type="Control" unique_id=469579671]
@@ -212,7 +288,7 @@ anchor_left = 0.0959596
 anchor_top = 0.10227273
 anchor_right = 0.9040404
 anchor_bottom = 0.20454545
-offset_right = 0.0032653809
+offset_left = 1000.0
 grow_horizontal = 2
 texture_normal = ExtResource("2_uqeha")
 texture_pressed = ExtResource("3_wem23")
@@ -228,7 +304,8 @@ anchor_left = 0.0959596
 anchor_top = 0.2840909
 anchor_right = 0.9040404
 anchor_bottom = 0.38636363
-offset_right = 0.0023498535
+offset_left = 1000.0
+offset_right = 0.003326416
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("5_4ujhu")
@@ -245,7 +322,7 @@ anchor_left = 0.0959596
 anchor_top = 0.4659091
 anchor_right = 0.9040404
 anchor_bottom = 0.5681818
-offset_right = 0.0018005371
+offset_left = 1000.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("7_a1gy5")
@@ -262,6 +339,8 @@ anchor_left = 0.0959596
 anchor_top = 0.64772725
 anchor_right = 0.9040426
 anchor_bottom = 0.75
+offset_left = 1000.0
+offset_right = 0.0018615723
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("9_xac7c")
@@ -278,8 +357,9 @@ anchor_left = 0.060606062
 anchor_top = 0.89204544
 anchor_right = 0.46464646
 anchor_bottom = 0.96022725
+offset_top = 250.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 texture_normal = ExtResource("11_i7nm7")
 texture_pressed = ExtResource("12_tfctf")
 ignore_texture_size = true
@@ -294,8 +374,9 @@ anchor_left = 0.53535354
 anchor_top = 0.89204544
 anchor_right = 0.93939394
 anchor_bottom = 0.96022725
+offset_top = 250.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 texture_normal = ExtResource("13_n7xlh")
 texture_pressed = ExtResource("14_0xlsr")
 ignore_texture_size = true

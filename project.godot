@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Dungeons & Fights"
+config/name="DungeonsAndFights"
 run/main_scene="uid://bplpc1vcpbll6"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://emqfhpuaxwtq"
@@ -33,10 +33,8 @@ window/handheld/orientation=5
 [file_customization]
 
 folder_colors={
-"res://android/": "red",
 "res://assets/": "orange",
 "res://classes/": "blue",
-"res://exports/": "red",
 "res://resources/": "purple",
 "res://scenes/": "gray",
 "res://system_autoloads/": "green"
@@ -58,3 +56,4 @@ pointing/emulate_touch_from_mouse=true
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

@@ -12,8 +12,8 @@ func _ready() -> void:
 		# Creo una animación por código
 		var tween = get_tree().create_tween()
 		
-		position = Vector2(0, 900)
-		tween.tween_property(self, "position", Vector2(0,0), 0.1)
+		global_position.y = get_global_rect().size.y
+		tween.tween_property(self, "global_position:y", 0, 0.1)
 	
 	# Hago una copia del botón de guía y del separador
 	guide_button = $ScrollContainer/List/Guide.duplicate(true)
@@ -70,5 +70,5 @@ func _on_exit_pressed() -> void:
 	if GameAPI.get_config().animations:
 		# Cada animación es de un solo uso, por lo que hay que crearlo de nuevo cada vez
 		var tween = get_tree().create_tween() 
-		await tween.tween_property(self, "position", Vector2(0,900), 0.1).finished
+		await tween.tween_property(self, "global_position:y", get_viewport_rect().size.y, 0.1).finished
 	queue_free()

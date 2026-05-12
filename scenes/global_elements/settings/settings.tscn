@@ -43,18 +43,15 @@ script = ExtResource("1_iyweg")
 [node name="Panel" type="Panel" parent="." unique_id=618471876]
 custom_minimum_size = Vector2(450, 830)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -225.0
-offset_top = -415.0
-offset_right = 225.0
-offset_bottom = 415.0
+anchors_preset = -1
+anchor_left = 0.083333336
+anchor_top = 0.067708336
+anchor_right = 0.9166667
+anchor_bottom = 0.9322917
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_12aho")
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1243337856]
 custom_minimum_size = Vector2(390, 750)

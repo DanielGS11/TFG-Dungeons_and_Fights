@@ -15,8 +15,8 @@ func _ready() -> void:
 	config = GameAPI.get_config()
 	
 	if config.animations:
-		position = Vector2(0, 900)
-		_animate(Vector2(0,0))
+		global_position.y = get_global_rect().size.y
+		_animate(0)
 	
 	volume.get_child(1).value = config.volume
 	volume.get_child(2).text = str(int(config.volume))
@@ -63,7 +63,7 @@ func _on_confirm_pressed() -> void:
 	
 	GameAPI.save_config()
 	
-	await _animate(Vector2(0,900))
+	await _animate(get_global_rect().size.y)
 	queue_free()
 
 func _on_cancel_pressed() -> void:
@@ -74,14 +74,14 @@ func _on_cancel_pressed() -> void:
 		popup.load_text("Hay cambios sin guardar, ¿Seguro que quieres cancelarlos?")
 		
 		if await popup.confirm:
-			await _animate(Vector2(0,900))
+			await _animate(get_global_rect().size.y)
 			queue_free()
 		
 	else:
-		await _animate(Vector2(0,900))
+		await _animate(get_global_rect().size.y)
 		queue_free()
 
-func _animate(pos: Vector2):
+func _animate(pos: float):
 	if config.animations:
 		var tween = get_tree().create_tween()
-		await tween.tween_property(self, "position", pos, 0.1).finished
+		await tween.tween_property(self, "global_position:y", pos, 0.1).finished

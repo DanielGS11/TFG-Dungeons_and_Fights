@@ -30,7 +30,10 @@ anchor_bottom = 0.97272736
 theme_override_constants/separation = 13
 metadata/_edit_use_anchors_ = true
 
-[node name="Text" type="Label" parent="Content" unique_id=360474535]
+[node name="HBoxContainer" type="HBoxContainer" parent="Content" unique_id=767779959]
+layout_mode = 2
+
+[node name="Text" type="Label" parent="Content/HBoxContainer" unique_id=360474535]
 custom_minimum_size = Vector2(350, 80)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -39,6 +42,17 @@ text = "Selecciona un equipo"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="Quit" type="TextureButton" parent="Content/HBoxContainer" unique_id=271223294]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = ExtResource("3_wj1bt")
+texture_pressed = ExtResource("4_ndhk5")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Content" unique_id=1118610563]
 layout_mode = 2
@@ -50,6 +64,8 @@ vertical_scroll_mode = 3
 [node name="List" type="VBoxContainer" parent="Content/ScrollContainer" unique_id=2066767518]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
 theme_override_constants/separation = 20
 
 [node name="NoTeam" type="TextureButton" parent="Content/ScrollContainer/List" unique_id=1360155173]
@@ -59,18 +75,5 @@ texture_normal = ExtResource("5_0ofvv")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Quit" type="TextureButton" parent="." unique_id=271223294]
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 0
-anchor_left = 0.7878788
-anchor_top = 0.042045455
-anchor_right = 0.90909094
-anchor_bottom = 0.11022727
-texture_normal = ExtResource("3_wj1bt")
-texture_pressed = ExtResource("4_ndhk5")
-ignore_texture_size = true
-stretch_mode = 0
-metadata/_edit_use_anchors_ = true
-
+[connection signal="pressed" from="Content/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Content/ScrollContainer/List/NoTeam" to="." method="_on_no_team_pressed"]
-[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

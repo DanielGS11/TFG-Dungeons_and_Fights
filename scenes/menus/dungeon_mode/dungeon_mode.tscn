@@ -95,6 +95,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_3pv2g")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Warn" type="Label" parent="Content" unique_id=1659111989]
 custom_minimum_size = Vector2(1, 40)

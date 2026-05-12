@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://csfbvpcsqpfrs"]
+[gd_scene format=3 uid="uid://dmyjxu6gcoarh"]
 
 [ext_resource type="Script" uid="uid://0don6pwluh32" path="res://scenes/in_game/fight_screen/elements/skill_menu/member_selector.gd" id="1_j3dyv"]
 

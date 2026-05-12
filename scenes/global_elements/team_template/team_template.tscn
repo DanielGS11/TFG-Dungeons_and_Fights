@@ -8,13 +8,17 @@
 
 [node name="Team" type="TextureButton" unique_id=1927925433]
 custom_minimum_size = Vector2(430, 180)
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = -1
+anchor_right = 0.7962963
+anchor_bottom = 0.1875
+size_flags_horizontal = 4
+size_flags_vertical = 4
 mouse_filter = 1
 texture_normal = ExtResource("1_k5c6m")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("2_yv2bq")
+metadata/_edit_use_anchors_ = true
 
 [node name="TeamName" type="Label" parent="." unique_id=892473052]
 unique_name_in_owner = true

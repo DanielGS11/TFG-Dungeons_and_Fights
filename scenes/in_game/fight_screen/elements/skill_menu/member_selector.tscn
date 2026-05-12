@@ -27,10 +27,29 @@ script = ExtResource("1_6iyo0")
 
 [node name="Selector" type="VBoxContainer" parent="." unique_id=418202418]
 layout_mode = 0
-anchor_top = 0.37386364
-anchor_right = 1.0040404
-anchor_bottom = 0.5568182
-offset_right = 3.0517578e-05
+anchor_top = 0.34895834
+anchor_right = 1.0040405
+anchor_bottom = 0.5572917
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Selector" unique_id=55597075]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Selector/HBoxContainer" unique_id=20129779]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 18
+text = "Selecciona un objetivo"
+metadata/_edit_use_anchors_ = true
+
+[node name="Cancel" type="TextureButton" parent="Selector/HBoxContainer" unique_id=1377748974]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 6
+texture_normal = ExtResource("2_o33bp")
+texture_pressed = ExtResource("3_vigie")
+ignore_texture_size = true
+stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="Pointers" type="HBoxContainer" parent="Selector" unique_id=632949030]
@@ -164,27 +183,4 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="." unique_id=20129779]
-layout_mode = 0
-anchor_left = 0.04040404
-anchor_top = 0.34204546
-anchor_right = 0.84040403
-anchor_bottom = 0.3625
-theme_override_font_sizes/font_size = 18
-text = "Selecciona un objetivo"
-metadata/_edit_use_anchors_ = true
-
-[node name="Cancel" type="TextureButton" parent="." unique_id=1377748974]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 0
-anchor_left = 0.9050505
-anchor_top = 0.33409092
-anchor_right = 0.9757576
-anchor_bottom = 0.37386364
-texture_normal = ExtResource("2_o33bp")
-texture_pressed = ExtResource("3_vigie")
-ignore_texture_size = true
-stretch_mode = 0
-metadata/_edit_use_anchors_ = true
-
-[connection signal="pressed" from="Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="Selector/HBoxContainer/Cancel" to="." method="_on_cancel_pressed"]

@@ -41,6 +41,7 @@ anchor_right = 0.93434346
 anchor_bottom = 0.96590906
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
 metadata/_edit_use_anchors_ = true

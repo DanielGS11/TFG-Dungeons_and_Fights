@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://hvjdclmwkhnn"]
+
+[ext_resource type="Script" uid="uid://cr0hhat76xd7a" path="res://classes/models/enemy.gd" id="1_2jeat"]
+[ext_resource type="Script" uid="uid://dwo74ogytqp2o" path="res://classes/models/skill.gd" id="2_tr5l4"]
+[ext_resource type="Texture2D" uid="uid://ccc11nng5tef0" path="res://assets/enemies/normal/brute_bandit.png" id="3_aurk2"]
+[ext_resource type="Resource" uid="uid://wu8iwfjx3wfl" path="res://resources/skills/ofensive/axe.tres" id="3_muekj"]
+[ext_resource type="Resource" uid="uid://bjcvajvvtgj5k" path="res://resources/skills/ofensive/power_slash.tres" id="4_oqs50"]
+[ext_resource type="Resource" uid="uid://dwyowm52ad38e" path="res://resources/skills/ofensive/quick_slash.tres" id="5_vh4k5"]
+[ext_resource type="Resource" uid="uid://baag8pgjnqten" path="res://resources/skills/buffs/attack_boost.tres" id="6_2hanf"]
+
+[resource]
+script = ExtResource("1_2jeat")
+enemy_type = "Normal"
+exp_drop = 80
+sprite = ExtResource("3_aurk2")
+name = "Bandido salvaje"
+max_health = 150
+health = 150
+attack = 20
+defense = 17
+speed = 15
+critical_rate = 5
+skills = Array[ExtResource("2_tr5l4")]([ExtResource("3_muekj"), ExtResource("4_oqs50"), ExtResource("5_vh4k5"), ExtResource("6_2hanf")])
+metadata/_custom_type_script = "uid://cr0hhat76xd7a"

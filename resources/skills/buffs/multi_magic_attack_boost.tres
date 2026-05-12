@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://du531oinnbyt6"]
+
+[ext_resource type="Script" uid="uid://dwo74ogytqp2o" path="res://classes/models/skill.gd" id="1_rn715"]
+
+[resource]
+script = ExtResource("1_rn715")
+name = "Multi ataque mágico +"
+skill_type = 3
+skill_target = 1
+cost = 60
+modifier = 1
+power = 7
+metadata/_custom_type_script = "uid://dwo74ogytqp2o"

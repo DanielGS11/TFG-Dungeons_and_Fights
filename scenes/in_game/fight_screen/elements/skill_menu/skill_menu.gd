@@ -38,9 +38,11 @@ func _on_skill_selected(skill: Skill):
 	match skill.skill_target:
 		Skill.Target.SELF, Skill.Target.ALL_ALLIES:
 			skill_selected.emit({member: [Entity.Actions.SKILL, member, skill]})
+			queue_free()
 		
 		Skill.Target.ENEMY, Skill.Target.ALL_ENEMIES:
 			skill_selected.emit({member: [Entity.Actions.SKILL, GameAPI.get_controller().enemy, skill]})
+			queue_free()
 		
 		Skill.Target.ALLY:
 			var selector = preload("res://scenes/in_game/fight_screen/elements/skill_menu/member_selector.tscn").instantiate()

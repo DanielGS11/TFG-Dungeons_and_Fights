@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://c7owdf2b7bem0"]
+
+[ext_resource type="Script" uid="uid://dwo74ogytqp2o" path="res://classes/models/skill.gd" id="1_xsgu0"]
+
+[resource]
+script = ExtResource("1_xsgu0")
+name = "Tajo maldito"
+skill_target = 3
+modifier = 2
+power = 33
+metadata/_custom_type_script = "uid://dwo74ogytqp2o"

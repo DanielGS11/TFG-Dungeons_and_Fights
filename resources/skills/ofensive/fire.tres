@@ -4,8 +4,10 @@
 
 [resource]
 script = ExtResource("1_xm01w")
-name = "fuego"
+name = "Fuego"
 skill_type = 1
-cost = 1000
+skill_target = 3
+cost = 15
 modifier = 2
+power = 5
 metadata/_custom_type_script = "uid://dwo74ogytqp2o"

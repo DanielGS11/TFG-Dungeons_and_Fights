@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://baeiaaq2lmk72"]
+
+[ext_resource type="Script" uid="uid://dwo74ogytqp2o" path="res://classes/models/skill.gd" id="1_thuhy"]
+
+[resource]
+script = ExtResource("1_thuhy")
+name = "Inundación"
+skill_type = 1
+skill_target = 4
+cost = 43
+modifier = 2
+power = 13
+metadata/_custom_type_script = "uid://dwo74ogytqp2o"

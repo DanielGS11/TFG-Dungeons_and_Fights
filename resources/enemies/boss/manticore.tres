@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://dk3ddrv30wcyw"]
+
+[ext_resource type="Script" uid="uid://cr0hhat76xd7a" path="res://classes/models/enemy.gd" id="1_lh4rm"]
+[ext_resource type="Script" uid="uid://dwo74ogytqp2o" path="res://classes/models/skill.gd" id="2_3o7a1"]
+[ext_resource type="Texture2D" uid="uid://cb552i7d4l282" path="res://assets/enemies/boss/manticore.png" id="3_3o7a1"]
+[ext_resource type="Resource" uid="uid://dtq5rhrujsdea" path="res://resources/skills/ofensive/fire.tres" id="3_wh5y6"]
+[ext_resource type="Resource" uid="uid://c6uiegnt0xooa" path="res://resources/skills/ofensive/inferno.tres" id="4_hn0u2"]
+
+[resource]
+script = ExtResource("1_lh4rm")
+enemy_type = "Jefe"
+exp_drop = 300
+sprite = ExtResource("3_3o7a1")
+name = "Mantícora"
+max_health = 460
+health = 460
+attack = 17
+magic_attack = 17
+defense = 15
+speed = 18
+critical_rate = 5
+evasion = 5
+skills = Array[ExtResource("2_3o7a1")]([ExtResource("3_wh5y6"), ExtResource("4_hn0u2")])
+metadata/_custom_type_script = "uid://cr0hhat76xd7a"

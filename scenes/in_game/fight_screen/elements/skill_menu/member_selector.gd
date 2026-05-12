@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends Panel
 
 signal target_selected(target: Character)
 

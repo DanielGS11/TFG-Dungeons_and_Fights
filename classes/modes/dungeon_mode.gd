@@ -15,6 +15,8 @@ func _init():
 
 func new_game(_data: Array):
 	GameAPI.set_team(team_index)
+	controller = null
+	
 	is_finished = false
 	
 	has_key = false
@@ -25,18 +27,21 @@ func new_game(_data: Array):
 	actual_room = dungeon_map.actual_room
 	
 	load_controller()
+
+func start():
+	load_controller()
 	
 	if not controller.run_away.is_connected(load_map):
 		controller.run_away.connect(load_map)
-
-func start():
-	if is_on_map:
-		next_step.emit()
 	
-	else:
-		go_to_room(actual_room.coordinates)
+	next_step.emit()
+	
+	if is_on_map == false:
+		await GameAPI.send_prompt(actual_room.enemy.name + " apareció", true)
 
 func _on_enemy_defeated(exp_value: int):
+	enemies_defeated += 1
+	
 	await GameAPI.send_prompt("El equipo recibió " + str(exp_value) + " puntos de experiencia", false)
 	
 	actual_room.enemy = null
@@ -107,7 +112,7 @@ func go_to_room(pos: Vector2):
 			await GameAPI.send_prompt("Entraste a la sala del jefe, buena suerte", true)
 	
 	if actual_room.enemy != null and actual_room.enemy.health > 0:
-		await GameAPI.send_prompt(actual_room.enemy.name + " apareció", false)
+		await GameAPI.send_prompt(actual_room.enemy.name + " apareció", true)
 	
 	else:
 		await GameAPI.send_prompt("Aqui no hay nada", true)

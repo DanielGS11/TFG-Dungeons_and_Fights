@@ -28,11 +28,14 @@ func new_game(_data: Array):
 
 ## Crea y carga el controlador y conecta su señal
 func load_controller():
-	controller = FightController.new()
+	if controller == null:
+		controller = FightController.new()
 	
-	controller.team = team_in_use
+	if controller.team == null:
+		controller.team = team_in_use
 	
-	controller.enemy_defeated.connect(_on_enemy_defeated)
+	if not controller.enemy_defeated.is_connected(_on_enemy_defeated):
+		controller.enemy_defeated.connect(_on_enemy_defeated)
 
 ## Se ejecuta al recibir la señal de enemigo derrotado del controlador
 func _on_enemy_defeated(_exp_value: int):

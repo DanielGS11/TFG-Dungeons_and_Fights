@@ -3,6 +3,16 @@
 [ext_resource type="Script" uid="uid://q7s2lsfb8djq" path="res://classes/models/character.gd" id="1_mtaxk"]
 [ext_resource type="Script" uid="uid://dwo74ogytqp2o" path="res://classes/models/skill.gd" id="2_e1ciq"]
 [ext_resource type="Texture2D" uid="uid://dy8e8ahllmuke" path="res://assets/characters/sage/sage_1.png" id="3_e1ciq"]
+[ext_resource type="Resource" uid="uid://byo57ev8wk1q0" path="res://resources/skills/debuffs/magic_attack_reduction.tres" id="3_onjpj"]
+[ext_resource type="Resource" uid="uid://cjddgwkdqabtt" path="res://resources/skills/debuffs/defense_reduction.tres" id="4_5n836"]
+[ext_resource type="Resource" uid="uid://cr5oi3jqjbws0" path="res://resources/skills/debuffs/attack_reduction.tres" id="5_5neeq"]
+[ext_resource type="Resource" uid="uid://d52golnqtrst" path="res://resources/skills/debuffs/multi_attack_reduction.tres" id="6_r8xd7"]
+[ext_resource type="Resource" uid="uid://cf80p6ctm861j" path="res://resources/skills/buffs/magic_attack_boost.tres" id="7_3ltf1"]
+[ext_resource type="Resource" uid="uid://du531oinnbyt6" path="res://resources/skills/buffs/multi_magic_attack_boost.tres" id="8_6es78"]
+[ext_resource type="Resource" uid="uid://baeiaaq2lmk72" path="res://resources/skills/ofensive/flood.tres" id="9_tfoy2"]
+[ext_resource type="Resource" uid="uid://c6uiegnt0xooa" path="res://resources/skills/ofensive/inferno.tres" id="10_53p6o"]
+[ext_resource type="Resource" uid="uid://dtq5rhrujsdea" path="res://resources/skills/ofensive/fire.tres" id="11_jpqr4"]
+[ext_resource type="Resource" uid="uid://cqfme5hm4clpt" path="res://resources/skills/ofensive/earth.tres" id="12_gnsqm"]
 
 [resource]
 script = ExtResource("1_mtaxk")
@@ -16,5 +26,6 @@ defense = 10
 speed = 20
 critical_rate = 2
 evasion = 5
+skills = Array[ExtResource("2_e1ciq")]([ExtResource("3_onjpj"), ExtResource("4_5n836"), ExtResource("5_5neeq"), ExtResource("6_r8xd7"), ExtResource("7_3ltf1"), ExtResource("8_6es78"), ExtResource("9_tfoy2"), ExtResource("10_53p6o"), ExtResource("11_jpqr4"), ExtResource("12_gnsqm")])
 description = "Tras años de analizar los algoritmos de la magia y aprender diversas artes, comprendió que usar la magia para atacar no lo es todo, y decidió aprender diversos hechizos para debilitar a sus enemigos y atacarles con más efectividad"
 metadata/_custom_type_script = "uid://q7s2lsfb8djq"

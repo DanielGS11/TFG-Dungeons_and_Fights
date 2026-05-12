@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://wu8iwfjx3wfl"]
+
+[ext_resource type="Script" uid="uid://dwo74ogytqp2o" path="res://classes/models/skill.gd" id="1_018ms"]
+
+[resource]
+script = ExtResource("1_018ms")
+name = "Hachazo"
+skill_target = 3
+cost = 10
+modifier = 2
+power = 5
+metadata/_custom_type_script = "uid://dwo74ogytqp2o"

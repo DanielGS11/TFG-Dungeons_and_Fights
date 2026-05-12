@@ -13,6 +13,7 @@ func _init():
 func new_game(data: Array):
 	GameAPI.set_team(team_index)
 	
+	controller = null
 	current_enemy = null
 	is_finished = false
 	enemies_to_defeat = data[0]
@@ -23,13 +24,18 @@ func new_game(data: Array):
 	load_controller()
 
 func start():
+	load_controller()
+	
 	if current_enemy == null or current_enemy.health == 0:
-		load_new_enemy()
+		await load_new_enemy()
 	
 	else:
+		next_step.emit()
 		await GameAPI.send_prompt(controller.enemy.name + " apareció", true)
 
 func _on_enemy_defeated(_exp_value: int):
+	enemies_defeated += 1
+	
 	for member in team_in_use.members:
 		if member.health <= 0:
 			member.revive(0.20)
@@ -43,7 +49,7 @@ func _on_enemy_defeated(_exp_value: int):
 	
 	current_enemy = null
 	
-	load_new_enemy()
+	await load_new_enemy()
 
 ## Carga el siguiente enemigo o termina la partida si se terminó con todos
 func load_new_enemy():
@@ -52,16 +58,16 @@ func load_new_enemy():
 		is_finished = true
 		GameAPI.end_game.emit(GameAPI.Result.WIN, "¡Felicidades, has acabado con todos los enemigos!")
 	else:
-		enemy_id += 1
-		enemies_defeated = enemy_id - 1
+		enemies_defeated = enemy_id
 		
 		current_enemy = GameAPI.get_enemy(mode, null)
-		current_enemy.grow_levels(enemy_id - 1)
+		current_enemy.grow_levels(enemy_id)
 		
+		enemy_id += 1
 		controller.enemy = current_enemy
 		
-		await GameAPI.send_prompt(controller.enemy.name + " apareció", true)
-		
 		next_step.emit()
+		
+		await GameAPI.send_prompt(controller.enemy.name + " apareció", true)
 	
 	GameAPI.save_game()

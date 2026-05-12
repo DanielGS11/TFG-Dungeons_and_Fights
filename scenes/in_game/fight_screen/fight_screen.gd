@@ -24,6 +24,8 @@ var enemy: Enemy
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_child(preload("res://scenes/global_elements/load_screen/load_screen.tscn").instantiate())
+	
 	await get_tree().process_frame
 	actual_mode = GameAPI.get_actual_mode()
 	
@@ -42,9 +44,6 @@ func _ready() -> void:
 	controller.refresh_data.connect(_load_entity_data)
 	controller.animate.connect(_on_animate)
 	
-	if not actual_mode.next_step.is_connected(_on_continue):
-		actual_mode.next_step.connect(_on_continue)
-	
 	if not GameAPI.prompt.is_connected(_show_prompt):
 		GameAPI.prompt.connect(_show_prompt)
 	
@@ -54,16 +53,17 @@ func _ready() -> void:
 	for i in team.members.size():
 		team_sprites.get_child(i).texture = team.members[i].sprite
 	
+	run_button.disabled = actual_mode.mode == Mode.Type.BATTLE
+	
+	if not actual_mode.next_step.is_connected(_on_continue):
+		actual_mode.next_step.connect(_on_continue)
+	
 	cursor = preload("res://scenes/in_game/fight_screen/elements/cursor/cursor.tscn").instantiate()
 	add_child(cursor)
 	
 	_move_cursor()
 	
-	run_button.disabled = actual_mode.mode == Mode.Type.BATTLE
-	
 	actual_mode.start()
-	
-	_load_all_data()
 
 func _load_all_data():
 	enemy = controller.enemy
@@ -98,6 +98,8 @@ func _load_entity_data(entity: Entity):
 			
 			modifier_sprite.texture = i
 			modifier_sprite.custom_minimum_size = Vector2(30, 30)
+			modifier_sprite.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			modifier_sprite.stretch_mode = TextureRect.STRETCH_SCALE
 		
 		level.text = "Lv " + str(entity.level)
 		
@@ -125,6 +127,8 @@ func _load_entity_data(entity: Entity):
 			
 			modifier_sprite.texture = i
 			modifier_sprite.custom_minimum_size = Vector2(30, 30)
+			modifier_sprite.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			modifier_sprite.stretch_mode = TextureRect.STRETCH_SCALE
 		
 		level.text = "Lv " + str(entity.level)
 		member_name.text = entity.name
@@ -139,7 +143,7 @@ func _load_entity_data(entity: Entity):
 		mana_bar.get_child(0).text = str(int(mana_bar.value)) + "/" + str(int(mana_bar.max_value))
 
 func _move_cursor():
-	cursor.move_to(team_sprites.get_child(member_turn).global_position + Vector2(45, -60))
+	cursor.move_to(team_sprites.get_child(member_turn).global_position + Vector2(45, -80))
 
 func _on_go_back_pressed() -> void:
 	if member_turn > 0:
@@ -159,6 +163,7 @@ func _next_turn():
 		cursor.visible = false
 		
 		await controller.set_queue(queue)
+		queue.clear()
 		member_turn = 0
 		cursor.visible = true
 		_move_cursor()

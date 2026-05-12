@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://fy1wso2qmga"]
+
+[ext_resource type="Script" uid="uid://dwo74ogytqp2o" path="res://classes/models/skill.gd" id="1_a583g"]
+
+[resource]
+script = ExtResource("1_a583g")
+name = "Luz"
+skill_type = 1
+skill_target = 3
+cost = 15
+modifier = 2
+power = 7
+metadata/_custom_type_script = "uid://dwo74ogytqp2o"

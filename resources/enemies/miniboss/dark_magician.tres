@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://plhmev2tmas6"]
+
+[ext_resource type="Script" uid="uid://cr0hhat76xd7a" path="res://classes/models/enemy.gd" id="1_bpps3"]
+[ext_resource type="Script" uid="uid://dwo74ogytqp2o" path="res://classes/models/skill.gd" id="2_tshpx"]
+[ext_resource type="Resource" uid="uid://cr5oi3jqjbws0" path="res://resources/skills/debuffs/attack_reduction.tres" id="3_1svlq"]
+[ext_resource type="Texture2D" uid="uid://b6xsheqwicuvh" path="res://assets/enemies/miniboss/dark_magician.png" id="3_bpps3"]
+[ext_resource type="Resource" uid="uid://cjddgwkdqabtt" path="res://resources/skills/debuffs/defense_reduction.tres" id="4_66s8r"]
+[ext_resource type="Resource" uid="uid://byo57ev8wk1q0" path="res://resources/skills/debuffs/magic_attack_reduction.tres" id="5_erkap"]
+[ext_resource type="Resource" uid="uid://d52golnqtrst" path="res://resources/skills/debuffs/multi_attack_reduction.tres" id="6_ekckf"]
+[ext_resource type="Resource" uid="uid://txwl875t7nrb" path="res://resources/skills/debuffs/multi_defense_reduction.tres" id="7_cpkn2"]
+[ext_resource type="Resource" uid="uid://bt61xiv6n1vxu" path="res://resources/skills/debuffs/multi_magic_attack_reduction.tres" id="8_toy4h"]
+[ext_resource type="Resource" uid="uid://cgltpsncv6p70" path="res://resources/skills/heal/meditate.tres" id="9_1pxhv"]
+[ext_resource type="Resource" uid="uid://dtq5rhrujsdea" path="res://resources/skills/ofensive/fire.tres" id="10_1p1v5"]
+[ext_resource type="Resource" uid="uid://cqfme5hm4clpt" path="res://resources/skills/ofensive/earth.tres" id="11_71cfy"]
+[ext_resource type="Resource" uid="uid://da35n6r2t7ale" path="res://resources/skills/ofensive/water.tres" id="12_a27wn"]
+[ext_resource type="Resource" uid="uid://bwx45loyc2s61" path="res://resources/skills/ofensive/wind.tres" id="13_dyw4g"]
+[ext_resource type="Resource" uid="uid://baeiaaq2lmk72" path="res://resources/skills/ofensive/flood.tres" id="14_wt7an"]
+[ext_resource type="Resource" uid="uid://cf80p6ctm861j" path="res://resources/skills/buffs/magic_attack_boost.tres" id="15_kinsy"]
+
+[resource]
+script = ExtResource("1_bpps3")
+enemy_type = "Minijefe"
+exp_drop = 160
+sprite = ExtResource("3_bpps3")
+name = "Hechicero oscuro"
+max_health = 240
+health = 240
+attack = 5
+magic_attack = 25
+defense = 10
+speed = 30
+critical_rate = 10
+evasion = 30
+skills = Array[ExtResource("2_tshpx")]([ExtResource("3_1svlq"), ExtResource("4_66s8r"), ExtResource("5_erkap"), ExtResource("6_ekckf"), ExtResource("7_cpkn2"), ExtResource("8_toy4h"), ExtResource("9_1pxhv"), ExtResource("10_1p1v5"), ExtResource("11_71cfy"), ExtResource("12_a27wn"), ExtResource("13_dyw4g"), ExtResource("14_wt7an"), ExtResource("15_kinsy")])
+metadata/_custom_type_script = "uid://cr0hhat76xd7a"

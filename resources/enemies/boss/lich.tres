@@ -2,11 +2,32 @@
 
 [ext_resource type="Script" uid="uid://cr0hhat76xd7a" path="res://classes/models/enemy.gd" id="1_pwvd6"]
 [ext_resource type="Script" uid="uid://dwo74ogytqp2o" path="res://classes/models/skill.gd" id="2_nmble"]
+[ext_resource type="Resource" uid="uid://baeiaaq2lmk72" path="res://resources/skills/ofensive/flood.tres" id="3_3x7xi"]
 [ext_resource type="Texture2D" uid="uid://b2mdp5tumyrsg" path="res://assets/enemies/boss/lich.png" id="3_nmble"]
+[ext_resource type="Resource" uid="uid://c6uiegnt0xooa" path="res://resources/skills/ofensive/inferno.tres" id="4_ausy8"]
+[ext_resource type="Resource" uid="uid://bwx45loyc2s61" path="res://resources/skills/ofensive/wind.tres" id="5_6bcii"]
+[ext_resource type="Resource" uid="uid://da35n6r2t7ale" path="res://resources/skills/ofensive/water.tres" id="6_x6egc"]
+[ext_resource type="Resource" uid="uid://cr5oi3jqjbws0" path="res://resources/skills/debuffs/attack_reduction.tres" id="7_cxovu"]
+[ext_resource type="Resource" uid="uid://cjddgwkdqabtt" path="res://resources/skills/debuffs/defense_reduction.tres" id="8_d03lt"]
+[ext_resource type="Resource" uid="uid://byo57ev8wk1q0" path="res://resources/skills/debuffs/magic_attack_reduction.tres" id="9_otfvd"]
+[ext_resource type="Resource" uid="uid://d52golnqtrst" path="res://resources/skills/debuffs/multi_attack_reduction.tres" id="10_wr38a"]
+[ext_resource type="Resource" uid="uid://txwl875t7nrb" path="res://resources/skills/debuffs/multi_defense_reduction.tres" id="11_aftn7"]
+[ext_resource type="Resource" uid="uid://bt61xiv6n1vxu" path="res://resources/skills/debuffs/multi_magic_attack_reduction.tres" id="12_glh73"]
+[ext_resource type="Resource" uid="uid://cf80p6ctm861j" path="res://resources/skills/buffs/magic_attack_boost.tres" id="13_g14v6"]
 
 [resource]
 script = ExtResource("1_pwvd6")
 enemy_type = "Jefe"
+exp_drop = 210
 sprite = ExtResource("3_nmble")
 name = "Lich"
+max_health = 300
+health = 300
+attack = 20
+magic_attack = 20
+defense = 12
+speed = 26
+critical_rate = 20
+evasion = 15
+skills = Array[ExtResource("2_nmble")]([ExtResource("3_3x7xi"), ExtResource("4_ausy8"), ExtResource("5_6bcii"), ExtResource("6_x6egc"), ExtResource("7_cxovu"), ExtResource("8_d03lt"), ExtResource("9_otfvd"), ExtResource("10_wr38a"), ExtResource("11_aftn7"), ExtResource("12_glh73"), ExtResource("13_g14v6")])
 metadata/_custom_type_script = "uid://cr0hhat76xd7a"

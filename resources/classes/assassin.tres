@@ -2,8 +2,12 @@
 
 [ext_resource type="Script" uid="uid://q7s2lsfb8djq" path="res://classes/models/character.gd" id="1_iuwj4"]
 [ext_resource type="Script" uid="uid://dwo74ogytqp2o" path="res://classes/models/skill.gd" id="2_ld4ij"]
-[ext_resource type="Resource" uid="uid://dtq5rhrujsdea" path="res://resources/skills/fire.tres" id="3_0mr5y"]
 [ext_resource type="Texture2D" uid="uid://bwsh68ao7s76p" path="res://assets/characters/assassin/assassin_1.png" id="3_6nk4q"]
+[ext_resource type="Resource" uid="uid://cjddgwkdqabtt" path="res://resources/skills/debuffs/defense_reduction.tres" id="3_sfegk"]
+[ext_resource type="Resource" uid="uid://dwyowm52ad38e" path="res://resources/skills/ofensive/quick_slash.tres" id="4_xxogc"]
+[ext_resource type="Resource" uid="uid://c4e1sxuarwwku" path="res://resources/skills/heal/heal.tres" id="5_wk1ho"]
+[ext_resource type="Resource" uid="uid://bjcvajvvtgj5k" path="res://resources/skills/ofensive/power_slash.tres" id="6_alvjl"]
+[ext_resource type="Resource" uid="uid://ctg5l4t8ix2pp" path="res://resources/skills/ofensive/multi_slash.tres" id="7_vhuc8"]
 
 [resource]
 script = ExtResource("1_iuwj4")
@@ -20,6 +24,6 @@ defense = 11
 speed = 30
 critical_rate = 20
 evasion = 20
-skills = Array[ExtResource("2_ld4ij")]([ExtResource("3_0mr5y")])
+skills = Array[ExtResource("2_ld4ij")]([ExtResource("3_sfegk"), ExtResource("4_xxogc"), ExtResource("5_wk1ho"), ExtResource("6_alvjl"), ExtResource("7_vhuc8")])
 description = "Se especializa en el sigilo y el ataque por sorpresa. No tendrá mucha fuerza, pero lo compensa con su velocidad y su capacidad de asestar golpes precisos y letales en los puntos débiles de los enemigos"
 metadata/_custom_type_script = "uid://q7s2lsfb8djq"

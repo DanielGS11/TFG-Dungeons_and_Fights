@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://d11d45fx7a6er"]
+
+[ext_resource type="Script" uid="uid://cr0hhat76xd7a" path="res://classes/models/enemy.gd" id="1_4fofu"]
+[ext_resource type="Script" uid="uid://dwo74ogytqp2o" path="res://classes/models/skill.gd" id="2_bfoa3"]
+[ext_resource type="Texture2D" uid="uid://dq4x61m4gjd0e" path="res://assets/enemies/normal/skeleton_warrior.png" id="3_4fofu"]
+[ext_resource type="Resource" uid="uid://wu8iwfjx3wfl" path="res://resources/skills/ofensive/axe.tres" id="3_4jx3i"]
+[ext_resource type="Resource" uid="uid://baag8pgjnqten" path="res://resources/skills/buffs/attack_boost.tres" id="4_cvr6t"]
+
+[resource]
+script = ExtResource("1_4fofu")
+enemy_type = "Normal"
+exp_drop = 55
+sprite = ExtResource("3_4fofu")
+name = "Esqueleto guerrero"
+max_health = 120
+health = 120
+attack = 13
+magic_attack = 9
+defense = 17
+speed = 15
+critical_rate = 10
+evasion = 5
+skills = Array[ExtResource("2_bfoa3")]([ExtResource("3_4jx3i"), ExtResource("4_cvr6t")])
+metadata/_custom_type_script = "uid://cr0hhat76xd7a"

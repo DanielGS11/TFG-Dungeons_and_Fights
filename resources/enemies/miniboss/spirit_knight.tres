@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://c6qksmavvjksb"]
+
+[ext_resource type="Script" uid="uid://cr0hhat76xd7a" path="res://classes/models/enemy.gd" id="1_tox7f"]
+[ext_resource type="Script" uid="uid://dwo74ogytqp2o" path="res://classes/models/skill.gd" id="2_bsti2"]
+[ext_resource type="Resource" uid="uid://baag8pgjnqten" path="res://resources/skills/buffs/attack_boost.tres" id="3_bfbja"]
+[ext_resource type="Texture2D" uid="uid://x1cn1qeyu6j1" path="res://assets/enemies/miniboss/knight_spirit.png" id="3_fv5me"]
+[ext_resource type="Resource" uid="uid://cjddgwkdqabtt" path="res://resources/skills/debuffs/defense_reduction.tres" id="4_ii6ye"]
+[ext_resource type="Resource" uid="uid://dnjyhbynnj5uu" path="res://resources/skills/ofensive/spirit_blow.tres" id="5_f80sl"]
+[ext_resource type="Resource" uid="uid://dwyowm52ad38e" path="res://resources/skills/ofensive/quick_slash.tres" id="6_htrrj"]
+[ext_resource type="Resource" uid="uid://bwx45loyc2s61" path="res://resources/skills/ofensive/wind.tres" id="7_et0h7"]
+
+[resource]
+script = ExtResource("1_tox7f")
+enemy_type = "Minijefe"
+exp_drop = 210
+sprite = ExtResource("3_fv5me")
+name = "Caballero espiritual"
+max_health = 200
+health = 200
+attack = 27
+magic_attack = 15
+defense = 7
+speed = 24
+critical_rate = 10
+evasion = 10
+skills = Array[ExtResource("2_bsti2")]([ExtResource("3_bfbja"), ExtResource("4_ii6ye"), ExtResource("5_f80sl"), ExtResource("6_htrrj"), ExtResource("7_et0h7")])
+metadata/_custom_type_script = "uid://cr0hhat76xd7a"

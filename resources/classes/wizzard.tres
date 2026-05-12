@@ -3,6 +3,13 @@
 [ext_resource type="Script" uid="uid://q7s2lsfb8djq" path="res://classes/models/character.gd" id="1_8k0xo"]
 [ext_resource type="Script" uid="uid://dwo74ogytqp2o" path="res://classes/models/skill.gd" id="2_3rp4i"]
 [ext_resource type="Texture2D" uid="uid://bo8src2vo7nkb" path="res://assets/characters/wizzard/wizzard_1.png" id="3_3rp4i"]
+[ext_resource type="Resource" uid="uid://cf80p6ctm861j" path="res://resources/skills/buffs/magic_attack_boost.tres" id="3_mxfiv"]
+[ext_resource type="Resource" uid="uid://b0kiwxqo3fpb4" path="res://resources/skills/buffs/defense_boost.tres" id="4_ncuox"]
+[ext_resource type="Resource" uid="uid://cjddgwkdqabtt" path="res://resources/skills/debuffs/defense_reduction.tres" id="5_uynxl"]
+[ext_resource type="Resource" uid="uid://cqfme5hm4clpt" path="res://resources/skills/ofensive/earth.tres" id="6_k8f0e"]
+[ext_resource type="Resource" uid="uid://dtq5rhrujsdea" path="res://resources/skills/ofensive/fire.tres" id="7_pwcfa"]
+[ext_resource type="Resource" uid="uid://bwx45loyc2s61" path="res://resources/skills/ofensive/wind.tres" id="8_bvmba"]
+[ext_resource type="Resource" uid="uid://da35n6r2t7ale" path="res://resources/skills/ofensive/water.tres" id="9_y5u4p"]
 
 [resource]
 script = ExtResource("1_8k0xo")
@@ -17,5 +24,6 @@ defense = 7
 speed = 25
 critical_rate = 2
 evasion = 7
+skills = Array[ExtResource("2_3rp4i")]([ExtResource("3_mxfiv"), ExtResource("4_ncuox"), ExtResource("5_uynxl"), ExtResource("6_k8f0e"), ExtResource("7_pwcfa"), ExtResource("8_bvmba"), ExtResource("9_y5u4p"), ExtResource("7_pwcfa")])
 description = "Con su gran dominio en las artes mágicas, usa hechizos de alto poder para acabar con sus enemigos, contando tambien con magia para aumentar la efectividad de sus hechizos y hacerlos aún mas letales"
 metadata/_custom_type_script = "uid://q7s2lsfb8djq"

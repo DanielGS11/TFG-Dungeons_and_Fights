@@ -46,17 +46,18 @@ func _load_map():
 				if room.coordinates == actual_room.coordinates:
 					icon = GameAPI.get_asset("icons", "Actual")
 				
-				elif room.adjacent_rooms.any(func (c): return c == actual_room.coordinates):
-					if room.room_type == Room.Type.BOSS and actual_room.room_type == Room.Type.LOCK:
-						room.explored = true
+				elif actual_room.adjacent_rooms.any(func (c): return c == room.coordinates):
+					if room.room_type == Room.Type.BOSS:
+						if  actual_room.room_type == Room.Type.LOCK:
+							room.explored = true
 						
-						if actual_mode.has_key:
-							room_button.disabled = false
-							room_button.pressed.connect(go_to_room.bind(room.coordinates))
-							icon = GameAPI.get_asset("icons", "Jefe accesible")
-						
-						else:
-							icon = GameAPI.get_asset("icons", "Jefe")
+							if actual_mode.has_key:
+								room_button.disabled = false
+								room_button.pressed.connect(go_to_room.bind(room.coordinates))
+								icon = GameAPI.get_asset("icons", "Jefe accesible")
+							
+							else:
+								icon = GameAPI.get_asset("icons", "Jefe")
 					
 					else:
 						room_button.disabled = false
@@ -88,7 +89,6 @@ func _load_map():
 
 func go_to_room(coordinates: Vector2):
 	actual_mode.go_to_room(coordinates)
-	
 	queue_free()
 
 func _animate(pos: Vector2):

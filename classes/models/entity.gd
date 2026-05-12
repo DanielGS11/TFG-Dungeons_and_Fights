@@ -66,6 +66,7 @@ func apply_buff(skill: Skill):
 		
 		buff.Type.NONE:
 			buff.set_type(buff.Type.BUFF)
+			buff.icon = GameAPI.get_asset("icons", buff.stat + " +")
 			
 			await GameAPI.send_prompt("¡" + word + buff.stat + " de " + name + " se potenció!", false)
 
@@ -94,6 +95,7 @@ func apply_debuff(skill: Skill):
 			
 		debuff.Type.NONE:
 			debuff.set_type(debuff.Type.DEBUFF)
+			debuff.icon = GameAPI.get_asset("icons", debuff.stat + " -")
 			
 			await GameAPI.send_prompt("¡" + word + debuff.stat + " de " + name + " se redujo!", false)
 

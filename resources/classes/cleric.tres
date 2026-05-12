@@ -2,7 +2,13 @@
 
 [ext_resource type="Script" uid="uid://q7s2lsfb8djq" path="res://classes/models/character.gd" id="1_fa6up"]
 [ext_resource type="Script" uid="uid://dwo74ogytqp2o" path="res://classes/models/skill.gd" id="2_y8o0s"]
+[ext_resource type="Resource" uid="uid://b0kiwxqo3fpb4" path="res://resources/skills/buffs/defense_boost.tres" id="3_ao658"]
 [ext_resource type="Texture2D" uid="uid://dfctcc8c4cjrm" path="res://assets/characters/cleric/cleric_1.png" id="3_y8o0s"]
+[ext_resource type="Resource" uid="uid://c4e1sxuarwwku" path="res://resources/skills/heal/heal.tres" id="4_k340w"]
+[ext_resource type="Resource" uid="uid://7pv0hc7kxahb" path="res://resources/skills/heal/multi_heal.tres" id="5_6jkmj"]
+[ext_resource type="Resource" uid="uid://dc2kmtdij5hjp" path="res://resources/skills/heal/great_healing.tres" id="6_h1emq"]
+[ext_resource type="Resource" uid="uid://bgcjjtv8svoxt" path="res://resources/skills/heal/paradise.tres" id="7_2fluo"]
+[ext_resource type="Resource" uid="uid://fy1wso2qmga" path="res://resources/skills/ofensive/light.tres" id="8_1brti"]
 
 [resource]
 script = ExtResource("1_fa6up")
@@ -19,5 +25,6 @@ defense = 12
 speed = 13
 critical_rate = 2
 evasion = 2
+skills = Array[ExtResource("2_y8o0s")]([ExtResource("3_ao658"), ExtResource("4_k340w"), ExtResource("5_6jkmj"), ExtResource("6_h1emq"), ExtResource("7_2fluo"), ExtResource("8_1brti")])
 description = "Algunos lo llaman \"salvador\", corre por el campo de batalla sanando a todos y salvando sus vidas, permitiendo además que puedan combatir durante más tiempo"
 metadata/_custom_type_script = "uid://q7s2lsfb8djq"

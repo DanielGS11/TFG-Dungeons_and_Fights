@@ -54,7 +54,7 @@ func _execute_queue():
 			break
 	
 	queue.clear()
-	_check_game_state()
+	await _check_game_state()
 
 func _check_game_state():
 	if enemy.health == 0:
@@ -237,9 +237,9 @@ func _apply_modifier(target: Entity, skill: Skill):
 		skill.Type.BUFF:
 			if target is Character and skill.skill_target == skill.Target.ALL_ALLIES:
 				for member in team.members:
+					animate.emit(team.members.find(member), "_buffed", 0)
 					await member.apply_buff(skill)
 					refresh_data.emit(member)
-					animate.emit(team.members.find(member), "_buffed", 0)
 			
 			else:
 				if target is Character:
@@ -247,18 +247,17 @@ func _apply_modifier(target: Entity, skill: Skill):
 				else:
 					animation_target = -1
 				
+				animate.emit(animation_target, "_buffed", 0)
 				await target.apply_buff(skill)
 				refresh_data.emit(target)
-				
-				animate.emit(animation_target, "_buffed", 0)
 		
 		skill.Type.DEBUFF:
 			if target is Character and skill.skill_target == skill.Target.ALL_ENEMIES:
 				
 				for member in team.members:
+					animate.emit(team.members.find(member), "_debuffed", 0)
 					await member.apply_debuff(skill)
 					refresh_data.emit(member)
-					animate.emit(team.members.find(member), "_debuffed", 0)
 			
 			else:
 				if target is Character:
@@ -266,10 +265,9 @@ func _apply_modifier(target: Entity, skill: Skill):
 				else:
 					animation_target = -1
 				
+				animate.emit(animation_target, "_debuffed", 0)
 				await target.apply_debuff(skill)
 				refresh_data.emit(target)
-				
-				animate.emit(animation_target, "_debuffed", 0)
 
 func run():
 	var run_away_value: int

@@ -3,8 +3,6 @@ class_name SaveData
 extends Resource
 
 @export var game_data = {
-	Mode.Type.BATTLE: BattleMode,
-	Mode.Type.DUNGEON: DungeonMode,
 }
 
 @export var teams: Array[Team]

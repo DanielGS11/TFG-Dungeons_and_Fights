@@ -2,7 +2,10 @@
 
 [ext_resource type="Script" uid="uid://q7s2lsfb8djq" path="res://classes/models/character.gd" id="1_qe5v4"]
 [ext_resource type="Script" uid="uid://dwo74ogytqp2o" path="res://classes/models/skill.gd" id="2_y1hdt"]
+[ext_resource type="Resource" uid="uid://b0kiwxqo3fpb4" path="res://resources/skills/buffs/defense_boost.tres" id="3_2t01j"]
 [ext_resource type="Texture2D" uid="uid://x0a8j38138xn" path="res://assets/characters/bastion/bastion_1.png" id="3_y1hdt"]
+[ext_resource type="Resource" uid="uid://c4e1sxuarwwku" path="res://resources/skills/heal/heal.tres" id="4_disfa"]
+[ext_resource type="Resource" uid="uid://bjcvajvvtgj5k" path="res://resources/skills/ofensive/power_slash.tres" id="5_616d6"]
 
 [resource]
 script = ExtResource("1_qe5v4")
@@ -19,5 +22,6 @@ defense = 40
 speed = 10
 critical_rate = 2
 evasion = 2
+skills = Array[ExtResource("2_y1hdt")]([ExtResource("3_2t01j"), ExtResource("4_disfa"), ExtResource("5_616d6")])
 description = "La clase defensiva por excelencia, capaz de resistir cualquier cosa que se ponga por delante. Algunos lo llaman \"Muro de hierro\" debido a su alta resistencia, aunque no es muy rápido que digamos..."
 metadata/_custom_type_script = "uid://q7s2lsfb8djq"

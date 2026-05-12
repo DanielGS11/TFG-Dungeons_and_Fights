@@ -3,6 +3,14 @@
 [ext_resource type="Script" uid="uid://cr0hhat76xd7a" path="res://classes/models/enemy.gd" id="1_2qitj"]
 [ext_resource type="Script" uid="uid://dwo74ogytqp2o" path="res://classes/models/skill.gd" id="2_bnai5"]
 [ext_resource type="Texture2D" uid="uid://di1vpbr3d26pf" path="res://assets/enemies/boss/dragon.png" id="3_bnai5"]
+[ext_resource type="Resource" uid="uid://baag8pgjnqten" path="res://resources/skills/buffs/attack_boost.tres" id="3_ltokp"]
+[ext_resource type="Resource" uid="uid://b0kiwxqo3fpb4" path="res://resources/skills/buffs/defense_boost.tres" id="4_gxvg4"]
+[ext_resource type="Resource" uid="uid://cf80p6ctm861j" path="res://resources/skills/buffs/magic_attack_boost.tres" id="5_ffhh5"]
+[ext_resource type="Resource" uid="uid://cr5oi3jqjbws0" path="res://resources/skills/debuffs/attack_reduction.tres" id="6_blx8e"]
+[ext_resource type="Resource" uid="uid://cjddgwkdqabtt" path="res://resources/skills/debuffs/defense_reduction.tres" id="7_f4rvk"]
+[ext_resource type="Resource" uid="uid://byo57ev8wk1q0" path="res://resources/skills/debuffs/magic_attack_reduction.tres" id="8_ruub3"]
+[ext_resource type="Resource" uid="uid://c4e1sxuarwwku" path="res://resources/skills/heal/heal.tres" id="9_7k6lf"]
+[ext_resource type="Resource" uid="uid://xoouthy0syqb" path="res://resources/skills/ofensive/fire_breath.tres" id="10_rreqv"]
 
 [resource]
 script = ExtResource("1_2qitj")
@@ -17,4 +25,5 @@ magic_attack = 20
 defense = 25
 speed = 25
 critical_rate = 5
+skills = Array[ExtResource("2_bnai5")]([ExtResource("3_ltokp"), ExtResource("4_gxvg4"), ExtResource("5_ffhh5"), ExtResource("6_blx8e"), ExtResource("7_f4rvk"), ExtResource("8_ruub3"), ExtResource("9_7k6lf"), ExtResource("10_rreqv")])
 metadata/_custom_type_script = "uid://cr0hhat76xd7a"

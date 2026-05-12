@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://bake7kahdqwa0"]
+
+[ext_resource type="Texture2D" uid="uid://bpbo54nsaxwbb" path="res://assets/background/menu.png" id="1_htrc2"]
+[ext_resource type="Texture2D" uid="uid://ckfeu5y2tpyfj" path="res://assets/elements/others/loading_remaining.png" id="2_weff3"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fgney"]
+load_path = "res://.godot/imported/loading_bar.png-865edf2bb392597eb78078c005ac7ca0.ctex"
+
+[sub_resource type="Animation" id="Animation_i3tc0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Loading/TextureProgressBar:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ri6rs"]
+resource_name = "loading"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Loading/TextureProgressBar:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.51763207, 1),
+"update": 0,
+"values": [0.0, 100.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_74xf4"]
+_data = {
+&"RESET": SubResource("Animation_i3tc0"),
+&"loading": SubResource("Animation_ri6rs")
+}
+
+[node name="LoadingScreen" type="CanvasLayer" unique_id=1343657751]
+layer = 1000
+
+[node name="Bright" type="CanvasLayer" parent="." unique_id=504312571]
+layer = 999
+
+[node name="ColorRect" type="ColorRect" parent="Bright" unique_id=850482856]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Background" type="TextureRect" parent="." unique_id=283132577]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_htrc2")
+expand_mode = 1
+
+[node name="Loading" type="VBoxContainer" parent="." unique_id=84789514]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -20.0
+offset_right = 136.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Loading" unique_id=1713546333]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 34
+text = "cargando"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Loading" unique_id=1315267263]
+custom_minimum_size = Vector2(450, 40)
+layout_mode = 2
+nine_patch_stretch = true
+texture_under = SubResource("CompressedTexture2D_fgney")
+texture_progress = ExtResource("2_weff3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=805130323]
+libraries/ = SubResource("AnimationLibrary_74xf4")

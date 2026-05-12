@@ -13,21 +13,23 @@ const enemy_augments := {
 	"Normal" : 20
 }
 
-var atk_augments: int
-
 @export var exp_drop: int = 0
 
 func _init():
 	heal_multiplier = 5.0
-	
-	initial_stats.append_array([max_health, health, attack, magic_attack])
 
 func reset():
-	var extra_levels = level - 1
+	if initial_stats.is_empty():
+		initial_stats.append_array([max_health, attack, magic_attack, exp_drop])
 	
 	level = 1
-	health -= enemy_augments[enemy_type] * extra_levels
-	max_health -= enemy_augments[enemy_type] * extra_levels
+	
+	level = 1
+	max_health = initial_stats[0]
+	health = max_health
+	attack = initial_stats[1]
+	magic_attack = initial_stats[2]
+	exp_drop = initial_stats[3]
 
 ## Subir x niveles
 func grow_levels(levels):
@@ -35,20 +37,11 @@ func grow_levels(levels):
 	
 	level += levels
 	
-	max_health = initial_stats[1] + (enemy_augments[enemy_type] * levels)
-	health += max_health
+	max_health = initial_stats[0] + (enemy_augments[enemy_type] * levels)
+	health = max_health
 	
-	# Compara la variable de aumentos con nivel menos 2. El ataque y ataque mágico del enemigo
-	# aumenta en 1 cada 2 niveles, estos aumentos se reflejan en esa variable. 
-	# Por ejemplo, al nivel 10 el ataque aumentaria 5 (10 / 2), al subir al 12, lo que hace es que 
-	# compara el aumento de ataque que ya hubo (5) con el que habria ahora (6), y suma 
-	# la diferencia (5 - 6)
-	var current_atk_augment = floori(float(level) / 2)
-	if atk_augments < current_atk_augment:
-		attack = initial_stats[2] + (current_atk_augment - atk_augments)
-		magic_attack += initial_stats[3] + (current_atk_augment - atk_augments)
-		
-		atk_augments = current_atk_augment
+	attack += levels
+	magic_attack += levels
 	
 	exp_drop += ceili(exp_drop * 0.2) * levels
 

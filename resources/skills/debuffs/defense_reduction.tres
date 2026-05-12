@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://cjddgwkdqabtt"]
+
+[ext_resource type="Script" uid="uid://dwo74ogytqp2o" path="res://classes/models/skill.gd" id="1_l32o4"]
+
+[resource]
+script = ExtResource("1_l32o4")
+name = "Defensa -"
+skill_type = 4
+skill_target = 3
+cost = 17
+modifier = 2
+power = 7
+metadata/_custom_type_script = "uid://dwo74ogytqp2o"

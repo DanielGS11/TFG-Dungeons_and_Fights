@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://cg470qipgl4ui"]
+
+[ext_resource type="Script" uid="uid://cr0hhat76xd7a" path="res://classes/models/enemy.gd" id="1_2jeat"]
+[ext_resource type="Script" uid="uid://dwo74ogytqp2o" path="res://classes/models/skill.gd" id="2_tr5l4"]
+[ext_resource type="Texture2D" uid="uid://b7dh6gcxgael2" path="res://assets/enemies/normal/fire_spirit.png" id="3_2jeat"]
+[ext_resource type="Resource" uid="uid://dtq5rhrujsdea" path="res://resources/skills/ofensive/fire.tres" id="3_pvhud"]
+[ext_resource type="Resource" uid="uid://dnjyhbynnj5uu" path="res://resources/skills/ofensive/spirit_blow.tres" id="4_mke8q"]
+[ext_resource type="Resource" uid="uid://cf80p6ctm861j" path="res://resources/skills/buffs/magic_attack_boost.tres" id="5_4sc2x"]
+
+[resource]
+script = ExtResource("1_2jeat")
+enemy_type = "Normal"
+exp_drop = 80
+sprite = ExtResource("3_2jeat")
+name = "Espíritu de fuego"
+max_health = 180
+health = 180
+attack = 15
+magic_attack = 25
+speed = 22
+critical_rate = 10
+evasion = 15
+skills = Array[ExtResource("2_tr5l4")]([ExtResource("3_pvhud"), ExtResource("4_mke8q"), ExtResource("5_4sc2x")])
+metadata/_custom_type_script = "uid://cr0hhat76xd7a"

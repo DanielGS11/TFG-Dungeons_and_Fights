@@ -80,6 +80,7 @@ expand_mode = 1
 [node name="SelectTeamText" type="Label" parent="Content" unique_id=324178815]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 10
 theme_override_font_sizes/font_size = 25
 text = "Equipo seleccionado"
 
@@ -105,7 +106,7 @@ expand_mode = 1
 [node name="Warn" type="Label" parent="Content" unique_id=1965297972]
 custom_minimum_size = Vector2(1, 40)
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_vertical = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "Aviso: Se asignará un equipo aleatorio"
@@ -116,14 +117,14 @@ autowrap_mode = 2
 [node name="EnemiesNumberText" type="Label" parent="Content" unique_id=1178000883]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 19
+theme_override_font_sizes/font_size = 25
 text = "Número de enemigos"
 horizontal_alignment = 1
 
 [node name="EnemiesNumber" type="HBoxContainer" parent="Content" unique_id=628930747]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 0
+size_flags_vertical = 2
 theme_override_constants/separation = 20
 
 [node name="Minus" type="TextureButton" parent="Content/EnemiesNumber" unique_id=2107731533]

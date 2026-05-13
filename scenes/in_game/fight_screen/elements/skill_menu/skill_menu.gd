@@ -7,10 +7,10 @@ var member: Character
 var skill_row: HBoxContainer
 
 
-@onready var skill_description: Label = $MenuContainer/Menu/SkillData/Description
-@onready var skill_power: Label = $MenuContainer/Menu/SkillData/Power
-@onready var skill_cost: Label = $MenuContainer/Menu/SkillData/Cost
-@onready var skill_list = $MenuContainer/Menu/ScrollContainer/SkillList
+@onready var skill_description: Label = $VBoxContainer/MenuContainer/Menu/SkillData/Description
+@onready var skill_power: Label = $VBoxContainer/MenuContainer/Menu/SkillData/Power
+@onready var skill_cost: Label = $VBoxContainer/MenuContainer/Menu/SkillData/Cost
+@onready var skill_list = $VBoxContainer/MenuContainer/Menu/VBoxContainer/ScrollContainer/SkillList
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

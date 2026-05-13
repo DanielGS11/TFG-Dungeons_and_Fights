@@ -38,18 +38,21 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_qmsr0")
 script = ExtResource("1_mglvw")
 
-[node name="MenuContainer" type="Panel" parent="." unique_id=978816911]
-custom_minimum_size = Vector2(495, 300)
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=390357474]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+
+[node name="MenuContainer" type="Panel" parent="VBoxContainer" unique_id=978816911]
+custom_minimum_size = Vector2(495, 300)
+layout_mode = 2
+size_flags_vertical = 10
 theme_override_styles/panel = SubResource("StyleBoxTexture_xeqbi")
 
-[node name="Menu" type="HBoxContainer" parent="MenuContainer" unique_id=21483954]
+[node name="Menu" type="HBoxContainer" parent="VBoxContainer/MenuContainer" unique_id=21483954]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
@@ -59,56 +62,60 @@ anchor_right = 0.93333334
 anchor_bottom = 0.9
 metadata/_edit_use_anchors_ = true
 
-[node name="SkillData" type="VBoxContainer" parent="MenuContainer/Menu" unique_id=143202204]
+[node name="SkillData" type="VBoxContainer" parent="VBoxContainer/MenuContainer/Menu" unique_id=143202204]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 11
 
-[node name="Description" type="Label" parent="MenuContainer/Menu/SkillData" unique_id=700027264]
+[node name="Description" type="Label" parent="VBoxContainer/MenuContainer/Menu/SkillData" unique_id=700027264]
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 9
 autowrap_mode = 3
 
-[node name="Power" type="Label" parent="MenuContainer/Menu/SkillData" unique_id=1386722078]
+[node name="Power" type="Label" parent="VBoxContainer/MenuContainer/Menu/SkillData" unique_id=1386722078]
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 9
 autowrap_mode = 3
 
-[node name="Cost" type="Label" parent="MenuContainer/Menu/SkillData" unique_id=520527441]
+[node name="Cost" type="Label" parent="VBoxContainer/MenuContainer/Menu/SkillData" unique_id=520527441]
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 9
 autowrap_mode = 3
 
-[node name="VSeparator" type="VSeparator" parent="MenuContainer/Menu" unique_id=601737005]
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/MenuContainer/Menu" unique_id=601737005]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/separator = SubResource("StyleBoxFlat_k8rvo")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MenuContainer/Menu" unique_id=757973086]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MenuContainer/Menu" unique_id=1246656481]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MenuContainer/Menu/VBoxContainer" unique_id=757973086]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 0
+size_flags_vertical = 2
 mouse_filter = 0
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
 
-[node name="SkillList" type="VBoxContainer" parent="MenuContainer/Menu/ScrollContainer" unique_id=1519962070]
+[node name="SkillList" type="VBoxContainer" parent="VBoxContainer/MenuContainer/Menu/VBoxContainer/ScrollContainer" unique_id=1519962070]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_constants/separation = 8
 
-[node name="Skill" type="HBoxContainer" parent="MenuContainer/Menu/ScrollContainer/SkillList" unique_id=1817885208]
+[node name="Skill" type="HBoxContainer" parent="VBoxContainer/MenuContainer/Menu/VBoxContainer/ScrollContainer/SkillList" unique_id=1817885208]
 layout_mode = 2
 
-[node name="Name" type="Button" parent="MenuContainer/Menu/ScrollContainer/SkillList/Skill" unique_id=1646240342]
+[node name="Name" type="Button" parent="VBoxContainer/MenuContainer/Menu/VBoxContainer/ScrollContainer/SkillList/Skill" unique_id=1646240342]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -124,7 +131,7 @@ text = "Ataque mágico +"
 alignment = 0
 autowrap_mode = 3
 
-[node name="Info" type="TextureButton" parent="MenuContainer/Menu/ScrollContainer/SkillList/Skill" unique_id=1809159146]
+[node name="Info" type="TextureButton" parent="VBoxContainer/MenuContainer/Menu/VBoxContainer/ScrollContainer/SkillList/Skill" unique_id=1809159146]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -134,20 +141,14 @@ texture_pressed = ExtResource("3_qmsr0")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Return" type="TextureButton" parent="MenuContainer" unique_id=1260256596]
+[node name="Return" type="TextureButton" parent="VBoxContainer/MenuContainer/Menu/VBoxContainer" unique_id=1260256596]
 custom_minimum_size = Vector2(100, 30)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.6262626
-anchor_top = 0.80333334
-anchor_right = 0.82828283
-anchor_bottom = 0.9033333
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
+size_flags_horizontal = 4
 texture_normal = ExtResource("4_xeqbi")
 texture_pressed = ExtResource("5_5ft3e")
 ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="MenuContainer/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="VBoxContainer/MenuContainer/Menu/VBoxContainer/Return" to="." method="_on_return_pressed"]

@@ -4,7 +4,7 @@ var guide_button: Button
 var separator: HSeparator
 
 # Lista
-@onready var list: VBoxContainer = $ScrollContainer/List
+@onready var list: VBoxContainer = %List
 
 # Al cargar la escena
 func _ready() -> void:
@@ -16,8 +16,8 @@ func _ready() -> void:
 		tween.tween_property(self, "global_position:y", 0, 0.1)
 	
 	# Hago una copia del botón de guía y del separador
-	guide_button = $ScrollContainer/List/Guide.duplicate(true)
-	separator = $ScrollContainer/List/HSeparator.duplicate(true)
+	guide_button = %Guide.duplicate(true)
+	separator = %HSeparator.duplicate(true)
 	
 	# Limpio los placeholders ya duplicados
 	for i in list.get_children():

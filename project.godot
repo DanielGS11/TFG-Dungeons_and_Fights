@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="DungeonsAndFights"
+config/name="Dungeons and Fights"
 run/main_scene="uid://bplpc1vcpbll6"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://emqfhpuaxwtq"

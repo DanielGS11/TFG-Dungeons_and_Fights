@@ -40,6 +40,4 @@ func _ready() -> void:
 
 ## Al pulsar cualquier lado de la pantalla, navega al menú principal
 func _on_enter_pressed() -> void:
-	# Comprueba que no esté la animación de entrada ejecutándose
-	if animation_player.current_animation != "entry":
-		get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")

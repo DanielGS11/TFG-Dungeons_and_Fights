@@ -12,15 +12,15 @@ var enemy: Enemy
 @onready var background: TextureRect = $Background
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-@onready var enemy_sprite: TextureRect = $EnemySprite
-@onready var enemy_data := $Elements/Enemy
+@onready var enemy_sprite: TextureRect = %EnemySprite
+@onready var enemy_data := %EnemyData
 
-@onready var team_sprites := $Team
-@onready var team_data := $TeamData
-@onready var team_bars := $Elements/PlayerUI/VBoxContainer/HealthAndMana
+@onready var team_sprites := %TeamSprites
+@onready var team_data := %TeamData
+@onready var team_bars := %HealthAndMana
 
 @onready var cursor: Label
-@onready var run_button: TextureButton = $Elements/PlayerUI/VBoxContainer/ActionButtons/Run
+@onready var run_button: TextureButton = %Run
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -51,7 +51,8 @@ func _ready() -> void:
 		GameAPI.end_game.connect(_on_game_ended)
 	
 	for i in team.members.size():
-		team_sprites.get_child(i).texture = team.members[i].sprite
+		var member_sprite: TextureRect = team_sprites.get_child(i).get_child(0)
+		member_sprite.texture = team.members[i].sprite
 	
 	run_button.disabled = actual_mode.mode == Mode.Type.BATTLE
 	
@@ -126,7 +127,7 @@ func _load_entity_data(entity: Entity):
 			modifier_list.add_child(modifier_sprite)
 			
 			modifier_sprite.texture = i
-			modifier_sprite.custom_minimum_size = Vector2(30, 30)
+			modifier_sprite.custom_minimum_size = Vector2(20, 20)
 			modifier_sprite.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 			modifier_sprite.stretch_mode = TextureRect.STRETCH_SCALE
 		
@@ -143,7 +144,8 @@ func _load_entity_data(entity: Entity):
 		mana_bar.get_child(0).text = str(int(mana_bar.value)) + "/" + str(int(mana_bar.max_value))
 
 func _move_cursor():
-	cursor.move_to(team_sprites.get_child(member_turn).global_position + Vector2(45, -80))
+	var member_sprite = team_sprites.get_child(member_turn).get_child(0)
+	cursor.move_to(member_sprite.global_position + Vector2(member_sprite.size.x / 2.3, - 80))
 
 func _on_go_back_pressed() -> void:
 	if member_turn > 0:
@@ -178,7 +180,7 @@ func _next_turn():
 			_move_cursor()
 
 func _show_prompt(prompt: String, pause: bool):
-	var command_prompt = preload("res://scenes/in_game/fight_screen/elements/command_prompt/command_pompt.tscn").instantiate()
+	var command_prompt = preload("res://scenes/in_game/fight_screen/elements/command_prompt/command_prompt.tscn").instantiate()
 	
 	add_child(command_prompt)
 	
@@ -274,10 +276,11 @@ func _on_animate(id: int, type: String, value):
 		
 		if id == -1:
 			target = "enemy"
-			pos = enemy_sprite.global_position + Vector2(100, -30)
+			pos = enemy_sprite.global_position + Vector2(enemy_sprite.size.x / 1.2, 0)
 		else:
+			var member_sprite = team_sprites.get_child(id).get_child(0)
 			target = "player_" + str(id + 1)
-			pos = team_sprites.get_child(id).global_position + Vector2(40, -10)
+			pos = member_sprite.global_position + Vector2(member_sprite.size.x / 2, 0)
 		
 		match type:
 			"_damaged":

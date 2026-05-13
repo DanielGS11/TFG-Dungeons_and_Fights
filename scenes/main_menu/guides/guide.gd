@@ -10,10 +10,10 @@ var large_texture: TextureRect
 
 func _ready() -> void:
 	# Duplicamos los elementos y limpiamos el nodo del contenido
-	text = $ScrollContainer/GuideContent/Text.duplicate(true)
-	separator = $ScrollContainer/GuideContent/HSeparator.duplicate(true)
-	small_texture = $ScrollContainer/GuideContent/TextureSmall.duplicate(true)
-	large_texture = $ScrollContainer/GuideContent/TextureLarge.duplicate(true)
+	text = %Text.duplicate(true)
+	separator = %HSeparator.duplicate(true)
+	small_texture = %TextureSmall.duplicate(true)
+	large_texture = $Elements/ScrollContainer/GuideContent/TextureLarge.duplicate(true)
 	
 	for i in content.get_children():
 		i.queue_free()

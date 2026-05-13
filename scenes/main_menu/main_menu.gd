@@ -29,6 +29,7 @@ func _on_battle_mode_pressed() -> void:
 		
 		# Esperamos que la notificación envie la señal
 		if await popup.confirm:
+			GameAPI.load_saves()
 			GameAPI.set_actual_mode(Mode.Type.BATTLE)
 			await _animate("exit")
 			get_tree().change_scene_to_file("res://scenes/in_game/fight_screen/fight_screen.tscn")
@@ -51,6 +52,7 @@ func _on_dungeon_mode_pressed() -> void:
 		
 		# Esperamos que la notificación envie la señal
 		if await popup.confirm:
+			GameAPI.load_saves()
 			GameAPI.set_actual_mode(Mode.Type.DUNGEON)
 			await _animate("exit")
 			get_tree().change_scene_to_file("res://scenes/in_game/fight_screen/fight_screen.tscn")

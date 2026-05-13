@@ -31,6 +31,12 @@ func new_game(_data: Array):
 func start():
 	load_controller()
 	
+	if actual_room.enemy != null:
+		actual_room.enemy.clear_modifiers()
+	
+	for member in team_in_use.members:
+		member.clear_modifiers()
+	
 	if not controller.run_away.is_connected(load_map):
 		controller.run_away.connect(load_map)
 	

@@ -21,18 +21,24 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_j3j04")
 script = ExtResource("3_35ck6")
 
-[node name="Header" type="HBoxContainer" parent="." unique_id=446215337]
+[node name="Elements" type="VBoxContainer" parent="." unique_id=2114685142]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.1010101
-anchor_top = 0.028409092
-anchor_right = 0.8242424
-anchor_bottom = 0.08522727
+anchor_left = 0.075925924
+anchor_top = 0.042708334
+anchor_right = 0.9314815
+anchor_bottom = 0.96458334
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="GoBack" type="TextureButton" parent="Header" unique_id=1682777166]
+[node name="Header" type="HBoxContainer" parent="Elements" unique_id=446215337]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="GoBack" type="TextureButton" parent="Elements/Header" unique_id=1682777166]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -42,7 +48,7 @@ ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="GuideTitle" type="Label" parent="Header" unique_id=981457914]
+[node name="GuideTitle" type="Label" parent="Elements/Header" unique_id=981457914]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -50,21 +56,15 @@ theme_override_font_sizes/font_size = 30
 text = "Titulo"
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1041142160]
+[node name="ScrollContainer" type="ScrollContainer" parent="Elements" unique_id=1041142160]
 custom_minimum_size = Vector2(430, 770)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.065656565
-anchor_top = 0.08352273
-anchor_right = 0.93434346
-anchor_bottom = 0.97329545
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
+size_flags_vertical = 3
 mouse_filter = 0
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
 
-[node name="GuideContent" type="VBoxContainer" parent="ScrollContainer" unique_id=2116926903]
+[node name="GuideContent" type="VBoxContainer" parent="Elements/ScrollContainer" unique_id=2116926903]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -72,18 +72,21 @@ size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/separation = 20
 
-[node name="Text" type="Label" parent="ScrollContainer/GuideContent" unique_id=1913026885]
+[node name="Text" type="Label" parent="Elements/ScrollContainer/GuideContent" unique_id=1913026885]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 autowrap_mode = 3
 
-[node name="HSeparator" type="HSeparator" parent="ScrollContainer/GuideContent" unique_id=833596088]
+[node name="HSeparator" type="HSeparator" parent="Elements/ScrollContainer/GuideContent" unique_id=833596088]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxFlat_q53y6")
 
-[node name="TextureSmall" type="TextureRect" parent="ScrollContainer/GuideContent" unique_id=958733523]
+[node name="TextureSmall" type="TextureRect" parent="Elements/ScrollContainer/GuideContent" unique_id=958733523]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 150)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -91,7 +94,7 @@ size_flags_vertical = 4
 texture = ExtResource("4_vrtnw")
 expand_mode = 1
 
-[node name="TextureLarge" type="TextureRect" parent="ScrollContainer/GuideContent" unique_id=1917003150]
+[node name="TextureLarge" type="TextureRect" parent="Elements/ScrollContainer/GuideContent" unique_id=1917003150]
 custom_minimum_size = Vector2(400, 600)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -99,4 +102,4 @@ size_flags_vertical = 4
 texture = ExtResource("4_vrtnw")
 expand_mode = 1
 
-[connection signal="pressed" from="Header/GoBack" to="." method="_on_go_back_pressed"]
+[connection signal="pressed" from="Elements/Header/GoBack" to="." method="_on_go_back_pressed"]

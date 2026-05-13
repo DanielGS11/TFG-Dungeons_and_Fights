@@ -26,10 +26,14 @@ func new_game(data: Array):
 func start():
 	load_controller()
 	
+	for member in team_in_use.members:
+		member.clear_modifiers()
+	
 	if current_enemy == null or current_enemy.health == 0:
 		await load_new_enemy()
 	
 	else:
+		current_enemy.clear_modifiers()
 		next_step.emit()
 		await GameAPI.send_prompt(controller.enemy.name + " apareció", true)
 

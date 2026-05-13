@@ -74,6 +74,7 @@ expand_mode = 1
 [node name="SelectTeamText" type="Label" parent="Content" unique_id=908665856]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 10
 theme_override_font_sizes/font_size = 25
 text = "Equipo seleccionado"
 
@@ -100,7 +101,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Warn" type="Label" parent="Content" unique_id=1659111989]
 custom_minimum_size = Vector2(1, 40)
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_vertical = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "Aviso: Se asignará un equipo aleatorio"
@@ -111,12 +112,13 @@ autowrap_mode = 2
 [node name="Difficulty" type="Label" parent="Content" unique_id=2093494451]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 19
+theme_override_font_sizes/font_size = 26
 text = "Dificultad"
 horizontal_alignment = 1
 
 [node name="DifficultyButtons" type="VBoxContainer" parent="Content" unique_id=1638463946]
 layout_mode = 2
+size_flags_vertical = 2
 theme_override_constants/separation = 18
 
 [node name="Easy" type="TextureButton" parent="Content/DifficultyButtons" unique_id=517714814]

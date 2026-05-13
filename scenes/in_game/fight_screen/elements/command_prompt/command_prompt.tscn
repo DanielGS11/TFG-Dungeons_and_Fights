@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bqx2tvfkjq7lt"]
 
-[ext_resource type="Script" uid="uid://c78gki8r1gb8x" path="res://scenes/in_game/fight_screen/elements/command_prompt/command_pompt.gd" id="1_2s7eh"]
+[ext_resource type="Script" uid="uid://c78gki8r1gb8x" path="res://scenes/in_game/fight_screen/elements/command_prompt/command_prompt.gd" id="1_2s7eh"]
 [ext_resource type="Texture2D" uid="uid://ds48lhy07n1so" path="res://assets/elements/panels/general_2.png" id="1_t7jwy"]
 [ext_resource type="PackedScene" uid="uid://bw5yhls2qjevs" path="res://scenes/in_game/fight_screen/elements/cursor/cursor.tscn" id="2_2s7eh"]
 
@@ -30,20 +30,23 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_7o2tn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_41mks")
 script = ExtResource("1_2s7eh")
 
-[node name="PromptContainer" type="Panel" parent="." unique_id=1147830695]
-custom_minimum_size = Vector2(495, 300)
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=377137198]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.65909094
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+
+[node name="PromptContainer" type="Panel" parent="VBoxContainer" unique_id=1147830695]
+custom_minimum_size = Vector2(495, 300)
+layout_mode = 2
+size_flags_vertical = 10
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_p4s3f")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="PromptContainer" unique_id=1651934126]
+[node name="Label" type="Label" parent="VBoxContainer/PromptContainer" unique_id=1651934126]
 custom_minimum_size = Vector2(437, 200)
 layout_mode = 1
 anchors_preset = -1
@@ -55,7 +58,7 @@ theme_override_font_sizes/font_size = 21
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="Cursor" parent="PromptContainer" unique_id=653853032 instance=ExtResource("2_2s7eh")]
+[node name="Cursor" parent="VBoxContainer/PromptContainer" unique_id=653853032 instance=ExtResource("2_2s7eh")]
 layout_mode = 1
 anchor_left = 0.8909091
 anchor_top = 0.85675675

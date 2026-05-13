@@ -1,7 +1,7 @@
 extends Button
 
-@onready var prompt_text: Label = $PromptContainer/Label
-@onready var pointer: Label = $PromptContainer/Cursor
+@onready var prompt_text: Label = $VBoxContainer/PromptContainer/Label
+@onready var pointer: Label = $VBoxContainer/PromptContainer/Cursor
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

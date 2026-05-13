@@ -30,6 +30,7 @@ func generate_map(height: int, width: int) -> Array:
 	initial_room.explored = true
 	initial_room.accessible = true
 	initial_room.room_type = initial_room.Type.EMPTY
+	initial_room.background = GameAPI.get_asset("rooms", "Normal").pick_random()
 	
 	rooms.append(initial_room.coordinates)
 	

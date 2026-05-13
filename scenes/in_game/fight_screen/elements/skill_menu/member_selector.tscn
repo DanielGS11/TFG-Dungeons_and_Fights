@@ -36,7 +36,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Selector" type="VBoxContainer" parent="VBoxContainer" unique_id=418202418]
-custom_minimum_size = Vector2(542, 220)
+custom_minimum_size = Vector2(542, 280)
 layout_mode = 2
 size_flags_vertical = 10
 metadata/_edit_use_anchors_ = true
@@ -50,12 +50,12 @@ theme_override_constants/separation = 25
 [node name="Label" type="Label" parent="VBoxContainer/Selector/HBoxContainer" unique_id=20129779]
 layout_mode = 2
 size_flags_horizontal = 6
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 21
 text = "Selecciona un objetivo"
 metadata/_edit_use_anchors_ = true
 
 [node name="Cancel" type="TextureButton" parent="VBoxContainer/Selector/HBoxContainer" unique_id=1377748974]
-custom_minimum_size = Vector2(35, 35)
+custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 size_flags_horizontal = 6
 texture_normal = ExtResource("2_o33bp")
@@ -74,21 +74,29 @@ size_flags_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 27
+text = "V"
 
-[node name="Member2" type="Label" parent="VBoxContainer/Selector/Pointers" unique_id=712573211]
+[node name="Member2" type="Label" parent="VBoxContainer/Selector/Pointers" unique_id=1701898355]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 27
+text = "V"
 
-[node name="Member3" type="Label" parent="VBoxContainer/Selector/Pointers" unique_id=1223107095]
+[node name="Member3" type="Label" parent="VBoxContainer/Selector/Pointers" unique_id=1747230993]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 27
+text = "V"
 
-[node name="Member4" type="Label" parent="VBoxContainer/Selector/Pointers" unique_id=2010644793]
+[node name="Member4" type="Label" parent="VBoxContainer/Selector/Pointers" unique_id=1166434485]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 27
+text = "V"
 
 [node name="Members" type="HBoxContainer" parent="VBoxContainer/Selector" unique_id=442563908]
 unique_name_in_owner = true
@@ -98,6 +106,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 0
 
 [node name="Member1" type="Button" parent="VBoxContainer/Selector/Members" unique_id=2078997299]
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 108
@@ -201,7 +210,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Control" type="Control" parent="VBoxContainer" unique_id=1278838877]
-custom_minimum_size = Vector2(0, 360)
+custom_minimum_size = Vector2(0, 495)
 layout_mode = 2
 
 [connection signal="pressed" from="VBoxContainer/Selector/HBoxContainer/Cancel" to="." method="_on_cancel_pressed"]

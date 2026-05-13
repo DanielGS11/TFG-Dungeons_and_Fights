@@ -40,10 +40,11 @@ anchor_right = 0.9296296
 anchor_bottom = 0.971875
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 20
 metadata/_edit_use_anchors_ = true
 
 [node name="Exit" type="TextureButton" parent="Elements" unique_id=1540076817]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
@@ -69,9 +70,9 @@ size_flags_vertical = 3
 
 [node name="Guide" type="Button" parent="Elements/ScrollContainer/List" unique_id=1842613905]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mre0i")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_y86e0")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_k431v")

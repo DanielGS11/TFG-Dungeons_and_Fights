@@ -13,7 +13,7 @@ var member: Character
 @onready var team = %TeamContainer
 @onready var character_class: Label = %ClassName
 @onready var sprite: TextureRect = %Sprite
-@onready var name_field: LineEdit = $Content/LineEdit
+@onready var name_field: LineEdit = $MarginContainer/Content/LineEdit
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

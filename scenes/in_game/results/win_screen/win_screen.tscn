@@ -75,21 +75,21 @@ metadata/_edit_use_anchors_ = true
 [node name="ResultTitle" type="Label" parent="ResultContainer/Elements" unique_id=1904359103]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 32
 text = "¡Has ganado!"
 
 [node name="TeamLevel" type="Label" parent="ResultContainer/Elements" unique_id=621893346]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 20
 text = "Nivel del equipo: 100"
 
 [node name="TeamLabel" type="Label" parent="ResultContainer/Elements" unique_id=349661008]
 custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 35
 text = "Equipo:"
 
 [node name="HSeparator" type="HSeparator" parent="ResultContainer/Elements" unique_id=1628094924]
@@ -107,13 +107,13 @@ layout_mode = 2
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 21
 text = "1234567890"
 
 [node name="Level" type="Label" parent="ResultContainer/Elements/MemberList/Member1" unique_id=103131646]
-custom_minimum_size = Vector2(110, 0)
+custom_minimum_size = Vector2(126, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 21
 text = "LV 100"
 horizontal_alignment = 3
 
@@ -124,13 +124,13 @@ layout_mode = 2
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 21
 text = "1234567890"
 
 [node name="Level" type="Label" parent="ResultContainer/Elements/MemberList/Member2" unique_id=1406623286]
-custom_minimum_size = Vector2(110, 0)
+custom_minimum_size = Vector2(126, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 21
 text = "LV 100"
 horizontal_alignment = 3
 
@@ -141,13 +141,13 @@ layout_mode = 2
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 21
 text = "1234567890"
 
 [node name="Level" type="Label" parent="ResultContainer/Elements/MemberList/Member3" unique_id=117651269]
-custom_minimum_size = Vector2(110, 0)
+custom_minimum_size = Vector2(126, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 21
 text = "LV 100"
 horizontal_alignment = 3
 
@@ -158,27 +158,26 @@ layout_mode = 2
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 21
 text = "1234567890"
 
 [node name="Level" type="Label" parent="ResultContainer/Elements/MemberList/Member4" unique_id=1905681487]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 21
 text = "LV 100"
 horizontal_alignment = 3
 
 [node name="EnemiesDefeated" type="Label" parent="ResultContainer/Elements" unique_id=1993752266]
 custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 17
 text = "Enemigos derrotados: 1000"
 autowrap_mode = 2
 
 [node name="BackToMenu" type="TextureButton" parent="ResultContainer/Elements" unique_id=233404520]
-custom_minimum_size = Vector2(300, 65)
+custom_minimum_size = Vector2(375, 80)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

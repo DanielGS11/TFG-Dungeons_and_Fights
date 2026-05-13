@@ -31,9 +31,7 @@ func _load_teams():
 		template.set_data(i, template.Context.LIST)
 		template.team_deleted.connect(_delete_team)
 		template.team_selected.connect(func(): 
-			get_tree().change_scene_to_file("res://scenes/menus/teams/team_editor.tscn")
-			print("Se seleccionó el equipo con índice " + str(i))
-			)
+			get_tree().change_scene_to_file("res://scenes/menus/teams/team_editor.tscn"))
 		
 	
 	counter.text = str(teams.size()) + "/5"

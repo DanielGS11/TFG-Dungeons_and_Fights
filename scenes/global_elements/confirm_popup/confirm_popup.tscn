@@ -24,7 +24,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_76wvp")
 script = ExtResource("2_6yjog")
 
 [node name="Popup" type="Panel" parent="." unique_id=795965134]
-custom_minimum_size = Vector2(450, 350)
+custom_minimum_size = Vector2(480, 350)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -58,7 +58,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(385, 196)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 20
 text = "hhhhhh"
 autowrap_mode = 3
 
@@ -70,7 +70,7 @@ size_flags_vertical = 4
 theme_override_constants/separation = 90
 
 [node name="Yes" type="TextureButton" parent="Popup/Elements/Buttons" unique_id=1688338483]
-custom_minimum_size = Vector2(80, 70)
+custom_minimum_size = Vector2(100, 85)
 layout_mode = 2
 texture_normal = ExtResource("3_6yjog")
 texture_pressed = ExtResource("4_i5lef")
@@ -78,8 +78,9 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="No" type="TextureButton" parent="Popup/Elements/Buttons" unique_id=1118303612]
-custom_minimum_size = Vector2(80, 70)
+custom_minimum_size = Vector2(100, 85)
 layout_mode = 2
+size_flags_horizontal = 4
 texture_normal = ExtResource("5_nhxfr")
 texture_pressed = ExtResource("6_q3k88")
 ignore_texture_size = true

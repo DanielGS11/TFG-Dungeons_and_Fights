@@ -39,7 +39,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PromptContainer" type="Panel" parent="VBoxContainer" unique_id=1147830695]
-custom_minimum_size = Vector2(495, 300)
+custom_minimum_size = Vector2(0, 410)
 layout_mode = 2
 size_flags_vertical = 10
 mouse_filter = 2
@@ -53,8 +53,8 @@ anchors_preset = -1
 anchor_left = 0.054545455
 anchor_top = 0.11891891
 anchor_right = 0.93737376
-anchor_bottom = 0.78068364
-theme_override_font_sizes/font_size = 21
+anchor_bottom = 0.802439
+theme_override_font_sizes/font_size = 24
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 

@@ -71,21 +71,22 @@ theme_override_constants/separation = 30
 metadata/_edit_use_anchors_ = true
 
 [node name="Logo" type="TextureRect" parent="Content" unique_id=1788266002]
-custom_minimum_size = Vector2(450, 100)
+custom_minimum_size = Vector2(480, 110)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 6
 texture = ExtResource("3_qp2ti")
 expand_mode = 1
 
 [node name="SelectTeamText" type="Label" parent="Content" unique_id=324178815]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 10
+size_flags_vertical = 8
 theme_override_font_sizes/font_size = 25
 text = "Equipo seleccionado"
 
 [node name="TeamButton" type="Button" parent="Content" unique_id=1273565322]
-custom_minimum_size = Vector2(440, 180)
+custom_minimum_size = Vector2(480, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -108,7 +109,7 @@ custom_minimum_size = Vector2(1, 40)
 layout_mode = 2
 size_flags_vertical = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 23
 text = "Aviso: Se asignará un equipo aleatorio"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -138,7 +139,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Number" type="Panel" parent="Content/EnemiesNumber" unique_id=2070910334]
-custom_minimum_size = Vector2(150, 70)
+custom_minimum_size = Vector2(200, 85)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -151,7 +152,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 40
 text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -175,7 +176,7 @@ size_flags_vertical = 10
 theme_override_constants/separation = 30
 
 [node name="Return" type="TextureButton" parent="Content/HBoxContainer" unique_id=85976245]
-custom_minimum_size = Vector2(200, 70)
+custom_minimum_size = Vector2(225, 75)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -185,7 +186,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Play" type="TextureButton" parent="Content/HBoxContainer" unique_id=1302014187]
-custom_minimum_size = Vector2(200, 70)
+custom_minimum_size = Vector2(225, 75)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

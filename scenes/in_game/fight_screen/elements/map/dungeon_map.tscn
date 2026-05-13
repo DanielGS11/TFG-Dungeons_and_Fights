@@ -38,9 +38,9 @@ script = ExtResource("2_d5ydk")
 custom_minimum_size = Vector2(440, 850)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.09259259
+anchor_left = 0.072222225
 anchor_top = 0.06458333
-anchor_right = 0.9074074
+anchor_right = 0.9222222
 anchor_bottom = 0.95
 grow_horizontal = 2
 grow_vertical = 2
@@ -55,36 +55,54 @@ theme_override_font_sizes/font_size = 28
 text = "¿A donde vamos?"
 autowrap_mode = 2
 
-[node name="Map" type="Panel" parent="Content" unique_id=306744467]
-custom_minimum_size = Vector2(330, 330)
+[node name="MapData" type="VBoxContainer" parent="Content" unique_id=1909035860]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 45
+
+[node name="Map" type="Panel" parent="Content/MapData" unique_id=306744467]
+custom_minimum_size = Vector2(380, 380)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 10
+size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxTexture_nmp60")
 
-[node name="GridContainer" type="GridContainer" parent="Content/Map" unique_id=484547758]
+[node name="GridContainer" type="GridContainer" parent="Content/MapData/Map" unique_id=484547758]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -178.0
+offset_top = -17.5
+offset_right = 178.0
+offset_bottom = 17.5
 grow_horizontal = 2
 grow_vertical = 2
 columns = 10
 
-[node name="Key" type="HBoxContainer" parent="Content" unique_id=961661567]
+[node name="TextureButton" type="TextureButton" parent="Content/MapData/Map/GridContainer" unique_id=543806265]
+custom_minimum_size = Vector2(35, 32)
+layout_mode = 2
+disabled = true
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Key" type="HBoxContainer" parent="Content/MapData" unique_id=961661567]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="Obtained" type="Label" parent="Content/Key" unique_id=1320447637]
+[node name="Obtained" type="Label" parent="Content/MapData/Key" unique_id=1320447637]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 24
 text = "X"
 
-[node name="Icon" type="TextureRect" parent="Content/Key" unique_id=1669487598]
+[node name="Icon" type="TextureRect" parent="Content/MapData/Key" unique_id=1669487598]
 custom_minimum_size = Vector2(30, 40)
 layout_mode = 2
 texture = ExtResource("5_d5ydk")

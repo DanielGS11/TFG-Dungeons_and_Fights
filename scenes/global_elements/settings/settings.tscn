@@ -56,18 +56,15 @@ metadata/_edit_use_anchors_ = true
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1243337856]
 custom_minimum_size = Vector2(390, 750)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -195.0
-offset_top = -375.0
-offset_right = 195.0
-offset_bottom = 375.0
+anchors_preset = -1
+anchor_left = 0.06666667
+anchor_top = 0.042168673
+anchor_right = 0.93333334
+anchor_bottom = 0.9655422
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 25
+metadata/_edit_use_anchors_ = true
 
 [node name="Volume" type="BoxContainer" parent="Panel/VBoxContainer" unique_id=858663640]
 unique_name_in_owner = true

@@ -47,7 +47,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MenuContainer" type="Panel" parent="VBoxContainer" unique_id=978816911]
-custom_minimum_size = Vector2(495, 300)
+custom_minimum_size = Vector2(0, 410)
 layout_mode = 2
 size_flags_vertical = 10
 theme_override_styles/panel = SubResource("StyleBoxTexture_xeqbi")
@@ -132,7 +132,7 @@ alignment = 0
 autowrap_mode = 3
 
 [node name="Info" type="TextureButton" parent="VBoxContainer/MenuContainer/Menu/VBoxContainer/ScrollContainer/SkillList/Skill" unique_id=1809159146]
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -142,7 +142,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Return" type="TextureButton" parent="VBoxContainer/MenuContainer/Menu/VBoxContainer" unique_id=1260256596]
-custom_minimum_size = Vector2(100, 30)
+custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("4_xeqbi")

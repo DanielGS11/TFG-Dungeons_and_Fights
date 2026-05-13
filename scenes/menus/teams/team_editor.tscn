@@ -55,32 +55,35 @@ grow_vertical = 2
 texture = ExtResource("1_c6sq4")
 expand_mode = 1
 
-[node name="Content" type="VBoxContainer" parent="." unique_id=2147423178]
-custom_minimum_size = Vector2(495, 820)
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1594875612]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.03409091
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.96590906
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 30
-metadata/_edit_use_anchors_ = true
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_bottom = 40
 
-[node name="TeamContainer" type="Container" parent="Content" unique_id=1440695414]
+[node name="Content" type="VBoxContainer" parent="MarginContainer" unique_id=2147423178]
+custom_minimum_size = Vector2(495, 820)
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="TeamContainer" type="Container" parent="MarginContainer/Content" unique_id=1440695414]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(430, 180)
+custom_minimum_size = Vector2(480, 200)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 6
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Content" unique_id=2135878342]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Content" unique_id=2135878342]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
 theme_override_constants/separation = 40
 
-[node name="Previous" type="TextureButton" parent="Content/HBoxContainer" unique_id=1247744440]
+[node name="Previous" type="TextureButton" parent="MarginContainer/Content/HBoxContainer" unique_id=1247744440]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -90,13 +93,14 @@ texture_pressed = ExtResource("5_7d6an")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="SpriteContainer" type="Panel" parent="Content/HBoxContainer" unique_id=1971211918]
+[node name="SpriteContainer" type="Panel" parent="MarginContainer/Content/HBoxContainer" unique_id=1971211918]
 custom_minimum_size = Vector2(170, 170)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxTexture_w0rkm")
 
-[node name="Sprite" type="TextureRect" parent="Content/HBoxContainer/SpriteContainer" unique_id=1326286573]
+[node name="Sprite" type="TextureRect" parent="MarginContainer/Content/HBoxContainer/SpriteContainer" unique_id=1326286573]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -107,7 +111,7 @@ grow_vertical = 2
 texture = ExtResource("3_yy83b")
 expand_mode = 1
 
-[node name="Next" type="TextureButton" parent="Content/HBoxContainer" unique_id=468135375]
+[node name="Next" type="TextureButton" parent="MarginContainer/Content/HBoxContainer" unique_id=468135375]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -117,31 +121,32 @@ texture_pressed = ExtResource("8_svxad")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="LineEdit" type="LineEdit" parent="Content" unique_id=383119231]
-custom_minimum_size = Vector2(350, 50)
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/Content" unique_id=383119231]
+custom_minimum_size = Vector2(400, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_font_sizes/font_size = 18
 placeholder_text = "Nombre del personaje"
 alignment = 1
 max_length = 10
 
-[node name="ClassText" type="Label" parent="Content" unique_id=508021693]
+[node name="ClassText" type="Label" parent="MarginContainer/Content" unique_id=508021693]
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 size_flags_vertical = 10
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 26
 text = "Clase del Personaje"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Classes" type="HBoxContainer" parent="Content" unique_id=1334913232]
+[node name="Classes" type="HBoxContainer" parent="MarginContainer/Content" unique_id=1334913232]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
 theme_override_constants/separation = 16
 
-[node name="Previous" type="TextureButton" parent="Content/Classes" unique_id=1061135020]
+[node name="Previous" type="TextureButton" parent="MarginContainer/Content/Classes" unique_id=1061135020]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -151,12 +156,12 @@ texture_pressed = ExtResource("5_7d6an")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Class" type="Panel" parent="Content/Classes" unique_id=846731672]
-custom_minimum_size = Vector2(250, 100)
+[node name="Class" type="Panel" parent="MarginContainer/Content/Classes" unique_id=846731672]
+custom_minimum_size = Vector2(270, 120)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_65lxl")
 
-[node name="ClassName" type="Label" parent="Content/Classes/Class" unique_id=2136413151]
+[node name="ClassName" type="Label" parent="MarginContainer/Content/Classes/Class" unique_id=2136413151]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(225, 80)
 layout_mode = 1
@@ -167,14 +172,14 @@ anchor_right = 0.95
 anchor_bottom = 0.9
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 24
-text = "Asesino"
+theme_override_font_sizes/font_size = 26
+text = "Berserker"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="Next" type="TextureButton" parent="Content/Classes" unique_id=2092229209]
+[node name="Next" type="TextureButton" parent="MarginContainer/Content/Classes" unique_id=2092229209]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -184,14 +189,14 @@ texture_pressed = ExtResource("8_svxad")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Buttons" type="HBoxContainer" parent="Content" unique_id=1085684894]
+[node name="Buttons" type="HBoxContainer" parent="MarginContainer/Content" unique_id=1085684894]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 theme_override_constants/separation = 30
 
-[node name="Confirm" type="TextureButton" parent="Content/Buttons" unique_id=869053458]
-custom_minimum_size = Vector2(200, 70)
+[node name="Confirm" type="TextureButton" parent="MarginContainer/Content/Buttons" unique_id=869053458]
+custom_minimum_size = Vector2(225, 75)
 layout_mode = 2
 size_flags_vertical = 8
 texture_normal = ExtResource("9_wnbtt")
@@ -199,8 +204,8 @@ texture_pressed = ExtResource("10_iyx6f")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Classes" type="TextureButton" parent="Content/Buttons" unique_id=1269958097]
-custom_minimum_size = Vector2(200, 70)
+[node name="Classes" type="TextureButton" parent="MarginContainer/Content/Buttons" unique_id=1269958097]
+custom_minimum_size = Vector2(225, 75)
 layout_mode = 2
 size_flags_vertical = 8
 texture_normal = ExtResource("11_g1iuq")
@@ -208,10 +213,10 @@ texture_pressed = ExtResource("12_gyhyp")
 ignore_texture_size = true
 stretch_mode = 0
 
-[connection signal="pressed" from="Content/HBoxContainer/Previous" to="." method="_on_previous_sprite_pressed"]
-[connection signal="pressed" from="Content/HBoxContainer/Next" to="." method="_on_next_sprite_pressed"]
-[connection signal="text_changed" from="Content/LineEdit" to="." method="_on_line_edit_text_changed"]
-[connection signal="pressed" from="Content/Classes/Previous" to="." method="_on_previous_class_pressed"]
-[connection signal="pressed" from="Content/Classes/Next" to="." method="_on_next_class_pressed"]
-[connection signal="pressed" from="Content/Buttons/Confirm" to="." method="_on_confirm_pressed"]
-[connection signal="pressed" from="Content/Buttons/Classes" to="." method="_on_classes_pressed"]
+[connection signal="pressed" from="MarginContainer/Content/HBoxContainer/Previous" to="." method="_on_previous_sprite_pressed"]
+[connection signal="pressed" from="MarginContainer/Content/HBoxContainer/Next" to="." method="_on_next_sprite_pressed"]
+[connection signal="text_changed" from="MarginContainer/Content/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="pressed" from="MarginContainer/Content/Classes/Previous" to="." method="_on_previous_class_pressed"]
+[connection signal="pressed" from="MarginContainer/Content/Classes/Next" to="." method="_on_next_class_pressed"]
+[connection signal="pressed" from="MarginContainer/Content/Buttons/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="MarginContainer/Content/Buttons/Classes" to="." method="_on_classes_pressed"]

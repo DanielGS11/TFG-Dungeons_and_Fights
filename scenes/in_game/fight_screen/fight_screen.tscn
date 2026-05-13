@@ -33,74 +33,74 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/Elements/TeamSprites/Member2Sprite/Sprite:modulate")
+tracks/0/path = NodePath("MarginContainer/Elements/TeamSprites/Member4Sprite/Sprite:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MarginContainer/Elements/TeamSprites/Member2Sprite/Sprite:scale")
+tracks/1/path = NodePath("MarginContainer/Elements/TeamSprites/Member4Sprite/Sprite:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("MarginContainer/Elements/TeamSprites/Member3Sprite/Sprite:modulate")
+tracks/2/path = NodePath("MarginContainer/Elements/TeamSprites/Member3Sprite/Sprite:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("MarginContainer/Elements/TeamSprites/Member3Sprite/Sprite:scale")
+tracks/3/path = NodePath("MarginContainer/Elements/TeamSprites/Member3Sprite/Sprite:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("MarginContainer/Elements/TeamSprites/Member4Sprite/Sprite:modulate")
+tracks/4/path = NodePath("MarginContainer/Elements/TeamSprites/Member2Sprite/Sprite:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(1, 1)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("MarginContainer/Elements/TeamSprites/Member4Sprite/Sprite:scale")
+tracks/5/path = NodePath("MarginContainer/Elements/TeamSprites/Member2Sprite/Sprite:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_blf0p"]
@@ -285,26 +285,26 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/Elements/TeamSprites/Member2Sprite/Sprite:modulate")
+tracks/0/path = NodePath("MarginContainer/Elements/TeamSprites/Member2Sprite/Sprite:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.46666667, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 0.4506808, 0.38219368, 1), Color(1, 1, 1, 1), Color(1, 0.4506808, 0.38219368, 1), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MarginContainer/Elements/TeamSprites/Member2Sprite/Sprite:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.00096197426, 0.16766198, 0.3, 0.46670002, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/Elements/TeamSprites/Member2Sprite/Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.46666667, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.4506808, 0.38219368, 1), Color(1, 1, 1, 1), Color(1, 0.4506808, 0.38219368, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_dvcq1"]
@@ -329,26 +329,26 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/Elements/TeamSprites/Member2Sprite/Sprite:modulate")
+tracks/0/path = NodePath("MarginContainer/Elements/TeamSprites/Member2Sprite/Sprite:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.4667, 0.5984259),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.24520135, 0.46315163, 0.9999663, 1), Color(1, 1, 1, 1), Color(0.24520135, 0.46315163, 0.9999663, 1), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MarginContainer/Elements/TeamSprites/Member2Sprite/Sprite:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1667, 0.29903805, 0.46573806, 0.59903806),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(1, 1), Vector2(0.8, 0.8), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/Elements/TeamSprites/Member2Sprite/Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.4667, 0.5984259),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.24520135, 0.46315163, 0.9999663, 1), Color(1, 1, 1, 1), Color(0.24520135, 0.46315163, 0.9999663, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_puhas"]
@@ -373,26 +373,26 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/Elements/TeamSprites/Member3Sprite/Sprite:modulate")
+tracks/0/path = NodePath("MarginContainer/Elements/TeamSprites/Member3Sprite/Sprite:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.46666667, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 0.4506808, 0.38219368, 1), Color(1, 1, 1, 1), Color(1, 0.4506808, 0.38219368, 1), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MarginContainer/Elements/TeamSprites/Member3Sprite/Sprite:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.00096197426, 0.16766198, 0.3, 0.46670002, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/Elements/TeamSprites/Member3Sprite/Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.46666667, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.4506808, 0.38219368, 1), Color(1, 1, 1, 1), Color(1, 0.4506808, 0.38219368, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_41mks"]
@@ -417,26 +417,26 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/Elements/TeamSprites/Member3Sprite/Sprite:modulate")
+tracks/0/path = NodePath("MarginContainer/Elements/TeamSprites/Member3Sprite/Sprite:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.4667, 0.5984259),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.24520135, 0.46315163, 0.9999663, 1), Color(1, 1, 1, 1), Color(0.24520135, 0.46315163, 0.9999663, 1), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MarginContainer/Elements/TeamSprites/Member3Sprite/Sprite:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1667, 0.29903805, 0.46573806, 0.59903806),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(1, 1), Vector2(0.8, 0.8), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/Elements/TeamSprites/Member3Sprite/Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.4667, 0.5984259),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.24520135, 0.46315163, 0.9999663, 1), Color(1, 1, 1, 1), Color(0.24520135, 0.46315163, 0.9999663, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_36gsm"]
@@ -461,26 +461,26 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/Elements/TeamSprites/Member4Sprite/Sprite:modulate")
+tracks/0/path = NodePath("MarginContainer/Elements/TeamSprites/Member4Sprite/Sprite:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.46666667, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 0.4506808, 0.38219368, 1), Color(1, 1, 1, 1), Color(1, 0.4506808, 0.38219368, 1), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MarginContainer/Elements/TeamSprites/Member4Sprite/Sprite:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.00096197426, 0.16766198, 0.3, 0.46670002, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/Elements/TeamSprites/Member4Sprite/Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.46666667, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.4506808, 0.38219368, 1), Color(1, 1, 1, 1), Color(1, 0.4506808, 0.38219368, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_p4s3f"]
@@ -505,26 +505,26 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/Elements/TeamSprites/Member4Sprite/Sprite:modulate")
+tracks/0/path = NodePath("MarginContainer/Elements/TeamSprites/Member4Sprite/Sprite:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.4667, 0.5984259),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.24520135, 0.46315163, 0.9999663, 1), Color(1, 1, 1, 1), Color(0.24520135, 0.46315163, 0.9999663, 1), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MarginContainer/Elements/TeamSprites/Member4Sprite/Sprite:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1667, 0.29903805, 0.46573806, 0.59903806),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(1, 1), Vector2(0.8, 0.8), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/Elements/TeamSprites/Member4Sprite/Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.4667, 0.5984259),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.24520135, 0.46315163, 0.9999663, 1), Color(1, 1, 1, 1), Color(0.24520135, 0.46315163, 0.9999663, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_54jty"]
@@ -606,7 +606,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_top = 40
+theme_override_constants/margin_top = 25
 
 [node name="Elements" type="VBoxContainer" parent="MarginContainer" unique_id=921032103]
 layout_mode = 2
@@ -616,19 +616,20 @@ theme_override_constants/separation = 0
 custom_minimum_size = Vector2(460, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 0
+size_flags_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Settings" type="TextureButton" parent="MarginContainer/Elements/Buttons" unique_id=450163863]
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+size_flags_vertical = 4
 texture_normal = ExtResource("21_blf0p")
 texture_pressed = ExtResource("22_j187v")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Exit" type="TextureButton" parent="MarginContainer/Elements/Buttons" unique_id=239773510]
-custom_minimum_size = Vector2(90, 30)
+custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
@@ -636,11 +637,6 @@ texture_normal = ExtResource("23_fcvu2")
 texture_pressed = ExtResource("24_dvcq1")
 ignore_texture_size = true
 stretch_mode = 0
-
-[node name="Spacer" type="Control" parent="MarginContainer/Elements" unique_id=1926780296]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
 
 [node name="EnemyData" type="VBoxContainer" parent="MarginContainer/Elements" unique_id=1644517046]
 unique_name_in_owner = true
@@ -651,17 +647,17 @@ size_flags_vertical = 10
 [node name="Data" type="HBoxContainer" parent="MarginContainer/Elements/EnemyData" unique_id=1184053121]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 2
+size_flags_vertical = 0
 
 [node name="Level" type="Label" parent="MarginContainer/Elements/EnemyData/Data" unique_id=700487549]
-custom_minimum_size = Vector2(126, 0)
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 21
+theme_override_font_sizes/font_size = 25
 text = "Lv 100"
 vertical_alignment = 3
 
 [node name="Health" type="TextureProgressBar" parent="MarginContainer/Elements/EnemyData/Data" unique_id=1531854694]
-custom_minimum_size = Vector2(200, 30)
+custom_minimum_size = Vector2(300, 40)
 layout_mode = 2
 max_value = 600.0
 value = 50.0
@@ -677,6 +673,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 18
 text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -687,16 +684,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/Elements/EnemyData/Modifiers" unique_id=2003036778]
-custom_minimum_size = Vector2(30, 30)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("19_iobnd")
-expand_mode = 1
-
 [node name="EnemySpriteContainer" type="Control" parent="MarginContainer/Elements" unique_id=117632376]
-custom_minimum_size = Vector2(240, 240)
+custom_minimum_size = Vector2(280, 280)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -705,15 +694,9 @@ size_flags_vertical = 4
 unique_name_in_owner = true
 custom_minimum_size = Vector2(240, 240)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = -120.0
-offset_right = 120.0
-offset_bottom = 120.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(127, 225)
@@ -730,7 +713,7 @@ size_flags_vertical = 3
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
-size_flags_vertical = 8
+size_flags_vertical = 10
 metadata/_edit_use_anchors_ = true
 
 [node name="Member1" type="VBoxContainer" parent="MarginContainer/Elements/TeamData" unique_id=1129369969]
@@ -748,7 +731,7 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 6
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 12
 text = "aaaaaaaaaa"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -760,7 +743,7 @@ size_flags_horizontal = 4
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/Elements/TeamData/Member1/Modifiers" unique_id=1971060862]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 4
@@ -782,7 +765,7 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 6
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 12
 text = "aaaaaaaaaa"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -792,14 +775,6 @@ custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/Elements/TeamData/Member2/Modifiers" unique_id=1767354598]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("19_iobnd")
-expand_mode = 1
 
 [node name="Member3" type="VBoxContainer" parent="MarginContainer/Elements/TeamData" unique_id=1567737029]
 layout_mode = 2
@@ -816,7 +791,7 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 6
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 12
 text = "aaaaaaaaaa"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -826,14 +801,6 @@ custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/Elements/TeamData/Member3/Modifiers" unique_id=466837825]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("19_iobnd")
-expand_mode = 1
 
 [node name="Member4" type="VBoxContainer" parent="MarginContainer/Elements/TeamData" unique_id=968120037]
 layout_mode = 2
@@ -850,7 +817,7 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 6
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 12
 text = "aaaaaaaaaa"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -861,14 +828,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/Elements/TeamData/Member4/Modifiers" unique_id=1804206081]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("19_iobnd")
-expand_mode = 1
-
 [node name="TeamSprites" type="HBoxContainer" parent="MarginContainer/Elements" unique_id=1931337118]
 unique_name_in_owner = true
 layout_mode = 2
@@ -876,111 +835,84 @@ size_flags_vertical = 4
 metadata/_edit_use_anchors_ = true
 
 [node name="Member1Sprite" type="Control" parent="MarginContainer/Elements/TeamSprites" unique_id=1118180209]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
 [node name="Sprite" type="TextureRect" parent="MarginContainer/Elements/TeamSprites/Member1Sprite" unique_id=824910515]
-custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -50.0
-offset_right = 50.0
-offset_bottom = 50.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(50, 100)
+pivot_offset = Vector2(60, 120)
 size_flags_horizontal = 6
 size_flags_vertical = 8
 texture = ExtResource("16_p4s3f")
 expand_mode = 1
 
 [node name="Member2Sprite" type="Control" parent="MarginContainer/Elements/TeamSprites" unique_id=1170406166]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
 [node name="Sprite" type="TextureRect" parent="MarginContainer/Elements/TeamSprites/Member2Sprite" unique_id=1215731288]
-custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -50.0
-offset_right = 50.0
-offset_bottom = 50.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(50, 100)
+pivot_offset = Vector2(60, 120)
 size_flags_horizontal = 6
 size_flags_vertical = 8
 texture = ExtResource("16_p4s3f")
 expand_mode = 1
 
 [node name="Member3Sprite" type="Control" parent="MarginContainer/Elements/TeamSprites" unique_id=90383041]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
 [node name="Sprite" type="TextureRect" parent="MarginContainer/Elements/TeamSprites/Member3Sprite" unique_id=425732543]
-custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -50.0
-offset_right = 50.0
-offset_bottom = 50.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(50, 100)
+pivot_offset = Vector2(60, 120)
 size_flags_horizontal = 6
 size_flags_vertical = 8
 texture = ExtResource("16_p4s3f")
 expand_mode = 1
 
 [node name="Member4Sprite" type="Control" parent="MarginContainer/Elements/TeamSprites" unique_id=2114762962]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
 [node name="Sprite" type="TextureRect" parent="MarginContainer/Elements/TeamSprites/Member4Sprite" unique_id=1085838736]
-custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -50.0
-offset_right = 50.0
-offset_bottom = 50.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(50, 100)
+pivot_offset = Vector2(60, 120)
 size_flags_horizontal = 6
 size_flags_vertical = 8
 texture = ExtResource("16_p4s3f")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="PlayerUI" type="Panel" parent="MarginContainer/Elements" unique_id=1800187098]
-custom_minimum_size = Vector2(0, 370)
+custom_minimum_size = Vector2(0, 500)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_uii2b")
@@ -990,8 +922,8 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.038383838
 anchor_top = 0.043243244
-anchor_right = 0.9656566
-anchor_bottom = 0.94054055
+anchor_right = 0.9656565
+anchor_bottom = 0.9139999
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 14
@@ -999,17 +931,17 @@ metadata/_edit_use_anchors_ = true
 
 [node name="HealthAndMana" type="HBoxContainer" parent="MarginContainer/Elements/PlayerUI/VBoxContainer" unique_id=212446643]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(450, 52)
+custom_minimum_size = Vector2(450, 70)
 layout_mode = 2
 
 [node name="Member1" type="VBoxContainer" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana" unique_id=1971557373]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-theme_override_constants/separation = 0
+theme_override_constants/separation = -3
 
 [node name="Health" type="TextureProgressBar" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member1" unique_id=709152694]
-custom_minimum_size = Vector2(100, 20)
+custom_minimum_size = Vector2(110, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -1025,15 +957,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 12
 text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Mana" type="TextureProgressBar" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member1" unique_id=629009971]
-custom_minimum_size = Vector2(100, 20)
+custom_minimum_size = Vector2(110, 30)
 layout_mode = 2
-size_flags_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
 value = 50.0
 nine_patch_stretch = true
 texture_under = ExtResource("5_p3il4")
@@ -1046,19 +979,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 12
 text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Member2" type="VBoxContainer" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana" unique_id=1433431810]
+[node name="Member2" type="VBoxContainer" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana" unique_id=1969655569]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-theme_override_constants/separation = 0
+theme_override_constants/separation = -3
 
-[node name="Health" type="TextureProgressBar" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member2" unique_id=96385160]
-custom_minimum_size = Vector2(100, 20)
+[node name="Health" type="TextureProgressBar" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member2" unique_id=214885992]
+custom_minimum_size = Vector2(110, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -1067,47 +1000,48 @@ nine_patch_stretch = true
 texture_under = ExtResource("2_o16yi")
 texture_progress = ExtResource("3_5q1s3")
 
-[node name="Value" type="Label" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member2/Health" unique_id=1996420527]
+[node name="Value" type="Label" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member2/Health" unique_id=1025801415]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 12
 text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Mana" type="TextureProgressBar" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member2" unique_id=645699548]
-custom_minimum_size = Vector2(100, 20)
+[node name="Mana" type="TextureProgressBar" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member2" unique_id=1732342364]
+custom_minimum_size = Vector2(110, 30)
 layout_mode = 2
-size_flags_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
 value = 50.0
 nine_patch_stretch = true
 texture_under = ExtResource("5_p3il4")
 texture_progress = ExtResource("6_iobnd")
 
-[node name="Value" type="Label" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member2/Mana" unique_id=832923454]
+[node name="Value" type="Label" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member2/Mana" unique_id=354207561]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 12
 text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Member3" type="VBoxContainer" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana" unique_id=1586486414]
+[node name="Member3" type="VBoxContainer" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana" unique_id=1678565540]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-theme_override_constants/separation = 0
+theme_override_constants/separation = -3
 
-[node name="Health" type="TextureProgressBar" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member3" unique_id=543901279]
-custom_minimum_size = Vector2(100, 20)
+[node name="Health" type="TextureProgressBar" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member3" unique_id=37275369]
+custom_minimum_size = Vector2(110, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -1116,47 +1050,48 @@ nine_patch_stretch = true
 texture_under = ExtResource("2_o16yi")
 texture_progress = ExtResource("3_5q1s3")
 
-[node name="Value" type="Label" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member3/Health" unique_id=227298178]
+[node name="Value" type="Label" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member3/Health" unique_id=2109538549]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 12
 text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Mana" type="TextureProgressBar" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member3" unique_id=1143684416]
-custom_minimum_size = Vector2(100, 20)
+[node name="Mana" type="TextureProgressBar" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member3" unique_id=1171214192]
+custom_minimum_size = Vector2(110, 30)
 layout_mode = 2
-size_flags_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
 value = 50.0
 nine_patch_stretch = true
 texture_under = ExtResource("5_p3il4")
 texture_progress = ExtResource("6_iobnd")
 
-[node name="Value" type="Label" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member3/Mana" unique_id=935724057]
+[node name="Value" type="Label" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member3/Mana" unique_id=1409208232]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 12
 text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Member4" type="VBoxContainer" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana" unique_id=1166198157]
+[node name="Member4" type="VBoxContainer" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana" unique_id=1377138061]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-theme_override_constants/separation = 0
+theme_override_constants/separation = -3
 
-[node name="Health" type="TextureProgressBar" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member4" unique_id=1300500874]
-custom_minimum_size = Vector2(100, 20)
+[node name="Health" type="TextureProgressBar" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member4" unique_id=481695786]
+custom_minimum_size = Vector2(110, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -1165,35 +1100,36 @@ nine_patch_stretch = true
 texture_under = ExtResource("2_o16yi")
 texture_progress = ExtResource("3_5q1s3")
 
-[node name="Value" type="Label" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member4/Health" unique_id=623884884]
+[node name="Value" type="Label" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member4/Health" unique_id=1289502531]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 12
 text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Mana" type="TextureProgressBar" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member4" unique_id=809888241]
-custom_minimum_size = Vector2(100, 20)
+[node name="Mana" type="TextureProgressBar" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member4" unique_id=147630909]
+custom_minimum_size = Vector2(110, 30)
 layout_mode = 2
-size_flags_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
 value = 50.0
 nine_patch_stretch = true
 texture_under = ExtResource("5_p3il4")
 texture_progress = ExtResource("6_iobnd")
 
-[node name="Value" type="Label" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member4/Mana" unique_id=1841552292]
+[node name="Value" type="Label" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/HealthAndMana/Member4/Mana" unique_id=2109596367]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 12
 text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1202,34 +1138,34 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 10
 theme_override_constants/h_separation = 17
-theme_override_constants/v_separation = 17
+theme_override_constants/v_separation = 30
 columns = 2
 
 [node name="Attack" type="TextureButton" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/ActionButtons" unique_id=1015701777]
-custom_minimum_size = Vector2(200, 95)
+custom_minimum_size = Vector2(220, 120)
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 10
+size_flags_vertical = 10
 texture_normal = ExtResource("7_1kbdm")
 texture_pressed = ExtResource("8_krfi4")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Magic" type="TextureButton" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/ActionButtons" unique_id=1657445794]
-custom_minimum_size = Vector2(200, 95)
+custom_minimum_size = Vector2(220, 120)
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 2
+size_flags_vertical = 10
 texture_normal = ExtResource("9_tbcmd")
 texture_pressed = ExtResource("10_blf0p")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Defend" type="TextureButton" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/ActionButtons" unique_id=862132456]
-custom_minimum_size = Vector2(200, 95)
+custom_minimum_size = Vector2(220, 120)
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 10
+size_flags_vertical = 2
 texture_normal = ExtResource("11_j187v")
 texture_pressed = ExtResource("12_fcvu2")
 ignore_texture_size = true
@@ -1237,20 +1173,20 @@ stretch_mode = 0
 
 [node name="Run" type="TextureButton" parent="MarginContainer/Elements/PlayerUI/VBoxContainer/ActionButtons" unique_id=1179342034]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 95)
+custom_minimum_size = Vector2(220, 120)
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 2
+size_flags_vertical = 2
 texture_normal = ExtResource("13_dvcq1")
 texture_pressed = ExtResource("14_7o2tn")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="GoBack" type="TextureButton" parent="MarginContainer/Elements/PlayerUI/VBoxContainer" unique_id=1343930121]
-custom_minimum_size = Vector2(100, 40)
+custom_minimum_size = Vector2(170, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 8
+size_flags_vertical = 0
 texture_normal = ExtResource("16_1kbdm")
 texture_pressed = ExtResource("17_krfi4")
 ignore_texture_size = true

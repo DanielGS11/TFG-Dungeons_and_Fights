@@ -27,7 +27,7 @@ anchor_left = 0.062626265
 anchor_top = 0.03068181
 anchor_right = 0.93737376
 anchor_bottom = 0.97272736
-theme_override_constants/separation = 13
+theme_override_constants/separation = 20
 metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Content" unique_id=767779959]
@@ -36,17 +36,17 @@ layout_mode = 2
 [node name="Text" type="Label" parent="Content/HBoxContainer" unique_id=360474535]
 custom_minimum_size = Vector2(350, 80)
 layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 17
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 19
 text = "Selecciona un equipo"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Quit" type="TextureButton" parent="Content/HBoxContainer" unique_id=271223294]
-custom_minimum_size = Vector2(60, 60)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("3_wj1bt")
 texture_pressed = ExtResource("4_ndhk5")
@@ -69,7 +69,7 @@ size_flags_vertical = 4
 theme_override_constants/separation = 20
 
 [node name="NoTeam" type="TextureButton" parent="Content/ScrollContainer/List" unique_id=1360155173]
-custom_minimum_size = Vector2(430, 180)
+custom_minimum_size = Vector2(480, 200)
 layout_mode = 2
 texture_normal = ExtResource("5_0ofvv")
 ignore_texture_size = true

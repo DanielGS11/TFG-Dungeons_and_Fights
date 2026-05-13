@@ -2,8 +2,8 @@ extends Panel
 
 var actual_mode: DungeonMode
 
-@onready var map_view: GridContainer = $Content/Map/GridContainer
-@onready var key_obtained: Label = $Content/Key/Obtained
+@onready var map_view: GridContainer = %GridContainer
+@onready var key_obtained: Label = %Obtained
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,6 +22,8 @@ func _ready() -> void:
 	_load_map()
 
 func _load_map():
+	var button: TextureButton = map_view.get_child(0).duplicate(true)
+	
 	for i in map_view.get_children():
 		i.queue_free()
 	
@@ -32,11 +34,7 @@ func _load_map():
 	
 	for i in map[0].size():
 		for j in map.size():
-			var room_button := TextureButton.new()
-			room_button.custom_minimum_size = Vector2(30, 30)
-			room_button.ignore_texture_size = true
-			room_button.stretch_mode = TextureButton.STRETCH_SCALE
-			room_button.disabled = true
+			var room_button := button.duplicate(true)
 			
 			var room: Room = map[j][i]
 			var icon: Texture2D

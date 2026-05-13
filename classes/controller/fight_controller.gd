@@ -74,6 +74,8 @@ func _check_game_state():
 				
 				member.recover_mana(ceili(float(member.mana) * 0.10))
 				await member.check_modifiers()
+				
+				refresh_data.emit(member)
 		
 		if allies_alive == 0:
 			GameAPI.end_game.emit(GameAPI.Result.LOSE, "Ya no queda nadie en pie, has perdido")

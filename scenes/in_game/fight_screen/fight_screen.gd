@@ -4,6 +4,7 @@ var actual_mode: Mode
 var controller: FightController
 var member_turn := 0
 var queue: Dictionary
+var modifier_sprite: TextureRect
 
 var team: Team
 var enemy: Enemy
@@ -27,6 +28,8 @@ func _ready() -> void:
 	add_child(preload("res://scenes/global_elements/load_screen/load_screen.tscn").instantiate())
 	
 	await get_tree().process_frame
+	modifier_sprite = team_data.get_child(0).get_child(2).get_child(0).duplicate(true)
+	
 	actual_mode = GameAPI.get_actual_mode()
 	
 	bright.color.a = GameAPI.get_bright()
@@ -94,13 +97,10 @@ func _load_entity_data(entity: Entity):
 			i.queue_free()
 		
 		for i in entity.get_modifiers():
-			var modifier_sprite = TextureRect.new()
-			modifier_list.add_child(modifier_sprite)
+			var modifier = modifier_sprite.duplicate(true)
+			modifier_list.add_child(modifier)
 			
-			modifier_sprite.texture = i
-			modifier_sprite.custom_minimum_size = Vector2(30, 30)
-			modifier_sprite.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-			modifier_sprite.stretch_mode = TextureRect.STRETCH_SCALE
+			modifier.texture = i
 		
 		level.text = "Lv " + str(entity.level)
 		
@@ -123,13 +123,10 @@ func _load_entity_data(entity: Entity):
 			i.queue_free()
 		
 		for i in team.members[id].get_modifiers():
-			var modifier_sprite = TextureRect.new()
-			modifier_list.add_child(modifier_sprite)
+			var modifier = modifier_sprite.duplicate(true)
+			modifier_list.add_child(modifier)
 			
-			modifier_sprite.texture = i
-			modifier_sprite.custom_minimum_size = Vector2(20, 20)
-			modifier_sprite.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-			modifier_sprite.stretch_mode = TextureRect.STRETCH_SCALE
+			modifier.texture = i
 		
 		level.text = "Lv " + str(entity.level)
 		member_name.text = entity.name

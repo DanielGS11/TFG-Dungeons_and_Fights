@@ -47,13 +47,14 @@ texture = ExtResource("1_ob46e")
 expand_mode = 1
 
 [node name="BattleMode" type="TextureButton" parent="." unique_id=1007878542]
-custom_minimum_size = Vector2(400, 90)
+custom_minimum_size = Vector2(450, 100)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0959596
-anchor_top = 0.10227273
-anchor_right = 0.9040404
-anchor_bottom = 0.20454545
+anchor_left = 0.083333336
+anchor_top = 0.1475
+anchor_right = 0.9166667
+anchor_bottom = 0.23083334
+offset_top = 1.5258789e-05
 grow_horizontal = 2
 texture_normal = ExtResource("2_uqeha")
 texture_pressed = ExtResource("3_wem23")
@@ -62,14 +63,13 @@ stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="DungeonMode" type="TextureButton" parent="." unique_id=53405521]
-custom_minimum_size = Vector2(400, 90)
+custom_minimum_size = Vector2(450, 100)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0959596
-anchor_top = 0.2840909
-anchor_right = 0.9040404
-anchor_bottom = 0.38636363
-offset_right = 0.003326416
+anchor_left = 0.08333703
+anchor_top = 0.3125
+anchor_right = 0.9166704
+anchor_bottom = 0.39583334
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("5_4ujhu")
@@ -79,13 +79,13 @@ stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="Teams" type="TextureButton" parent="." unique_id=1544056575]
-custom_minimum_size = Vector2(400, 90)
+custom_minimum_size = Vector2(450, 100)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0959596
-anchor_top = 0.4659091
-anchor_right = 0.9040404
-anchor_bottom = 0.5681818
+anchor_left = 0.083333336
+anchor_top = 0.49416667
+anchor_right = 0.9166667
+anchor_bottom = 0.5775
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("7_a1gy5")
@@ -95,14 +95,13 @@ stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="Exit" type="TextureButton" parent="." unique_id=1889234012]
-custom_minimum_size = Vector2(400, 90)
+custom_minimum_size = Vector2(450, 100)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0959596
-anchor_top = 0.64772725
-anchor_right = 0.9040426
+anchor_left = 0.08333703
+anchor_top = 0.6666667
+anchor_right = 0.9166704
 anchor_bottom = 0.75
-offset_right = 0.0018615723
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("9_xac7c")
@@ -112,7 +111,7 @@ stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="Settings" type="TextureButton" parent="." unique_id=570613991]
-custom_minimum_size = Vector2(200, 60)
+custom_minimum_size = Vector2(225, 75)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.060606062
@@ -128,7 +127,7 @@ stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="Guides" type="TextureButton" parent="." unique_id=1749666420]
-custom_minimum_size = Vector2(200, 60)
+custom_minimum_size = Vector2(225, 75)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.53535354

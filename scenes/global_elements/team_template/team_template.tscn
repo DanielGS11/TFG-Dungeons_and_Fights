@@ -89,7 +89,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_vm5kv")
 expand_mode = 1
-flip_h = true
 
 [node name="Name" type="Label" parent="Members/MemberSlot1" unique_id=1133359503]
 layout_mode = 2
@@ -124,7 +123,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_vm5kv")
 expand_mode = 1
-flip_h = true
 
 [node name="Name" type="Label" parent="Members/MemberSlot2" unique_id=127060580]
 layout_mode = 2
@@ -159,7 +157,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_vm5kv")
 expand_mode = 1
-flip_h = true
 
 [node name="Name" type="Label" parent="Members/MemberSlot3" unique_id=1728499686]
 layout_mode = 2
@@ -194,7 +191,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_vm5kv")
 expand_mode = 1
-flip_h = true
 
 [node name="Name" type="Label" parent="Members/MemberSlot4" unique_id=777181307]
 layout_mode = 2

@@ -30,7 +30,10 @@ func _load_teams():
 		
 		template.set_data(i, template.Context.LIST)
 		template.team_deleted.connect(_delete_team)
-		template.team_selected.connect(func(): get_tree().change_scene_to_file("res://scenes/menus/teams/team_editor.tscn"))
+		template.team_selected.connect(func(): 
+			get_tree().change_scene_to_file("res://scenes/menus/teams/team_editor.tscn")
+			print("Se seleccionó el equipo con índice " + str(i))
+			)
 		
 	
 	counter.text = str(teams.size()) + "/5"
@@ -58,7 +61,6 @@ func _check_button_state():
 
 func _on_return_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
-
 
 func _on_add_team_pressed() -> void:
 	GameAPI.add_team()

@@ -606,10 +606,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_top = 20
+theme_override_constants/margin_top = 40
 
 [node name="Elements" type="VBoxContainer" parent="MarginContainer" unique_id=921032103]
-custom_minimum_size = Vector2(540, 940)
 layout_mode = 2
 theme_override_constants/separation = 0
 
@@ -639,7 +638,6 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Spacer" type="Control" parent="MarginContainer/Elements" unique_id=1926780296]
-custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0

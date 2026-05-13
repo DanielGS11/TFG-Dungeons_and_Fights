@@ -49,6 +49,8 @@ func _execute_queue():
 				
 				Entity.Actions.SKILL:
 					await _skill(key,  queue[key][1],  queue[key][2])
+			
+			refresh_data.emit(key)
 		
 		if enemy.health == 0:
 			break

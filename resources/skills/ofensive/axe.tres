@@ -5,8 +5,9 @@
 [resource]
 script = ExtResource("1_018ms")
 name = "Hachazo"
+description = "Golpe de hacha poderoso que aniquila al enemigo"
 skill_target = 3
-cost = 10
+cost = 22
 modifier = 2
 power = 5
 metadata/_custom_type_script = "uid://dwo74ogytqp2o"

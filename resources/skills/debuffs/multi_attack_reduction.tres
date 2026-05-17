@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_fygkb")
 name = "Multi ataque -"
+description = "Hechizo de alto nivel que debilita el ataque de todos los enemigos"
 skill_type = 4
 skill_target = 4
 cost = 65

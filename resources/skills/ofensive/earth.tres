@@ -5,9 +5,10 @@
 [resource]
 script = ExtResource("1_ijha2")
 name = "Tierra"
+description = "Magia de tierra, lanza rocas pesadas al enemigo"
 skill_type = 1
 skill_target = 3
-cost = 17
+cost = 25
 modifier = 2
 power = 7
 metadata/_custom_type_script = "uid://dwo74ogytqp2o"

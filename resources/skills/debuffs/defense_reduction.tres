@@ -5,9 +5,10 @@
 [resource]
 script = ExtResource("1_l32o4")
 name = "Defensa -"
+description = "Hechizo que debilita la defensa de un enemigo"
 skill_type = 4
 skill_target = 3
-cost = 17
+cost = 35
 modifier = 2
 power = 7
 metadata/_custom_type_script = "uid://dwo74ogytqp2o"

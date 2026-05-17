@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_t8lj0")
 name = "Multi curación"
+description = "Hechizo de curación que restablece la vida de todos los aliados"
 skill_type = 2
 skill_target = 1
 cost = 45

@@ -5,7 +5,9 @@
 [resource]
 script = ExtResource("1_xsgu0")
 name = "Tajo maldito"
+description = "Tajo imbuido con todo el rencor del usuario para acabar con su enemigo"
 skill_target = 3
+cost = 33
 modifier = 2
 power = 33
 metadata/_custom_type_script = "uid://dwo74ogytqp2o"

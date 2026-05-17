@@ -5,8 +5,9 @@
 [resource]
 script = ExtResource("1_orxyd")
 name = "Ataque -"
+description = "Hechizo que debilita el ataque de un enemigo"
 skill_type = 4
 skill_target = 3
-cost = 15
+cost = 30
 power = 7
 metadata/_custom_type_script = "uid://dwo74ogytqp2o"

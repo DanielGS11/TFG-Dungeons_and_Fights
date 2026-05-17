@@ -12,11 +12,15 @@ extends Control
 func _ready() -> void:
 	await get_tree().process_frame
 	
+	MusicPlayer.play_music("Menu")
+	
 	# Carga archivos de guardado si los hay
 	GameAPI.load_saves()
 	
 	# Ajusto el brillo de pantalla
 	bright.color.a = GameAPI.get_bright()
+	
+	GameAPI.set_volume(GameAPI.get_config().volume)
 	
 	# Animación de inicio
 	if GameManager.config.animations:
@@ -40,4 +44,5 @@ func _ready() -> void:
 
 ## Al pulsar cualquier lado de la pantalla, navega al menú principal
 func _on_enter_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
 	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")

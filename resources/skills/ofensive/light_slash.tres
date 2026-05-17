@@ -5,8 +5,9 @@
 [resource]
 script = ExtResource("1_1x433")
 name = "Tajo luminoso"
+description = "Tajo sagrado imbuido en luz para acabar con el mal"
 skill_target = 3
-cost = 15
+cost = 20
 modifier = 2
 power = 8
 metadata/_custom_type_script = "uid://dwo74ogytqp2o"

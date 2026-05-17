@@ -13,8 +13,8 @@
 [resource]
 script = ExtResource("1_fa6up")
 class_type = "Clérigo"
-max_mana = 140
-mana = 140
+max_mana = 200
+mana = 200
 exp_next_level = 100
 sprite = ExtResource("3_y8o0s")
 max_health = 120
@@ -26,5 +26,5 @@ speed = 13
 critical_rate = 2
 evasion = 2
 skills = Array[ExtResource("2_y8o0s")]([ExtResource("3_ao658"), ExtResource("4_k340w"), ExtResource("5_6jkmj"), ExtResource("6_h1emq"), ExtResource("7_2fluo"), ExtResource("8_1brti")])
-description = "Algunos lo llaman \"salvador\", corre por el campo de batalla sanando a todos y salvando sus vidas, permitiendo además que puedan combatir durante más tiempo"
+description = "Con poderes divinos, algunos lo llaman “Salvador” gracias a las curaciones que brinda al equipo. Es la clase de curación por excelencia, con él será difícil que tus compañeros caigan"
 metadata/_custom_type_script = "uid://q7s2lsfb8djq"

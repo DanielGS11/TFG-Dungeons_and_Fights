@@ -47,6 +47,8 @@ func load_guides():
 
 ## Carga la guía seleccionada
 func _on_guide_selected(key: String):
+	MusicPlayer.play_sfx("Click")
+	
 	var guide_screen: Node
 	
 	# Las guías "Clases" y "Enemigos" son diferentes, por lo que cargarían otra escena
@@ -67,6 +69,8 @@ func _on_guide_selected(key: String):
 
 ## Al pulsar la 'X' hace su animación de salida y muere
 func _on_exit_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	if GameAPI.get_config().animations:
 		# Cada animación es de un solo uso, por lo que hay que crearlo de nuevo cada vez
 		var tween = get_tree().create_tween() 

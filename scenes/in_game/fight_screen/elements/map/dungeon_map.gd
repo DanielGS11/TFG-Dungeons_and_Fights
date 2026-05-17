@@ -86,6 +86,8 @@ func _load_map():
 			map_view.add_child(room_button)
 
 func go_to_room(coordinates: Vector2):
+	MusicPlayer.play_sfx("Click")
+	
 	actual_mode.go_to_room(coordinates)
 	queue_free()
 

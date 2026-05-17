@@ -5,9 +5,10 @@
 [resource]
 script = ExtResource("1_xtrf6")
 name = "Viento"
+description = "Invoca hojas invisibles de viento para proporcionar cortes letales al enemigo"
 skill_type = 1
 skill_target = 3
-cost = 20
+cost = 30
 modifier = 2
 power = 10
 metadata/_custom_type_script = "uid://dwo74ogytqp2o"

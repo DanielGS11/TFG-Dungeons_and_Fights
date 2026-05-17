@@ -21,4 +21,5 @@ speed = 18
 critical_rate = 5
 evasion = 5
 skills = Array[ExtResource("2_3o7a1")]([ExtResource("3_wh5y6"), ExtResource("4_hn0u2")])
+description = "Bestia iracunda y territorial, ataca con ferocidad con todo el que se encuentre, se cree que su agresividad se debe al resentimiento que tiene con sus creadores tras los numerosos experimentos que hicieron con ella"
 metadata/_custom_type_script = "uid://cr0hhat76xd7a"

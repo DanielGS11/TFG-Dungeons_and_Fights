@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dungeons & Fights"
-run/main_scene="uid://bplpc1vcpbll6"
+run/main_scene="uid://b06hdqq1ss0v4"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://emqfhpuaxwtq"
 
@@ -19,6 +19,7 @@ config/icon="uid://emqfhpuaxwtq"
 
 GameAPI="*uid://ng0uoa1ekk7e"
 GameManager="*uid://bpi1k0ieneu08"
+MusicPlayer="*uid://b4oiinh00vrml"
 
 [display]
 
@@ -37,7 +38,7 @@ folder_colors={
 "res://classes/": "blue",
 "res://resources/": "purple",
 "res://scenes/": "gray",
-"res://system_autoloads/": "green"
+"res://system/": "green"
 }
 
 [gui]

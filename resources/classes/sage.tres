@@ -17,15 +17,17 @@
 [resource]
 script = ExtResource("1_mtaxk")
 class_type = "Sabio"
-max_mana = 170
-mana = 170
+max_mana = 240
+mana = 240
 exp_next_level = 100
 sprite = ExtResource("3_e1ciq")
+max_health = 105
+health = 105
 magic_attack = 30
 defense = 10
 speed = 20
 critical_rate = 2
 evasion = 5
 skills = Array[ExtResource("2_e1ciq")]([ExtResource("3_onjpj"), ExtResource("4_5n836"), ExtResource("5_5neeq"), ExtResource("6_r8xd7"), ExtResource("7_3ltf1"), ExtResource("8_6es78"), ExtResource("9_tfoy2"), ExtResource("10_53p6o"), ExtResource("11_jpqr4"), ExtResource("12_gnsqm")])
-description = "Tras años de analizar los algoritmos de la magia y aprender diversas artes, comprendió que usar la magia para atacar no lo es todo, y decidió aprender diversos hechizos para debilitar a sus enemigos y atacarles con más efectividad"
+description = "Erudito cuyos años de estudio en la magia se reflejan en su aspecto y forma de combatir. Dejó de lado el aprendizaje de hechizos de rango bajo para especializarse en los de mayor nivel, cuenta con reductores para hacer el enemigo más vulnerable y luego atacar con magia letal"
 metadata/_custom_type_script = "uid://q7s2lsfb8djq"

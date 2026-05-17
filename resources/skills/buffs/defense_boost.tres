@@ -5,8 +5,9 @@
 [resource]
 script = ExtResource("1_uypyd")
 name = "Defensa +"
+description = "Hechizo que fortalece la defensa de un aliado"
 skill_type = 3
-cost = 10
+cost = 25
 modifier = 2
 power = 7
 metadata/_custom_type_script = "uid://dwo74ogytqp2o"

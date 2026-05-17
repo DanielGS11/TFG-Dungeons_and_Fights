@@ -67,25 +67,35 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 11
 
-[node name="Description" type="Label" parent="VBoxContainer/MenuContainer/Menu/SkillData" unique_id=700027264]
-custom_minimum_size = Vector2(1, 0)
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MenuContainer/Menu/SkillData" unique_id=1407403859]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 9
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="Description" type="Label" parent="VBoxContainer/MenuContainer/Menu/SkillData/ScrollContainer" unique_id=700027264]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 18
 autowrap_mode = 3
 
 [node name="Power" type="Label" parent="VBoxContainer/MenuContainer/Menu/SkillData" unique_id=1386722078]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 9
+theme_override_font_sizes/font_size = 15
 autowrap_mode = 3
 
 [node name="Cost" type="Label" parent="VBoxContainer/MenuContainer/Menu/SkillData" unique_id=520527441]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 9
+theme_override_font_sizes/font_size = 15
 autowrap_mode = 3
 
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer/MenuContainer/Menu" unique_id=601737005]
@@ -96,6 +106,7 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_k8rvo")
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MenuContainer/Menu" unique_id=1246656481]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.25
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MenuContainer/Menu/VBoxContainer" unique_id=757973086]
 custom_minimum_size = Vector2(0, 250)
@@ -107,6 +118,7 @@ horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
 
 [node name="SkillList" type="VBoxContainer" parent="VBoxContainer/MenuContainer/Menu/VBoxContainer/ScrollContainer" unique_id=1519962070]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -120,7 +132,7 @@ custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxEmpty_goe5k")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_6641w")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_trjrq")

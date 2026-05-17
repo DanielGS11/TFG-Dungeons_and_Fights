@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bplpc1vcpbll6"]
+[gd_scene format=3 uid="uid://b06hdqq1ss0v4"]
 
 [ext_resource type="Texture2D" uid="uid://dn7qb1ol8pxw1" path="res://assets/background/portrait.png" id="1_k07cr"]
 [ext_resource type="Script" uid="uid://bectahc4yx6u0" path="res://scenes/portrait/portrait.gd" id="2_kk1se"]

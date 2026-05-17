@@ -12,8 +12,8 @@
 [resource]
 script = ExtResource("1_iuwj4")
 class_type = "Asesino"
-max_mana = 100
-mana = 100
+max_mana = 150
+mana = 150
 exp_next_level = 100
 sprite = ExtResource("3_6nk4q")
 max_health = 90
@@ -22,8 +22,8 @@ attack = 30
 magic_attack = 13
 defense = 11
 speed = 30
-critical_rate = 20
-evasion = 20
+critical_rate = 30
+evasion = 30
 skills = Array[ExtResource("2_ld4ij")]([ExtResource("3_sfegk"), ExtResource("4_xxogc"), ExtResource("5_wk1ho"), ExtResource("6_alvjl"), ExtResource("7_vhuc8")])
-description = "Se especializa en el sigilo y el ataque por sorpresa. No tendrá mucha fuerza, pero lo compensa con su velocidad y su capacidad de asestar golpes precisos y letales en los puntos débiles de los enemigos"
+description = "Rápido e imperceptible, un atacante letal que siempre busca el punto débil del enemigo. Con una alta tasa de críticos y evasión, es una clase ideal para todo aquel que quiera pegar golpes con daño inmenso y esquivar muchos ataques, pero cuidado, no es una clase muy resistente"
 metadata/_custom_type_script = "uid://q7s2lsfb8djq"

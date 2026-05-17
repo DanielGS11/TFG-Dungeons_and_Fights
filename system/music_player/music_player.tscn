@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b4oiinh00vrml"]
+
+[ext_resource type="AudioStream" uid="uid://dwwixxsxbn2ts" path="res://assets/audio/music/menu.mp3" id="1_uf3yl"]
+[ext_resource type="Script" uid="uid://cevqlagi3u6x" path="res://system/music_player/music_player.gd" id="2_e3yug"]
+
+[node name="Node" type="Node" unique_id=830954872]
+script = ExtResource("2_e3yug")
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=152077751]
+stream = ExtResource("1_uf3yl")
+autoplay = true
+
+[node name="SFX" type="AudioStreamPlayer" parent="." unique_id=781571873]

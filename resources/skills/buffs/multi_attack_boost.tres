@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_eqn62")
 name = "Multi ataque +"
+description = "Hechizo de alto nivel que fortalece el ataque de todos los aliados"
 skill_type = 3
 skill_target = 1
 cost = 60

@@ -5,8 +5,9 @@
 [resource]
 script = ExtResource("1_jyyrs")
 name = "Martillazo"
+description = "Golpe contundente dirigido al enemigo con el objetivo de acabar con él"
 skill_target = 3
-cost = 17
+cost = 27
 modifier = 2
 power = 7
 metadata/_custom_type_script = "uid://dwo74ogytqp2o"

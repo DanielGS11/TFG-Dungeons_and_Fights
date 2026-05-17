@@ -18,6 +18,8 @@ func load_teams(m: Mode.Type) -> void:
 		team.set_data(i, team.Context.MODE)
 
 func _on_team_selected(index: int):
+	MusicPlayer.play_sfx("Click")
+	
 	GameAPI.set_team_index(mode, index)
 	team_changed.emit()
 	queue_free()
@@ -26,4 +28,6 @@ func _on_no_team_pressed() -> void:
 	_on_team_selected(-1)
 
 func _on_quit_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	queue_free()

@@ -12,6 +12,8 @@ extends Control
 
 # Al cargar la pantalla
 func _ready() -> void:
+	MusicPlayer.play_music("Menu")
+	
 	# Ajusto el brillo de pantalla
 	bright.color.a = GameAPI.get_bright()
 	
@@ -20,6 +22,8 @@ func _ready() -> void:
 
 # Botones
 func _on_battle_mode_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	# Si la partida no terminó, salta un aviso y comprueba si se quiere seguir
 	if GameManager.modes[Mode.Type.BATTLE].is_finished == false:
 		var popup = preload("res://scenes/global_elements/confirm_popup/confirm_popup.tscn").instantiate()
@@ -43,6 +47,8 @@ func _on_battle_mode_pressed() -> void:
 		get_tree().change_scene_to_file("res://scenes/menus/battle_mode/battle_mode.tscn")
 
 func _on_dungeon_mode_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	# Si la partida no terminó, salta un aviso y comprueba si se quiere seguir
 	if GameManager.modes[Mode.Type.DUNGEON].is_finished == false:
 		var popup = preload("res://scenes/global_elements/confirm_popup/confirm_popup.tscn").instantiate()
@@ -66,25 +72,33 @@ func _on_dungeon_mode_pressed() -> void:
 		get_tree().change_scene_to_file("res://scenes/menus/dungeon_mode/dungeon_mode.tscn")
 
 func _on_teams_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	await _animate("exit")
 	
 	get_tree().change_scene_to_file("res://scenes/menus/teams/team_list.tscn")
 
 func _on_exit_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	get_tree().quit()
 
 func _on_settings_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	var settings = preload("res://scenes/global_elements/settings/settings.tscn").instantiate()
 	
 	add_child(settings)
 	
-	if not settings.bright_changed.is_connected(func(value): bright.color.a = value):
-		settings.bright_changed.connect(func(value): bright.color.a = value)
+	if not settings.bright_changed.is_connected(func(): bright.color.a = GameAPI.get_bright()):
+		settings.bright_changed.connect(func(): bright.color.a = GameAPI.get_bright())
 	
 	await settings.tree_exited
 	bright.color.a = GameAPI.get_bright()
 
 func _on_guides_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	add_child(preload("res://scenes/main_menu/guides/guide_list.tscn").instantiate())
 
 # Ejecuta una animación y espera a que termine

@@ -8,9 +8,9 @@ extends Entity
 var initial_stats = []
 
 const enemy_augments := {
-	"Jefe" : 80,
-	"Minijefe" : 50,
-	"Normal" : 20
+	"Jefe" : 100,
+	"Minijefe" : 80,
+	"Normal" : 25
 }
 
 @export var exp_drop: int = 0

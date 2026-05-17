@@ -5,8 +5,9 @@
 [resource]
 script = ExtResource("1_mmuxm")
 name = "Tajo rápido"
+description = "Tajo realizado con rapidez para dañar al enemigo"
 skill_target = 3
-cost = 5
+cost = 10
 modifier = 2
 power = 2
 metadata/_custom_type_script = "uid://dwo74ogytqp2o"

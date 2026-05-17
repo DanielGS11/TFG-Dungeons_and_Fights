@@ -9,13 +9,12 @@
 [ext_resource type="Resource" uid="uid://cqfme5hm4clpt" path="res://resources/skills/ofensive/earth.tres" id="6_k8f0e"]
 [ext_resource type="Resource" uid="uid://dtq5rhrujsdea" path="res://resources/skills/ofensive/fire.tres" id="7_pwcfa"]
 [ext_resource type="Resource" uid="uid://bwx45loyc2s61" path="res://resources/skills/ofensive/wind.tres" id="8_bvmba"]
-[ext_resource type="Resource" uid="uid://da35n6r2t7ale" path="res://resources/skills/ofensive/water.tres" id="9_y5u4p"]
 
 [resource]
 script = ExtResource("1_8k0xo")
 class_type = "Mago"
-max_mana = 170
-mana = 170
+max_mana = 240
+mana = 240
 exp_next_level = 100
 sprite = ExtResource("3_3rp4i")
 attack = 9
@@ -24,6 +23,6 @@ defense = 7
 speed = 25
 critical_rate = 2
 evasion = 7
-skills = Array[ExtResource("2_3rp4i")]([ExtResource("3_mxfiv"), ExtResource("4_ncuox"), ExtResource("5_uynxl"), ExtResource("6_k8f0e"), ExtResource("7_pwcfa"), ExtResource("8_bvmba"), ExtResource("9_y5u4p"), ExtResource("7_pwcfa")])
-description = "Con su gran dominio en las artes mágicas, usa hechizos de alto poder para acabar con sus enemigos, contando tambien con magia para aumentar la efectividad de sus hechizos y hacerlos aún mas letales"
+skills = Array[ExtResource("2_3rp4i")]([ExtResource("3_mxfiv"), ExtResource("4_ncuox"), ExtResource("5_uynxl"), ExtResource("6_k8f0e"), ExtResource("7_pwcfa"), ExtResource("8_bvmba")])
+description = "Joven hechicero apasionado por las magias ofensivas, su gran ataque mágico y su dominio en las artes de magia ofensivas lo hacen la clase mágica por excelencia. "
 metadata/_custom_type_script = "uid://q7s2lsfb8djq"

@@ -38,14 +38,15 @@ static func load_saves():
 	if ResourceLoader.exists(SAVE_ROUTES["Game"]):
 		save = ResourceLoader.load(SAVE_ROUTES["Game"], "", ResourceLoader.CACHE_MODE_REPLACE)
 		
-		if save is SaveData:
-			for id in save.game_data:
-				GameManager.modes[id] = save.game_data[id]
+		if is_instance_valid(save) and save is SaveData:
+			for id in GameManager.modes:
+				if save.game_data.has(id):
+					GameManager.modes[id] = save.game_data[id]
 			
 			GameManager.teams = save.teams
 	
 	if ResourceLoader.exists(SAVE_ROUTES["Config"]):
 		save = ResourceLoader.load(SAVE_ROUTES["Config"], "", ResourceLoader.CACHE_MODE_REPLACE)
 		
-		if save is ConfigData:
+		if is_instance_valid(save) and save is ConfigData:
 			GameManager.config = save

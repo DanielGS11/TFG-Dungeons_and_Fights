@@ -11,9 +11,13 @@ func load_text(text: String):
 
 # Botones que emiten el valor de la señal
 func _on_yes_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	confirm.emit(true)
 	queue_free()
 
 func _on_no_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	confirm.emit(false)
 	queue_free()

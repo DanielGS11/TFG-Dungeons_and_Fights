@@ -14,12 +14,12 @@
 [resource]
 script = ExtResource("1_2qc3o")
 class_type = "Druida"
-max_mana = 140
-mana = 140
+max_mana = 200
+mana = 200
 exp_next_level = 100
 sprite = ExtResource("3_1brj4")
-max_health = 120
-health = 120
+max_health = 125
+health = 125
 attack = 8
 magic_attack = 25
 defense = 15
@@ -27,5 +27,5 @@ speed = 15
 critical_rate = 2
 evasion = 2
 skills = Array[ExtResource("2_1brj4")]([ExtResource("3_5lwvj"), ExtResource("4_eeuiw"), ExtResource("5_fsgia"), ExtResource("6_4cp58"), ExtResource("7_16fs1"), ExtResource("8_vsv6x"), ExtResource("9_frcwe")])
-description = "Siendo uno con la naturaleza, usa los poderes de esta para ayudar y curar a sus aliados, ademas de atacar a los enemigos con la ferocidad de la madre naturaleza"
+description = "Gran amante de la naturaleza, amigo de todos los animales, cuenta con hechizos de curación y potenciación para beneficiar a todo el equipo, siendo una clase útil si se busca una curación decente y también potenciaciones y algún ataque ocasional"
 metadata/_custom_type_script = "uid://q7s2lsfb8djq"

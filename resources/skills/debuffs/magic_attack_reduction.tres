@@ -5,9 +5,10 @@
 [resource]
 script = ExtResource("1_rjt08")
 name = "Ataque mágico -"
+description = "Hechizo que debilita el ataque mágico de un enemigo"
 skill_type = 4
 skill_target = 3
-cost = 15
+cost = 30
 modifier = 1
 power = 7
 metadata/_custom_type_script = "uid://dwo74ogytqp2o"

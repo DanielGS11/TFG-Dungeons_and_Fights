@@ -5,8 +5,9 @@
 [resource]
 script = ExtResource("1_jr8ej")
 name = "Paraíso"
+description = "Hechizo de curación de alto nivel que restablece una gran cantidad de vida a todos los aliados"
 skill_type = 2
 skill_target = 1
-cost = 100
+cost = 67
 power = 40
 metadata/_custom_type_script = "uid://dwo74ogytqp2o"

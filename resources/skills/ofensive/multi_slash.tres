@@ -5,8 +5,9 @@
 [resource]
 script = ExtResource("1_t210q")
 name = "Multi corte"
+description = "Le propina múltiples corte al enemigo, causando un daño inmenso"
 skill_target = 3
-cost = 35
+cost = 50
 modifier = 2
-power = 17
+power = 20
 metadata/_custom_type_script = "uid://dwo74ogytqp2o"

@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_p6s55")
 name = "Multi ataque mágico -"
+description = "Hechizo de alto nivel que debilita el ataque mágico de todos los enemigos"
 skill_type = 4
 skill_target = 4
 cost = 65

@@ -5,8 +5,9 @@
 [resource]
 script = ExtResource("1_bsbfw")
 name = "Tajo sombrío"
+description = "Tajo imbuido en sombras que propina gran cantidad de daño al enemigo"
 skill_target = 3
-cost = 17
+cost = 28
 modifier = 2
 power = 12
 metadata/_custom_type_script = "uid://dwo74ogytqp2o"

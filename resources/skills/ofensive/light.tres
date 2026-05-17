@@ -5,9 +5,10 @@
 [resource]
 script = ExtResource("1_a583g")
 name = "Luz"
+description = "Magia sagrada que lanza un rayo de luz para acabar con el enemigo"
 skill_type = 1
 skill_target = 3
-cost = 15
+cost = 20
 modifier = 2
 power = 7
 metadata/_custom_type_script = "uid://dwo74ogytqp2o"

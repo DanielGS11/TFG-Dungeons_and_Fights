@@ -48,6 +48,8 @@ func _load_team():
 		warn.text = ""
 
 func _on_team_button_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	var selector = preload("res://scenes/global_elements/team_selector/team_selector.tscn").instantiate()
 	
 	add_child(selector)
@@ -58,6 +60,8 @@ func _on_team_button_pressed() -> void:
 		selector.team_changed.connect(_load_team)
 
 func _on_minus_button_down() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	if button_down:
 		return
 	
@@ -74,6 +78,8 @@ func _on_minus_button_down() -> void:
 
 
 func _on_plus_button_down() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	if button_down:
 		return
 	
@@ -89,6 +95,8 @@ func _on_plus_button_down() -> void:
 	button_down = false
 
 func _on_play_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	if team_index <= -1:
 		GameAPI.set_actual_mode(Mode.Type.BATTLE)
 		GameAPI.new_game([enemy_counter])
@@ -119,4 +127,6 @@ func _on_play_pressed() -> void:
 			get_tree().change_scene_to_file("res://scenes/in_game/fight_screen/fight_screen.tscn")
 
 func _on_return_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")

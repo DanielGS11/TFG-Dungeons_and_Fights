@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_cb3hh")
 name = "Temblor"
+description = "Temblor en la tierra causado con fuerza para arrasar con los enemigos"
 skill_target = 4
 cost = 25
 modifier = 2

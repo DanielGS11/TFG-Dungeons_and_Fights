@@ -75,14 +75,18 @@ func _load_data():
 	stats.get_child(5).text = "Velocidad: " + str(entity.speed)
 
 func _on_previous_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	if index - 1 <= 0:
-		index = 0
+		index = entity_list.size() - 1
 	else:
 		index -= 1
 	
 	_load_data()
 
 func _on_next_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	if index + 1 >= entity_list.size():
 		index = 0
 	else:
@@ -90,6 +94,8 @@ func _on_next_pressed() -> void:
 	_load_data()
 
 func _on_return_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	if context == Context.EDITOR:
 		await _animate(get_global_rect().size.y)
 	

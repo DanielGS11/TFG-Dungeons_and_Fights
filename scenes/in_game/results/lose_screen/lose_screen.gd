@@ -10,6 +10,8 @@ var mode_data: Mode
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	MusicPlayer.play_music("Lose")
+	
 	bright.color.a = GameAPI.get_bright()
 	mode_data = GameAPI.get_actual_mode()
 	
@@ -20,12 +22,14 @@ func _ready() -> void:
 		var member_row = member_list.get_child(i)
 		
 		member_row.get_child(0).text = member.name
-		member_row.get_child(1).text = str(member.level)
+		member_row.get_child(1).text = "Lv " + str(member.level)
 		
 		team_avg_level += member.level
 	
-	team_level.text = "Nivel del equipo: " + str(team_avg_level / mode_data.team_in_use.members.size())
+	team_level.text = "Nivel del equipo: " + str(ceili(float(team_avg_level) / mode_data.team_in_use.members.size()))
 	enemies_defeated.text = "Enemigos derrotados: " + str(mode_data.enemies_defeated)
 
 func _on_back_to_menu_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")

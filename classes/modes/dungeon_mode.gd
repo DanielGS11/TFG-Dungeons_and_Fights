@@ -56,12 +56,9 @@ func _on_enemy_defeated(exp_value: int):
 		dungeon_map.miniboss_multiplier += 1
 	
 	for member in team_in_use.members:
-		if member.health > 0:
-			await member.get_exp(exp_value)
+		await member.get_exp(exp_value)
 		
-		else:
-			if member.health <= 0:
-				member.revive(0.20)
+		controller.refresh_data.emit(member)
 	
 	var room: Room = dungeon_map.actual_room
 	
@@ -71,6 +68,7 @@ func _on_enemy_defeated(exp_value: int):
 			GameAPI.end_game.emit(GameAPI.Result.WIN, "¡Felicidades, has derrotado al jefe de la mazmorra y conseguido el tesoro!")
 		
 		room.Type.TREASURE:
+			MusicPlayer.play_sfx("Key")
 			await GameAPI.send_prompt("¡Conseguiste la llave!", true)
 			has_key = true
 	

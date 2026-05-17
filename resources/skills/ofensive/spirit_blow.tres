@@ -5,8 +5,10 @@
 [resource]
 script = ExtResource("1_7e343")
 name = "Golpe espiritual"
+description = "Golpe de energía espiritual propinado al enemigo para causarle un gran daño"
 skill_type = 1
 skill_target = 3
+cost = 25
 modifier = 2
 power = 10
 metadata/_custom_type_script = "uid://dwo74ogytqp2o"

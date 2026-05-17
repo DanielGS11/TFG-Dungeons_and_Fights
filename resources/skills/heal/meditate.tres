@@ -5,7 +5,9 @@
 [resource]
 script = ExtResource("1_ghwtk")
 name = "Meditación"
+description = "Hechizo de curación de alto nivel que restablece una gran cantidad de vida al usuario del hechizo"
 skill_type = 2
 skill_target = 2
+cost = 70
 power = 35
 metadata/_custom_type_script = "uid://dwo74ogytqp2o"

@@ -60,20 +60,28 @@ func _execute_queue():
 
 func _check_game_state():
 	if enemy.health == 0:
+		for member in team.members:
+			if member.health <= 0:
+				member.revive(0.20)
+			
+			member.clear_modifiers()
+			
+			refresh_data.emit(member)
+		
 		enemy_defeated.emit(enemy.exp_drop)
 		enemy = null
 	
 	else:
 		var allies_alive = 0
 		
-		await enemy.check_modifiers()
+		await enemy.check_state()
 		
 		for member in team.members:
 			if member.health > 0:
 				allies_alive += 1
 				
-				member.recover_mana(ceili(float(member.mana) * 0.10))
-				await member.check_modifiers()
+				member.recover_mana()
+				await member.check_state()
 				
 				refresh_data.emit(member)
 		
@@ -84,6 +92,7 @@ func _skill(user: Entity, target: Entity, skill: Skill):
 	await GameAPI.send_prompt(user.name + " usó " + skill.name, false)
 	
 	user.consume_mana(skill.cost)
+	refresh_data.emit(user)
 	
 	match skill.skill_type:
 		skill.Type.FISICAL, skill.Type.MAGIC:
@@ -115,12 +124,13 @@ func _attack(user: Entity, target: Entity, skill: Skill):
 				
 				await GameAPI.send_prompt("¡Golpe crítico!", false)
 			
-			
 			target.take_damage(damage)
 			refresh_data.emit(target)
+			
+			MusicPlayer.play_sfx("Hit")
 			animate.emit(animation_target, "_damaged", damage)
 			
-			await GameAPI.send_prompt(target.name + " recibió " + str(damage) + " puntos de daño", false)
+			await GameAPI.send_prompt(target.name + " recibió " + str(int(damage)) + " puntos de daño", false)
 			
 			if target.health <= 0:
 				await GameAPI.send_prompt(target.name + " fue derrotado", true)
@@ -153,11 +163,12 @@ func _attack(user: Entity, target: Entity, skill: Skill):
 							
 							damage *= 2
 						
-						
 						member.take_damage(damage)
-						animate.emit(team.members.find(member), "_damaged", damage)
 						refresh_data.emit(member)
-						await GameAPI.send_prompt(member.name + " recibió " + str(damage) + " puntos de daño", false)
+						
+						MusicPlayer.play_sfx("Hit")
+						animate.emit(team.members.find(member), "_damaged", damage)
+						await GameAPI.send_prompt(member.name + " recibió " + str(int(damage)) + " puntos de daño", false)
 						
 						if member.health <= 0:
 							await GameAPI.send_prompt(target.name + " fue derrotado", true)
@@ -180,8 +191,10 @@ func _attack(user: Entity, target: Entity, skill: Skill):
 				
 				target.take_damage(damage)
 				refresh_data.emit(target)
+				
+				MusicPlayer.play_sfx("Hit")
 				animate.emit(animation_target, "_damaged", damage)
-				await GameAPI.send_prompt(target.name + " recibió " + str(damage) + " puntos de daño", false)
+				await GameAPI.send_prompt(target.name + " recibió " + str(int(damage)) + " puntos de daño", false)
 				
 				if target.health <= 0:
 					await GameAPI.send_prompt(target.name + " fue derrotado", true)
@@ -203,10 +216,12 @@ func _heal(user: Entity, target: Entity, skill: Skill):
 				await GameAPI.send_prompt("La vida de " + member.name + " ya está al máximo", false)
 			
 			else:
-				await member.heal(healing)
+				member.heal(healing)
 				refresh_data.emit(member)
+				
+				MusicPlayer.play_sfx("Heal")
 				animate.emit(team.members.find(member), "_healed", healing)
-				await GameAPI.send_prompt(member.name + " recibió " + str(healing) + " puntos de curación", false)
+				await GameAPI.send_prompt(member.name + " recibió " + str(int(healing)) + " puntos de curación", false)
 	
 	else:
 		if target is Character:
@@ -221,9 +236,12 @@ func _heal(user: Entity, target: Entity, skill: Skill):
 					await GameAPI.send_prompt("La vida de " + target.name + " ya está al máximo", false)
 				
 				else:
-					await target.heal(healing)
+					target.heal(healing)
 					refresh_data.emit(target)
-					await GameAPI.send_prompt(target.name + " recibió " + str(healing) + " puntos de curación", false)
+					
+					MusicPlayer.play_sfx("Heal")
+					animate.emit(animation_target, "_healed", healing)
+					await GameAPI.send_prompt(target.name + " recibió " + str(int(healing)) + " puntos de curación", false)
 			
 			skill.Target.SELF:
 				if user.health == user.max_health:
@@ -232,15 +250,18 @@ func _heal(user: Entity, target: Entity, skill: Skill):
 				else:
 					await user.heal(healing)
 					refresh_data.emit(user)
+					
+					MusicPlayer.play_sfx("Heal")
+					animate.emit(animation_target, "_healed", healing)
 					await GameAPI.send_prompt(user.name + " recibió " + str(healing) + " puntos de curación", false)
-	
-		animate.emit(animation_target, "_healed", healing)
 
 func _apply_modifier(target: Entity, skill: Skill):
 	match skill.skill_type:
 		skill.Type.BUFF:
 			if target is Character and skill.skill_target == skill.Target.ALL_ALLIES:
 				for member in team.members:
+					
+					MusicPlayer.play_sfx("Buff")
 					animate.emit(team.members.find(member), "_buffed", 0)
 					await member.apply_buff(skill)
 					refresh_data.emit(member)
@@ -251,6 +272,7 @@ func _apply_modifier(target: Entity, skill: Skill):
 				else:
 					animation_target = -1
 				
+				MusicPlayer.play_sfx("Buff")
 				animate.emit(animation_target, "_buffed", 0)
 				await target.apply_buff(skill)
 				refresh_data.emit(target)
@@ -259,6 +281,7 @@ func _apply_modifier(target: Entity, skill: Skill):
 			if target is Character and skill.skill_target == skill.Target.ALL_ENEMIES:
 				
 				for member in team.members:
+					MusicPlayer.play_sfx("Debuff")
 					animate.emit(team.members.find(member), "_debuffed", 0)
 					await member.apply_debuff(skill)
 					refresh_data.emit(member)
@@ -269,6 +292,7 @@ func _apply_modifier(target: Entity, skill: Skill):
 				else:
 					animation_target = -1
 				
+				MusicPlayer.play_sfx("Debuff")
 				animate.emit(animation_target, "_debuffed", 0)
 				await target.apply_debuff(skill)
 				refresh_data.emit(target)
@@ -301,6 +325,16 @@ func run():
 	
 	if randi_range(1, run_away_value) == 1:
 		await GameAPI.send_prompt("Escapaste a salvo", true)
+		
+		for member in team.members:
+			if member.health <= 0:
+				member.revive(0.20)
+			
+			member.recover_mana()
+			member.clear_modifiers()
+			
+			refresh_data.emit(member)
+		
 		queue.clear()
 		run_away.emit()
 	

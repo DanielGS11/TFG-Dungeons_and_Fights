@@ -63,13 +63,19 @@ func load_data() -> void:
 			slot.get_child(0).pressed.connect(_on_member_selected.bind(i))
 
 func _on_team_selected():
+	MusicPlayer.play_sfx("Click")
+	
 	team_selected.emit()
 	
 	GameAPI.set_team_in_edition(index)
 
 func _on_member_selected(member_index: int):
+	MusicPlayer.play_sfx("Click")
+	
 	if context == Context.EDITOR:
 		member_selected.emit(member_index)
 
 func _on_delete_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	team_deleted.emit(index)

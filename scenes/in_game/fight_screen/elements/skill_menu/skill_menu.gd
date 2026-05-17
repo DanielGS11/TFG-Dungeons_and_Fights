@@ -7,10 +7,10 @@ var member: Character
 var skill_row: HBoxContainer
 
 
-@onready var skill_description: Label = $VBoxContainer/MenuContainer/Menu/SkillData/Description
-@onready var skill_power: Label = $VBoxContainer/MenuContainer/Menu/SkillData/Power
-@onready var skill_cost: Label = $VBoxContainer/MenuContainer/Menu/SkillData/Cost
-@onready var skill_list = $VBoxContainer/MenuContainer/Menu/VBoxContainer/ScrollContainer/SkillList
+@onready var skill_description: Label = %Description
+@onready var skill_power: Label = %Power
+@onready var skill_cost: Label = %Cost
+@onready var skill_list = %SkillList
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,6 +35,8 @@ func load_skills(m: Character):
 		row.get_child(1).pressed.connect(_on_skill_info_pressed.bind(skill))
 
 func _on_skill_selected(skill: Skill):
+	MusicPlayer.play_sfx("Click")
+	
 	match skill.skill_target:
 		Skill.Target.SELF, Skill.Target.ALL_ALLIES:
 			skill_selected.emit({member: [Entity.Actions.SKILL, member, skill]})
@@ -58,6 +60,8 @@ func _on_skill_selected(skill: Skill):
 				queue_free()
 
 func _on_skill_info_pressed(skill: Skill):
+	MusicPlayer.play_sfx("Click")
+	
 	skill_description.text = skill.description
 	
 	if skill.get("power") != null:
@@ -66,5 +70,7 @@ func _on_skill_info_pressed(skill: Skill):
 	skill_cost.text = "Coste: " + str(skill.cost)
 
 func _on_return_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	skill_selected.emit({})
 	queue_free()

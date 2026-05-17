@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_2iqfm")
 name = "Restablecimiento"
+description = "Hechizo que restablece el estado del mecanismo que lo usa"
 skill_type = 2
 skill_target = 2
 power = 25

@@ -50,4 +50,6 @@ func load_guide(key: String) -> void:
 
 
 func _on_go_back_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	queue_free()

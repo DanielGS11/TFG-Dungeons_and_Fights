@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_r7e4y")
 name = "Inferno"
+description = "Magia de fuego de alto nivel, la más letal de todas, invoca un mar de llamas que acaba con todo a su alrededor"
 skill_type = 1
 skill_target = 4
 cost = 50

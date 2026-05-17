@@ -13,9 +13,14 @@ func load_prompt(prompt: String, pause) -> void:
 	
 	if pause == false:
 		await get_tree().create_timer(1.25).timeout
-		_on_pressed()
+		_finish()
 
 func _on_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
+	_finish()
+
+func _finish():
 	disabled = true
 	
 	pointer.terminate()

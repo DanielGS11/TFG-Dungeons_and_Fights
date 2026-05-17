@@ -132,7 +132,7 @@ func get_modifiers() -> Array:
 	return modifier_list
 
 ## Al terminar un turno, mira el estado de la entidad
-func check_modifiers():
+func check_state():
 	if is_defending:
 		is_defending = false
 	
@@ -152,9 +152,12 @@ func check_modifiers():
 						
 					else:
 						await GameAPI.send_prompt("El " + modifier_value.stat + " de " + name + " volvió a la normalidad", false)
+	
 
 ## Limpia el estado de la entidad
 func clear_modifiers():
+	is_defending = false
+	
 	for i in modifiers:
 		modifiers[i].reset()
 

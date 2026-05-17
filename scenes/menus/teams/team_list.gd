@@ -58,9 +58,13 @@ func _check_button_state():
 	button.visible = GameAPI.get_all_teams().size() < 5
 
 func _on_return_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
 
 func _on_add_team_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	GameAPI.add_team()
 	
 	get_tree().change_scene_to_file("res://scenes/menus/teams/team_editor.tscn")

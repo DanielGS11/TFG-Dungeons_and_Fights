@@ -5,9 +5,10 @@
 [resource]
 script = ExtResource("1_xm01w")
 name = "Fuego"
+description = "Hechizo de fuego de bajo nivel, invoca una bola de fuego que lanza al enemigo"
 skill_type = 1
 skill_target = 3
-cost = 15
+cost = 20
 modifier = 2
 power = 5
 metadata/_custom_type_script = "uid://dwo74ogytqp2o"

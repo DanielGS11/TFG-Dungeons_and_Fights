@@ -5,8 +5,9 @@
 [resource]
 script = ExtResource("1_glkag")
 name = "Ataque mágico +"
+description = "Hechizo que fortalece el ataque mágico de un aliado"
 skill_type = 3
-cost = 15
+cost = 25
 modifier = 1
 power = 7
 metadata/_custom_type_script = "uid://dwo74ogytqp2o"

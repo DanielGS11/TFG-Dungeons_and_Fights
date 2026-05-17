@@ -5,7 +5,8 @@
 [resource]
 script = ExtResource("1_3vnci")
 name = "Ataque +"
+description = "Hechizo que fortalece el ataque de un aliado"
 skill_type = 3
-cost = 15
+cost = 25
 power = 7
 metadata/_custom_type_script = "uid://dwo74ogytqp2o"

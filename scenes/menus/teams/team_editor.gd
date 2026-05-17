@@ -57,6 +57,8 @@ func _load_member(index: int):
 		sprite.texture = member.sprite
 
 func _on_previous_sprite_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	if not sprite_list.is_empty():
 		if sprite_index <= 0:
 			sprite_index = sprite_list.size() - 1
@@ -70,6 +72,8 @@ func _on_previous_sprite_pressed() -> void:
 		_on_member_changed()
 
 func _on_next_sprite_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	if not sprite_list.is_empty():
 		if sprite_index >= sprite_list.size() - 1:
 			sprite_index = 0
@@ -83,6 +87,8 @@ func _on_next_sprite_pressed() -> void:
 		_on_member_changed()
 
 func _on_previous_class_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	if class_index <= 0:
 		class_index = class_list.size() - 1
 	
@@ -101,6 +107,8 @@ func _on_previous_class_pressed() -> void:
 	_on_member_changed()
 
 func _on_next_class_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	if class_index >= class_list.size() - 1:
 		class_index = 0
 	
@@ -128,11 +136,15 @@ func _on_member_changed():
 	team.load_data()
 
 func _on_confirm_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	GameAPI.save_game()
 	
 	get_tree().change_scene_to_file("res://scenes/menus/teams/team_list.tscn")
 
 func _on_classes_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	var guide = preload("res://scenes/global_elements/entity_guide/entity_guide.tscn").instantiate()
 	
 	add_child(guide)

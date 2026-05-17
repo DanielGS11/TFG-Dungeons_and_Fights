@@ -89,10 +89,12 @@ text = "Buena suerte para la próxima vez"
 autowrap_mode = 3
 
 [node name="TeamLevel" type="Label" parent="ResultContainer/Elements" unique_id=78936899]
+custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 size_flags_vertical = 2
 theme_override_font_sizes/font_size = 20
 text = "Nivel del equipo: 100"
+autowrap_mode = 2
 
 [node name="TeamLabel" type="Label" parent="ResultContainer/Elements" unique_id=905028481]
 custom_minimum_size = Vector2(380, 0)
@@ -124,7 +126,7 @@ custom_minimum_size = Vector2(126, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
 text = "LV 100"
-horizontal_alignment = 3
+horizontal_alignment = 2
 
 [node name="Member2" type="HBoxContainer" parent="ResultContainer/Elements/MemberList" unique_id=2089315050]
 layout_mode = 2
@@ -141,7 +143,7 @@ custom_minimum_size = Vector2(126, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
 text = "LV 100"
-horizontal_alignment = 3
+horizontal_alignment = 2
 
 [node name="Member3" type="HBoxContainer" parent="ResultContainer/Elements/MemberList" unique_id=1458791476]
 layout_mode = 2
@@ -158,7 +160,7 @@ custom_minimum_size = Vector2(126, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
 text = "LV 100"
-horizontal_alignment = 3
+horizontal_alignment = 2
 
 [node name="Member4" type="HBoxContainer" parent="ResultContainer/Elements/MemberList" unique_id=1639770107]
 layout_mode = 2
@@ -175,7 +177,7 @@ custom_minimum_size = Vector2(126, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
 text = "LV 100"
-horizontal_alignment = 3
+horizontal_alignment = 2
 
 [node name="EnemiesDefeated" type="Label" parent="ResultContainer/Elements" unique_id=349571926]
 custom_minimum_size = Vector2(380, 0)

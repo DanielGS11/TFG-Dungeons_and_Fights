@@ -13,18 +13,18 @@
 [resource]
 script = ExtResource("1_w4pte")
 class_type = "Paladin"
-max_mana = 110
-mana = 110
+max_mana = 180
+mana = 180
 exp_next_level = 110
 sprite = ExtResource("3_bank4")
 max_health = 150
 health = 150
-attack = 25
-magic_attack = 14
+attack = 18
+magic_attack = 18
 defense = 30
 speed = 14
 critical_rate = 2
 evasion = 2
 skills = Array[ExtResource("2_bank4")]([ExtResource("3_ooeqd"), ExtResource("4_6lyft"), ExtResource("5_pxe0p"), ExtResource("6_vx4t7"), ExtResource("7_e5mg8"), ExtResource("8_i4y0h")])
-description = "Guerrero sagrado envcargado de proteger a todos, el paladin es una clase especializada en la defensa, aunque su ataque y capacidad de curar no se quedan muy atrás"
+description = "Guerrero sagrado, siempre confiable, gran defensor que cuenta con un ataque físico y mágico decente, además de algunos hechizos para acabar con sus enemigos. Atrae la atención del enemigo para evitar daños a sus compañeros mientras ataca ferozmente"
 metadata/_custom_type_script = "uid://q7s2lsfb8djq"

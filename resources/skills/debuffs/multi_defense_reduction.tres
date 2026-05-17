@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_4j3vh")
 name = "Multi defensa -"
+description = "Hechizo de alto nivel que debilita la defensa de todos los enemigos"
 skill_type = 4
 skill_target = 4
 cost = 75

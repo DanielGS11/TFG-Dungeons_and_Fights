@@ -145,6 +145,8 @@ func _move_cursor():
 	cursor.move_to(member_sprite.global_position + Vector2(member_sprite.size.x / 2.3, - 80))
 
 func _on_go_back_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	if member_turn > 0:
 		member_turn -= 1
 		queue.erase(team.members[member_turn])
@@ -189,11 +191,15 @@ func _show_prompt(prompt: String, pause: bool):
 	await GameAPI.prompt_end
 
 func _on_attack_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	queue[team.members[member_turn]] = [Entity.Actions.ATTACK, enemy]
 	
 	_next_turn()
 
 func _on_magic_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	var skill_menu = preload("res://scenes/in_game/fight_screen/elements/skill_menu/skill_menu.tscn").instantiate()
 	
 	add_child(skill_menu)
@@ -208,15 +214,22 @@ func _on_magic_pressed() -> void:
 		_next_turn()
 
 func _on_defend_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	queue[team.members[member_turn]] = [Entity.Actions.DEFEND]
 	_next_turn()
 
 func _on_run_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	controller.run()
 	member_turn = 0
 	_move_cursor()
 
 func _on_game_ended(result: GameAPI.Result, text: String):
+	MusicPlayer.play_sfx("Click")
+	
+	
 	await _show_prompt(text, true)
 	
 	match result:
@@ -228,12 +241,14 @@ func _on_game_ended(result: GameAPI.Result, text: String):
 
 
 func _on_settings_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	var settings = preload("res://scenes/global_elements/settings/settings.tscn").instantiate()
 	
 	add_child(settings)
 	
-	if not settings.bright_changed.is_connected(func(value): bright.color.a = value):
-		settings.bright_changed.connect(func(value): bright.color.a = value)
+	if not settings.bright_changed.is_connected(func(): bright.color.a = GameAPI.get_bright()):
+		settings.bright_changed.connect(func(): bright.color.a = GameAPI.get_bright())
 	
 	await settings.tree_exited
 	bright.color.a = GameAPI.get_bright()
@@ -252,14 +267,24 @@ func _on_exit_pressed() -> void:
 func _on_continue():
 	match actual_mode.mode:
 		Mode.Type.BATTLE:
+			MusicPlayer.play_music("Battle mode")
+			
 			_load_all_data()
 		
 		Mode.Type.DUNGEON:
 			if actual_mode.is_on_map:
+				MusicPlayer.play_music("Dungeon mode")
+				
 				add_child(preload("res://scenes/in_game/fight_screen/elements/map/dungeon_map.tscn").instantiate())
 			
 			else:
 				var room: Room = actual_mode.actual_room
+				
+				if room.room_type == Room.Type.BOSS:
+					MusicPlayer.play_music("Dungeon boss")
+				
+				else:
+					MusicPlayer.play_music("Dungeon mode")
 				
 				_load_all_data()
 				background.texture = room.background

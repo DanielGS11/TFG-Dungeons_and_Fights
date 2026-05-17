@@ -5,9 +5,10 @@
 [resource]
 script = ExtResource("1_7vyxf")
 name = "Agua"
+description = "Magia de agua de bajo nivel, invoca un torrente de agua que arrasa con el enemigo"
 skill_type = 1
 skill_target = 3
-cost = 10
+cost = 27
 modifier = 2
-power = 2
+power = 8
 metadata/_custom_type_script = "uid://dwo74ogytqp2o"

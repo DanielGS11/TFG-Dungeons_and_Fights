@@ -41,14 +41,11 @@ func _on_enemy_defeated(_exp_value: int):
 	enemies_defeated += 1
 	
 	for member in team_in_use.members:
-		if member.health <= 0:
-			member.revive(0.20)
-		
 		member.level_up()
-		member.clear_modifiers()
 		
 		controller.refresh_data.emit(member)
 	
+	MusicPlayer.play_sfx("Level Up")
 	await GameAPI.send_prompt("El equipo subió de nivel", true)
 	
 	current_enemy = null

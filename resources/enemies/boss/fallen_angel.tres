@@ -25,4 +25,5 @@ speed = 16
 critical_rate = 15
 evasion = 5
 skills = Array[ExtResource("2_ia8i8")]([ExtResource("3_lbd75"), ExtResource("4_v5a6y"), ExtResource("5_1yn31"), ExtResource("6_cbin7"), ExtResource("7_l7pbg"), ExtResource("8_gviut"), ExtResource("9_nehkk")])
+description = "Desterrado del reino celestial debido a una traición que nunca cometió, ahora vive en la mazmorra, donde pasará su eterna vida lamentándose y cuestionándose por qué tuvo que ser él"
 metadata/_custom_type_script = "uid://cr0hhat76xd7a"

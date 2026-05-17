@@ -5,7 +5,8 @@
 [resource]
 script = ExtResource("1_pfti0")
 name = "Sanación"
+description = "Hechizo de curación de alto nivel que restablece una gran cantidad de vida a un aliado"
 skill_type = 2
-cost = 30
+cost = 35
 power = 15
 metadata/_custom_type_script = "uid://dwo74ogytqp2o"

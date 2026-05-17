@@ -1,17 +1,17 @@
 class_name Character
 extends Entity
 
-# En un diccionario se guardan las clases de los personajes y un array con sus aumentos: Vida, Maná, Experiencia máxima, 
-# Ataque, Ataque Mágico y Defensa respectivamente
+## En un diccionario se guardan las clases de los personajes y un array con sus aumentos: Vida,  Experiencia máxima, 
+## Ataque, Ataque Mágico, Defensa y recuperación de maná respectivamente
 const class_augments = {
-	"Asesino" : [20, 20, 30, 3, 2, 2],
-	"Berserker" : [20, 20, 30, 3, 3, 2],
-	"Mago" : [10, 50, 35, 1, 1, 3],
-	"Sabio" : [10, 50, 35, 1, 1, 3],
-	"Clérigo" : [12, 40, 35, 1, 1, 3],
-	"Druida" : [10, 40, 35, 1, 1, 3],
-	"Bastión" : [50, 10, 45, 2, 4, 1],
-	"Paladin" : [50, 12, 45, 2, 4, 2]
+	"Asesino" : [2, 30, 3, 1, 2, 5],
+	"Berserker" : [2, 30, 4, 2, 2, 5],
+	"Mago" : [2, 35, 1, 4, 1, 15],
+	"Sabio" : [2, 35, 1, 3, 2, 15],
+	"Clérigo" : [3, 35, 1, 2, 2, 15],
+	"Druida" : [3, 35, 1, 2, 3, 15],
+	"Bastión" : [5, 45, 2, 1, 4, 5],
+	"Paladin" : [5, 45, 2, 2, 4, 10]
 }
 
 @export_enum("Asesino", "Berserker", "Mago", "Sabio", "Clérigo", "Druida", "Bastión", "Paladin") var class_type: String
@@ -41,9 +41,13 @@ func get_exp(exp_value: int):
 			level_grow += 1
 		
 		if level_grow > 1:
+			MusicPlayer.play_sfx("Level Up")
+			
 			await GameAPI.send_prompt(name + " subió " + str(level_grow) + " niveles", true)
 			
 		elif level_grow == 1:
+			MusicPlayer.play_sfx("Level Up")
+			
 			await GameAPI.send_prompt(name + " subió " + str(level_grow) + " nivel", true)
 
 ## Subir de nivel
@@ -54,24 +58,21 @@ func level_up():
 		max_health += class_augments[class_type][0]
 		health += class_augments[class_type][0]
 		
-		max_mana += class_augments[class_type][1]
-		mana += max_mana
+		exp_next_level += class_augments[class_type][1]
 		
-		exp_next_level += class_augments[class_type][2]
-		
-		attack += class_augments[class_type][3]
-		magic_attack += class_augments[class_type][4]
-		defense += class_augments[class_type][5]
+		attack += class_augments[class_type][2]
+		magic_attack += class_augments[class_type][3]
+		defense += class_augments[class_type][4]
 
 func consume_mana(value: int):
 	mana -= value
 
-func recover_mana(value: int):
-	if value > max_mana - mana:
+func recover_mana():
+	if class_augments[class_type][5] > max_mana - mana:
 		mana = max_mana
 	
 	else:
-		mana += value
+		mana += class_augments[class_type][5]
 
 func revive(percentage: float):
 	if health <= 0:

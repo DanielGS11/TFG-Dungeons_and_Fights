@@ -50,6 +50,8 @@ func _load_team():
 		warn.text = ""
 
 func change_difficulty(id: int):
+	MusicPlayer.play_sfx("Click")
+	
 	GameAPI.set_difficulty(id)
 	
 	for i in difficulty_buttons.get_children().size():
@@ -57,6 +59,8 @@ func change_difficulty(id: int):
 		
 
 func _on_team_button_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	var selector = preload("res://scenes/global_elements/team_selector/team_selector.tscn").instantiate()
 	
 	add_child(selector)
@@ -67,6 +71,8 @@ func _on_team_button_pressed() -> void:
 		selector.team_changed.connect(_load_team)
 
 func _on_play_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	if team_index <= -1:
 		GameAPI.set_actual_mode(Mode.Type.DUNGEON)
 		GameAPI.new_game([])
@@ -97,4 +103,6 @@ func _on_play_pressed() -> void:
 			get_tree().change_scene_to_file("res://scenes/in_game/fight_screen/fight_screen.tscn")
 
 func _on_return_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")

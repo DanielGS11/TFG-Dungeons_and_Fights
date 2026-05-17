@@ -64,6 +64,7 @@ func _check_game_state():
 			if member.health <= 0:
 				member.revive(0.20)
 			
+			member.recover_mana()
 			member.clear_modifiers()
 			
 			refresh_data.emit(member)

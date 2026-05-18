@@ -23,6 +23,6 @@ defense = 15
 speed = 17
 critical_rate = 20
 evasion = 2
-skills = Array[ExtResource("2_2rkd8")]([ExtResource("3_iun22"), ExtResource("4_10pt0"), ExtResource("5_d47ru"), ExtResource("6_684or"), ExtResource("7_8b7l1")])
+skills = Array[ExtResource("2_2rkd8")]([ExtResource("5_d47ru"), ExtResource("5_d47ru"), ExtResource("7_8b7l1"), ExtResource("3_iun22"), ExtResource("4_10pt0"), ExtResource("6_684or")])
 description = "El más fuerte de los goblins, porta un casco que le cubre la cara, la cual acabó desfigurada tras tantas batallas, ataca salvajemente a sus presas y acaba con ellas cruelmente"
 metadata/_custom_type_script = "uid://cr0hhat76xd7a"

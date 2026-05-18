@@ -21,6 +21,6 @@ defense = 17
 speed = 25
 critical_rate = 2
 evasion = 2
-skills = Array[ExtResource("2_bsti2")]([ExtResource("3_x2u1a"), ExtResource("4_un3ch"), ExtResource("5_b8530"), ExtResource("6_vu2kk")])
+skills = Array[ExtResource("2_bsti2")]([ExtResource("5_b8530"), ExtResource("5_b8530"), ExtResource("3_x2u1a"), ExtResource("4_un3ch"), ExtResource("6_vu2kk")])
 description = "Habita en las mazmorras, haciendo de centinela, no soporta que nadie entre en su territorio, hará todo lo que sea posible para acabar con los intrusos"
 metadata/_custom_type_script = "uid://cr0hhat76xd7a"

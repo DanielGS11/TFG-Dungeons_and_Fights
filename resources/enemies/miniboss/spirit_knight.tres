@@ -23,6 +23,6 @@ defense = 3
 speed = 24
 critical_rate = 10
 evasion = 10
-skills = Array[ExtResource("2_bsti2")]([ExtResource("3_bfbja"), ExtResource("4_ii6ye"), ExtResource("5_f80sl"), ExtResource("6_htrrj"), ExtResource("7_et0h7")])
+skills = Array[ExtResource("2_bsti2")]([ExtResource("6_htrrj"), ExtResource("5_f80sl"), ExtResource("3_bfbja"), ExtResource("4_ii6ye"), ExtResource("5_f80sl"), ExtResource("7_et0h7")])
 description = "Es el espíritu de un caballero que no cumplió su propósito, su alma en pena vaga por el reino de los mortales buscando que alguien le dé un final digno"
 metadata/_custom_type_script = "uid://cr0hhat76xd7a"

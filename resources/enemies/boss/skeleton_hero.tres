@@ -27,6 +27,6 @@ defense = 9
 speed = 25
 critical_rate = 10
 evasion = 10
-skills = Array[ExtResource("2_uqcju")]([ExtResource("3_10qx3"), ExtResource("4_g7s47"), ExtResource("5_adyx1"), ExtResource("6_kgacp"), ExtResource("7_2bu51"), ExtResource("8_e5rdw"), ExtResource("9_67nt2"), ExtResource("10_h4icd"), ExtResource("11_h8taa")])
+skills = Array[ExtResource("2_uqcju")]([ExtResource("10_h4icd"), ExtResource("10_h4icd"), ExtResource("10_h4icd"), ExtResource("8_e5rdw"), ExtResource("8_e5rdw"), ExtResource("11_h8taa"), ExtResource("11_h8taa"), ExtResource("3_10qx3"), ExtResource("4_g7s47"), ExtResource("5_adyx1"), ExtResource("6_kgacp"), ExtResource("7_2bu51"), ExtResource("9_67nt2")])
 description = "Héroe de antaño, traído a la vida debido a artes oscuras, ahora solo busca un oponente digno que le de un final como un verdadero guerrero, pero no te confíes, incluso tras tantos años no ha perdido nada de práctica"
 metadata/_custom_type_script = "uid://cr0hhat76xd7a"

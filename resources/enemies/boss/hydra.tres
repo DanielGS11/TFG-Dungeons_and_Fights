@@ -23,6 +23,6 @@ defense = 10
 speed = 16
 critical_rate = 5
 evasion = 2
-skills = Array[ExtResource("2_bjqjn")]([ExtResource("3_hkfqc"), ExtResource("4_te17h"), ExtResource("5_4rx0e"), ExtResource("6_t3uk7"), ExtResource("7_gdg0s")])
+skills = Array[ExtResource("2_bjqjn")]([ExtResource("4_te17h"), ExtResource("4_te17h"), ExtResource("4_te17h"), ExtResource("5_4rx0e"), ExtResource("5_4rx0e"), ExtResource("6_t3uk7"), ExtResource("6_t3uk7"), ExtResource("7_gdg0s"), ExtResource("3_hkfqc")])
 description = "Cada una de sus cabezas es capaz de actuar de forma independiente, aunque algunas veces se pelean entre ellas, se coordinan para acabar lo más rápido posible con todo aquel que se le ponga por delante, cuidado con su aliento de fuego, no querrás acabas reducido a cenizas"
 metadata/_custom_type_script = "uid://cr0hhat76xd7a"

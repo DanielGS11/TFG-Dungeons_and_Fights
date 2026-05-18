@@ -28,6 +28,6 @@ defense = 33
 speed = 33
 critical_rate = 10
 evasion = 10
-skills = Array[ExtResource("2_3v0p1")]([ExtResource("3_4b6cm"), ExtResource("4_nrord"), ExtResource("5_7f6cb"), ExtResource("6_crr4h"), ExtResource("7_bf4ro"), ExtResource("8_wnqqn"), ExtResource("9_ovscx"), ExtResource("8_wnqqn"), ExtResource("10_3n4fa"), ExtResource("4_nrord"), ExtResource("11_246bu"), ExtResource("12_twpiu")])
+skills = Array[ExtResource("2_3v0p1")]([ExtResource("4_nrord"), ExtResource("4_nrord"), ExtResource("4_nrord"), ExtResource("5_7f6cb"), ExtResource("5_7f6cb"), ExtResource("12_twpiu"), ExtResource("12_twpiu"), ExtResource("11_246bu"), ExtResource("11_246bu"), ExtResource("6_crr4h"), ExtResource("7_bf4ro"), ExtResource("8_wnqqn"), ExtResource("9_ovscx"), ExtResource("8_wnqqn"), ExtResource("10_3n4fa"), ExtResource("3_4b6cm")])
 description = "Tras la caída de su reino por la traición de su propio pueblo, se refugió en la mazmorra, donde acabó corrupta debida a todo el rencor generado por la traición y la muerte de sus seres queridos a manos de los traidores"
 metadata/_custom_type_script = "uid://cr0hhat76xd7a"

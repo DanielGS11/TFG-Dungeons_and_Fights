@@ -2,7 +2,7 @@ extends Control
 
 var actual_mode: Mode
 var controller: FightController
-var member_turn := 0
+var member_turn := -1
 var queue: Dictionary
 var modifier_sprite: TextureRect
 
@@ -64,6 +64,8 @@ func _ready() -> void:
 	
 	cursor = preload("res://scenes/in_game/fight_screen/elements/cursor/cursor.tscn").instantiate()
 	add_child(cursor)
+	
+	_next_turn()
 	
 	_move_cursor()
 	
@@ -154,24 +156,24 @@ func _on_go_back_pressed() -> void:
 	_move_cursor()
 
 func _next_turn():
-	var allies_alive = -1
+	member_turn += 1
 	
-	for member in team.members:
-		if member.health > 0:
-			allies_alive += 1
-	
-	if member_turn == allies_alive:
+	if member_turn >= team.members.size():
 		cursor.visible = false
 		
 		await controller.set_queue(queue)
+		
 		queue.clear()
-		member_turn = 0
-		cursor.visible = true
-		_move_cursor()
 		
+		if team.members.any(func (member): return member.health > 0):
+			cursor.visible = true
+			
+			member_turn = -1
+			_next_turn()
+			
+			_move_cursor()
+	
 	else:
-		member_turn += 1
-		
 		if team.members[member_turn].health <= 0:
 			_next_turn()
 		
@@ -229,7 +231,6 @@ func _on_run_pressed() -> void:
 func _on_game_ended(result: GameAPI.Result, text: String):
 	MusicPlayer.play_sfx("Click")
 	
-	
 	await _show_prompt(text, true)
 	
 	match result:
@@ -254,6 +255,8 @@ func _on_settings_pressed() -> void:
 	bright.color.a = GameAPI.get_bright()
 
 func _on_exit_pressed() -> void:
+	MusicPlayer.play_sfx("Click")
+	
 	var popup = preload("res://scenes/global_elements/confirm_popup/confirm_popup.tscn").instantiate()
 	
 	add_child(popup)

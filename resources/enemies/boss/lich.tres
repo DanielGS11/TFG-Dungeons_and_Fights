@@ -29,6 +29,6 @@ defense = 11
 speed = 26
 critical_rate = 20
 evasion = 15
-skills = Array[ExtResource("2_nmble")]([ExtResource("3_3x7xi"), ExtResource("4_ausy8"), ExtResource("5_6bcii"), ExtResource("6_x6egc"), ExtResource("7_cxovu"), ExtResource("8_d03lt"), ExtResource("9_otfvd"), ExtResource("10_wr38a"), ExtResource("11_aftn7"), ExtResource("12_glh73"), ExtResource("13_g14v6")])
+skills = Array[ExtResource("2_nmble")]([ExtResource("4_ausy8"), ExtResource("4_ausy8"), ExtResource("3_3x7xi"), ExtResource("5_6bcii"), ExtResource("6_x6egc"), ExtResource("7_cxovu"), ExtResource("8_d03lt"), ExtResource("9_otfvd"), ExtResource("10_wr38a"), ExtResource("11_aftn7"), ExtResource("12_glh73"), ExtResource("13_g14v6")])
 description = "Antiguo mago corrupto que fue sentenciado a muerte debido a aprender artes prohibidas como la nigromancia. Tras ser ejecutado, fué capaz de aplicar sus propias artes en sí mismo para volver como un no muerto y continuar causando estragos"
 metadata/_custom_type_script = "uid://cr0hhat76xd7a"

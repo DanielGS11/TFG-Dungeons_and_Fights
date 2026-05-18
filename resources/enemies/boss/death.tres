@@ -25,6 +25,6 @@ defense = 5
 speed = 33
 critical_rate = 15
 evasion = 40
-skills = Array[ExtResource("2_qxbsk")]([ExtResource("3_cvxph"), ExtResource("4_g0iw3"), ExtResource("5_ojk16"), ExtResource("6_aelp5"), ExtResource("7_w71ff"), ExtResource("8_2noyj"), ExtResource("9_lacec")])
+skills = Array[ExtResource("2_qxbsk")]([ExtResource("9_lacec"), ExtResource("3_cvxph"), ExtResource("6_aelp5"), ExtResource("4_g0iw3"), ExtResource("5_ojk16"), ExtResource("7_w71ff"), ExtResource("8_2noyj")])
 description = "La encarnación de uno de los mayores miedos del ser humano, manifestada en la mazmorra, es un ser muy veloz que cuenta con gran potencia, aunque no es muy resistente"
 metadata/_custom_type_script = "uid://cr0hhat76xd7a"

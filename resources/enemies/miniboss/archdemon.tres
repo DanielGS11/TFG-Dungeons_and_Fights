@@ -25,6 +25,6 @@ defense = 5
 speed = 17
 critical_rate = 7
 evasion = 2
-skills = Array[ExtResource("2_08ro0")]([ExtResource("3_svcan"), ExtResource("4_nbiye"), ExtResource("5_3sown"), ExtResource("6_qnq1x"), ExtResource("7_lmh8g"), ExtResource("8_of51t"), ExtResource("9_w7mrj")])
+skills = Array[ExtResource("2_08ro0")]([ExtResource("7_lmh8g"), ExtResource("7_lmh8g"), ExtResource("9_w7mrj"), ExtResource("9_w7mrj"), ExtResource("3_svcan"), ExtResource("4_nbiye"), ExtResource("5_3sown"), ExtResource("6_qnq1x"), ExtResource("8_of51t")])
 description = "Uno de los mejores siervos del rey demonio, manifestado para ayudarlo con su misión de conquistar el reino mortal, aunque no sea muy resistente, su potencia de ataque no es para tomarlo en broma"
 metadata/_custom_type_script = "uid://cr0hhat76xd7a"

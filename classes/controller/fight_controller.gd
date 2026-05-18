@@ -76,6 +76,7 @@ func _check_game_state():
 		var allies_alive = 0
 		
 		await enemy.check_state()
+		refresh_data.emit(enemy)
 		
 		for member in team.members:
 			if member.health > 0:
@@ -326,6 +327,9 @@ func run():
 	
 	if randi_range(1, run_away_value) == 1:
 		await GameAPI.send_prompt("Escapaste a salvo", true)
+		
+		enemy.health = enemy.max_health
+		enemy.clear_modifiers()
 		
 		for member in team.members:
 			if member.health <= 0:

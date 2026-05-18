@@ -4,14 +4,14 @@ extends Entity
 ## En un diccionario se guardan las clases de los personajes y un array con sus aumentos: Vida,  Experiencia máxima, 
 ## Ataque, Ataque Mágico, Defensa y recuperación de maná respectivamente
 const class_augments = {
-	"Asesino" : [2, 30, 3, 1, 2, 5],
-	"Berserker" : [2, 30, 4, 2, 2, 5],
-	"Mago" : [2, 35, 1, 4, 1, 15],
-	"Sabio" : [2, 35, 1, 3, 2, 15],
-	"Clérigo" : [3, 35, 1, 2, 2, 15],
-	"Druida" : [3, 35, 1, 2, 3, 15],
+	"Asesino" : [2, 30, 3, 1, 2, 7],
+	"Berserker" : [2, 30, 4, 2, 2, 7],
+	"Mago" : [2, 35, 1, 4, 1, 22],
+	"Sabio" : [2, 35, 1, 3, 2, 22],
+	"Clérigo" : [3, 35, 1, 2, 2, 20],
+	"Druida" : [3, 35, 1, 2, 3, 20],
 	"Bastión" : [5, 45, 2, 1, 4, 5],
-	"Paladin" : [5, 45, 2, 2, 4, 10]
+	"Paladin" : [5, 45, 2, 2, 4, 13]
 }
 
 @export_enum("Asesino", "Berserker", "Mago", "Sabio", "Clérigo", "Druida", "Bastión", "Paladin") var class_type: String

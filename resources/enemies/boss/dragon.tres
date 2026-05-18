@@ -25,6 +25,6 @@ magic_attack = 25
 defense = 12
 speed = 25
 critical_rate = 5
-skills = Array[ExtResource("2_bnai5")]([ExtResource("3_ltokp"), ExtResource("4_gxvg4"), ExtResource("5_ffhh5"), ExtResource("6_blx8e"), ExtResource("7_f4rvk"), ExtResource("8_ruub3"), ExtResource("9_7k6lf"), ExtResource("10_rreqv")])
+skills = Array[ExtResource("2_bnai5")]([ExtResource("10_rreqv"), ExtResource("10_rreqv"), ExtResource("3_ltokp"), ExtResource("4_gxvg4"), ExtResource("5_ffhh5"), ExtResource("6_blx8e"), ExtResource("7_f4rvk"), ExtResource("8_ruub3"), ExtResource("9_7k6lf")])
 description = "Vive en la mazmorra junto a todos los tesoros que va recogiendo a lo largo de su vida, un ser muy territorial que no dudará en acabar con todo aquel que se meta en sus dominios"
 metadata/_custom_type_script = "uid://cr0hhat76xd7a"

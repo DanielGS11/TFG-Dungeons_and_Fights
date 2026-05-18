@@ -21,6 +21,6 @@ defense = 27
 speed = 12
 critical_rate = 15
 evasion = 2
-skills = Array[ExtResource("2_yfyk3")]([ExtResource("3_msro8"), ExtResource("4_0apm1"), ExtResource("5_1sxf0")])
+skills = Array[ExtResource("2_yfyk3")]([ExtResource("5_1sxf0"), ExtResource("5_1sxf0"), ExtResource("3_msro8"), ExtResource("4_0apm1")])
 description = "El primer bastión de los fuertes de los goblins, resiste cualquier ataque que le venga y ataca ferozmente con su martillo"
 metadata/_custom_type_script = "uid://cr0hhat76xd7a"

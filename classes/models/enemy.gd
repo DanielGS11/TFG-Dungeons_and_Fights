@@ -8,9 +8,9 @@ extends Entity
 var initial_stats = []
 
 const enemy_augments := {
-	"Jefe" : 100,
-	"Minijefe" : 80,
-	"Normal" : 25
+	"Jefe" : 80,
+	"Minijefe" : 50,
+	"Normal" : 15
 }
 
 @export var exp_drop: int = 0
@@ -43,7 +43,7 @@ func grow_levels(levels):
 	attack += levels
 	magic_attack += levels
 	
-	exp_drop += ceili(exp_drop * 0.2) * levels
+	exp_drop += ceili(exp_drop * 0.4) * levels
 
 ## Recibir la acción a realizar del enemigo
 func get_action(team: Team) -> Dictionary:
@@ -79,7 +79,12 @@ func get_action(team: Team) -> Dictionary:
 		action_data = {self : [Actions.ATTACK , target]}
 	
 	else:
-		if randi_range(1, 2) == 2:
+		var use_skill_probability = 2
+		
+		if attack < magic_attack:
+			use_skill_probability += 2
+		
+		if randi_range(1, use_skill_probability) >= 2:
 			# Para usar una skill, el enemigo primero comprueba si tiene alguna disponible, 
 			# filtrando en una lista aquellas que pueda usar (si tiene curas pero esta al máximo de 
 			# vida, no usará esas skills)
@@ -113,7 +118,7 @@ func get_action(team: Team) -> Dictionary:
 				# Esto es una comprobación para saber si seguir buscando una skill o ya eligió
 				if action_data.is_empty():
 					if not attack_skills.is_empty() and not utils_skills.is_empty():
-						if randi_range(1, 5) >= 3:
+						if randi_range(1, 6) >= 3:
 							skill = attack_skills.pick_random()
 						else:
 							skill = utils_skills.pick_random()

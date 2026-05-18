@@ -47,18 +47,6 @@ _data = {
 layer = 10000
 script = ExtResource("1_6wx7n")
 
-[node name="Bright" type="CanvasLayer" parent="." unique_id=1973492967]
-layer = 999
-
-[node name="ColorRect" type="ColorRect" parent="Bright" unique_id=1646391512]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 0)
-
 [node name="Background" type="TextureRect" parent="." unique_id=288996207]
 anchors_preset = 15
 anchor_right = 1.0

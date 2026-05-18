@@ -1,8 +1,7 @@
 class_name Character
 extends Entity
 
-## En un diccionario se guardan las clases de los personajes y un array con sus aumentos: Vida,  Experiencia máxima, 
-## Ataque, Ataque Mágico, Defensa y recuperación de maná respectivamente
+## Contiene la lista de aumentos según la clase en este orden: Vida,  Experiencia máxima, Ataque, Ataque Mágico, Defensa y Recuperación de maná respectivamente
 const class_augments = {
 	"Asesino" : [2, 30, 3, 1, 2, 7],
 	"Berserker" : [2, 30, 4, 2, 2, 7],
@@ -14,14 +13,22 @@ const class_augments = {
 	"Paladin" : [5, 45, 2, 2, 4, 13]
 }
 
+## Clase del personaje
 @export_enum("Asesino", "Berserker", "Mago", "Sabio", "Clérigo", "Druida", "Bastión", "Paladin") var class_type: String
 
+## Maná máximo
 @export var max_mana: int = 0
+
+## Maná actual
 @export var mana: int = 0
 
+## Experiencia necesaria para subir de nivel
 @export var exp_next_level: int
+
+## Cantidad de experiencia actual
 @export var actual_exp: int
 
+## Se ejecuta al cargar la clase
 func _init():
 	heal_multiplier = 0.7
 
@@ -33,6 +40,7 @@ func get_exp(exp_value: int):
 	else:
 		actual_exp += exp_value
 		
+		# Guarda en una variable los niveles que sube y procede a aplicar la experiencia y subir de nivel en función de cuántas veces la experiencia actual sobrepase la necesaria para subir de nivel
 		var level_grow = 0
 		
 		while actual_exp > exp_next_level:
@@ -67,6 +75,7 @@ func level_up():
 func consume_mana(value: int):
 	mana -= value
 
+## Recupera maná según la clase
 func recover_mana():
 	if class_augments[class_type][5] > max_mana - mana:
 		mana = max_mana
@@ -74,6 +83,7 @@ func recover_mana():
 	else:
 		mana += class_augments[class_type][5]
 
+## Revive con un porcentaje de la vida máxima
 func revive(percentage: float):
 	if health <= 0:
 		health = ceili(float(max_health) * percentage)

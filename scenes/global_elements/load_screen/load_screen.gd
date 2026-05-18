@@ -1,13 +1,11 @@
 extends CanvasLayer
 
+## Reproductor de animaciones
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var bright: ColorRect = $Bright/ColorRect
 
-# Called when the node enters the scene tree for the first time.
+## Se ejecuta al cargar la escena
 func _ready() -> void:
-	bright.color.a = GameAPI.get_bright()
-	
+	# Ejecuta la animación de carga y se destruye al terminar
 	animation_player.play("loading")
 	await animation_player.animation_finished
-	
 	queue_free()

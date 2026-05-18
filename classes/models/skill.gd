@@ -4,29 +4,35 @@
 class_name Skill
 extends Resource
 
-## Tipo de hechizo
+## Contiene los posibles tipos de hechizo
 enum Type {FISICAL, MAGIC, HEAL, BUFF, DEBUFF}
 
-## Objetivo del hechizo
+## Contiene los posibles objetivos del hechizo
 enum Target {ALLY, ALL_ALLIES, SELF, ENEMY, ALL_ENEMIES}
 
+## Nombre del hechizo
 @export var name: String
+
+## Descripción del hechizo
 @export var description: String
 
+## Tipo de hechizo
 @export var skill_type: Type:
-# Aqui hago que cuando se cambie este valor se notifique para que el inspector mire qué 
-# tiene que mostrar
+# Aqui hago que cuando se cambie este valor se notifique para que el inspector mire qué tiene que mostrar
 	set(value):
 		skill_type = value
 		notify_property_list_changed()
 
+## Objetivo del hechizo
 @export var skill_target: Target
+
+## Coste del hechizo
 @export var cost: int
 
-# Solo aparece si la skill es tipo buff o debuff
+## Modificador del hechizo (Solo si es un Buff o Debuff)
 @export var modifier : GameAPI.Modifier
 
-# Solo aparece si la skill es de ataque (fisico o magico) o curación
+## Poder del hechizo (Solo si es de Curación, Físico o Mágico)
 @export var power: int
 
 ## Configura qué variable desaparece y/o se muestra en el inspector según el tipo

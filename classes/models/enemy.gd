@@ -1,20 +1,23 @@
 class_name Enemy
 extends Entity
 
-# Enum de los tipos de monstruo, junto a un diccionario que asigna un aumento de vida por nivel
-# según el tipo
+## Tipo de enemigo
 @export_enum("Jefe", "Minijefe", "Normal") var enemy_type: String
 
+## Contiene las stats iniciales (Lv 1)
 var initial_stats = []
 
+## Aumento de vida según la clase de enemigo
 const enemy_augments := {
 	"Jefe" : 80,
 	"Minijefe" : 50,
 	"Normal" : 15
 }
 
+## Experiencia que da al derrotar al enemigo
 @export var exp_drop: int = 0
 
+## Se ejecuta al cargar la clase
 func _init():
 	heal_multiplier = 5.0
 
@@ -47,19 +50,16 @@ func grow_levels(levels):
 
 ## Recibir la acción a realizar del enemigo
 func get_action(team: Team) -> Dictionary:
-	# Aqui almaceno los datos de la acción
+	# Almacena los datos de la acción
 	var action_data: Dictionary
 	
-	# Se guarda en un array de Characters (La clase de los personajes) aquellos que esten vivos
+	# Se guarda en un array de Characters aquellos que esten vivos del equipo
 	var targets_available: Array[Character]
 	for i in team.members:
 		if i.health > 0:
 			targets_available.append(i)
 	
-	# En ogra variable se guarda el objetivo a atacar, primero recorre la lista de los objetivos 
-	# posibles y mira si es una clase tanque (Paladin o Bastión), para quienes tiene un 50% de 
-	# probabilidad de atacar, si la tirara de dados dio 0 o no hay tanques, simplemente ataca a 1
-	# objetivo aleatorio
+	# Se guarda el objetivo a atacar, el cual es más probable que sea, si lo hay, la clase defensiva del equipo
 	var target: Character
 	
 	if targets_available.any(func(a: Character): return a.class_type == "Paladin" or a.class_type == "Bastión"):
@@ -72,28 +72,24 @@ func get_action(team: Team) -> Dictionary:
 	if target == null:
 		target = targets_available.pick_random()
 	
-	# Ahora el ataque en si, primero, si el enemigo no tiene ninguna skill, simplemente hace un 
-	# ataque básico, si no, hace una tirada de dados, teniendo un 50% de probabilidad de usar una
-	# skill
+	# Si no cuenta con hechizos, hace un ataque básico, de lo contrario, tirará un dado para ver si usa una magia o ataca
 	if skills.is_empty():
 		action_data = {self : [Actions.ATTACK , target]}
 	
 	else:
 		var use_skill_probability = 2
 		
+		# Si tiene más ataque mágico que ataque, es más probable que use magias
 		if attack < magic_attack:
 			use_skill_probability += 2
 		
 		if randi_range(1, use_skill_probability) >= 2:
-			# Para usar una skill, el enemigo primero comprueba si tiene alguna disponible, 
-			# filtrando en una lista aquellas que pueda usar (si tiene curas pero esta al máximo de 
-			# vida, no usará esas skills)
+			# Separa en 2 listas los hechizos de ataque con los de curación y modificadores
 			var attack_skills: Array[Skill]
 			var utils_skills: Array[Skill]
 			
 			for i in skills:
-				if i.skill_type == i.Type.HEAL and health < max_health \
-				or i.skill_type != i.Type.MAGIC and i.skill_type != i.Type.FISICAL:
+				if i.skill_type == i.Type.HEAL and health < max_health or i.skill_type != i.Type.MAGIC and i.skill_type != i.Type.FISICAL:
 					utils_skills.append(i)
 					
 				else:
@@ -105,8 +101,7 @@ func get_action(team: Team) -> Dictionary:
 			
 			else:
 				var skill: Skill
-				# Si tiene curas y su vida es igual o menor al 30%, hay un 75% de probabilidad de 
-				# que use una cura
+				# Si tiene curas y su vida es igual o menor al 30%, hay un 75% de probabilidad de que use una cura
 				if health <= max_health * 0.3 and utils_skills.any(func(a: Skill):
 					return a.skill_type == a.Type.HEAL):
 						if randi_range(1, 4) >= 2:
@@ -115,7 +110,7 @@ func get_action(team: Team) -> Dictionary:
 							
 							action_data = {self : [Actions.SKILL, self, skill]}
 				
-				# Esto es una comprobación para saber si seguir buscando una skill o ya eligió
+				# Si no eligió ningún hechizo, busca una de nuevo
 				if action_data.is_empty():
 					if not attack_skills.is_empty() and not utils_skills.is_empty():
 						if randi_range(1, 6) >= 3:
@@ -126,15 +121,15 @@ func get_action(team: Team) -> Dictionary:
 					else:
 						skill = (attack_skills + utils_skills).pick_random()
 					
-					# Aqui comprueba que tipo de skill es para no tirarse un ataque a si mismo
-					# ni una cura al enemigo, por ejemplo
+					# Una vez elegido, establece el objetivo del hechizo en función de su tipo y el objetivo recogido
 					if skill.skill_type == skill.Type.HEAL or skill.skill_type == skill.Type.BUFF:
 						action_data = {self: [Actions.SKILL, self, skill]}
 					
 					else:
 						action_data = {self : [Actions.SKILL, target, skill]}
+		
 		else:
 			action_data = {self : [Actions.ATTACK, target]}
 	
-	# Y por último, devolvemos a acción que hará
+	# Por último, devolvemos la acción que hará
 	return action_data

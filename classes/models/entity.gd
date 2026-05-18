@@ -2,43 +2,59 @@
 class_name Entity
 extends Resource
 
-## Acción del personaje
+## Posibles acciones del personaje
 enum Actions {ATTACK, DEFEND, SKILL}
 
+## Sprite de la entidad
 @export var sprite: Texture2D
 
+## Nivel
 @export var level: int = 1
+
+## Nombre de la entidad
 @export var name: String = ""
 
+## Vida máxima
 @export var max_health: int = 100
+
+## Vida actual
 @export var health: int = 100
 
+## Ataque base
 @export var attack: int = 10
+
+## Ataque mágico base
 @export var magic_attack: int = 10
+
+## Defensa base
 @export var defense: int = 0
+
+## Velocidad base
 @export var speed: int = 0
 
+## Tasa de golpe crítico
 @export var critical_rate: int = 0
+
+## Tasa de evasión
 @export var evasion: int = 0
 
+## Hechizos disponibles
 @export var skills: Array[Skill]
 
+## Descripción
 @export var description: String = ""
 
-# Ya que la fórmula de curación es la misma para todos y los enemigos tienen mucha más vida,
-# es necesaria esta variable para que se curen más con el ataque mágico que tienen, ya que si le
-# ponemos una cantidad que haga que haya una buena curación, tambien tendría hechizos mas fuertes
+## Multiplicador de curación (0.7 en Character, 5 en Enemy)
 var heal_multiplier: float
 
+## Modificadores de estadísticas
 var modifiers := {
 	GameAPI.Modifier.ATTACK : ModifierState.new("Ataque"),
 	GameAPI.Modifier.M_ATTACK : ModifierState.new("Ataque mágico"),
 	GameAPI.Modifier.DEFENSE : ModifierState.new("Defensa")
 }
 
-# Esta variable es para la acción 'defender' (por el momento solo usada en el jugador).
-# Como solo dura 1 turno y checkModifiers se usa al final de cada turno, la desactivará
-# automaticamente
+## Indica si está en guardia (Defendiendo) o no
 var is_defending := false
 
 ## Aplica un potenciador
@@ -53,6 +69,7 @@ func apply_buff(skill: Skill):
 	else:
 		word = "El "
 	
+	# Si ya estaba potenciado, reinicia el contador, si esta estadística estaba reducida, vuelve a la normalidad, y si no había ningun modificador aplicado, lo aplica
 	match buff.modifier_type:
 		buff.Type.BUFF:
 			buff.turn = 0
@@ -82,6 +99,7 @@ func apply_debuff(skill: Skill):
 	else:
 		word = "El "
 	
+	# Si esta estadística estaba reducida, reinicia el contador, si ya estaba potenciado, vuelve a la normalidad, y si no había ningun modificador aplicado, lo aplica
 	match debuff.modifier_type: 
 		debuff.Type.DEBUFF:
 			debuff.turn = 0
@@ -101,7 +119,7 @@ func apply_debuff(skill: Skill):
 
 ## Recibir daño de un ataque
 func take_damage(damage: int):
-	
+	## Si es derrotado, limpia su estado
 	if damage > health:
 		health = 0
 		clear_modifiers()
@@ -117,7 +135,7 @@ func heal(healing: int):
 	else:
 		health += healing
 
-## Consumir maná al usar un hechizo
+## Consumir maná al usar un hechizo (Si es un enemigo, no hace nada)
 func consume_mana(_value: int):
 	pass
 
@@ -136,8 +154,8 @@ func check_state():
 	if is_defending:
 		is_defending = false
 	
+	# Comprueba si hay algún modificador activo y, si lo hay, les suma 1 al turno activo y si pasan de 4 (por lo que llevarían 3 activos sin contar el turno en el que se activan), se desactivan
 	if modifiers.values().any(func(a): return a.modifier_type != a.Type.NONE):
-		
 		for i in modifiers:
 			var modifier_value : ModifierState = modifiers[i]
 			
@@ -152,7 +170,6 @@ func check_state():
 						
 					else:
 						await GameAPI.send_prompt("El " + modifier_value.stat + " de " + name + " volvió a la normalidad", false)
-	
 
 ## Limpia el estado de la entidad
 func clear_modifiers():
@@ -161,8 +178,7 @@ func clear_modifiers():
 	for i in modifiers:
 		modifiers[i].reset()
 
-# Getters de las stats, que devuelven el valor total de la stat con sus
-# modificadores aplicados si los hay
+# Getters de las stats, que devuelven el valor total de la stat con sus modificadores aplicados si los hay
 ## Devuelve el valor total de ataque
 func get_attack() -> int:
 	var atk_value = attack

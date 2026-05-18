@@ -5,7 +5,7 @@ extends RefCounted
 # - Windows: %APPDATA%\Godot\app_userdata\[Nombre_del_proyecto]
 # - Linux: ~/.local/share/godot/app_userdata/[Nombre_del_proyecto]
 # - Android: /data/user/0/[paquete.del.juego]/files/ o /data/data/[paquete.del.juego]/files/
-## Contiene las rutas de guardado para el juego y la configuración
+## Diccionario con las rutas de guardado para el juego y la configuración
 static var SAVE_ROUTES := {
 	"Game" : "user://save.res",
 	"Config": "user://config.res"
@@ -30,14 +30,16 @@ static func save_config():
 	
 	ResourceSaver.save(save, SAVE_ROUTES["Config"])
 
-## Carga datos del juego y la configuración
+## Carga los datos del juego y la configuración
 static func load_saves():
 	var save
 	
 	# Primero comprueba la existencia de cada archivo y luego lo carga
+	# Archivo de guardado de los datos de juego
 	if ResourceLoader.exists(SAVE_ROUTES["Game"]):
 		save = ResourceLoader.load(SAVE_ROUTES["Game"], "", ResourceLoader.CACHE_MODE_REPLACE)
 		
+		# Comprueba si no está corrupto el archivo traído antes de cargar sus datos
 		if is_instance_valid(save) and save is SaveData:
 			for id in GameManager.modes:
 				if save.game_data.has(id):
@@ -45,8 +47,10 @@ static func load_saves():
 			
 			GameManager.teams = save.teams
 	
+	# Archivo de guardado de la configuración de juego
 	if ResourceLoader.exists(SAVE_ROUTES["Config"]):
 		save = ResourceLoader.load(SAVE_ROUTES["Config"], "", ResourceLoader.CACHE_MODE_REPLACE)
 		
+		# Comprueba si no está corrupto el archivo traído antes de cargar sus datos
 		if is_instance_valid(save) and save is ConfigData:
 			GameManager.config = save

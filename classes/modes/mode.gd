@@ -2,31 +2,39 @@
 class_name Mode
 extends Resource
 
-# Esta señal la recibe la escena, no el controller, para ejecutar el siguiente paso, es decir
-# cargar un nuevo enemigo si es el battlemode, o abrir el mapa si es dungeonmode, le envia la id
-# del enum de abajo que dice que tipo de modo es, asi si se añaden mas modos se hace mas facil la 
-# gestión
-#@warning_ignore("unused_signal")
-## Avisa a la escena de que haga la siguiente acció según el modo (refrescarse, abrir el mapa...)
+@warning_ignore("unused_signal")
+## Avisa a la escena de que haga la siguiente acción según el modo (refrescarse, abrir el mapa...)
 signal next_step()
 
-## Indica qué modo es
+## Contiene los tipos de modo que puede haber
 enum Type {BATTLE, DUNGEON}
 
+## Módo de juego
 @export var mode: Type
+
+## Equipo que se usa en este modo
 @export var team_in_use: Team
+
+## Índice del equipo que se usará, si es -1 será uno aleatorio
 @export var team_index: int = -1
+
+## Controlador de batalla
 @export var controller: FightController
+
+## Indica si la partida está terminada o no
 @export var is_finished: bool = true
 
+## Indica la cantidad de enemigos derrotados en esa partida
 @export var enemies_defeated: int = 0
+
+## Indica si el botón y función 'Huir' estarán habilitados
 @export var can_escape: bool
 
 ## Reinicia las variables del modo para hacer una nueva partida
 func new_game(_data: Array):
 	pass
 
-## Crea y carga el controlador y conecta su señal
+## Crea y carga el controlador y conecta su señal de enemigo derrotado
 func load_controller():
 	if controller == null:
 		controller = FightController.new()

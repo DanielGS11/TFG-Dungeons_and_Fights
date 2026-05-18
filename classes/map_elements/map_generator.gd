@@ -2,23 +2,36 @@
 class_name MapGenerator
 extends RefCounted
 
+## Mapa
 var map: Array[Array]
+
+## Altura
 var map_height: int
+
+## Anchura
 var map_width: int
 
+## Habitaciones
 var rooms: Array[Vector2i]
+
+## Direcciones
 var directions = [Vector2i.UP,Vector2i.DOWN, Vector2i.LEFT, Vector2i.RIGHT]
 
-# Se inicia la variable de total de salas en 1 ya que cuenta la sala inicial, que se genera
-# antes que cualquier otra
+## Total de salas generadas, inicia en 1 ya que cuenta la sala inicial que se genera aparte
 var total_rooms = 1
+
+## mínimo de habitaciones a generar
 var min_rooms: int
 
+## Indica si se generó la habitación del tesoro
 var treasure_generated = false
+
+## Indica si se generó la habitación del jefe
 var boss_generated = false
 
 ## Genera y devuelve el mapa ya creado
 func generate_map(height: int, width: int) -> Array:
+	# ------
 	map_height = height
 	map_width = width
 	

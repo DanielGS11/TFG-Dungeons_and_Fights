@@ -81,10 +81,10 @@ offset_right = 178.0
 offset_bottom = 17.5
 grow_horizontal = 2
 grow_vertical = 2
-columns = 10
+columns = 9
 
 [node name="TextureButton" type="TextureButton" parent="Content/MapData/Map/GridContainer" unique_id=543806265]
-custom_minimum_size = Vector2(35, 32)
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 disabled = true
 ignore_texture_size = true

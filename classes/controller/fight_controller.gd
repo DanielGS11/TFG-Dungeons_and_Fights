@@ -2,18 +2,28 @@
 class_name FightController
 extends Resource
 
+## Indica que se derrotó al enemigo y emite el valor de experiencia que suelta (Solo usado en el modo mazmorra)
 signal enemy_defeated(exp: int)
+
+## Indica que se huyó con éxito
 signal run_away
 
+## Emite el objetivo, tipo de animación y, si es de daño o cura, el valor de este para animar
 signal animate(target: String, animation: String, value: int)
 
+## Emite la entidad de la cual refrescar los datos en pantalla
 signal refresh_data(entity: Entity)
 
+## Equipo actual
 @export var team: Team
+
+## Enemigo a enfrentar
 @export var enemy: Enemy
 
+## Diccionario de acciones de todos
 var queue: Dictionary
 
+## Índice del objetivo de la animación
 var animation_target: int
 
 ## Añade las acciones del equipo a la cola y ejecuta las acciones
@@ -23,10 +33,12 @@ func set_queue(team_actions: Dictionary):
 
 ## Ejecuta las acciones de la cola
 func _execute_queue():
+	# Pide la acción del enemigo, la añade a la cola y en otra lista separa las claves, que será la propia entidad, para ordenarla y ver quién actua primero
 	queue.merge(enemy.get_action(team))
 	
 	var order: Array = queue.keys()
 	
+	# El orden va asi: Primero el que se defienda, luego el más rápido
 	order.sort_custom(func(a, b): 
 		var a_defends = queue[a][0] == Entity.Actions.DEFEND
 		var b_defends = queue[b][0] == Entity.Actions.DEFEND
@@ -38,8 +50,10 @@ func _execute_queue():
 		else:
 			return a.speed > b.speed)
 	
+	# Ejecuta en orden cada acción diempre y cuando el que la ejecuta siga vivo
 	for key in order:
 		if key.health > 0:
+			# Dependiendo del tipo de acción ejecuta un método u otro
 			match queue[key][0]:
 				Entity.Actions.ATTACK:
 					await _attack(key, queue[key][1], null)
@@ -50,14 +64,18 @@ func _execute_queue():
 				Entity.Actions.SKILL:
 					await _skill(key,  queue[key][1],  queue[key][2])
 			
+			# Por último, refresca en pantalla los datos del usuario
 			refresh_data.emit(key)
 		
+		# Si el enemigo fué derrotado, se corta el recorrido
 		if enemy.health == 0:
 			break
 	
+	# Por último, se limpia la cola y se comprueba el estado del juego
 	queue.clear()
 	await _check_game_state()
 
+## COmprueba el estado del juego
 func _check_game_state():
 	if enemy.health == 0:
 		for member in team.members:

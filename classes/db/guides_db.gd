@@ -2,4 +2,5 @@
 class_name GuidesDB
 extends Resource
 
+## Diccionario de las guías y su contenido
 @export var guides: Dictionary[String, Array]

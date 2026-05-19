@@ -13,7 +13,10 @@ var config : ConfigData
 var changed = false
 
 ## Valor del volumen
-@onready var volume := %Volume
+@onready var music := %Music
+
+## Valor del volumen
+@onready var sfx := %Sounfix
 
 ## Valor del brillo
 @onready var bright := %Bright
@@ -35,8 +38,11 @@ func _ready() -> void:
 		global_position.y = get_global_rect().size.y
 		_animate(0)
 	
-	volume.get_child(1).value = config.volume
-	volume.get_child(2).text = str(int(config.volume))
+	music.get_child(1).value = config.music
+	music.get_child(2).text = str(int(config.music))
+	
+	sfx.get_child(1).value = config.sfx
+	sfx.get_child(2).text = str(int(config.sfx))
 	
 	bright.get_child(1).value = config.bright
 	bright.get_child(2).text = str(int(config.bright))
@@ -47,16 +53,27 @@ func _ready() -> void:
 	
 	changed = false
 
-## Se ejecuta al cambiar el volumen
-func _on_volume_changed(value: float) -> void:
-	# Se plasman los cambios y se dice a la API que cambie el volumen
-	volume.get_child(1).value = value
-	volume.get_child(2).text = str(int(value))
+## Se ejecuta al cambiar el volumen de la música
+func _on_music_changed(value: float) -> void:
+	# Se plasman los cambios y se dice a la API que cambie el volumen correspondiente
+	music.get_child(1).value = value
+	music.get_child(2).text = str(int(value))
 	mute.button_pressed = false
-	GameAPI.set_volume(value)
+	GameAPI.set_music(value)
 	
 	# Se establece si hubo cambios o no en función de si la configuración de volumen actual y anterior son diferentes o no
-	changed = config.volume != old_config.volume
+	changed = config.music != old_config.music
+
+## Se ejecuta al cambiar el volumen de los sonidos
+func _on_sfx_changed(value: float) -> void:
+	# Se plasman los cambios y se dice a la API que cambie el volumen correspondiente
+	sfx.get_child(1).value = value
+	sfx.get_child(2).text = str(int(value))
+	mute.button_pressed = false
+	GameAPI.set_sfx(value)
+	
+	# Se establece si hubo cambios o no en función de si la configuración de volumen actual y anterior son diferentes o no
+	changed = config.sfx != old_config.sfx
 
 ## Se ejecuta al cambiar el brillo
 func _on_bright_changed(value: float) -> void:
@@ -116,7 +133,8 @@ func _on_cancel_pressed() -> void:
 			GameAPI.set_animations(old_config.animations)
 			GameAPI.set_mute(old_config.mute)
 			GameAPI.set_bright(old_config.bright)
-			GameAPI.set_volume(old_config.volume)
+			GameAPI.set_music(old_config.music)
+			GameAPI.set_sfx(old_config.sfx)
 			
 			await _animate(get_global_rect().size.y)
 			queue_free()

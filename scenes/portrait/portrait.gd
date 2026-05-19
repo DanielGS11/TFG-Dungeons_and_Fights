@@ -23,7 +23,10 @@ func _ready() -> void:
 	# Ejecuto la carga de los archivos de guardado y establezco el brillo y volumen
 	GameAPI.load_saves()
 	bright.color.a = GameAPI.get_bright()
-	GameAPI.set_volume(GameAPI.get_config().volume)
+	
+	var config = GameAPI.get_config()
+	GameAPI.set_music(config.music)
+	GameAPI.set_sfx(config.sfx)
 	
 	# Se deshabilita el toque en pantalla por si hay animación
 	screen.disabled = false

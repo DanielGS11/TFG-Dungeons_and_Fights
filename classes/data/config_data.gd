@@ -2,8 +2,11 @@
 class_name ConfigData
 extends Resource
 
-## Volumen general
-@export var volume = 100.0
+## Volumen de la música
+@export var music = 100.0
+
+## Volumen del sonido
+@export var sfx = 100.0
 
 ## Brillo de pantalla
 @export var bright = 100.0

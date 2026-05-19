@@ -66,17 +66,17 @@ grow_vertical = 2
 theme_override_constants/separation = 25
 metadata/_edit_use_anchors_ = true
 
-[node name="Volume" type="BoxContainer" parent="Panel/VBoxContainer" unique_id=858663640]
+[node name="Music" type="BoxContainer" parent="Panel/VBoxContainer" unique_id=858663640]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Text" type="Label" parent="Panel/VBoxContainer/Volume" unique_id=1706946734]
+[node name="Text" type="Label" parent="Panel/VBoxContainer/Music" unique_id=1706946734]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "Volumen"
+text = "Música"
 
-[node name="Value" type="HSlider" parent="Panel/VBoxContainer/Volume" unique_id=1120105973]
+[node name="Value" type="HSlider" parent="Panel/VBoxContainer/Music" unique_id=1120105973]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_icons/grabber = ExtResource("2_su5v6")
@@ -87,7 +87,35 @@ theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_drwv
 value = 20.0
 rounded = true
 
-[node name="ValueText" type="Label" parent="Panel/VBoxContainer/Volume" unique_id=527770903]
+[node name="ValueText" type="Label" parent="Panel/VBoxContainer/Music" unique_id=527770903]
+custom_minimum_size = Vector2(65, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "100"
+horizontal_alignment = 1
+
+[node name="Sounfix" type="BoxContainer" parent="Panel/VBoxContainer" unique_id=1625834191]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Text" type="Label" parent="Panel/VBoxContainer/Sounfix" unique_id=1727093850]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Sonidos"
+
+[node name="Value" type="HSlider" parent="Panel/VBoxContainer/Sounfix" unique_id=1537306206]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_icons/grabber = ExtResource("2_su5v6")
+theme_override_icons/grabber_highlight = ExtResource("2_su5v6")
+theme_override_styles/slider = SubResource("StyleBoxTexture_unvya")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_4n783")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_drwv2")
+value = 20.0
+rounded = true
+
+[node name="ValueText" type="Label" parent="Panel/VBoxContainer/Sounfix" unique_id=1582521639]
 custom_minimum_size = Vector2(65, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
@@ -179,7 +207,8 @@ texture_pressed = ExtResource("11_ur1ln")
 ignore_texture_size = true
 stretch_mode = 0
 
-[connection signal="value_changed" from="Panel/VBoxContainer/Volume/Value" to="." method="_on_volume_changed"]
+[connection signal="value_changed" from="Panel/VBoxContainer/Music/Value" to="." method="_on_music_changed"]
+[connection signal="value_changed" from="Panel/VBoxContainer/Sounfix/Value" to="." method="_on_sfx_changed"]
 [connection signal="value_changed" from="Panel/VBoxContainer/Bright/Value" to="." method="_on_bright_changed"]
 [connection signal="toggled" from="Panel/VBoxContainer/Mute/CheckBox" to="." method="_on_mute_toggled"]
 [connection signal="toggled" from="Panel/VBoxContainer/Animations/CheckBox" to="." method="_on_animations_toggled"]

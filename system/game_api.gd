@@ -184,11 +184,17 @@ func get_guide_keys() -> Array:
 func get_config() -> ConfigData:
 	return GameManager.config
 
-## Establece el volumen general
-func set_volume(volume: float):
-	GameManager.config.volume = clamp(volume, 0, 100)
+## Establece el volumen de la música
+func set_music(volume: float):
+	GameManager.config.music = clamp(volume, 0, 100)
 	
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(GameManager.config.volume / 100.0))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(GameManager.config.music / 100.0))
+	
+	## Establece el volumen del sonido
+func set_sfx(volume: float):
+	GameManager.config.sfx = clamp(volume, 0, 100)
+	
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(GameManager.config.sfx / 100.0))
 
 ## Establece el brillo del juego
 func set_bright(bright: float):

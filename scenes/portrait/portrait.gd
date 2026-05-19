@@ -27,12 +27,13 @@ func _ready() -> void:
 	var config = GameAPI.get_config()
 	GameAPI.set_music(config.music)
 	GameAPI.set_sfx(config.sfx)
+	GameAPI.set_mute(config.mute)
 	
 	# Se deshabilita el toque en pantalla por si hay animación
 	screen.disabled = false
 	
 	# Ejecuta la animación de inicio si se configuraron las animaciones del juego
-	if GameManager.config.animations:
+	if config.animations:
 		# La animación es una entrada por la izquierda del logo y un parpadeo blanco
 		var final_pos = logo.position.x
 		logo.position.x -= get_viewport_rect().size.x + 50

@@ -308,7 +308,7 @@ func _heal(user: Entity, target: Entity, skill: Skill):
 					animate.emit(animation_target, "_healed", healing)
 					await GameAPI.send_prompt(user.name + " recibió " + str(healing) + " puntos de curación", false)
 
-# Aplica un modificador
+## Aplica un modificador
 func _apply_modifier(target: Entity, skill: Skill):
 	# Comprueba si es un potenciador (Buff) o reductor (Debuff) y hace las mismas acciones en los 2
 	match skill.skill_type:
@@ -330,10 +330,10 @@ func _apply_modifier(target: Entity, skill: Skill):
 					else:
 						animation_target = -1
 					
-						MusicPlayer.play_sfx("Buff")
-						animate.emit(animation_target, "_buffed", 0)
-						await target.apply_buff(skill)
-						refresh_data.emit(target)
+					MusicPlayer.play_sfx("Buff")
+					animate.emit(animation_target, "_buffed", 0)
+					await target.apply_buff(skill)
+					refresh_data.emit(target)
 				
 				else:
 					await GameAPI.send_prompt("No tuvo efecto en " + target.name, false)

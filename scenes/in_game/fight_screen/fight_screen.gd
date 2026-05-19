@@ -193,8 +193,9 @@ func _on_go_back_pressed() -> void:
 	# Si el índice del miembro al que le toca actuar es mayor que 0, por lo que ya hay al menos una acción que se seleccionó
 	if member_turn > 0:
 		# Se mueve el cursor y turno al anterior miembro y se borra su acción para elegirla de nuevo
-		queue.erase(team.members[member_turn])
 		member_turn -= 1
+		queue.erase(team.members[member_turn])
+		
 		_move_cursor()
 
 ## Carga el turno del siguiente miembro

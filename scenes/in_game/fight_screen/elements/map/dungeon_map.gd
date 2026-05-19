@@ -79,6 +79,9 @@ func _load_map():
 							# Si no, solo se pone el icono de la habitación del jefe
 							else:
 								icon = GameAPI.get_asset("icons", "Jefe")
+						
+						elif room.explored == true:
+							icon = GameAPI.get_asset("icons", "Jefe")
 					
 					# Si no, se habilita la casilla para pulsar y se conecta al método que navega hacia esa habitación y se establece su icono
 					else:

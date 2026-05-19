@@ -134,38 +134,42 @@ func _attack(user: Entity, target: Entity, skill: Skill):
 	var damage: int
 	
 	if skill == null:
-		# En caso de ser un ataque básico, se comprueba si el objetivo evadió el ataque, si no, se define el objetivo de animación y se calcula el daño del ataque
-		await GameAPI.send_prompt(user.name + " ataca a " + target.name, false)
-		if randi_range(1, 100) > target.evasion:
-			if target is Character:
-				animation_target = team.members.find(target)
+		if target.health > 0:
+			# En caso de ser un ataque básico, se comprueba si el objetivo evadió el ataque, si no, se define el objetivo de animación y se calcula el daño del ataque
+			await GameAPI.send_prompt(user.name + " ataca a " + target.name, false)
+			if randi_range(1, 100) > target.evasion:
+				if target is Character:
+					animation_target = team.members.find(target)
+				
+				else:
+					animation_target = -1
+				
+				damage = ceili(((user.get_attack() * 2) / (1 + (target.get_defense() / \
+				(user.get_attack() * 1.5)))) * randf_range(0.85, 1))
+				
+				# Una vez calculado el daño, se comprueba si fué golpe crítico y se aplica el daño al objetivo, luego se refrescan gráficamente sus datos y se emite la animación
+				if randi_range(1, 100) <= user.critical_rate:
+					damage *= 2
+					
+					await GameAPI.send_prompt("¡Golpe crítico!", false)
+				
+				target.take_damage(damage)
+				refresh_data.emit(target)
+				
+				MusicPlayer.play_sfx("Hit")
+				animate.emit(animation_target, "_damaged", damage)
+				
+				await GameAPI.send_prompt(target.name + " recibió " + str(int(damage)) + " puntos de daño", false)
+				
+				# Por último, avisa si el objetivo fué derrotado
+				if target.health <= 0:
+					await GameAPI.send_prompt(target.name + " fue derrotado", true)
 			
 			else:
-				animation_target = -1
-			
-			damage = ceili(((user.get_attack() * 2) / (1 + (target.get_defense() / \
-			(user.get_attack() * 1.5)))) * randf_range(0.85, 1))
-			
-			# Una vez calculado el daño, se comprueba si fué golpe crítico y se aplica el daño al objetivo, luego se refrescan gráficamente sus datos y se emite la animación
-			if randi_range(1, 100) <= user.critical_rate:
-				damage *= 2
-				
-				await GameAPI.send_prompt("¡Golpe crítico!", false)
-			
-			target.take_damage(damage)
-			refresh_data.emit(target)
-			
-			MusicPlayer.play_sfx("Hit")
-			animate.emit(animation_target, "_damaged", damage)
-			
-			await GameAPI.send_prompt(target.name + " recibió " + str(int(damage)) + " puntos de daño", false)
-			
-			# Por último, avisa si el objetivo fué derrotado
-			if target.health <= 0:
-				await GameAPI.send_prompt(target.name + " fue derrotado", true)
+				await GameAPI.send_prompt(target.name + " lo esquivó", false)
 		
 		else:
-			await GameAPI.send_prompt(target.name + " lo esquivó", false)
+			await GameAPI.send_prompt("No tuvo efecto en " + target.name, false)
 	
 	# En caso de usar un hechizo, se recoge en una variable el valor de ataque o ataqué mágico del usuario en función del tipo de hechizo
 	else:
@@ -206,32 +210,36 @@ func _attack(user: Entity, target: Entity, skill: Skill):
 		
 		# Si es un hechizo de un solo objetivo, la acción es la misma que la del ataqe básico
 		else:
-			if randi_range(1, 100) > target.evasion:
-				if target is Character:
-					animation_target = team.members.find(target)
-				else:
-					animation_target = -1
-				
-				damage = ceili((((user_stat_value + skill.power) * 2) / (1 + (target.get_defense() \
-				/ (user_stat_value * 1.5)))) * randf_range(0.85, 1))
-				
-				if randi_range(1, 100) <= user.critical_rate:
-					damage *= 2
+			if target.health > 0:
+				if randi_range(1, 100) > target.evasion:
+					if target is Character:
+						animation_target = team.members.find(target)
+					else:
+						animation_target = -1
 					
-					await GameAPI.send_prompt("¡Golpe crítico!", false)
+					damage = ceili((((user_stat_value + skill.power) * 2) / (1 + (target.get_defense() \
+					/ (user_stat_value * 1.5)))) * randf_range(0.85, 1))
+					
+					if randi_range(1, 100) <= user.critical_rate:
+						damage *= 2
+						
+						await GameAPI.send_prompt("¡Golpe crítico!", false)
+					
+					target.take_damage(damage)
+					refresh_data.emit(target)
+					
+					MusicPlayer.play_sfx("Hit")
+					animate.emit(animation_target, "_damaged", damage)
+					await GameAPI.send_prompt(target.name + " recibió " + str(int(damage)) + " puntos de daño", false)
+					
+					if target.health <= 0:
+						await GameAPI.send_prompt(target.name + " fue derrotado", true)
 				
-				target.take_damage(damage)
-				refresh_data.emit(target)
-				
-				MusicPlayer.play_sfx("Hit")
-				animate.emit(animation_target, "_damaged", damage)
-				await GameAPI.send_prompt(target.name + " recibió " + str(int(damage)) + " puntos de daño", false)
-				
-				if target.health <= 0:
-					await GameAPI.send_prompt(target.name + " fue derrotado", true)
+				else:
+					await GameAPI.send_prompt(target.name + " lo esquivó", false)
 			
 			else:
-				await GameAPI.send_prompt(target.name + " lo esquivó", false)
+				await GameAPI.send_prompt("No tuvo efecto en " + target.name, false)
 
 ## Ejecuta la acción 'En guardia' o 'Defender'
 func _defend(user: Entity):
@@ -248,7 +256,10 @@ func _heal(user: Entity, target: Entity, skill: Skill):
 	# Si el hechizo es en área y lo ejecuta un jugador, comprueba que se pueda curar al jugador
 	if user is Character and skill.skill_target == skill.Target.ALL_ALLIES:
 		for member in team.members:
-			if member.health == member.max_health:
+			if member.health <= 0:
+				await GameAPI.send_prompt("No tuvo efecto en " + member.name, false)
+			
+			elif member.health == member.max_health:
 				await GameAPI.send_prompt("La vida de " + member.name + " ya está al máximo", false)
 			
 			# Si se puede curar, le aplica la curación, refresca en pantalla y emite la animación por cada jugador
@@ -271,7 +282,10 @@ func _heal(user: Entity, target: Entity, skill: Skill):
 		# Comprobado esto, se aplica la curación (Si el objetivo no tiene su vida al máximo), se refresca la pantalla y se ejecuta la animación
 		match skill.skill_target:
 			skill.Target.ALLY:
-				if target.health == target.max_health:
+				if target.health <= 0:
+					await GameAPI.send_prompt("No tuvo efecto en " + target.name, false)
+				
+				elif target.health == target.max_health:
 					await GameAPI.send_prompt("La vida de " + target.name + " ya está al máximo", false)
 				
 				else:
@@ -302,45 +316,54 @@ func _apply_modifier(target: Entity, skill: Skill):
 		skill.Type.BUFF:
 			if target is Character and skill.skill_target == skill.Target.ALL_ALLIES:
 				for member in team.members:
-					
-					MusicPlayer.play_sfx("Buff")
-					animate.emit(team.members.find(member), "_buffed", 0)
-					await member.apply_buff(skill)
-					refresh_data.emit(member)
+					if member.health > 0:
+						MusicPlayer.play_sfx("Buff")
+						animate.emit(team.members.find(member), "_buffed", 0)
+						await member.apply_buff(skill)
+						refresh_data.emit(member)
 			
 			# Si es de un solo objetivo, se comprueba quién es el objetivo para la animación, se aplica el buff, se refrescan sus datos gráficos y se ejecuta la animación
 			else:
-				if target is Character:
-					animation_target = team.members.find(target)
-				else:
-					animation_target = -1
+				if target.health > 0:
+					if target is Character:
+						animation_target = team.members.find(target)
+					else:
+						animation_target = -1
+					
+						MusicPlayer.play_sfx("Buff")
+						animate.emit(animation_target, "_buffed", 0)
+						await target.apply_buff(skill)
+						refresh_data.emit(target)
 				
-				MusicPlayer.play_sfx("Buff")
-				animate.emit(animation_target, "_buffed", 0)
-				await target.apply_buff(skill)
-				refresh_data.emit(target)
+				else:
+					await GameAPI.send_prompt("No tuvo efecto en " + target.name, false)
 		
 		# Con el debuff el proceso es el mismo, solo que si es en área, se comprueba si el lanzador es el enemigo, ya que el objetivo del hechizo serían los miembros del equipo
 		skill.Type.DEBUFF:
 			if target is Character and skill.skill_target == skill.Target.ALL_ENEMIES:
 				
 				for member in team.members:
-					MusicPlayer.play_sfx("Debuff")
-					animate.emit(team.members.find(member), "_debuffed", 0)
-					await member.apply_debuff(skill)
-					refresh_data.emit(member)
+					if member.health > 0:
+						MusicPlayer.play_sfx("Debuff")
+						animate.emit(team.members.find(member), "_debuffed", 0)
+						await member.apply_debuff(skill)
+						refresh_data.emit(member)
 			
 			# Y si no, se comprueba a qué enemigo o miembro se lanza el reductor
 			else:
-				if target is Character:
-					animation_target = team.members.find(target)
-				else:
-					animation_target = -1
+				if target.health > 0:
+					if target is Character:
+						animation_target = team.members.find(target)
+					else:
+						animation_target = -1
+					
+					MusicPlayer.play_sfx("Debuff")
+					animate.emit(animation_target, "_debuffed", 0)
+					await target.apply_debuff(skill)
+					refresh_data.emit(target)
 				
-				MusicPlayer.play_sfx("Debuff")
-				animate.emit(animation_target, "_debuffed", 0)
-				await target.apply_debuff(skill)
-				refresh_data.emit(target)
+				else:
+					await GameAPI.send_prompt("No tuvo efecto en " + target.name, false)
 
 ## Ejecuta la acción 'Huir'
 func run():

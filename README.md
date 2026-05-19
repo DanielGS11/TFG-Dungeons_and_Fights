@@ -1,4 +1,4 @@
-﻿# Dungeons_and_Fights
+﻿# Dungeons & Fights
 
 ¡Bienvenidos a Dungeons & Fights, un RPG de móvil para jugar en cualquier momento y lugar! Este juego es un Proyecto de Fin de Grado creado por DanielGS11. 
 
